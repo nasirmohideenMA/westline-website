@@ -1,377 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Westline Builders – Shaping Mangalore's Skyline</title>
-<meta name="description" content="Westline Builders Pvt Ltd: Premier Real Estate Developers in Mangalore, Karnataka. Luxury residential and commercial properties.">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<meta name="description" content="Westline Builders Pvt Ltd: Premier Real Estate Developers in Mangalore, Karnataka. Luxury residential, commercial, hospitality projects.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --gold:#C9A96E;--gold-light:#E8D5A3;--gold-dim:#7A6340;--gold-bg:rgba(201,169,110,0.08);
-  --ink:#0A0A0A;--ink2:#111111;--surface:#141414;--surface2:#1C1C1C;--surface3:#242424;
-  --muted:#666;--muted2:#444;--text:#E8E4DC;--text2:#A09080;--border:rgba(201,169,110,0.12);
-}
-html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block}
-button{font-family:'Jost',sans-serif;cursor:pointer}
-
-/* ── PAGES ── */
-.page{display:none;min-height:100vh}
-.page.active{display:block}
-
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 60px;height:72px;display:flex;justify-content:space-between;align-items:center;transition:background 0.4s,backdrop-filter 0.4s}
+:root{--gold:#C9A96E;--gold-light:#E8D5A3;--gold-dim:#7A6340;--gold-bg:rgba(201,169,110,0.08);--ink:#0A0A0A;--ink2:#111111;--surface:#141414;--surface2:#1C1C1C;--muted:#666;--text:#E8E4DC;--text2:#A09080;--border:rgba(201,169,110,0.12)}
+html{scroll-behavior:smooth}body{background:var(--ink);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden}a{text-decoration:none;color:inherit}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 60px;height:72px;display:flex;justify-content:space-between;align-items:center;transition:background 0.4s}
 nav.scrolled{background:rgba(10,10,10,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;letter-spacing:0.14em;color:var(--gold);cursor:pointer;flex-shrink:0}
-.nav-logo span{color:var(--text);font-style:italic;font-weight:300;font-size:18px}
-.nav-center{display:flex;gap:36px;list-style:none;align-items:center}
-.nav-center a,.nav-center span{color:var(--text2);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;transition:color 0.3s;cursor:pointer;white-space:nowrap}
-.nav-center a:hover,.nav-center span:hover{color:var(--gold)}
-.nav-right{display:flex;gap:20px;align-items:center}
-.nav-wa{display:flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;padding:8px 16px;font-weight:500;transition:opacity 0.3s;border-radius:2px}
-.nav-wa:hover{opacity:0.85}
-.nav-wa svg{width:16px;height:16px;fill:#fff;flex-shrink:0}
-.nav-call{border:1px solid var(--gold-dim);color:var(--gold);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;padding:8px 18px;transition:all 0.3s}
-.nav-call:hover{background:var(--gold);color:var(--ink)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
-.hamburger span{display:block;width:24px;height:1px;background:var(--text);transition:all 0.3s}
-.mobile-menu{display:none;position:fixed;inset:0;background:rgba(10,10,10,0.98);z-index:190;flex-direction:column;align-items:center;justify-content:center;gap:32px}
-.mobile-menu.open{display:flex}
-.mobile-menu a,.mobile-menu span{font-size:20px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text2);cursor:pointer;font-family:'Cormorant Garamond',serif;font-weight:300}
-.mobile-menu a:hover,.mobile-menu span:hover{color:var(--gold)}
-
-/* ── HERO ── */
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;letter-spacing:0.14em;color:var(--gold)}.nav-logo span{color:var(--text);font-style:italic}
+.nav-links{display:flex;gap:36px;list-style:none}.nav-links a{color:var(--text2);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;transition:color 0.3s}.nav-links a:hover{color:var(--gold)}
+.nav-right{display:flex;gap:16px;align-items:center}
+.nav-wa{display:flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;padding:8px 16px;font-weight:500;border-radius:2px;transition:opacity 0.3s}.nav-wa:hover{opacity:0.85}.nav-wa svg{width:15px;height:15px;fill:#fff}
+.nav-call{border:1px solid var(--gold-dim);color:var(--gold);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;padding:8px 18px;transition:all 0.3s}.nav-call:hover{background:var(--gold);color:var(--ink)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}.hamburger span{display:block;width:24px;height:1px;background:var(--text);transition:all 0.3s}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(10,10,10,0.98);z-index:190;flex-direction:column;align-items:center;justify-content:center;gap:32px}.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:22px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text2);font-family:'Cormorant Garamond',serif;font-weight:300}.mobile-menu a:hover{color:var(--gold)}
 .hero{height:100vh;position:relative;display:flex;align-items:flex-end;padding:0 60px 90px;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:linear-gradient(155deg,#0A0A0A 0%,#0f0e08 45%,#181408 70%,#0A0A0A 100%)}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,169,110,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(201,169,110,0.035) 1px,transparent 1px);background-size:70px 70px;mask-image:radial-gradient(ellipse 80% 80% at 60% 50%,black 40%,transparent 100%)}
-.hero-skyline{position:absolute;right:0;bottom:0;width:55%;height:100%;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,169,110,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(201,169,110,0.035) 1px,transparent 1px);background-size:70px 70px}
+.hero-skyline{position:absolute;right:0;bottom:0;width:52%;height:100%;overflow:hidden}
 .bld{position:absolute;bottom:0;background:linear-gradient(to top,#1e1a0e,#141208,#0a0a08)}
 .bld-sig{right:18%;width:14%;height:88%;clip-path:polygon(20% 0%,80% 0%,100% 100%,0% 100%)}
-.bld-sig::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:2px;height:30px;background:var(--gold);box-shadow:0 0 20px rgba(201,169,110,0.8),0 0 40px rgba(201,169,110,0.4)}
+.bld-sig::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:2px;height:28px;background:var(--gold);box-shadow:0 0 20px rgba(201,169,110,0.8)}
 .bld-sig::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(transparent,transparent 10px,rgba(201,169,110,0.07) 10px,rgba(201,169,110,0.07) 11px)}
-.bld-b{right:5%;width:10%;height:55%;background:linear-gradient(to top,#181410,#0f0d0a)}
-.bld-b::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(transparent,transparent 12px,rgba(201,169,110,0.04) 12px,rgba(201,169,110,0.04) 13px)}
-.bld-c{right:34%;width:8%;height:40%;background:linear-gradient(to top,#14120a,#0c0b08)}
-.bld-c::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(transparent,transparent 14px,rgba(100,150,220,0.06) 14px,rgba(100,150,220,0.06) 15px)}
-.bld-d{right:44%;width:6%;height:30%}
-.hero-glow{position:absolute;bottom:0;right:18%;width:14%;height:40%;background:radial-gradient(ellipse at 50% 100%,rgba(201,169,110,0.12),transparent 70%)}
+.bld-b{right:5%;width:10%;height:55%}.bld-b::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(transparent,transparent 12px,rgba(201,169,110,0.04) 12px,rgba(201,169,110,0.04) 13px)}
+.bld-c{right:34%;width:8%;height:38%}.bld-c::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(transparent,transparent 14px,rgba(100,150,220,0.05) 14px,rgba(100,150,220,0.05) 15px)}
+.bld-d{right:44%;width:6%;height:28%}
+.hero-glow{position:absolute;bottom:0;right:18%;width:14%;height:35%;background:radial-gradient(ellipse at 50% 100%,rgba(201,169,110,0.12),transparent 70%)}
 .hero-content{position:relative;z-index:2;max-width:580px}
-.hero-tag{font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;display:flex;align-items:center;gap:16px}
-.hero-tag::before{content:'';display:block;width:48px;height:1px;background:linear-gradient(to right,transparent,var(--gold))}
-h1.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(56px,7.5vw,96px);line-height:0.92;font-weight:300;margin-bottom:12px;letter-spacing:-0.01em}
-h1.hero-title em{font-style:italic;color:var(--gold)}
-.hero-sub-title{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.5vw,30px);font-weight:300;color:var(--text2);margin-bottom:36px;letter-spacing:0.05em}
-.hero-desc{font-size:14px;color:var(--text2);line-height:1.9;max-width:380px;margin-bottom:52px;letter-spacing:0.02em}
-.hero-btns{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-.btn-gold{background:var(--gold);color:var(--ink);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;padding:15px 38px;font-weight:600;transition:all 0.3s;border:none;display:inline-block;cursor:pointer}
-.btn-gold:hover{background:var(--gold-light);transform:translateY(-1px)}
-.btn-outline{border:1px solid rgba(201,169,110,0.4);color:var(--text2);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;padding:15px 32px;transition:all 0.3s;background:transparent;display:inline-block;cursor:pointer}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.hero-tag{font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:26px;display:flex;align-items:center;gap:14px}
+.hero-tag::before{content:'';display:block;width:44px;height:1px;background:linear-gradient(to right,transparent,var(--gold))}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(54px,7.5vw,94px);line-height:0.92;font-weight:300;margin-bottom:12px}
+h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.2vw,28px);font-weight:300;color:var(--text2);margin-bottom:32px;letter-spacing:0.05em}
+.hero-desc{font-size:14px;color:var(--text2);line-height:1.9;max-width:380px;margin-bottom:48px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-gold{background:var(--gold);color:var(--ink);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;padding:14px 36px;font-weight:600;transition:all 0.3s;border:none;display:inline-block;cursor:pointer}.btn-gold:hover{background:var(--gold-light)}
+.btn-outline{border:1px solid rgba(201,169,110,0.4);color:var(--text2);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;padding:14px 30px;transition:all 0.3s;background:transparent;display:inline-block}.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
 .hero-scroll{position:absolute;bottom:48px;right:64px;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);writing-mode:vertical-rl;display:flex;align-items:center;gap:14px}
-.hero-scroll::after{content:'';display:block;width:1px;height:64px;background:linear-gradient(to bottom,var(--muted),transparent)}
-.hero-stats{position:absolute;bottom:90px;right:60px;display:flex;flex-direction:column;gap:24px;z-index:2}
-@keyframes heroFade{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.hero-content>*{animation:heroFade 1s ease both}
-.hero-tag{animation-delay:0.3s}.hero-title{animation-delay:0.5s}.hero-sub-title{animation-delay:0.65s}.hero-desc{animation-delay:0.8s}.hero-btns{animation-delay:0.95s}
-
-/* ── STATS BAR ── */
+.hero-scroll::after{content:'';display:block;width:1px;height:60px;background:linear-gradient(to bottom,var(--muted),transparent)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.hero-content>*{animation:fadeUp 0.9s ease both}
+.hero-tag{animation-delay:0.3s}h1{animation-delay:0.5s}.hero-sub{animation-delay:0.65s}.hero-desc{animation-delay:0.8s}.hero-btns{animation-delay:0.95s}
 .stats-bar{background:var(--surface2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:44px 60px;display:grid;grid-template-columns:repeat(5,1fr)}
-.stat{text-align:center;padding:0 16px;border-right:1px solid var(--border)}
-.stat:last-child{border-right:none}
+.stat{text-align:center;padding:0 16px;border-right:1px solid var(--border)}.stat:last-child{border-right:none}
 .stat-n{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--gold);line-height:1}
-.stat-u{font-size:22px;color:var(--gold-dim)}
-.stat-l{font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);margin-top:6px}
-
-/* ── SECTION COMMONS ── */
-.sec{padding:120px 60px}
-.sec-tag{font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:14px}
-.sec-tag::before{content:'';display:block;width:28px;height:1px;background:var(--gold)}
-.sec-h{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,62px);font-weight:300;line-height:1.05;margin-bottom:20px}
-.sec-h em{font-style:italic;color:var(--gold)}
-
-/* ── PROJECTS GRID ── */
-.projects-sec{background:var(--ink2)}
-.proj-header{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:72px}
+.stat-u{font-size:20px;color:var(--gold-dim)}.stat-l{font-size:9px;letter-spacing:0.26em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.sec{padding:112px 60px}
+.sec-tag{font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:14px}.sec-tag::before{content:'';display:block;width:28px;height:1px;background:var(--gold)}
+.sec-h{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5vw,60px);font-weight:300;line-height:1.05;margin-bottom:20px}.sec-h em{font-style:italic;color:var(--gold)}
+.filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:44px}
+.fbtn{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;padding:9px 20px;border:1px solid var(--border);color:var(--text2);background:transparent;cursor:pointer;transition:all 0.3s;font-family:'Jost',sans-serif}
+.fbtn.active,.fbtn:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-bg)}
+.proj-header{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end;margin-bottom:64px}
 .proj-intro{color:var(--text2);font-size:15px;line-height:1.85}
-.filter-bar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
-.filter-btn{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;padding:9px 22px;border:1px solid var(--border);color:var(--text2);background:transparent;cursor:pointer;transition:all 0.3s;font-family:'Jost',sans-serif}
-.filter-btn.active,.filter-btn:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-bg)}
 .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
 .proj-card{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:3/4}
 .proj-card.wide{grid-column:span 2;aspect-ratio:16/9}
-.proj-visual{position:absolute;inset:0;transition:transform 0.6s ease}
-.proj-card:hover .proj-visual{transform:scale(1.04)}
-.proj-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,5,0.97) 0%,rgba(5,5,5,0.4) 55%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:32px;transition:background 0.4s}
+.proj-vis{position:absolute;inset:0;transition:transform 0.6s ease}.proj-card:hover .proj-vis{transform:scale(1.04)}
+.proj-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,5,0.97) 0%,rgba(5,5,5,0.35) 55%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:30px;transition:background 0.4s}
 .proj-card:hover .proj-overlay{background:linear-gradient(to top,rgba(5,5,5,1) 0%,rgba(5,5,5,0.65) 65%,rgba(5,5,5,0.1) 100%)}
-.proj-status{display:inline-block;font-size:8px;letter-spacing:0.25em;text-transform:uppercase;padding:5px 12px;margin-bottom:10px;font-weight:500}
-.status-ongoing{background:rgba(201,169,110,0.15);border:1px solid var(--gold-dim);color:var(--gold)}
-.status-completed{background:rgba(80,180,100,0.12);border:1px solid rgba(80,180,100,0.3);color:#6db87a}
-.status-upcoming{background:rgba(100,150,220,0.12);border:1px solid rgba(100,150,220,0.3);color:#78a8e0}
-.proj-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;line-height:1.1;margin-bottom:6px}
-.proj-card.wide .proj-name{font-size:38px}
-.proj-type{font-size:10px;letter-spacing:0.12em;color:var(--text2);margin-bottom:12px}
-.proj-teaser{font-size:12px;color:var(--text2);line-height:1.65;opacity:0;max-height:0;overflow:hidden;transition:all 0.4s}
-.proj-card:hover .proj-teaser{opacity:1;max-height:80px}
-.proj-cta{display:inline-flex;align-items:center;gap:8px;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-top:14px;opacity:0;transition:opacity 0.4s;border:none;background:none;cursor:pointer;font-family:'Jost',sans-serif}
-.proj-cta::after{content:'→';transition:transform 0.3s}
-.proj-card:hover .proj-cta{opacity:1}
-.proj-card:hover .proj-cta:hover::after{transform:translateX(4px)}
-
-/* Project visuals */
-.vis-sig{background:linear-gradient(170deg,#12100a 0%,#1e1a08 50%,#12100a 100%)}
-.vis-sig .towers{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:40%;height:80%}
-.vis-sig .tower-main{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:50%;height:100%;background:linear-gradient(to top,rgba(201,169,110,0.15),rgba(201,169,110,0.05));border:1px solid rgba(201,169,110,0.2)}
-.vis-sig .tower-main::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:2px;height:24px;background:var(--gold);box-shadow:0 0 20px rgba(201,169,110,0.6)}
-.vis-sig .tower-main::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(transparent,transparent 8px,rgba(201,169,110,0.09) 8px,rgba(201,169,110,0.09) 9px)}
-.vis-sig .floors-h{position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 20%,rgba(201,169,110,0.04) 20%,rgba(201,169,110,0.04) 20.5%)}
-.vis-cubix{background:linear-gradient(170deg,#080c14 0%,#0c1422 50%,#080c14 100%)}
-.vis-bonita{background:linear-gradient(170deg,#0a0e0a 0%,#101810 50%,#0a0e0a 100%)}
-.vis-skydale{background:linear-gradient(170deg,#0a0c12 0%,#12141e 50%,#0a0c12 100%)}
-.vis-salubrity{background:linear-gradient(170deg,#0e0808 0%,#1a100a 50%,#0e0808 100%)}
-.vis-fairmont{background:linear-gradient(170deg,#080a0e 0%,#101418 50%,#080a0e 100%)}
-.vis-ohana{background:linear-gradient(170deg,#080e0a 0%,#0c1810 50%,#080e0a 100%)}
-.vis-splendid{background:linear-gradient(170deg,#0e0a08 0%,#181210 50%,#0e0a08 100%)}
-.vis-jeppu{background:linear-gradient(170deg,#080e14 0%,#0c1820 50%,#080e14 100%)}
-.vis-pattern{position:absolute;inset:0}
-.pat-grid{background:repeating-linear-gradient(rgba(201,169,110,0.05) 1px,transparent 1px),repeating-linear-gradient(90deg,rgba(201,169,110,0.05) 1px,transparent 1px);background-size:24px 24px}
-.pat-lines{background:repeating-linear-gradient(transparent,transparent 18px,rgba(100,150,220,0.07) 18px,rgba(100,150,220,0.07) 19px),repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(100,150,220,0.05) 28px,rgba(100,150,220,0.05) 29px)}
-.pat-green{background:repeating-linear-gradient(135deg,transparent,transparent 20px,rgba(80,180,80,0.06) 20px,rgba(80,180,80,0.06) 21px)}
-.pat-warm{background:repeating-linear-gradient(transparent,transparent 16px,rgba(220,150,80,0.06) 16px,rgba(220,150,80,0.06) 17px)}
-.vis-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.vis-letter{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1;opacity:0.08;color:var(--gold)}
-
-/* ── PROJECT DETAIL PAGE ── */
-.proj-detail-page{padding-top:72px}
-.proj-hero{height:92vh;position:relative;display:flex;align-items:flex-end;padding:0 60px 80px;overflow:hidden}
-.proj-hero-visual{position:absolute;inset:0}
-.proj-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,5,0.98) 0%,rgba(5,5,5,0.5) 50%,rgba(5,5,5,0.2) 100%)}
-.proj-hero-content{position:relative;z-index:2;max-width:700px}
-.proj-breadcrumb{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:24px;display:flex;align-items:center;gap:10px;cursor:pointer}
-.proj-breadcrumb span{color:var(--gold)}
-.proj-breadcrumb::before{content:'←';margin-right:4px;font-size:12px}
-.proj-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,7vw,90px);font-weight:300;line-height:0.92;margin-bottom:16px}
-.proj-h1 em{font-style:italic;color:var(--gold)}
-.proj-tagline{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--text2);font-style:italic;margin-bottom:32px}
-.proj-hero-meta{display:flex;gap:32px;flex-wrap:wrap}
-.proj-meta-item{display:flex;flex-direction:column;gap:4px}
-.proj-meta-label{font-size:8px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-dim)}
-.proj-meta-value{font-size:13px;color:var(--text);letter-spacing:0.05em}
-.proj-quick-btns{position:absolute;bottom:80px;right:60px;display:flex;flex-direction:column;gap:12px;z-index:2}
-.quick-btn{display:flex;align-items:center;gap:10px;padding:12px 20px;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;border:none;cursor:pointer;transition:all 0.3s;font-family:'Jost',sans-serif;white-space:nowrap}
-.quick-btn-wa{background:#25D366;color:#fff}
-.quick-btn-wa:hover{background:#1fb85a}
-.quick-btn-call{background:var(--gold);color:var(--ink)}
-.quick-btn-call:hover{background:var(--gold-light)}
-.quick-btn-enq{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
-.quick-btn-enq:hover{border-color:var(--gold);color:var(--gold)}
-.quick-btn svg{width:15px;height:15px;flex-shrink:0}
-
-/* Tabs */
-.proj-tabs{background:var(--surface2);border-bottom:1px solid var(--border);position:sticky;top:72px;z-index:100}
-.proj-tabs-inner{display:flex;padding:0 60px;overflow-x:auto}
-.proj-tab{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;padding:20px 28px;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:all 0.3s;white-space:nowrap;background:none;border-left:none;border-right:none;border-top:none;font-family:'Jost',sans-serif}
-.proj-tab.active,.proj-tab:hover{color:var(--gold);border-bottom-color:var(--gold)}
-
-/* Tab panels */
-.tab-panel{display:none;padding:80px 60px}
-.tab-panel.active{display:block}
-
-/* Overview */
-.overview-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:80px;align-items:start}
-.overview-body{color:var(--text2);font-size:15px;line-height:1.95;margin-bottom:40px}
-.highlight-box{background:var(--surface2);border:1px solid var(--border);border-left:3px solid var(--gold);padding:32px 36px;margin-bottom:32px}
-.highlight-box p{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--text);line-height:1.5}
-.specs-card{background:var(--surface2);border:1px solid var(--border)}
-.specs-header{padding:24px 28px;border-bottom:1px solid var(--border);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold)}
-.spec-row{display:flex;justify-content:space-between;align-items:center;padding:14px 28px;border-bottom:1px solid rgba(255,255,255,0.03)}
-.spec-row:last-child{border-bottom:none}
-.spec-key{font-size:11px;letter-spacing:0.1em;color:var(--muted)}
-.spec-val{font-size:13px;color:var(--text);text-align:right;max-width:55%}
-.amenities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px}
-.amenity-pill{background:var(--surface2);border:1px solid var(--border);padding:10px 16px;font-size:11px;color:var(--text2);display:flex;align-items:center;gap:8px;transition:border-color 0.3s}
-.amenity-pill:hover{border-color:var(--gold-dim);color:var(--gold)}
-.amenity-pill::before{content:'✦';font-size:8px;color:var(--gold-dim)}
-
-/* Gallery / Floor Plans */
-.gallery-intro{font-size:14px;color:var(--text2);margin-bottom:48px;max-width:600px;line-height:1.8}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:60px}
-.gallery-item{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer;background:var(--surface2);border:1px solid var(--border)}
-.gallery-item.tall{aspect-ratio:3/4}
-.gallery-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
-.gallery-placeholder svg{width:36px;height:36px;stroke:var(--muted);fill:none;stroke-width:1}
-.gallery-placeholder span{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted)}
-.gallery-upload-note{background:var(--surface2);border:1px dashed var(--gold-dim);padding:20px 28px;font-size:12px;color:var(--text2);display:flex;align-items:center;gap:12px;margin-top:24px}
-.gallery-upload-note::before{content:'↑';color:var(--gold);font-size:18px}
-.floor-plans-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-.floor-plan-card{background:var(--surface2);border:1px solid var(--border);overflow:hidden;transition:border-color 0.3s}
-.floor-plan-card:hover{border-color:var(--gold-dim)}
-.fp-visual{aspect-ratio:4/3;background:var(--surface3);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.fp-grid-bg{position:absolute;inset:0;background:repeating-linear-gradient(rgba(201,169,110,0.04) 1px,transparent 1px),repeating-linear-gradient(90deg,rgba(201,169,110,0.04) 1px,transparent 1px);background-size:20px 20px}
-.fp-shape{position:absolute;inset:20%;border:1px solid rgba(201,169,110,0.25);display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:1px}
-.fp-room{background:rgba(201,169,110,0.04);border:1px solid rgba(201,169,110,0.1);display:flex;align-items:center;justify-content:center;font-size:7px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(201,169,110,0.3)}
-.fp-info{padding:20px 24px}
-.fp-type{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;margin-bottom:4px}
-.fp-size{font-size:11px;color:var(--muted);letter-spacing:0.1em}
-.fp-badge{display:inline-block;font-size:8px;letter-spacing:0.2em;text-transform:uppercase;padding:4px 10px;background:var(--gold-bg);border:1px solid var(--gold-dim);color:var(--gold);margin-top:10px}
-
-/* Video section */
-.video-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.video-item{background:var(--surface2);border:1px solid var(--border);overflow:hidden}
-.video-thumb{aspect-ratio:16/9;background:var(--surface3);display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;overflow:hidden}
-.video-thumb::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,169,110,0.05),transparent)}
-.play-btn{width:64px;height:64px;border:2px solid rgba(201,169,110,0.5);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all 0.3s;position:relative;z-index:2}
-.play-btn::after{content:'';border-style:solid;border-width:10px 0 10px 18px;border-color:transparent transparent transparent var(--gold);margin-left:4px}
-.video-thumb:hover .play-btn{border-color:var(--gold);background:rgba(201,169,110,0.1);transform:scale(1.08)}
-.video-label{padding:16px 20px}
-.video-label h4{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;margin-bottom:4px}
-.video-label p{font-size:11px;color:var(--muted);letter-spacing:0.08em}
-.video-embed-container{aspect-ratio:16/9;width:100%;margin-bottom:24px}
-.video-embed-container iframe{width:100%;height:100%;border:none}
-
-/* Map */
-.map-section{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:start}
-.map-frame{aspect-ratio:4/3;background:var(--surface2);border:1px solid var(--border);position:relative;overflow:hidden}
-.map-frame iframe{width:100%;height:100%;border:none;filter:grayscale(80%) invert(90%) hue-rotate(180deg);opacity:0.85}
-.map-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:var(--surface3)}
-.map-pin{width:48px;height:48px;border:1px solid var(--gold-dim);border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center}
-.map-pin::after{content:'';width:12px;height:12px;background:var(--gold);border-radius:50%;transform:rotate(45deg)}
-.map-label{font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)}
-.location-cards{display:flex;flex-direction:column;gap:16px}
-.loc-card{background:var(--surface2);border:1px solid var(--border);padding:20px 24px;transition:border-color 0.3s}
-.loc-card:hover{border-color:var(--gold-dim)}
-.loc-icon{font-size:20px;margin-bottom:8px}
-.loc-name{font-size:13px;font-weight:500;margin-bottom:4px}
-.loc-dist{font-size:11px;color:var(--muted);letter-spacing:0.08em}
-.map-cta{margin-top:28px}
-.map-cta a{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--ink);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;padding:14px 28px;font-weight:600;transition:all 0.3s}
-.map-cta a:hover{background:var(--gold-light)}
-
-/* Enquiry Form */
-.enq-section{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
-.enq-info h3{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;margin-bottom:20px;line-height:1.1}
-.enq-info h3 em{color:var(--gold);font-style:italic}
-.enq-info p{font-size:14px;color:var(--text2);line-height:1.85;margin-bottom:40px}
-.contact-blocks{display:flex;flex-direction:column;gap:20px}
-.contact-block{}
-.contact-block-label{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
-.contact-block-val{font-size:14px;color:var(--text)}
-.wa-big{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;padding:14px 28px;font-weight:500;transition:opacity 0.3s;margin-top:8px;border-radius:2px}
-.wa-big:hover{opacity:0.85}
-.wa-big svg{width:18px;height:18px;fill:#fff}
-.enq-form{background:var(--surface2);border:1px solid var(--border);padding:48px}
-.form-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;margin-bottom:36px;color:var(--text)}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.fg{margin-bottom:28px}
-.fl{font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:10px}
-.fi,.fta,.fsel{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(201,169,110,0.15);padding:12px 0;color:var(--text);font-family:'Jost',sans-serif;font-size:14px;font-weight:300;outline:none;transition:border-color 0.3s}
-.fi:focus,.fta:focus,.fsel:focus{border-bottom-color:var(--gold)}
-.fi::placeholder,.fta::placeholder{color:var(--muted2)}
-.fta{resize:none;height:90px}
-.fsel option{background:var(--surface2)}
-.fsub{background:var(--gold);color:var(--ink);border:none;padding:16px 0;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;font-weight:600;cursor:pointer;width:100%;margin-top:8px;transition:all 0.3s}
-.fsub:hover{background:var(--gold-light)}
-
-/* ── ABOUT (homepage) ── */
-.about-sec{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center;background:var(--ink)}
+.proj-status{display:inline-block;font-size:8px;letter-spacing:0.22em;text-transform:uppercase;padding:5px 11px;margin-bottom:9px;font-weight:500}
+.s-ongoing{background:rgba(201,169,110,0.15);border:1px solid var(--gold-dim);color:var(--gold)}
+.s-completed{background:rgba(80,180,100,0.12);border:1px solid rgba(80,180,100,0.3);color:#6db87a}
+.s-upcoming{background:rgba(100,150,220,0.12);border:1px solid rgba(100,150,220,0.3);color:#78a8e0}
+.proj-name{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:300;line-height:1.1;margin-bottom:5px}
+.proj-card.wide .proj-name{font-size:36px}
+.proj-type{font-size:10px;letter-spacing:0.1em;color:var(--text2);margin-bottom:10px}
+.proj-teaser{font-size:12px;color:var(--text2);line-height:1.65;opacity:0;max-height:0;overflow:hidden;transition:all 0.4s}.proj-card:hover .proj-teaser{opacity:1;max-height:80px}
+.proj-cta{display:inline-flex;align-items:center;gap:7px;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-top:12px;opacity:0;transition:opacity 0.4s}.proj-card:hover .proj-cta{opacity:1}
+.proj-cta::after{content:'→'}
+/* project visual backgrounds */
+.v-sig{background:linear-gradient(170deg,#12100a 0%,#1e1a08 50%,#12100a 100%)}
+.v-cubix{background:linear-gradient(170deg,#080c14 0%,#0c1422 50%,#080c14 100%)}
+.v-jeppu{background:linear-gradient(170deg,#080e14 0%,#0c1820 50%,#080e14 100%)}
+.v-bonita{background:linear-gradient(170deg,#0a0e0a 0%,#101810 50%,#0a0e0a 100%)}
+.v-sal{background:linear-gradient(170deg,#0e0808 0%,#1a100a 50%,#0e0808 100%)}
+.v-sky{background:linear-gradient(170deg,#0a0c12 0%,#12141e 50%,#0a0c12 100%)}
+.v-fair{background:linear-gradient(170deg,#080a0e 0%,#101418 50%,#080a0e 100%)}
+.v-ohana{background:linear-gradient(170deg,#080e0a 0%,#0c1810 50%,#080e0a 100%)}
+.v-spl{background:linear-gradient(170deg,#0e0a08 0%,#181210 50%,#0e0a08 100%)}
+.v-pat-gold{position:absolute;inset:0;background:repeating-linear-gradient(rgba(201,169,110,0.06) 1px,transparent 1px),repeating-linear-gradient(90deg,rgba(201,169,110,0.04) 1px,transparent 1px);background-size:22px 22px}
+.v-pat-blue{position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 30px,rgba(100,150,220,0.07) 30px,rgba(100,150,220,0.07) 31px)}
+.v-pat-green{position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent,transparent 20px,rgba(80,180,80,0.06) 20px,rgba(80,180,80,0.06) 21px)}
+.v-pat-warm{position:absolute;inset:0;background:repeating-linear-gradient(transparent,transparent 16px,rgba(220,150,80,0.06) 16px,rgba(220,150,80,0.06) 17px)}
+.v-letter{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:100px;font-weight:300;color:rgba(201,169,110,0.07)}
+.v-sig-tower{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:40%;height:78%;background:linear-gradient(to top,rgba(201,169,110,0.14),rgba(201,169,110,0.04));border:1px solid rgba(201,169,110,0.18)}
+.v-sig-tower::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:2px;height:20px;background:var(--gold);box-shadow:0 0 15px rgba(201,169,110,0.7)}
+.v-sig-tower::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(transparent,transparent 8px,rgba(201,169,110,0.09) 8px,rgba(201,169,110,0.09) 9px)}
+.about-sec{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:center;background:var(--ink)}
 .about-frame{width:100%;aspect-ratio:4/5;background:var(--surface);border:1px solid var(--border);position:relative;overflow:hidden}
-.af-inner{position:absolute;inset:14px;border:1px solid rgba(201,169,110,0.06)}
-.af-pat{position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 28px,rgba(201,169,110,0.025) 28px,rgba(201,169,110,0.025) 29px)}
-.af-bar{position:absolute;left:0;top:15%;width:2px;height:50%;background:linear-gradient(to bottom,transparent,var(--gold),transparent);opacity:0.6}
-.af-quote{position:absolute;bottom:28px;left:28px;right:28px;font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--gold-light);line-height:1.5;font-weight:300}
-.af-badge{position:absolute;top:-16px;right:-16px;width:96px;height:96px;background:var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center}
-.af-badge-n{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:var(--ink);line-height:1}
-.af-badge-t{font-size:7px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink);opacity:0.65}
-.about-body{color:var(--text2);font-size:15px;line-height:1.9;margin-bottom:24px}
-.values-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px}
-.val-item{border-top:1px solid rgba(201,169,110,0.18);padding-top:18px}
-.val-name{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
-.val-desc{font-size:12px;color:var(--text2);line-height:1.65}
-
-/* ── PROCESS ── */
-.process-sec{background:var(--surface);text-align:center}
-.process-steps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:80px;position:relative}
-.process-steps::before{content:'';position:absolute;top:31px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(to right,transparent,var(--gold-dim) 20%,var(--gold-dim) 80%,transparent)}
-.step{padding:0 20px}
-.step-n{width:62px;height:62px;border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 28px;font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);background:var(--surface);position:relative}
-.step-t{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;margin-bottom:10px}
-.step-d{font-size:12px;color:var(--text2);line-height:1.7}
-
-/* ── TESTIMONIAL ── */
-.testi-sec{background:var(--ink2);padding:100px 60px;text-align:center}
-.testi-q{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.5vw,40px);font-style:italic;font-weight:300;line-height:1.45;max-width:780px;margin:0 auto 36px}
-.testi-q em{color:var(--gold)}
+.af-inner{position:absolute;inset:14px;border:1px solid rgba(201,169,110,0.06)}.af-pat{position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 28px,rgba(201,169,110,0.025) 28px,rgba(201,169,110,0.025) 29px)}
+.af-bar{position:absolute;left:0;top:15%;width:2px;height:50%;background:linear-gradient(to bottom,transparent,var(--gold),transparent);opacity:0.5}
+.af-quote{position:absolute;bottom:28px;left:28px;right:28px;font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;color:var(--gold-light);line-height:1.5;font-weight:300}
+.af-badge{position:absolute;top:-16px;right:-16px;width:92px;height:92px;background:var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.af-badge-n{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:var(--ink);line-height:1}.af-badge-t{font-size:7px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink);opacity:0.65}
+.about-body{color:var(--text2);font-size:15px;line-height:1.9;margin-bottom:22px}
+.values-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.val-item{border-top:1px solid rgba(201,169,110,0.18);padding-top:16px}
+.val-name{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}.val-desc{font-size:12px;color:var(--text2);line-height:1.65}
+.process-sec{background:var(--surface2);text-align:center}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:72px;position:relative}
+.process-steps::before{content:'';position:absolute;top:30px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(to right,transparent,var(--gold-dim) 20%,var(--gold-dim) 80%,transparent)}
+.step{padding:0 20px}.step-n{width:60px;height:60px;border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);background:var(--surface2)}
+.step-t{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;margin-bottom:10px}.step-d{font-size:12px;color:var(--text2);line-height:1.7}
+.testi-sec{background:var(--ink2);padding:96px 60px;text-align:center}
+.testi-q{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.5vw,38px);font-style:italic;font-weight:300;line-height:1.45;max-width:760px;margin:0 auto 32px}.testi-q em{color:var(--gold)}
 .testi-attr{font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:14px}
-.testi-attr::before,.testi-attr::after{content:'';display:block;width:28px;height:1px;background:var(--gold-dim)}
-
-/* ── FOOTER ── */
-footer{background:var(--ink2);border-top:1px solid var(--border);padding:64px 60px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px}
-.ft-brand{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);margin-bottom:14px;letter-spacing:0.12em}
-.ft-tag{font-size:12px;color:var(--muted);line-height:1.7;max-width:240px;margin-bottom:20px}
-.ft-social{display:flex;gap:12px}
-.ft-soc{width:32px;height:32px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text2);transition:all 0.3s;text-decoration:none}
-.ft-soc:hover{border-color:var(--gold);color:var(--gold)}
-.ft-col-t{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
-.ft-links{list-style:none;display:flex;flex-direction:column;gap:11px}
-.ft-links li{font-size:12px;color:var(--text2);cursor:pointer;transition:color 0.3s}
-.ft-links li:hover{color:var(--gold)}
-.ft-bottom{background:var(--ink2);border-top:1px solid rgba(255,255,255,0.03);padding:22px 60px;display:flex;justify-content:space-between;align-items:center}
-.ft-copy{font-size:10px;color:var(--muted)}
-.ft-rera{font-size:10px;color:var(--muted);letter-spacing:0.06em}
-
-/* ── RESPONSIVE ── */
-@media(max-width:900px){
-  nav{padding:0 24px}
-  .nav-center{display:none}
-  .nav-call{display:none}
-  .hamburger{display:flex}
-  .hero{padding:0 24px 72px}
-  .stats-bar{grid-template-columns:repeat(3,1fr);padding:32px 24px}
-  .stat:nth-child(4),.stat:nth-child(5){display:none}
-  .sec{padding:72px 24px}
-  .proj-header{grid-template-columns:1fr}
-  .proj-grid{grid-template-columns:1fr 1fr}
-  .proj-card.wide{grid-column:span 2}
-  .about-sec{grid-template-columns:1fr;gap:48px}
-  .process-steps{grid-template-columns:1fr 1fr;gap:48px}
-  .process-steps::before{display:none}
-  footer{grid-template-columns:1fr 1fr;gap:40px;padding:48px 24px}
-  .ft-bottom{padding:18px 24px;flex-direction:column;gap:8px;text-align:center}
-  .proj-hero{padding:0 24px 60px;height:80vh}
-  .proj-quick-btns{position:relative;bottom:auto;right:auto;flex-direction:row;flex-wrap:wrap;margin-top:24px}
-  .tab-panel{padding:48px 24px}
-  .overview-grid{grid-template-columns:1fr}
-  .gallery-grid{grid-template-columns:1fr 1fr}
-  .floor-plans-grid{grid-template-columns:1fr}
-  .video-grid{grid-template-columns:1fr}
-  .map-section{grid-template-columns:1fr}
-  .enq-section{grid-template-columns:1fr}
-  .form-row{grid-template-columns:1fr}
-  .proj-tabs-inner{padding:0 24px}
-}
-@media(max-width:600px){
-  .proj-grid{grid-template-columns:1fr}
-  .proj-card.wide{grid-column:span 1}
-  .amenities-grid{grid-template-columns:1fr 1fr}
-  .values-grid{grid-template-columns:1fr}
-  .enq-form{padding:28px 20px}
-  footer{grid-template-columns:1fr}
-}
+.testi-attr::before,.testi-attr::after{content:'';display:block;width:26px;height:1px;background:var(--gold-dim)}
+.enq-sec{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start;background:var(--ink)}
+.enq-title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;line-height:1.1;margin-bottom:18px}.enq-title em{color:var(--gold);font-style:italic}
+.enq-body{color:var(--text2);font-size:14px;line-height:1.85;margin-bottom:36px}
+.c-item{margin-bottom:18px}.c-label{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}.c-val{font-size:14px;color:var(--text)}
+.wa-big{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;padding:13px 24px;font-weight:500;border-radius:2px;margin-top:4px;transition:opacity 0.3s}.wa-big:hover{opacity:0.85}.wa-big svg{width:17px;height:17px;fill:#fff}
+.enq-form{background:var(--surface2);border:1px solid var(--border);padding:44px}
+.form-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;margin-bottom:32px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}.fg{margin-bottom:24px}
+.fl{font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:9px}
+.fi,.fta,.fsel{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(201,169,110,0.15);padding:11px 0;color:var(--text);font-family:'Jost',sans-serif;font-size:14px;font-weight:300;outline:none;transition:border-color 0.3s}
+.fi:focus,.fta:focus,.fsel:focus{border-bottom-color:var(--gold)}.fi::placeholder,.fta::placeholder{color:#444}.fta{resize:none;height:88px}.fsel option{background:var(--surface2)}
+.fsub{background:var(--gold);color:var(--ink);border:none;padding:14px 0;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;font-weight:600;cursor:pointer;width:100%;margin-top:8px;transition:background 0.3s}.fsub:hover{background:var(--gold-light)}
+footer{background:var(--ink2);border-top:1px solid var(--border);padding:56px 60px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+.ft-brand{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);margin-bottom:12px;letter-spacing:0.12em}
+.ft-tag{font-size:12px;color:var(--muted);line-height:1.7;max-width:230px;margin-bottom:18px}
+.ft-social{display:flex;gap:10px}.ft-soc{width:30px;height:30px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text2);transition:all 0.3s}.ft-soc:hover{border-color:var(--gold);color:var(--gold)}
+.ft-col-t{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}.ft-links a{font-size:12px;color:var(--text2);transition:color 0.3s}.ft-links a:hover{color:var(--gold)}
+.ft-bottom{background:var(--ink2);border-top:1px solid rgba(255,255,255,0.03);padding:20px 60px;display:flex;justify-content:space-between;align-items:center}
+.ft-copy,.ft-rera{font-size:10px;color:var(--muted)}
+@media(max-width:900px){nav{padding:0 20px}.nav-links,.nav-call{display:none}.hamburger{display:flex}.hero{padding:0 24px 64px}.stats-bar{grid-template-columns:repeat(3,1fr);padding:28px 20px}.stat:nth-child(4),.stat:nth-child(5){display:none}.sec{padding:72px 24px}.proj-header{grid-template-columns:1fr}.proj-grid{grid-template-columns:1fr 1fr}.proj-card.wide{grid-column:span 2}.about-sec{grid-template-columns:1fr;gap:48px}.process-steps{grid-template-columns:1fr 1fr;gap:40px}.process-steps::before{display:none}.enq-sec{grid-template-columns:1fr;gap:48px}.form-row{grid-template-columns:1fr}.values-grid{grid-template-columns:1fr}footer{grid-template-columns:1fr 1fr;padding:40px 20px;gap:32px}.ft-bottom{padding:16px 20px;flex-direction:column;gap:6px;text-align:center}}
+@media(max-width:540px){.proj-grid{grid-template-columns:1fr}.proj-card.wide{grid-column:span 1}.enq-form{padding:24px 18px}footer{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav id="main-nav">
-  <div class="nav-logo" onclick="showPage('home')">WESTLINE <span>Builders</span></div>
-  <ul class="nav-center">
-    <li><span onclick="showPage('home')">Home</span></li>
-    <li><span onclick="showPage('projects')">Projects</span></li>
-    <li><span onclick="showPage('home'); setTimeout(()=>document.getElementById('about-sec').scrollIntoView({behavior:'smooth'}),100)">About</span></li>
-    <li><span onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-sec').scrollIntoView({behavior:'smooth'}),100)">Contact</span></li>
+<nav id="nav">
+  <a href="index.html" class="nav-logo">WESTLINE <span>Builders</span></a>
+  <ul class="nav-links">
+    <li><a href="#projects-sec">Projects</a></li>
+    <li><a href="#about-sec">About</a></li>
+    <li><a href="#process-sec">Process</a></li>
+    <li><a href="#contact-sec">Contact</a></li>
   </ul>
   <div class="nav-right">
     <a class="nav-wa" href="https://wa.me/919900033888" target="_blank">
@@ -380,720 +152,266 @@ footer{background:var(--ink2);border-top:1px solid var(--border);padding:64px 60
     </a>
     <a class="nav-call" href="tel:+919900033888">+91 99000 33888</a>
   </div>
-  <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+  <div class="hamburger" onclick="document.getElementById('mob-menu').classList.toggle('open')">
     <span></span><span></span><span></span>
   </div>
 </nav>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobile-menu">
-  <span onclick="showPage('home');toggleMenu()">Home</span>
-  <span onclick="showPage('projects');toggleMenu()">Projects</span>
-  <span onclick="showPage('home');toggleMenu();setTimeout(()=>document.getElementById('about-sec').scrollIntoView({behavior:'smooth'}),200)">About</span>
-  <span onclick="showPage('home');toggleMenu();setTimeout(()=>document.getElementById('contact-sec').scrollIntoView({behavior:'smooth'}),200)">Contact</span>
+<div class="mobile-menu" id="mob-menu">
+  <a href="#projects-sec" onclick="this.closest('.mobile-menu').classList.remove('open')">Projects</a>
+  <a href="#about-sec" onclick="this.closest('.mobile-menu').classList.remove('open')">About</a>
+  <a href="#contact-sec" onclick="this.closest('.mobile-menu').classList.remove('open')">Contact</a>
   <a href="https://wa.me/919900033888" target="_blank" style="color:#25D366">WhatsApp Us</a>
   <a href="tel:+919900033888" style="color:var(--gold)">+91 99000 33888</a>
 </div>
 
-<!-- ══════════════════════════════ HOME PAGE ══════════════════════════════ -->
-<div id="page-home" class="page active">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
-    <div class="hero-skyline">
-      <div class="bld bld-d"></div>
-      <div class="bld bld-c"></div>
-      <div class="bld bld-b"></div>
-      <div class="bld bld-sig"></div>
-      <div class="hero-glow"></div>
-    </div>
-    <div class="hero-content">
-      <div class="hero-tag">Mangalore's Premier Real Estate Developer</div>
-      <h1 class="hero-title">Building <em>Legacies</em><br>Above the<br>Skyline</h1>
-      <div class="hero-sub-title">Mangalore · Karnataka · Since 2014</div>
-      <p class="hero-desc">Premium residential and commercial developments crafted with precision — from South India's tallest tower to luxury resorts and commercial landmarks.</p>
-      <div class="hero-btns">
-        <button class="btn-gold" onclick="showPage('projects')">Explore Projects</button>
-        <button class="btn-outline" onclick="document.getElementById('about-sec').scrollIntoView({behavior:'smooth'})">Our Story</button>
-      </div>
-    </div>
-    <div class="hero-scroll">Scroll</div>
-  </section>
-
-  <!-- STATS -->
-  <div class="stats-bar">
-    <div class="stat"><div class="stat-n">50<span class="stat-u">+</span></div><div class="stat-l">Floors — Signature</div></div>
-    <div class="stat"><div class="stat-n">9<span class="stat-u">+</span></div><div class="stat-l">Projects Delivered</div></div>
-    <div class="stat"><div class="stat-n">₹112<span class="stat-u">Cr</span></div><div class="stat-l">Project Value</div></div>
-    <div class="stat"><div class="stat-n">10<span class="stat-u">+</span></div><div class="stat-l">Years of Excellence</div></div>
-    <div class="stat"><div class="stat-n">500<span class="stat-u">+</span></div><div class="stat-l">Families Housed</div></div>
+<section class="hero">
+  <div class="hero-bg"></div><div class="hero-grid"></div>
+  <div class="hero-skyline">
+    <div class="bld bld-d"></div><div class="bld bld-c"></div><div class="bld bld-b"></div><div class="bld bld-sig"></div>
+    <div class="hero-glow"></div>
   </div>
-
-  <!-- FEATURED PROJECTS -->
-  <section class="sec projects-sec" id="projects-sec">
-    <div class="proj-header">
-      <div>
-        <div class="sec-tag">Our Portfolio</div>
-        <h2 class="sec-h">Landmark<br><em>Developments</em></h2>
-      </div>
-      <p class="proj-intro">Nine distinct projects across Mangalore and beyond — luxury high-rises, commercial hubs, medical centres, and resort properties. Each a Westline promise fulfilled.</p>
+  <div class="hero-content">
+    <div class="hero-tag">Mangalore's Premier Real Estate Developer</div>
+    <h1>Building <em>Legacies</em><br>Above the Skyline</h1>
+    <div class="hero-sub">Mangalore · Karnataka · Since 2014</div>
+    <p class="hero-desc">Premium residential, commercial, and hospitality developments crafted with precision — from South India's tallest tower to luxury mountain retreats.</p>
+    <div class="hero-btns">
+      <a class="btn-gold" href="#projects-sec">Explore Projects</a>
+      <a class="btn-outline" href="#about-sec">Our Story</a>
     </div>
-    <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterProjects('all',this)">All Projects</button>
-      <button class="filter-btn" onclick="filterProjects('residential',this)">Residential</button>
-      <button class="filter-btn" onclick="filterProjects('commercial',this)">Commercial</button>
-      <button class="filter-btn" onclick="filterProjects('hospitality',this)">Hospitality</button>
-      <button class="filter-btn" onclick="filterProjects('ongoing',this)">Ongoing</button>
-      <button class="filter-btn" onclick="filterProjects('completed',this)">Completed</button>
-    </div>
-    <div class="proj-grid" id="home-proj-grid">
-
-      <!-- SIGNATURE — wide featured -->
-      <div class="proj-card wide" data-cat="residential ongoing" onclick="showProject('signature')">
-        <div class="proj-visual vis-sig">
-          <div class="vis-pattern pat-grid"></div>
-          <div class="towers">
-            <div class="tower-main"><div class="floors-h"></div></div>
-          </div>
-        </div>
-        <div class="proj-overlay">
-          <span class="proj-status status-ongoing">Ongoing · Flagship</span>
-          <div class="proj-name">Westline Signature</div>
-          <div class="proj-type">Luxury Residential · 3B+G+50 Floors · NH66, Nanthoor</div>
-          <div class="proj-teaser">South India's tallest residential tower. Full glass façade, panoramic Arabian Sea views, 36+ world-class amenities. First of its kind in the region.</div>
-          <button class="proj-cta">View Project</button>
-        </div>
-      </div>
-
-      <!-- CUBIX -->
-      <div class="proj-card" data-cat="commercial completed" onclick="showProject('cubix')">
-        <div class="proj-visual vis-cubix"><div class="vis-pattern pat-lines"></div><div class="vis-icon"><div class="vis-letter" style="font-size:80px">C</div></div></div>
-        <div class="proj-overlay">
-          <span class="proj-status status-completed">Completed</span>
-          <div class="proj-name">Cubix</div>
-          <div class="proj-type">IT Park & Hotel · Kadri, Mangalore</div>
-          <div class="proj-teaser">Premium IT park and hotel complex in the heart of Mangalore's commercial district. Rental-only investment asset.</div>
-          <button class="proj-cta">View Project</button>
-        </div>
-      </div>
-
-      <!-- JEPPU MEDICITY -->
-      <div class="proj-card" data-cat="commercial completed" onclick="showProject('jeppu')">
-        <div class="proj-visual vis-jeppu"><div class="vis-pattern pat-lines"></div><div class="vis-icon"><div class="vis-letter" style="font-size:80px">J</div></div></div>
-        <div class="proj-overlay">
-          <span class="proj-status status-completed">Completed</span>
-          <div class="proj-name">Jeppu Medicity</div>
-          <div class="proj-type">Commercial & Polyclinics · Jeppu, Mangalore</div>
-          <div class="proj-teaser">Mangalore's premier medical commercial hub — polyclinic suites and commercial spaces designed for healthcare professionals.</div>
-          <button class="proj-cta">View Project</button>
-        </div>
-      </div>
-
-      <!-- BONITA -->
-      <div class="proj-card" data-cat="residential completed" onclick="showProject('bonita')">
-        <div class="proj-visual vis-bonita"><div class="vis-pattern pat-green"></div><div class="vis-icon"><div class="vis-letter" style="font-size:80px">B</div></div></div>
-        <div class="proj-overlay">
-          <span class="proj-status status-completed">Completed</span>
-          <div class="proj-name">Bonita</div>
-          <div class="proj-type">Affordable Residential · Thokkottu, Mangalore</div>
-          <div class="proj-teaser">Quality homes at accessible prices. Bonita brought modern living to Thokkottu with thoughtful design and community-first planning.</div>
-          <button class="proj-cta">View Project</button>
-        </div>
-      </div>
-
-      <!-- SALUBRITY -->
-      <div class="proj-card" data-cat="commercial completed" onclick="showProject('salubrity')">
-        <div class="proj-visual vis-salubrity"><div class="vis-pattern pat-warm"></div><div class="vis-icon"><div class="vis-letter" style="font-size:80px">S</div></div></div>
-        <div class="proj-overlay">
-          <span class="proj-status status-completed">Completed</span>
-          <div class="proj-name">Salubrity</div>
-          <div class="proj-type">Commercial & Polyclinics · Falnir, Mangalore</div>
-          <div class="proj-teaser">A wellness-focused commercial development in Falnir. Polyclinic suites and retail spaces in a prime healthcare corridor.</div>
-          <button class="proj-cta">View Project</button>
-        </div>
-      </div>
-
-      <!-- SKYDALE -->
-      <div class="proj-card" data-cat="residential completed" onclick="showProject('skydale')">
-        <div class="proj-visual vis-skydale"><div class="vis-pattern pat-grid"></div><div class="vis-icon"><div class="vis-letter" style="font-size:80px">Sk</div></div></div>
-        <div class="proj-overlay">
-          <span class="proj-status status-completed">Completed</span>
-          <div class="proj-name">Skydale</div>
-          <div class="proj-type">Medium Budget Residential · Bikkarnakatte, Mangalore</div>
-          <div class="proj-teaser">Modern mid-range apartments in one of Mangalore's fastest-growing neighbourhoods. Smart layouts, quality finishes.</div>
-          <button class="proj-cta">View Project</button>
-        </div>
-      </div>
-
-      <!-- FAIRMONT -->
-      <div class="proj-card" data-cat="hospitality completed" onclick="showProject('fairmont')">
-        <div class="proj-visual vis-fairmont"><div class="vis-pattern pat-lines"></div><div class="vis-icon"><div class="vis-letter" style="font-size:80px">F</div></div></div>
-        <div class="proj-overlay">
-          <span class="proj-status status-completed">Completed</span>
-          <div class="proj-name">Fairmont</div>
-          <div class="proj-type">Serviced Apartments · Kadri, Mangalore</div>
-          <div class="proj-teaser">Fully serviced apartments for business travellers and extended stays. Hotel-grade amenities with the privacy of home.</div>
-          <button class="proj-cta">View Project</button>
-        </div>
-      </div>
-
-      <!-- OHANA -->
-      <div class="proj-card" data-cat="hospitality completed" onclick="showProject('ohana')">
-        <div class="proj-visual vis-ohana"><div class="vis-pattern pat-green"></div><div class="vis-icon"><div class="vis-letter" style="font-size:80px">O</div></div></div>
-        <div class="proj-overlay">
-          <span class="proj-status status-completed">Completed</span>
-          <div class="proj-name">Ohana Luxury Stays</div>
-          <div class="proj-type">Luxury Resort · Mullayanagiri, Chikmagalur</div>
-          <div class="proj-teaser">A boutique luxury retreat nestled in the coffee hills of Chikmagalur. Where the clouds meet your doorstep.</div>
-          <button class="proj-cta">View Project</button>
-        </div>
-      </div>
-
-      <!-- SPLENDID -->
-      <div class="proj-card" data-cat="residential completed" onclick="showProject('splendid')">
-        <div class="proj-visual vis-splendid"><div class="vis-pattern pat-warm"></div><div class="vis-icon"><div class="vis-letter" style="font-size:80px">Sp</div></div></div>
-        <div class="proj-overlay">
-          <span class="proj-status status-completed">Completed</span>
-          <div class="proj-name">Splendid Homes</div>
-          <div class="proj-type">Affordable Residential · Kulashekar, Mangalore</div>
-          <div class="proj-teaser">Comfortable, well-planned homes for first-time buyers and young families in Kulashekar — Mangalore's emerging residential hub.</div>
-          <button class="proj-cta">View Project</button>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="sec about-sec" id="about-sec">
-    <div class="about-visual" style="position:relative">
-      <div class="about-frame">
-        <div class="af-inner"></div>
-        <div class="af-pat"></div>
-        <div class="af-bar"></div>
-        <div style="position:absolute;top:36px;left:36px;right:36px">
-          <div style="font-size:9px;letter-spacing:0.32em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:12px">Est. 2014 · Mangalore</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:rgba(201,169,110,0.06);line-height:1">W</div>
-        </div>
-        <div class="af-quote">"Excellence is not a standard we aspire to — it is the only way we build."</div>
-      </div>
-      <div class="af-badge"><div class="af-badge-n">10</div><div class="af-badge-t">Years</div></div>
-    </div>
-    <div>
-      <div class="sec-tag">Our Story</div>
-      <h2 class="sec-h">Building Mangalore's<br><em>Future</em></h2>
-      <p class="about-body">Westline Builders Private Limited has been reshaping Mangalore's skyline since 2014. Founded on the principles of quality, transparency, and customer-first delivery, we have grown from a respected local developer to one of the region's most ambitious real estate houses.</p>
-      <p class="about-body">From South India's tallest residential tower on NH66 to polyclinic hubs, IT parks, luxury resorts, and serviced apartments — every Westline project carries a singular promise: what we build will endure in structure, in value, and in the lives of those who call it home.</p>
-      <div class="values-grid">
-        <div class="val-item"><div class="val-name">Quality First</div><div class="val-desc">German-engineered Schuco windows, international flooring, and zero compromise on structural integrity.</div></div>
-        <div class="val-item"><div class="val-name">RERA Compliant</div><div class="val-desc">Full K-RERA registration and transparent disclosures on every project we undertake.</div></div>
-        <div class="val-item"><div class="val-name">On-Time Delivery</div><div class="val-desc">Milestone-driven construction with weekly site reviews and stakeholder reporting.</div></div>
-        <div class="val-item"><div class="val-name">Legacy Thinking</div><div class="val-desc">We build for the long horizon — for appreciation, for family, for generations ahead.</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section class="sec process-sec">
-    <div class="sec-tag" style="justify-content:center">How We Work</div>
-    <h2 class="sec-h" style="text-align:center">The <em>Westline</em> Way</h2>
-    <div class="process-steps">
-      <div class="step"><div class="step-n">01</div><div class="step-t">Land & Vision</div><p class="step-d">Rigorous due diligence on every parcel — title, zoning, potential — before a single rupee is committed.</p></div>
-      <div class="step"><div class="step-n">02</div><div class="step-t">Design & Approval</div><p class="step-d">Architect-led design, full regulatory approvals, RERA registration, and structural engineering sign-off.</p></div>
-      <div class="step"><div class="step-n">03</div><div class="step-t">Build & Monitor</div><p class="step-d">Weekly site reviews, best-in-class contractors, and transparent progress updates to all stakeholders.</p></div>
-      <div class="step"><div class="step-n">04</div><div class="step-t">Handover & Beyond</div><p class="step-d">OC-backed possession, post-handover support, and society formation assistance for all residents.</p></div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIAL -->
-  <div class="testi-sec">
-    <p class="testi-q">"We chose Westline because of their <em>uncompromising commitment to quality</em>. Signature has exceeded every expectation — the views, the finishes, the entire experience of living here."</p>
-    <div class="testi-attr">Early Investor · Westline Signature · Mangalore</div>
   </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
 
-  <!-- CONTACT -->
-  <section class="sec" id="contact-sec" style="background:var(--ink)">
-    <div class="enq-section">
-      <div class="enq-info">
-        <div class="sec-tag">Get In Touch</div>
-        <h3><em>Begin Your</em><br>Journey</h3>
-        <p>Whether you're a homebuyer, investor, or landowner looking to partner — we would be honoured to speak with you.</p>
-        <div class="contact-blocks">
-          <div class="contact-block"><div class="contact-block-label">Address</div><div class="contact-block-val">Westline Signature, NH66<br>Near Nanthoor Circle, Mangalore 575005</div></div>
-          <div class="contact-block"><div class="contact-block-label">Sales Enquiries</div><div class="contact-block-val"><a href="tel:+919900033888" style="color:var(--gold)">+91 99000 33888</a></div></div>
-          <div class="contact-block"><div class="contact-block-label">Website</div><div class="contact-block-val">westline.co.in</div></div>
-          <a class="wa-big" href="https://wa.me/919900033888" target="_blank">
-            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Chat on WhatsApp
-          </a>
-        </div>
-      </div>
-      <div class="enq-form">
-        <div class="form-title">Send an Enquiry</div>
-        <div class="form-row">
-          <div class="fg"><label class="fl">Full Name</label><input class="fi" type="text" placeholder="Your name"></div>
-          <div class="fg"><label class="fl">Mobile Number</label><input class="fi" type="tel" placeholder="+91 XXXXX XXXXX"></div>
-        </div>
-        <div class="fg"><label class="fl">Project of Interest</label>
-          <select class="fsel">
-            <option value="">Select a project</option>
-            <option>Westline Signature — Residential</option>
-            <option>Cubix — IT Park & Hotel</option>
-            <option>Jeppu Medicity — Commercial</option>
-            <option>Bonita — Residential</option>
-            <option>Salubrity — Commercial</option>
-            <option>Skydale — Residential</option>
-            <option>Fairmont — Serviced Apartments</option>
-            <option>Ohana Luxury Stays — Resort</option>
-            <option>Splendid Homes — Residential</option>
-            <option>Land Partnership / JDA</option>
-            <option>Investment Enquiry</option>
-          </select>
-        </div>
-        <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="Tell us what you're looking for..."></textarea></div>
-        <button class="fsub">Submit Enquiry</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div>
-      <div class="ft-brand">WESTLINE</div>
-      <p class="ft-tag">Building Mangalore's skyline with precision, integrity, and an unwavering commitment to excellence since 2014.</p>
-      <div class="ft-social">
-        <a class="ft-soc" href="https://www.instagram.com/westlinebuilders" target="_blank">ig</a>
-        <a class="ft-soc" href="https://www.youtube.com/@nasirmohideen1" target="_blank">yt</a>
-        <a class="ft-soc" href="https://www.facebook.com/westlinebuilders" target="_blank">fb</a>
-        <a class="ft-soc" href="https://linkedin.com" target="_blank">in</a>
-      </div>
-    </div>
-    <div>
-      <div class="ft-col-t">Projects</div>
-      <ul class="ft-links">
-        <li onclick="showProject('signature')">Westline Signature</li>
-        <li onclick="showProject('cubix')">Cubix</li>
-        <li onclick="showProject('jeppu')">Jeppu Medicity</li>
-        <li onclick="showProject('bonita')">Bonita</li>
-        <li onclick="showProject('ohana')">Ohana Luxury Stays</li>
-      </ul>
-    </div>
-    <div>
-      <div class="ft-col-t">Company</div>
-      <ul class="ft-links">
-        <li onclick="document.getElementById('about-sec').scrollIntoView({behavior:'smooth'})">About Westline</li>
-        <li>MD's Message</li>
-        <li>Careers</li>
-        <li onclick="document.getElementById('contact-sec').scrollIntoView({behavior:'smooth'})">Contact Us</li>
-      </ul>
-    </div>
-    <div>
-      <div class="ft-col-t">Legal</div>
-      <ul class="ft-links">
-        <li>RERA Disclosures</li>
-        <li>Privacy Policy</li>
-        <li>Terms of Use</li>
-        <li><a href="https://originone.lovable.app" target="_blank" style="color:var(--text2)">Employee Login</a></li>
-      </ul>
-    </div>
-  </footer>
-  <div class="ft-bottom">
-    <span class="ft-copy">© 2025 Westline Builders Private Limited. All Rights Reserved.</span>
-    <span class="ft-rera">K-RERA Registered Developer · Mangalore, Karnataka</span>
-  </div>
-
-</div><!-- end home page -->
-
-<!-- ══════════════════════════════ PROJECT PAGES ══════════════════════════════ -->
-<div id="page-project" class="page proj-detail-page">
-  <!-- content injected by JS -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-n">50<span class="stat-u">+</span></div><div class="stat-l">Floors — Signature</div></div>
+  <div class="stat"><div class="stat-n">9<span class="stat-u">+</span></div><div class="stat-l">Projects</div></div>
+  <div class="stat"><div class="stat-n">₹112<span class="stat-u">Cr</span></div><div class="stat-l">Project Value</div></div>
+  <div class="stat"><div class="stat-n">10<span class="stat-u">+</span></div><div class="stat-l">Years</div></div>
+  <div class="stat"><div class="stat-n">500<span class="stat-u">+</span></div><div class="stat-l">Families Housed</div></div>
 </div>
 
+<section class="sec" style="background:var(--ink2)" id="projects-sec">
+  <div class="proj-header">
+    <div><div class="sec-tag">Our Portfolio</div><h2 class="sec-h">Landmark <em>Developments</em></h2></div>
+    <p class="proj-intro">Nine distinct projects across Mangalore and beyond — luxury high-rises, commercial hubs, medical centres, and resort properties. Each a Westline promise fulfilled.</p>
+  </div>
+  <div class="filter-bar">
+    <button class="fbtn active" onclick="filterP('all',this)">All Projects</button>
+    <button class="fbtn" onclick="filterP('residential',this)">Residential</button>
+    <button class="fbtn" onclick="filterP('commercial',this)">Commercial</button>
+    <button class="fbtn" onclick="filterP('hospitality',this)">Hospitality</button>
+    <button class="fbtn" onclick="filterP('ongoing',this)">Ongoing</button>
+    <button class="fbtn" onclick="filterP('completed',this)">Completed</button>
+  </div>
+  <div class="proj-grid" id="pgrid">
+
+    <a class="proj-card wide" data-cat="residential ongoing" href="signature.html">
+      <div class="proj-vis v-sig"><div class="v-pat-gold"></div><div class="v-sig-tower"></div></div>
+      <div class="proj-overlay">
+        <span class="proj-status s-ongoing">Ongoing · Flagship</span>
+        <div class="proj-name">Westline Signature</div>
+        <div class="proj-type">Luxury Residential · 3B+G+50 Floors · NH66 Nanthoor</div>
+        <div class="proj-teaser">South India's tallest residential tower. Full glass façade, panoramic Arabian Sea views, 36+ world-class amenities.</div>
+        <span class="proj-cta">View Project</span>
+      </div>
+    </a>
+
+    <a class="proj-card" data-cat="commercial completed" href="cubix.html">
+      <div class="proj-vis v-cubix"><div class="v-pat-blue"></div><div class="v-letter">C</div></div>
+      <div class="proj-overlay">
+        <span class="proj-status s-completed">Completed</span>
+        <div class="proj-name">Cubix</div>
+        <div class="proj-type">IT Park & Hotel · Kadri, Mangalore</div>
+        <div class="proj-teaser">Premium IT park and hotel complex. Grade-A office spaces with hotel accommodation.</div>
+        <span class="proj-cta">View Project</span>
+      </div>
+    </a>
+
+    <a class="proj-card" data-cat="commercial completed" href="jeppu.html">
+      <div class="proj-vis v-jeppu"><div class="v-pat-blue"></div><div class="v-letter">J</div></div>
+      <div class="proj-overlay">
+        <span class="proj-status s-completed">Completed</span>
+        <div class="proj-name">Jeppu Medicity</div>
+        <div class="proj-type">Commercial & Polyclinics · Jeppu, Mangalore</div>
+        <div class="proj-teaser">Mangalore's premier medical commercial hub for healthcare professionals.</div>
+        <span class="proj-cta">View Project</span>
+      </div>
+    </a>
+
+    <a class="proj-card" data-cat="residential completed" href="bonita.html">
+      <div class="proj-vis v-bonita"><div class="v-pat-green"></div><div class="v-letter">B</div></div>
+      <div class="proj-overlay">
+        <span class="proj-status s-completed">Completed</span>
+        <div class="proj-name">Bonita</div>
+        <div class="proj-type">Affordable Residential · Thokkottu, Mangalore</div>
+        <div class="proj-teaser">Quality homes at accessible prices in Thokkottu. Fully completed and occupied.</div>
+        <span class="proj-cta">View Project</span>
+      </div>
+    </a>
+
+    <a class="proj-card" data-cat="commercial completed" href="salubrity.html">
+      <div class="proj-vis v-sal"><div class="v-pat-warm"></div><div class="v-letter">S</div></div>
+      <div class="proj-overlay">
+        <span class="proj-status s-completed">Completed</span>
+        <div class="proj-name">Salubrity</div>
+        <div class="proj-type">Commercial & Polyclinics · Falnir, Mangalore</div>
+        <div class="proj-teaser">Wellness-focused commercial project in Falnir's healthcare corridor.</div>
+        <span class="proj-cta">View Project</span>
+      </div>
+    </a>
+
+    <a class="proj-card" data-cat="residential completed" href="skydale.html">
+      <div class="proj-vis v-sky"><div class="v-pat-gold"></div><div class="v-letter">Sk</div></div>
+      <div class="proj-overlay">
+        <span class="proj-status s-completed">Completed</span>
+        <div class="proj-name">Skydale</div>
+        <div class="proj-type">Medium Budget Residential · Bikkarnakatte</div>
+        <div class="proj-teaser">Modern mid-range apartments in Mangalore's fastest-growing neighbourhood.</div>
+        <span class="proj-cta">View Project</span>
+      </div>
+    </a>
+
+    <a class="proj-card" data-cat="hospitality completed" href="fairmont.html">
+      <div class="proj-vis v-fair"><div class="v-pat-blue"></div><div class="v-letter">F</div></div>
+      <div class="proj-overlay">
+        <span class="proj-status s-completed">Completed</span>
+        <div class="proj-name">Fairmont</div>
+        <div class="proj-type">Serviced Apartments · Kadri, Mangalore</div>
+        <div class="proj-teaser">Hotel-grade serviced apartments for business travellers and extended stays.</div>
+        <span class="proj-cta">View Project</span>
+      </div>
+    </a>
+
+    <a class="proj-card" data-cat="hospitality completed" href="ohana.html">
+      <div class="proj-vis v-ohana"><div class="v-pat-green"></div><div class="v-letter">O</div></div>
+      <div class="proj-overlay">
+        <span class="proj-status s-completed">Completed</span>
+        <div class="proj-name">Ohana Luxury Stays</div>
+        <div class="proj-type">Luxury Resort · Mullayanagiri, Chikmagalur</div>
+        <div class="proj-teaser">Boutique luxury retreat in the misty coffee hills of Chikmagalur.</div>
+        <span class="proj-cta">View Project</span>
+      </div>
+    </a>
+
+    <a class="proj-card" data-cat="residential completed" href="splendid.html">
+      <div class="proj-vis v-spl"><div class="v-pat-warm"></div><div class="v-letter">Sp</div></div>
+      <div class="proj-overlay">
+        <span class="proj-status s-completed">Completed</span>
+        <div class="proj-name">Splendid Homes</div>
+        <div class="proj-type">Affordable Residential · Kulashekar, Mangalore</div>
+        <div class="proj-teaser">Comfortable homes for first-time buyers in Kulashekar.</div>
+        <span class="proj-cta">View Project</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<section class="sec about-sec" id="about-sec">
+  <div style="position:relative">
+    <div class="about-frame">
+      <div class="af-inner"></div><div class="af-pat"></div><div class="af-bar"></div>
+      <div style="position:absolute;top:32px;left:32px;right:32px">
+        <div style="font-size:9px;letter-spacing:0.32em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:10px">Est. 2014 · Mangalore</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:rgba(201,169,110,0.06);line-height:1">W</div>
+      </div>
+      <div class="af-quote">"Excellence is not a standard we aspire to — it is the only way we build."</div>
+    </div>
+    <div class="af-badge"><div class="af-badge-n">10</div><div class="af-badge-t">Years</div></div>
+  </div>
+  <div>
+    <div class="sec-tag">Our Story</div>
+    <h2 class="sec-h">Building Mangalore's <em>Future</em></h2>
+    <p class="about-body">Westline Builders Private Limited has been reshaping Mangalore's skyline since 2014. Founded on the principles of quality, transparency, and customer-first delivery, we have grown from a respected local developer to one of the region's most ambitious real estate houses.</p>
+    <p class="about-body">From South India's tallest residential tower on NH66 to polyclinic hubs, IT parks, luxury resorts, and serviced apartments — every Westline project carries a singular promise: what we build will endure in structure, in value, and in the lives of those who call it home.</p>
+    <div class="values-grid">
+      <div class="val-item"><div class="val-name">Quality First</div><div class="val-desc">German-engineered Schuco windows, international flooring, and zero compromise on structural integrity.</div></div>
+      <div class="val-item"><div class="val-name">RERA Compliant</div><div class="val-desc">Full K-RERA registration and transparent disclosures on every project we undertake.</div></div>
+      <div class="val-item"><div class="val-name">On-Time Delivery</div><div class="val-desc">Milestone-driven construction with weekly site reviews and stakeholder reporting.</div></div>
+      <div class="val-item"><div class="val-name">Legacy Thinking</div><div class="val-desc">We build for the long horizon — for appreciation, for family, for generations ahead.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec process-sec" id="process-sec">
+  <div class="sec-tag" style="justify-content:center">How We Work</div>
+  <h2 class="sec-h" style="text-align:center">The <em>Westline</em> Way</h2>
+  <div class="process-steps">
+    <div class="step"><div class="step-n">01</div><div class="step-t">Land & Vision</div><p class="step-d">Rigorous due diligence on every parcel — title, zoning, potential — before a single rupee is committed.</p></div>
+    <div class="step"><div class="step-n">02</div><div class="step-t">Design & Approval</div><p class="step-d">Architect-led design, full regulatory approvals, RERA registration, and structural sign-off.</p></div>
+    <div class="step"><div class="step-n">03</div><div class="step-t">Build & Monitor</div><p class="step-d">Weekly site reviews, best-in-class contractors, and transparent progress updates to all stakeholders.</p></div>
+    <div class="step"><div class="step-n">04</div><div class="step-t">Handover & Beyond</div><p class="step-d">OC-backed possession, post-handover support, and society formation assistance.</p></div>
+  </div>
+</section>
+
+<div class="testi-sec">
+  <p class="testi-q">"We chose Westline because of their <em>uncompromising commitment to quality</em>. Signature has exceeded every expectation — the views, the finishes, the entire experience."</p>
+  <div class="testi-attr">Early Investor · Westline Signature · Mangalore</div>
+</div>
+
+<section class="sec enq-sec" id="contact-sec">
+  <div>
+    <div class="sec-tag">Get In Touch</div>
+    <div class="enq-title"><em>Begin Your</em><br>Journey</div>
+    <p class="enq-body">Whether you're a homebuyer, investor, or landowner looking to partner — we would be honoured to speak with you.</p>
+    <div class="c-item"><div class="c-label">Address</div><div class="c-val">Westline Signature, NH66<br>Nanthoor Circle, Mangalore 575005</div></div>
+    <div class="c-item"><div class="c-label">Sales Enquiries</div><div class="c-val"><a href="tel:+919900033888" style="color:var(--gold)">+91 99000 33888</a></div></div>
+    <div class="c-item"><div class="c-label">Website</div><div class="c-val">westline.co.in</div></div>
+    <a class="wa-big" href="https://wa.me/919900033888" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Chat on WhatsApp
+    </a>
+  </div>
+  <div class="enq-form">
+    <div class="form-title">Send an Enquiry</div>
+    <div class="form-row">
+      <div class="fg"><label class="fl">Full Name</label><input class="fi" type="text" placeholder="Your name"></div>
+      <div class="fg"><label class="fl">Mobile Number</label><input class="fi" type="tel" placeholder="+91 XXXXX XXXXX"></div>
+    </div>
+    <div class="fg"><label class="fl">Project of Interest</label>
+      <select class="fsel">
+        <option>Westline Signature — Residential</option><option>Cubix — IT Park & Hotel</option>
+        <option>Jeppu Medicity — Commercial</option><option>Bonita — Residential</option>
+        <option>Salubrity — Commercial</option><option>Skydale — Residential</option>
+        <option>Fairmont — Serviced Apartments</option><option>Ohana — Luxury Resort</option>
+        <option>Splendid Homes — Residential</option><option>Land Partnership / JDA</option>
+        <option>Investment Enquiry</option>
+      </select>
+    </div>
+    <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="Tell us what you're looking for..."></textarea></div>
+    <button class="fsub">Submit Enquiry</button>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="ft-brand">WESTLINE</div>
+    <p class="ft-tag">Building Mangalore's skyline with precision, integrity, and an unwavering commitment to excellence since 2014.</p>
+    <div class="ft-social">
+      <a class="ft-soc" href="https://instagram.com/westlinebuilders" target="_blank">ig</a>
+      <a class="ft-soc" href="https://youtube.com/@nasirmohideen1" target="_blank">yt</a>
+      <a class="ft-soc" href="https://facebook.com/westlinebuilders" target="_blank">fb</a>
+      <a class="ft-soc" href="https://linkedin.com" target="_blank">in</a>
+    </div>
+  </div>
+  <div><div class="ft-col-t">Projects</div><ul class="ft-links">
+    <li><a href="signature.html">Westline Signature</a></li><li><a href="cubix.html">Cubix</a></li>
+    <li><a href="jeppu.html">Jeppu Medicity</a></li><li><a href="bonita.html">Bonita</a></li>
+    <li><a href="ohana.html">Ohana Luxury Stays</a></li><li><a href="skydale.html">Skydale</a></li>
+    <li><a href="salubrity.html">Salubrity</a></li><li><a href="fairmont.html">Fairmont</a></li>
+    <li><a href="splendid.html">Splendid Homes</a></li>
+  </ul></div>
+  <div><div class="ft-col-t">Company</div><ul class="ft-links"><li><a href="#about-sec">About Westline</a></li><li><a href="#process-sec">Our Process</a></li><li><a href="#contact-sec">Contact</a></li></ul></div>
+  <div><div class="ft-col-t">Legal</div><ul class="ft-links"><li>RERA Disclosures</li><li>Privacy Policy</li><li>Terms of Use</li><li><a href="https://originone.lovable.app" target="_blank">Employee Login</a></li></ul></div>
+</footer>
+<div class="ft-bottom"><span class="ft-copy">© 2025 Westline Builders Private Limited. All Rights Reserved.</span><span class="ft-rera">K-RERA Registered Developer · Mangalore, Karnataka</span></div>
+
 <script>
-// ── DATA ──
-const projects = {
-  signature: {
-    name: 'Westline Signature',
-    nameItalic: 'Signature',
-    tagline: 'Soar Above the Ordinary',
-    status: 'ongoing',
-    statusLabel: 'Ongoing · Flagship',
-    type: 'Luxury Residential',
-    location: 'NH66, Nanthoor Hilltop, Mangalore',
-    mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.7!2d74.856!3d12.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU0JzAwLjAiTiA3NMKwNTEnMjIuMCJF!5e0!3m2!1sen!2sin!4v1234567890',
-    mapLink: 'https://goo.gl/maps/L2pL8BKwokE1R6hY9',
-    phone: '+91 99000 33888',
-    wa: '919900033888',
-    visClass: 'vis-sig',
-    patClass: 'pat-grid',
-    specs: [
-      ['Type','Luxury Residential'],['Configuration','3 Basement + Ground + 50 Floors'],['Location','NH66, Nanthoor, Mangalore'],
-      ['Total Units','Premium 2, 3 & 4 BHK Apartments'],['Façade','Full Glass — Schuco German Windows'],
-      ['Amenities','36+ World-Class'],['Status','Under Construction'],['RERA','K-RERA Registered'],['Price','Price on Request']
-    ],
-    amenities:['Infinity Pool','Rooftop Clubhouse','Sky Lounge','Gym & Wellness Centre','Jogging Track','Children's Play Area','Multipurpose Hall','Indoor Games Room','Business Centre','Concierge Services','24×7 Security','Solar Power','EV Charging','Visitor Parking','Landscaped Gardens','Yoga Deck','Sauna & Steam','Home Theatre','Pet Zone','Senior Citizen Sit-out'],
-    overview:`Westline Signature stands as South India's tallest residential tower — a 3 Basement + Ground + 50 floor monument to modern luxury on NH66, Nanthoor Hilltop, Mangalore, overlooking the Arabian Sea.\n\nWith the first full glass façade residential project in South India, featuring Schuco German windows with Low-E double-glazed units, Signature redefines what premium living means in coastal Karnataka. Every apartment is a vantage point — panoramic sea views, verdant Western Ghats, and the glittering city below.\n\nThe project spans 36+ world-class amenities across dedicated floors — from an infinity pool and rooftop clubhouse to a business centre, home theatre, and sky lounge. This is not just a home. It is a legacy.`,
-    locationHighlights:[
-      {icon:'🛣️', name:'NH66 — National Highway', dist:'Direct frontage'},
-      {icon:'✈️', name:'Mangalore International Airport', dist:'~15 minutes'},
-      {icon:'🏥', name:'KMC Hospital', dist:'~8 minutes'},
-      {icon:'🎓', name:'Manipal University', dist:'~25 minutes'},
-      {icon:'🛒', name:'City Centre Mall', dist:'~10 minutes'},
-      {icon:'🌊', name:'Panambur Beach', dist:'~12 minutes'},
-    ],
-    floorPlans:[
-      {type:'2 BHK', size:'1,200 – 1,400 sq ft', badge:'Available'},
-      {type:'3 BHK', size:'1,600 – 2,000 sq ft', badge:'Available'},
-      {type:'3 BHK Premium', size:'2,100 – 2,400 sq ft', badge:'Limited'},
-      {type:'4 BHK Penthouse', size:'3,000 – 3,600 sq ft', badge:'Rare'},
-    ],
-    videos:[
-      {label:'Project Walkthrough', sub:'Official Westline Signature Tour', ytId:''},
-      {label:'Aerial View & Location', sub:'Drone footage — NH66 Nanthoor', ytId:''},
-      {label:'Amenities Showcase', sub:'36+ world-class facilities', ytId:''},
-      {label:'MD\'s Vision', sub:'Nasir Mohideen on Signature', ytId:''},
-    ]
-  },
-  cubix: {
-    name: 'Cubix', nameItalic: 'Cubix', tagline: 'Where Work Meets World-Class', status:'completed', statusLabel:'Completed',
-    type:'IT Park & Hotel', location:'Kadri, Mangalore', phone:'+91 99000 33888', wa:'919900033888',
-    visClass:'vis-cubix', patClass:'pat-lines', mapLink:'https://goo.gl/maps/L2pL8BKwokE1R6hY9',
-    specs:[['Type','IT Park & Hotel'],['Location','Kadri, Mangalore'],['Use','Rental — Investment Asset'],['Status','Completed & Operational'],['Price','Rental Only']],
-    amenities:['High-Speed Internet','Conference Rooms','Cafeteria','Parking','24×7 Security','Power Backup','Hotel Suites','Business Lounge'],
-    overview:`Cubix is Westline's landmark IT park and hotel complex situated in Kadri — one of Mangalore's most connected commercial corridors.\n\nDesigned for technology companies, startups, and business travellers, Cubix combines premium Grade-A office spaces with hotel accommodation in a single integrated campus. A fully operational rental asset delivering consistent returns to investors.`,
-    locationHighlights:[{icon:'🏙️',name:'Kadri Commercial Hub',dist:'Prime location'},{icon:'🛣️',name:'NH66',dist:'~5 minutes'},{icon:'✈️',name:'Airport',dist:'~20 minutes'},{icon:'🏥',name:'KMC Hospital',dist:'~10 minutes'}],
-    floorPlans:[{type:'Office Suite',size:'500 – 2,000 sq ft',badge:'Rental'},{type:'Hotel Room',size:'Standard & Deluxe',badge:'Operational'}],
-    videos:[{label:'Cubix Overview',sub:'IT Park & Hotel Tour',ytId:''},{label:'Location Advantage',sub:'Kadri, Mangalore',ytId:''}]
-  },
-  jeppu: {
-    name:'Jeppu Medicity', nameItalic:'Medicity', tagline:'Healthcare at the Heart of the City', status:'completed', statusLabel:'Completed',
-    type:'Commercial & Polyclinics', location:'Jeppu, Mangalore', phone:'+91 99000 33888', wa:'919900033888',
-    visClass:'vis-jeppu', patClass:'pat-lines', mapLink:'https://goo.gl/maps/L2pL8BKwokE1R6hY9',
-    specs:[['Type','Commercial & Polyclinics'],['Location','Jeppu, Mangalore'],['Starting From','₹25 Lakhs'],['Status','Completed'],['Use','Medical & Commercial']],
-    amenities:['Polyclinic Suites','Pharmacy Space','Waiting Lounges','Lifts','Parking','24×7 Security','Power Backup','Reception Lobby'],
-    overview:`Jeppu Medicity is Mangalore's dedicated healthcare commercial hub — purpose-built polyclinic suites and commercial spaces for doctors, diagnostic centres, pharmacies, and allied healthcare businesses.\n\nLocated in Jeppu, one of Mangalore's most healthcare-dense corridors, Medicity offers medical professionals a ready-to-occupy, infrastructure-complete environment to establish or expand their practice.`,
-    locationHighlights:[{icon:'🏥',name:'Healthcare Corridor',dist:'Jeppu Hub'},{icon:'🛣️',name:'City Centre',dist:'~10 minutes'},{icon:'✈️',name:'Airport',dist:'~18 minutes'},{icon:'🎓',name:'Medical Colleges',dist:'~15 minutes'}],
-    floorPlans:[{type:'Polyclinic Suite',size:'300 – 800 sq ft',badge:'Available'},{type:'Commercial Space',size:'500 – 1,500 sq ft',badge:'Limited'}],
-    videos:[{label:'Medicity Overview',sub:'Jeppu Healthcare Hub',ytId:''},{label:'Facilities Tour',sub:'Polyclinic & Commercial',ytId:''}]
-  },
-  bonita: {
-    name:'Bonita', nameItalic:'Bonita', tagline:'Beautiful Homes, Beautiful Lives', status:'completed', statusLabel:'Completed',
-    type:'Affordable Residential', location:'Thokkottu, Mangalore', phone:'+91 99000 33888', wa:'919900033888',
-    visClass:'vis-bonita', patClass:'pat-green', mapLink:'https://goo.gl/maps/L2pL8BKwokE1R6hY9',
-    specs:[['Type','Affordable Residential'],['Location','Thokkottu, Mangalore'],['Starting From','₹60 Lakhs'],['Status','Completed & Delivered'],['Configuration','1, 2 & 3 BHK']],
-    amenities:['Children\'s Play Area','Landscaped Garden','Covered Parking','24×7 Security','Power Backup','Intercom','Visitor Parking','Community Hall'],
-    overview:`Bonita brought quality modern living to Thokkottu — a rapidly developing suburb of Mangalore — at an accessible price point.\n\nDesigned for young families and first-time homebuyers, Bonita delivers thoughtfully planned layouts, quality finishes, and essential community amenities without compromise. Fully delivered and occupied, Bonita stands as a testament to Westline's commitment across all price segments.`,
-    locationHighlights:[{icon:'🏫',name:'Schools & Colleges',dist:'~5 minutes'},{icon:'🛒',name:'Shopping',dist:'~8 minutes'},{icon:'🏥',name:'Hospitals',dist:'~10 minutes'},{icon:'🛣️',name:'NH66',dist:'~12 minutes'}],
-    floorPlans:[{type:'1 BHK',size:'650 – 750 sq ft',badge:'Sold Out'},{type:'2 BHK',size:'900 – 1,100 sq ft',badge:'Sold Out'},{type:'3 BHK',size:'1,200 – 1,400 sq ft',badge:'Sold Out'}],
-    videos:[{label:'Bonita Overview',sub:'Thokkottu Residential',ytId:''},{label:'Residents\' Stories',sub:'Life at Bonita',ytId:''}]
-  },
-  salubrity: {
-    name:'Salubrity', nameItalic:'Salubrity', tagline:'Wellness Spaces, Prime Location', status:'completed', statusLabel:'Completed',
-    type:'Commercial & Polyclinics', location:'Falnir, Mangalore', phone:'+91 99000 33888', wa:'919900033888',
-    visClass:'vis-salubrity', patClass:'pat-warm', mapLink:'https://goo.gl/maps/L2pL8BKwokE1R6hY9',
-    specs:[['Type','Commercial & Polyclinics'],['Location','Falnir, Mangalore'],['Starting From','₹39 Lakhs'],['Status','Completed'],['Use','Medical & Retail']],
-    amenities:['Polyclinic Suites','Retail Spaces','Lift Access','Parking','Security','Power Backup','Reception Lobby','Signage Rights'],
-    overview:`Salubrity is Westline's wellness-focused commercial project in Falnir — one of Mangalore's premium residential and healthcare neighbourhoods.\n\nOffering polyclinic suites and retail commercial spaces, Salubrity caters to medical professionals and wellness businesses seeking a high-footfall, well-connected location in central Mangalore.`,
-    locationHighlights:[{icon:'🏥',name:'Falnir Healthcare Zone',dist:'Prime position'},{icon:'🛣️',name:'City Centre',dist:'~8 minutes'},{icon:'🎓',name:'Medical Colleges',dist:'~12 minutes'},{icon:'✈️',name:'Airport',dist:'~20 minutes'}],
-    floorPlans:[{type:'Polyclinic Suite',size:'300 – 700 sq ft',badge:'Completed'},{type:'Retail Space',size:'400 – 1,000 sq ft',badge:'Completed'}],
-    videos:[{label:'Salubrity Overview',sub:'Falnir Commercial Hub',ytId:''},{label:'Location Tour',sub:'Falnir, Mangalore',ytId:''}]
-  },
-  skydale: {
-    name:'Skydale', nameItalic:'Skydale', tagline:'Rise Above, Live Well', status:'completed', statusLabel:'Completed',
-    type:'Medium Budget Residential', location:'Bikkarnakatte, Mangalore', phone:'+91 99000 33888', wa:'919900033888',
-    visClass:'vis-skydale', patClass:'pat-grid', mapLink:'https://goo.gl/maps/L2pL8BKwokE1R6hY9',
-    specs:[['Type','Residential'],['Location','Bikkarnakatte, Mangalore'],['Starting From','₹60 Lakhs'],['Status','Completed & Delivered'],['Configuration','2 & 3 BHK']],
-    amenities:['Rooftop Terrace','Children\'s Play Area','Gym','Covered Parking','24×7 Security','Intercom','Power Backup','Landscaped Entrance'],
-    overview:`Skydale brought modern mid-range apartment living to Bikkarnakatte — one of Mangalore's fastest-growing neighbourhoods.\n\nWith smart space planning, quality finishes, and a rooftop terrace, Skydale punched above its price point to deliver a genuinely comfortable urban lifestyle. Fully completed and delivered to happy homeowners.`,
-    locationHighlights:[{icon:'🛒',name:'Supermarkets & Retail',dist:'~5 minutes'},{icon:'🏫',name:'Schools',dist:'~8 minutes'},{icon:'🏥',name:'Hospitals',dist:'~12 minutes'},{icon:'🛣️',name:'NH66',dist:'~15 minutes'}],
-    floorPlans:[{type:'2 BHK',size:'900 – 1,050 sq ft',badge:'Delivered'},{type:'3 BHK',size:'1,200 – 1,350 sq ft',badge:'Delivered'}],
-    videos:[{label:'Skydale Overview',sub:'Bikkarnakatte Residential',ytId:''},{label:'Apartment Tour',sub:'2 & 3 BHK Walkthrough',ytId:''}]
-  },
-  fairmont: {
-    name:'Fairmont', nameItalic:'Fairmont', tagline:'Your Home Away From Home', status:'completed', statusLabel:'Completed',
-    type:'Serviced Apartments', location:'Kadri, Mangalore', phone:'+91 99000 33888', wa:'919900033888',
-    visClass:'vis-fairmont', patClass:'pat-lines', mapLink:'https://goo.gl/maps/L2pL8BKwokE1R6hY9',
-    specs:[['Type','Serviced Apartments'],['Location','Kadri, Mangalore'],['Use','Extended Stay & Business Travel'],['Status','Completed & Operational'],['Booking','Rental Only']],
-    amenities:['Daily Housekeeping','Room Service','Reception','Gym','Laundry','High-Speed WiFi','24×7 Security','Parking','Cafeteria','Business Lounge'],
-    overview:`Fairmont delivers the comfort of a home with the services of a hotel — fully furnished serviced apartments for business travellers, consultants, and those seeking extended stays in Mangalore.\n\nLocated in Kadri, close to Mangalore's commercial hubs, hospitals, and the city centre, Fairmont provides an unmatched combination of privacy, quality, and professional services.`,
-    locationHighlights:[{icon:'🏙️',name:'Kadri Commercial Hub',dist:'Walking distance'},{icon:'🏥',name:'KMC Hospital',dist:'~10 minutes'},{icon:'🛣️',name:'City Centre',dist:'~8 minutes'},{icon:'✈️',name:'Airport',dist:'~20 minutes'}],
-    floorPlans:[{type:'Studio Suite',size:'450 sq ft',badge:'Operational'},{type:'1 BHK Suite',size:'700 sq ft',badge:'Operational'},{type:'Executive Suite',size:'900 sq ft',badge:'Available'}],
-    videos:[{label:'Fairmont Overview',sub:'Serviced Apartments Tour',ytId:''},{label:'Amenities & Services',sub:'What\'s Included',ytId:''}]
-  },
-  ohana: {
-    name:'Ohana Luxury Stays', nameItalic:'Ohana', tagline:'Where the Clouds Meet Your Doorstep', status:'completed', statusLabel:'Completed',
-    type:'Luxury Resort', location:'Mullayanagiri, Chikmagalur', phone:'+91 99000 33888', wa:'919900033888',
-    visClass:'vis-ohana', patClass:'pat-green', mapLink:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15548.58!2d75.7!3d13.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1',
-    specs:[['Type','Luxury Resort'],['Location','Mullayanagiri, Chikmagalur'],['Elevation','~1,900 metres above sea level'],['Status','Operational'],['Booking','Rental / Stays Only']],
-    amenities:['Mountain View Cottages','Bonfire Evenings','Trekking Trails','Organic Farm','Yoga Pavilion','Outdoor Jacuzzi','Nature Walks','In-Cottage Dining','Birdwatching','Coffee Plantation Tour','Campfire','Photography Trails'],
-    overview:`Ohana Luxury Stays is Westline's boutique resort nestled in the misty highlands of Mullayanagiri — Karnataka's highest peak — in the heart of Chikmagalur's coffee country.\n\nSet at approximately 1,900 metres above sea level, Ohana offers an unparalleled retreat from the city. Each cottage is designed to frame the mountains, the clouds, and the vast coffee estates below. A truly extraordinary escape — and a Westline promise that luxury lives beyond city limits.`,
-    locationHighlights:[{icon:'⛰️',name:'Mullayanagiri Peak',dist:'Walking distance'},{icon:'☕',name:'Coffee Plantations',dist:'Surrounding estate'},{icon:'🌿',name:'Baba Budangiri',dist:'~5 km'},{icon:'🏙️',name:'Chikmagalur Town',dist:'~25 km'}],
-    floorPlans:[{type:'Deluxe Cottage',size:'Mountain View',badge:'Available'},{type:'Premium Cottage',size:'Cloud Suite',badge:'Available'},{type:'Luxury Villa',size:'Private Plunge Pool',badge:'Limited'}],
-    videos:[{label:'Ohana — The Resort',sub:'Mullayanagiri Luxury Stays',ytId:''},{label:'Sunrise at Ohana',sub:'Views from the top',ytId:''},{label:'Activities & Experiences',sub:'What awaits you',ytId:''}]
-  },
-  splendid: {
-    name:'Splendid Homes', nameItalic:'Splendid', tagline:'Comfort, Community, Character', status:'completed', statusLabel:'Completed',
-    type:'Affordable Residential', location:'Kulashekar, Mangalore', phone:'+91 99000 33888', wa:'919900033888',
-    visClass:'vis-splendid', patClass:'pat-warm', mapLink:'https://goo.gl/maps/L2pL8BKwokE1R6hY9',
-    specs:[['Type','Affordable Residential'],['Location','Kulashekar, Mangalore'],['Starting From','₹40 Lakhs'],['Status','Completed & Delivered'],['Configuration','1 & 2 BHK']],
-    amenities:['Children\'s Play Area','Community Garden','Parking','24×7 Security','Power Backup','Intercom','Visitor Area','Entrance Landscaping'],
-    overview:`Splendid Homes made quality homeownership accessible in Kulashekar — one of Mangalore's emerging and well-connected residential neighbourhoods.\n\nBuilt for first-time buyers and young families, Splendid Homes combines compact, efficient layouts with Westline's signature build quality. Fully completed and delivered, the project enjoys high resident satisfaction and strong community living.`,
-    locationHighlights:[{icon:'🏫',name:'Schools & Colleges',dist:'~5 minutes'},{icon:'🛒',name:'Market & Retail',dist:'~8 minutes'},{icon:'🏥',name:'Hospitals',dist:'~10 minutes'},{icon:'⛵',name:'Mangalore Port',dist:'~15 minutes'}],
-    floorPlans:[{type:'1 BHK',size:'550 – 650 sq ft',badge:'Sold Out'},{type:'2 BHK',size:'850 – 1,000 sq ft',badge:'Sold Out'}],
-    videos:[{label:'Splendid Homes Overview',sub:'Kulashekar, Mangalore',ytId:''},{label:'Community Life',sub:'Residents\' stories',ytId:''}]
-  }
-};
-
-// ── NAV SCROLL ──
-window.addEventListener('scroll',()=>{
-  document.getElementById('main-nav').classList.toggle('scrolled',window.scrollY>40);
-});
-
-// ── MOBILE MENU ──
-function toggleMenu(){
-  document.getElementById('mobile-menu').classList.toggle('open');
-}
-
-// ── FILTER ──
-function filterProjects(cat, btn){
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('#home-proj-grid .proj-card').forEach(card=>{
-    const cats = card.dataset.cat || '';
-    card.style.display = (cat==='all' || cats.includes(cat)) ? '' : 'none';
-  });
-}
-
-// ── PAGE ROUTING ──
-function showPage(pageId){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('page-'+pageId).classList.add('active');
-  window.scrollTo(0,0);
-}
-
-// ── PROJECT PAGE BUILDER ──
-function showProject(key){
-  const p = projects[key];
-  if(!p) return;
-  const statusClass = {ongoing:'status-ongoing',completed:'status-completed',upcoming:'status-upcoming'}[p.status]||'status-completed';
-
-  const specsHtml = p.specs.map(([k,v])=>`<div class="spec-row"><span class="spec-key">${k}</span><span class="spec-val">${v}</span></div>`).join('');
-  const amenHtml = p.amenities.map(a=>`<div class="amenity-pill">${a}</div>`).join('');
-  const locHtml = p.locationHighlights.map(l=>`<div class="loc-card"><div class="loc-icon">${l.icon}</div><div class="loc-name">${l.name}</div><div class="loc-dist">${l.dist}</div></div>`).join('');
-  const fpHtml = p.floorPlans.map(fp=>`
-    <div class="floor-plan-card">
-      <div class="fp-visual">
-        <div class="fp-grid-bg"></div>
-        <div class="fp-shape">
-          <div class="fp-room">Bedroom</div><div class="fp-room">Living</div>
-          <div class="fp-room">Kitchen</div><div class="fp-room">Bath</div>
-        </div>
-      </div>
-      <div class="fp-info">
-        <div class="fp-type">${fp.type}</div>
-        <div class="fp-size">${fp.size}</div>
-        <span class="fp-badge">${fp.badge}</span>
-      </div>
-    </div>`).join('');
-
-  const vidHtml = p.videos.map(v=>`
-    <div class="video-item">
-      <div class="video-thumb" onclick="this.innerHTML='<div style=\\'width:100%;height:100%;background:#000;\\'><iframe width=\\'100%\\' height=\\'100%\\' src=\\'https://www.youtube.com/embed/${v.ytId||'nasirmohideen1'}?autoplay=1\\' frameborder=\\'0\\' allow=\\'autoplay;encrypted-media\\' allowfullscreen></iframe></div>'">
-        <div class="play-btn"></div>
-        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,169,110,0.06),transparent);pointer-events:none"></div>
-      </div>
-      <div class="video-label"><h4>${v.label}</h4><p>${v.sub}</p></div>
-    </div>`).join('');
-
-  const overviewParas = p.overview.split('\n\n').map(para=>`<p class="overview-body">${para}</p>`).join('');
-
-  const html = `
-    <div class="proj-hero">
-      <div class="proj-hero-visual ${p.visClass}">
-        <div class="vis-pattern ${p.patClass}"></div>
-        <div class="vis-icon"><div class="vis-letter" style="font-size:200px">${p.name.charAt(0)}</div></div>
-      </div>
-      <div class="proj-hero-overlay"></div>
-      <div class="proj-hero-content">
-        <div class="proj-breadcrumb" onclick="showPage('home')">All Projects <span>${p.name}</span></div>
-        <div class="proj-h1">${p.name.replace(p.nameItalic,`<em>${p.nameItalic}</em>`)}</div>
-        <div class="proj-tagline">${p.tagline}</div>
-        <div class="proj-hero-meta">
-          <div class="proj-meta-item"><span class="proj-meta-label">Type</span><span class="proj-meta-value">${p.type}</span></div>
-          <div class="proj-meta-item"><span class="proj-meta-label">Location</span><span class="proj-meta-value">${p.location}</span></div>
-          <div class="proj-meta-item"><span class="proj-meta-label">Status</span><span class="proj-meta-value ${statusClass}" style="padding:4px 10px;font-size:9px;letter-spacing:0.2em">${p.statusLabel}</span></div>
-          <div class="proj-meta-item"><span class="proj-meta-label">Price</span><span class="proj-meta-value">Price on Request</span></div>
-        </div>
-      </div>
-      <div class="proj-quick-btns">
-        <a class="quick-btn quick-btn-wa" href="https://wa.me/${p.wa}?text=I'm interested in ${encodeURIComponent(p.name)}" target="_blank">
-          <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WhatsApp
-        </a>
-        <a class="quick-btn quick-btn-call" href="tel:${p.phone}">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
-          Call Now
-        </a>
-        <button class="quick-btn quick-btn-enq" onclick="document.querySelector('#proj-tab-enq').click()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-          Enquire
-        </button>
-      </div>
-    </div>
-
-    <div class="proj-tabs">
-      <div class="proj-tabs-inner">
-        <button class="proj-tab active" onclick="switchTab(this,'overview')">Overview</button>
-        <button class="proj-tab" onclick="switchTab(this,'gallery')">Gallery & Visuals</button>
-        <button class="proj-tab" onclick="switchTab(this,'floorplans')">Floor Plans</button>
-        <button class="proj-tab" onclick="switchTab(this,'videos')">Videos</button>
-        <button class="proj-tab" onclick="switchTab(this,'location')">Location & Map</button>
-        <button class="proj-tab" id="proj-tab-enq" onclick="switchTab(this,'enquiry')">Enquire Now</button>
-      </div>
-    </div>
-
-    <!-- OVERVIEW TAB -->
-    <div class="tab-panel active" id="tab-overview" style="background:var(--ink)">
-      <div class="overview-grid">
-        <div>
-          <div class="sec-tag">About the Project</div>
-          <h2 class="sec-h" style="font-size:clamp(30px,4vw,50px);margin-bottom:32px">${p.name}</h2>
-          <div class="highlight-box"><p>"${p.tagline}"</p></div>
-          ${overviewParas}
-          <div class="sec-tag" style="margin-top:48px">Amenities</div>
-          <div class="amenities-grid">${amenHtml}</div>
-        </div>
-        <div>
-          <div class="specs-card">
-            <div class="specs-header">Project Specifications</div>
-            ${specsHtml}
-          </div>
-          <div style="margin-top:24px;background:var(--surface2);border:1px solid var(--border);padding:28px">
-            <div style="font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">Price</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--text);margin-bottom:8px">Price on Request</div>
-            <div style="font-size:12px;color:var(--muted);margin-bottom:20px">Contact our sales team for current pricing and availability</div>
-            <button class="btn-gold" style="width:100%;text-align:center;border:none" onclick="document.querySelector('#proj-tab-enq').click()">Get Price Details</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- GALLERY TAB -->
-    <div class="tab-panel" id="tab-gallery" style="background:var(--ink2)">
-      <div class="sec-tag">Visual Gallery</div>
-      <h2 class="sec-h" style="font-size:clamp(28px,4vw,48px);margin-bottom:20px">Gallery & <em>Visuals</em></h2>
-      <p class="gallery-intro">Upload your project photographs, 3D renders, and aerial views to showcase ${p.name} at its best. Click any placeholder to replace with your actual image.</p>
-      <div class="gallery-grid">
-        ${[1,2,3,4,5,6].map((i,idx)=>`
-        <div class="gallery-item${idx===0?' tall':''}" style="grid-row:${idx===0?'span 2':''}">
-          <div class="gallery-placeholder">
-            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <span>Add Image ${i}</span>
-          </div>
-        </div>`).join('')}
-      </div>
-      <div class="gallery-upload-note">Replace these placeholders with your actual project photos, renders, and aerial imagery by uploading images to your GitHub repository and updating the image paths in the code.</div>
-    </div>
-
-    <!-- FLOOR PLANS TAB -->
-    <div class="tab-panel" id="tab-floorplans" style="background:var(--ink)">
-      <div class="sec-tag">Floor Plans</div>
-      <h2 class="sec-h" style="font-size:clamp(28px,4vw,48px);margin-bottom:20px">Unit <em>Configurations</em></h2>
-      <p class="gallery-intro">Detailed floor plans for each unit type. Upload your architect's actual floor plan drawings to replace these placeholders.</p>
-      <div class="floor-plans-grid">${fpHtml}</div>
-      <div class="gallery-upload-note" style="margin-top:32px">Replace the placeholder floor plan layouts with your actual architect drawings. Add them to your GitHub repo and update the image paths.</div>
-    </div>
-
-    <!-- VIDEOS TAB -->
-    <div class="tab-panel" id="tab-videos" style="background:var(--ink2)">
-      <div class="sec-tag">Video Gallery</div>
-      <h2 class="sec-h" style="font-size:clamp(28px,4vw,48px);margin-bottom:20px">Watch & <em>Experience</em></h2>
-      <p class="gallery-intro">Video walkthroughs, drone footage, and testimonials. Click any video to play. Add your YouTube video IDs to activate.</p>
-      <div class="video-grid">${vidHtml}</div>
-      <div class="gallery-upload-note" style="margin-top:32px">Add your YouTube video IDs to the project data in the code to activate the video players. Your channel: @nasirmohideen1</div>
-    </div>
-
-    <!-- LOCATION TAB -->
-    <div class="tab-panel" id="tab-location" style="background:var(--ink)">
-      <div class="sec-tag">Location</div>
-      <h2 class="sec-h" style="font-size:clamp(28px,4vw,48px);margin-bottom:48px">Where to <em>Find Us</em></h2>
-      <div class="map-section">
-        <div>
-          <div class="map-frame">
-            <iframe src="${p.mapLink.includes('embed')?p.mapLink:'https://maps.google.com/maps?q='+encodeURIComponent(p.location)+'&output=embed'}" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div class="map-cta">
-            <a href="${p.mapLink}" target="_blank">Open in Google Maps →</a>
-          </div>
-        </div>
-        <div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;margin-bottom:8px">${p.location}</div>
-          <div style="font-size:12px;color:var(--muted);margin-bottom:32px;letter-spacing:0.08em">Key Nearby Landmarks</div>
-          <div class="location-cards">${locHtml}</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ENQUIRY TAB -->
-    <div class="tab-panel" id="tab-enquiry" style="background:var(--ink2)">
-      <div class="enq-section">
-        <div class="enq-info">
-          <div class="sec-tag">Get In Touch</div>
-          <h3><em>Enquire About</em><br>${p.name}</h3>
-          <p>Our sales team will get back to you within 24 hours with detailed pricing, availability, and a personalised consultation.</p>
-          <div class="contact-blocks">
-            <div class="contact-block"><div class="contact-block-label">Sales Hotline</div><div class="contact-block-val"><a href="tel:${p.phone}" style="color:var(--gold)">${p.phone}</a></div></div>
-            <div class="contact-block"><div class="contact-block-label">Location</div><div class="contact-block-val">${p.location}</div></div>
-            <a class="wa-big" href="https://wa.me/${p.wa}?text=I'm interested in ${encodeURIComponent(p.name)}. Please share details." target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              WhatsApp Enquiry
-            </a>
-          </div>
-        </div>
-        <div class="enq-form">
-          <div class="form-title">Request Details</div>
-          <div class="form-row">
-            <div class="fg"><label class="fl">Full Name</label><input class="fi" type="text" placeholder="Your name"></div>
-            <div class="fg"><label class="fl">Mobile Number</label><input class="fi" type="tel" placeholder="+91 XXXXX XXXXX"></div>
-          </div>
-          <div class="fg"><label class="fl">Email Address</label><input class="fi" type="email" placeholder="your@email.com"></div>
-          <div class="fg"><label class="fl">I'm Interested In</label>
-            <select class="fsel">
-              <option>General Enquiry — ${p.name}</option>
-              ${p.floorPlans.map(fp=>`<option>${fp.type} — ${fp.size}</option>`).join('')}
-              <option>Investment Enquiry</option>
-              <option>Site Visit Request</option>
-            </select>
-          </div>
-          <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="Any specific requirements or questions..."></textarea></div>
-          <button class="fsub">Send Enquiry</button>
-        </div>
-      </div>
-
-      <!-- Footer on project page -->
-      <footer style="margin-top:80px">
-        <div><div class="ft-brand">WESTLINE</div><p class="ft-tag">Building Mangalore's skyline with precision and pride since 2014.</p></div>
-        <div><div class="ft-col-t">All Projects</div><ul class="ft-links">${Object.keys(projects).map(k=>`<li onclick="showProject('${k}')">${projects[k].name}</li>`).join('')}</ul></div>
-        <div><div class="ft-col-t">Company</div><ul class="ft-links"><li onclick="showPage('home')">Home</li><li onclick="showPage('home');setTimeout(()=>document.getElementById('about-sec').scrollIntoView({behavior:'smooth'}),100)">About</li><li onclick="showPage('home');setTimeout(()=>document.getElementById('contact-sec').scrollIntoView({behavior:'smooth'}),100)">Contact</li></ul></div>
-        <div><div class="ft-col-t">Contact</div><ul class="ft-links"><li><a href="tel:+919900033888" style="color:var(--text2)">+91 99000 33888</a></li><li><a href="https://wa.me/919900033888" target="_blank" style="color:var(--text2)">WhatsApp</a></li><li>westline.co.in</li></ul></div>
-      </footer>
-      <div class="ft-bottom"><span class="ft-copy">© 2025 Westline Builders Private Limited. All Rights Reserved.</span><span class="ft-rera">K-RERA Registered · Mangalore</span></div>
-    </div>
-  `;
-
-  document.getElementById('page-project').innerHTML = html;
-  showPage('project');
-}
-
-// ── TAB SWITCHING ──
-function switchTab(btn, tabId){
-  document.querySelectorAll('.proj-tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('tab-'+tabId).classList.add('active');
-  document.querySelector('.proj-tabs').scrollIntoView({behavior:'smooth',block:'nearest'});
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>40));
+function filterP(cat,btn){
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+  document.querySelectorAll('#pgrid .proj-card').forEach(c=>{c.style.display=(cat==='all'||c.dataset.cat.includes(cat))?'':'none'})
 }
 </script>
 </body>
