@@ -1,25 +1,306 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex">
-  <title>Westline Admin</title>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{background:#0A0A0A;font-family:'Jost',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center}
-  </style>
-</head>
-<body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  <script>
-    window.netlifyIdentity && window.netlifyIdentity.on('init', user => {
-      if (!user) {
-        window.netlifyIdentity.on('login', () => {
-          document.location.href = '/admin/';
-        });
-      }
-    });
-  </script>
-</body>
-</html>
+backend:
+  name: git-gateway
+  branch: main
+  identity_url: https://velvety-starburst-4a4a2c.netlify.app/.netlify/identity
+  gateway_url: https://velvety-starburst-4a4a2c.netlify.app/.netlify/git
+
+media_folder: "images"
+public_folder: "/images"
+
+locale: en
+
+collections:
+  - name: "signature"
+    label: "Westline Signature"
+    files:
+      - label: "Project Info"
+        name: "signature_info"
+        file: "_data/projects/signature.json"
+        fields:
+          - {label: "Project Name", name: "name", widget: "string"}
+          - {label: "Tagline", name: "tagline", widget: "string"}
+          - {label: "Status", name: "status", widget: "select", options: ["Ongoing", "Completed", "Upcoming"]}
+          - {label: "Description", name: "description", widget: "text"}
+          - label: "YouTube Videos"
+            name: "videos"
+            widget: "list"
+            fields:
+              - {label: "Video Title", name: "title", widget: "string"}
+              - {label: "YouTube Video ID", name: "youtube_id", widget: "string", hint: "Just the ID e.g. dQw4w9WgXcQ"}
+              - {label: "Description", name: "description", widget: "string", required: false}
+          - label: "Gallery Images"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - {label: "Image", name: "image", widget: "image", media_folder: "/images/signature/gallery"}
+              - {label: "Caption", name: "caption", widget: "string", required: false}
+              - {label: "Category", name: "category", widget: "select", options: ["gallery", "renders", "construction", "completed"]}
+          - label: "Floor Plans"
+            name: "floor_plans"
+            widget: "list"
+            fields:
+              - {label: "Unit Type", name: "type", widget: "string", hint: "e.g. 3 BHK Premium"}
+              - {label: "Size", name: "size", widget: "string", hint: "e.g. 1600-2000 sq ft"}
+              - {label: "Floor Plan Image", name: "image", widget: "image", media_folder: "/images/signature/floor-plans"}
+              - {label: "Availability", name: "availability", widget: "select", options: ["Available", "Limited", "Sold Out", "Rare"]}
+
+  - name: "cubix"
+    label: "Cubix"
+    files:
+      - label: "Project Info"
+        name: "cubix_info"
+        file: "_data/projects/cubix.json"
+        fields:
+          - {label: "Project Name", name: "name", widget: "string"}
+          - {label: "Tagline", name: "tagline", widget: "string"}
+          - {label: "Status", name: "status", widget: "select", options: ["Ongoing", "Completed", "Upcoming"]}
+          - {label: "Description", name: "description", widget: "text"}
+          - label: "YouTube Videos"
+            name: "videos"
+            widget: "list"
+            fields:
+              - {label: "Video Title", name: "title", widget: "string"}
+              - {label: "YouTube Video ID", name: "youtube_id", widget: "string"}
+              - {label: "Description", name: "description", widget: "string", required: false}
+          - label: "Gallery Images"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - {label: "Image", name: "image", widget: "image", media_folder: "/images/cubix/gallery"}
+              - {label: "Caption", name: "caption", widget: "string", required: false}
+          - label: "Floor Plans"
+            name: "floor_plans"
+            widget: "list"
+            fields:
+              - {label: "Unit Type", name: "type", widget: "string"}
+              - {label: "Size", name: "size", widget: "string"}
+              - {label: "Floor Plan Image", name: "image", widget: "image", media_folder: "/images/cubix/floor-plans"}
+              - {label: "Availability", name: "availability", widget: "select", options: ["Available", "Rental", "Operational", "Sold Out"]}
+
+  - name: "jeppu"
+    label: "Jeppu Medicity"
+    files:
+      - label: "Project Info"
+        name: "jeppu_info"
+        file: "_data/projects/jeppu.json"
+        fields:
+          - {label: "Project Name", name: "name", widget: "string"}
+          - {label: "Tagline", name: "tagline", widget: "string"}
+          - {label: "Status", name: "status", widget: "select", options: ["Ongoing", "Completed", "Upcoming"]}
+          - {label: "Description", name: "description", widget: "text"}
+          - label: "YouTube Videos"
+            name: "videos"
+            widget: "list"
+            fields:
+              - {label: "Video Title", name: "title", widget: "string"}
+              - {label: "YouTube Video ID", name: "youtube_id", widget: "string"}
+          - label: "Gallery Images"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - {label: "Image", name: "image", widget: "image", media_folder: "/images/jeppu/gallery"}
+              - {label: "Caption", name: "caption", widget: "string", required: false}
+          - label: "Floor Plans"
+            name: "floor_plans"
+            widget: "list"
+            fields:
+              - {label: "Unit Type", name: "type", widget: "string"}
+              - {label: "Size", name: "size", widget: "string"}
+              - {label: "Floor Plan Image", name: "image", widget: "image", media_folder: "/images/jeppu/floor-plans"}
+              - {label: "Availability", name: "availability", widget: "select", options: ["Available", "Operational", "Sold Out"]}
+
+  - name: "bonita"
+    label: "Bonita"
+    files:
+      - label: "Project Info"
+        name: "bonita_info"
+        file: "_data/projects/bonita.json"
+        fields:
+          - {label: "Project Name", name: "name", widget: "string"}
+          - {label: "Tagline", name: "tagline", widget: "string"}
+          - {label: "Status", name: "status", widget: "select", options: ["Ongoing", "Completed", "Upcoming"]}
+          - {label: "Description", name: "description", widget: "text"}
+          - label: "YouTube Videos"
+            name: "videos"
+            widget: "list"
+            fields:
+              - {label: "Video Title", name: "title", widget: "string"}
+              - {label: "YouTube Video ID", name: "youtube_id", widget: "string"}
+          - label: "Gallery Images"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - {label: "Image", name: "image", widget: "image", media_folder: "/images/bonita/gallery"}
+              - {label: "Caption", name: "caption", widget: "string", required: false}
+              - {label: "Category", name: "category", widget: "select", options: ["gallery", "completed"]}
+          - label: "Floor Plans"
+            name: "floor_plans"
+            widget: "list"
+            fields:
+              - {label: "Unit Type", name: "type", widget: "string"}
+              - {label: "Size", name: "size", widget: "string"}
+              - {label: "Floor Plan Image", name: "image", widget: "image", media_folder: "/images/bonita/floor-plans"}
+              - {label: "Availability", name: "availability", widget: "select", options: ["Available", "Sold Out"]}
+
+  - name: "salubrity"
+    label: "Salubrity"
+    files:
+      - label: "Project Info"
+        name: "salubrity_info"
+        file: "_data/projects/salubrity.json"
+        fields:
+          - {label: "Project Name", name: "name", widget: "string"}
+          - {label: "Tagline", name: "tagline", widget: "string"}
+          - {label: "Status", name: "status", widget: "select", options: ["Ongoing", "Completed", "Upcoming"]}
+          - {label: "Description", name: "description", widget: "text"}
+          - label: "YouTube Videos"
+            name: "videos"
+            widget: "list"
+            fields:
+              - {label: "Video Title", name: "title", widget: "string"}
+              - {label: "YouTube Video ID", name: "youtube_id", widget: "string"}
+          - label: "Gallery Images"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - {label: "Image", name: "image", widget: "image", media_folder: "/images/salubrity/gallery"}
+              - {label: "Caption", name: "caption", widget: "string", required: false}
+          - label: "Floor Plans"
+            name: "floor_plans"
+            widget: "list"
+            fields:
+              - {label: "Unit Type", name: "type", widget: "string"}
+              - {label: "Size", name: "size", widget: "string"}
+              - {label: "Floor Plan Image", name: "image", widget: "image", media_folder: "/images/salubrity/floor-plans"}
+              - {label: "Availability", name: "availability", widget: "select", options: ["Available", "Operational", "Sold Out"]}
+
+  - name: "skydale"
+    label: "Skydale"
+    files:
+      - label: "Project Info"
+        name: "skydale_info"
+        file: "_data/projects/skydale.json"
+        fields:
+          - {label: "Project Name", name: "name", widget: "string"}
+          - {label: "Tagline", name: "tagline", widget: "string"}
+          - {label: "Status", name: "status", widget: "select", options: ["Ongoing", "Completed", "Upcoming"]}
+          - {label: "Description", name: "description", widget: "text"}
+          - label: "YouTube Videos"
+            name: "videos"
+            widget: "list"
+            fields:
+              - {label: "Video Title", name: "title", widget: "string"}
+              - {label: "YouTube Video ID", name: "youtube_id", widget: "string"}
+          - label: "Gallery Images"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - {label: "Image", name: "image", widget: "image", media_folder: "/images/skydale/gallery"}
+              - {label: "Caption", name: "caption", widget: "string", required: false}
+              - {label: "Category", name: "category", widget: "select", options: ["gallery", "completed"]}
+          - label: "Floor Plans"
+            name: "floor_plans"
+            widget: "list"
+            fields:
+              - {label: "Unit Type", name: "type", widget: "string"}
+              - {label: "Size", name: "size", widget: "string"}
+              - {label: "Floor Plan Image", name: "image", widget: "image", media_folder: "/images/skydale/floor-plans"}
+              - {label: "Availability", name: "availability", widget: "select", options: ["Available", "Delivered", "Sold Out"]}
+
+  - name: "fairmont"
+    label: "Fairmont"
+    files:
+      - label: "Project Info"
+        name: "fairmont_info"
+        file: "_data/projects/fairmont.json"
+        fields:
+          - {label: "Project Name", name: "name", widget: "string"}
+          - {label: "Tagline", name: "tagline", widget: "string"}
+          - {label: "Status", name: "status", widget: "select", options: ["Ongoing", "Completed", "Upcoming"]}
+          - {label: "Description", name: "description", widget: "text"}
+          - label: "YouTube Videos"
+            name: "videos"
+            widget: "list"
+            fields:
+              - {label: "Video Title", name: "title", widget: "string"}
+              - {label: "YouTube Video ID", name: "youtube_id", widget: "string"}
+          - label: "Gallery Images"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - {label: "Image", name: "image", widget: "image", media_folder: "/images/fairmont/gallery"}
+              - {label: "Caption", name: "caption", widget: "string", required: false}
+          - label: "Floor Plans"
+            name: "floor_plans"
+            widget: "list"
+            fields:
+              - {label: "Unit Type", name: "type", widget: "string"}
+              - {label: "Size", name: "size", widget: "string"}
+              - {label: "Floor Plan Image", name: "image", widget: "image", media_folder: "/images/fairmont/floor-plans"}
+              - {label: "Availability", name: "availability", widget: "select", options: ["Available", "Operational", "Sold Out"]}
+
+  - name: "ohana"
+    label: "Ohana Luxury Stays"
+    files:
+      - label: "Project Info"
+        name: "ohana_info"
+        file: "_data/projects/ohana.json"
+        fields:
+          - {label: "Project Name", name: "name", widget: "string"}
+          - {label: "Tagline", name: "tagline", widget: "string"}
+          - {label: "Status", name: "status", widget: "select", options: ["Ongoing", "Completed", "Upcoming"]}
+          - {label: "Description", name: "description", widget: "text"}
+          - label: "YouTube Videos"
+            name: "videos"
+            widget: "list"
+            fields:
+              - {label: "Video Title", name: "title", widget: "string"}
+              - {label: "YouTube Video ID", name: "youtube_id", widget: "string"}
+          - label: "Gallery Images"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - {label: "Image", name: "image", widget: "image", media_folder: "/images/ohana/gallery"}
+              - {label: "Caption", name: "caption", widget: "string", required: false}
+              - {label: "Category", name: "category", widget: "select", options: ["gallery", "completed"]}
+          - label: "Cottage Types"
+            name: "floor_plans"
+            widget: "list"
+            fields:
+              - {label: "Cottage Type", name: "type", widget: "string"}
+              - {label: "Description", name: "size", widget: "string"}
+              - {label: "Image", name: "image", widget: "image", media_folder: "/images/ohana/gallery"}
+              - {label: "Availability", name: "availability", widget: "select", options: ["Available", "Limited", "Sold Out"]}
+
+  - name: "splendid"
+    label: "Splendid Homes"
+    files:
+      - label: "Project Info"
+        name: "splendid_info"
+        file: "_data/projects/splendid.json"
+        fields:
+          - {label: "Project Name", name: "name", widget: "string"}
+          - {label: "Tagline", name: "tagline", widget: "string"}
+          - {label: "Status", name: "status", widget: "select", options: ["Ongoing", "Completed", "Upcoming"]}
+          - {label: "Description", name: "description", widget: "text"}
+          - label: "YouTube Videos"
+            name: "videos"
+            widget: "list"
+            fields:
+              - {label: "Video Title", name: "title", widget: "string"}
+              - {label: "YouTube Video ID", name: "youtube_id", widget: "string"}
+          - label: "Gallery Images"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - {label: "Image", name: "image", widget: "image", media_folder: "/images/splendid/gallery"}
+              - {label: "Caption", name: "caption", widget: "string", required: false}
+              - {label: "Category", name: "category", widget: "select", options: ["gallery", "completed"]}
+          - label: "Floor Plans"
+            name: "floor_plans"
+            widget: "list"
+            fields:
+              - {label: "Unit Type", name: "type", widget: "string"}
+              - {label: "Size", name: "size", widget: "string"}
+              - {label: "Floor Plan Image", name: "image", widget: "image", media_folder: "/images/splendid/floor-plans"}
+              - {label: "Availability", name: "availability", widget: "select", options: ["Available", "Delivered", "Sold Out"]}
