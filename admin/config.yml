@@ -1,8 +1,6 @@
 backend:
   name: git-gateway
   branch: main
-  identity_url: https://velvety-starburst-4a4a2c.netlify.app/.netlify/identity
-  gateway_url: https://velvety-starburst-4a4a2c.netlify.app/.netlify/git
 
 media_folder: "images"
 public_folder: "/images"
@@ -10,6 +8,23 @@ public_folder: "/images"
 locale: en
 
 collections:
+
+  # ── HOMEPAGE SLIDER ──
+  - name: "slider"
+    label: "Homepage Slider"
+    label_singular: "Slide"
+    folder: "_data/slider"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Slide Title", name: "title", widget: "string"}
+      - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
+      - {label: "Image", name: "image", widget: "image", media_folder: "/images/slider"}
+      - {label: "Button Text", name: "btn_text", widget: "string", default: "View Project"}
+      - {label: "Button Link", name: "btn_link", widget: "string", default: "/signature.html"}
+      - {label: "Order", name: "order", widget: "number", default: 1}
+
+  # ── WESTLINE SIGNATURE ──
   - name: "signature"
     label: "Westline Signature"
     files:
@@ -20,13 +35,17 @@ collections:
           - {label: "Project Name", name: "name", widget: "string"}
           - {label: "Tagline", name: "tagline", widget: "string"}
           - {label: "Status", name: "status", widget: "select", options: ["Ongoing", "Completed", "Upcoming"]}
+          - {label: "Type", name: "type", widget: "string"}
+          - {label: "Location", name: "location", widget: "string"}
           - {label: "Description", name: "description", widget: "text"}
+          - {label: "Google Maps Embed URL", name: "maps_embed", widget: "string", hint: "Paste the src URL from Google Maps embed code (starts with https://www.google.com/maps/embed?)", required: false}
+          - {label: "Google Maps Link", name: "maps_link", widget: "string", hint: "Full Google Maps URL for the Open in Maps button", required: false}
           - label: "YouTube Videos"
             name: "videos"
             widget: "list"
             fields:
               - {label: "Video Title", name: "title", widget: "string"}
-              - {label: "YouTube Video ID", name: "youtube_id", widget: "string", hint: "Just the ID e.g. dQw4w9WgXcQ"}
+              - {label: "YouTube Video ID", name: "youtube_id", widget: "string", hint: "Just the ID from the URL e.g. dQw4w9WgXcQ"}
               - {label: "Description", name: "description", widget: "string", required: false}
           - label: "Gallery Images"
             name: "gallery"
@@ -34,16 +53,24 @@ collections:
             fields:
               - {label: "Image", name: "image", widget: "image", media_folder: "/images/signature/gallery"}
               - {label: "Caption", name: "caption", widget: "string", required: false}
-              - {label: "Category", name: "category", widget: "select", options: ["gallery", "renders", "construction", "completed"]}
+              - {label: "Category", name: "category", widget: "select", options: ["Exterior", "Interior", "Aerial View", "Lobby & Common Areas", "Amenities", "View from Apartment", "3D Render - Exterior", "3D Render - Interior", "3D Render - Amenities", "Construction Progress", "Completed"]}
           - label: "Floor Plans"
             name: "floor_plans"
             widget: "list"
             fields:
               - {label: "Unit Type", name: "type", widget: "string", hint: "e.g. 3 BHK Premium"}
-              - {label: "Size", name: "size", widget: "string", hint: "e.g. 1600-2000 sq ft"}
+              - {label: "Size", name: "size", widget: "string", hint: "e.g. 1600 - 2000 sq ft"}
               - {label: "Floor Plan Image", name: "image", widget: "image", media_folder: "/images/signature/floor-plans"}
               - {label: "Availability", name: "availability", widget: "select", options: ["Available", "Limited", "Sold Out", "Rare"]}
+          - label: "Nearby Landmarks"
+            name: "landmarks"
+            widget: "list"
+            fields:
+              - {label: "Icon (emoji)", name: "icon", widget: "string", hint: "e.g. 🏥 or ✈️"}
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Distance", name: "distance", widget: "string", hint: "e.g. ~10 minutes"}
 
+  # ── CUBIX ──
   - name: "cubix"
     label: "Cubix"
     files:
@@ -55,6 +82,8 @@ collections:
           - {label: "Tagline", name: "tagline", widget: "string"}
           - {label: "Status", name: "status", widget: "select", options: ["Ongoing", "Completed", "Upcoming"]}
           - {label: "Description", name: "description", widget: "text"}
+          - {label: "Google Maps Embed URL", name: "maps_embed", widget: "string", required: false}
+          - {label: "Google Maps Link", name: "maps_link", widget: "string", required: false}
           - label: "YouTube Videos"
             name: "videos"
             widget: "list"
@@ -68,6 +97,7 @@ collections:
             fields:
               - {label: "Image", name: "image", widget: "image", media_folder: "/images/cubix/gallery"}
               - {label: "Caption", name: "caption", widget: "string", required: false}
+              - {label: "Category", name: "category", widget: "select", options: ["Exterior", "Interior", "Aerial View", "Lobby & Common Areas", "Amenities", "3D Render - Exterior", "3D Render - Interior", "Construction Progress", "Completed"]}
           - label: "Floor Plans"
             name: "floor_plans"
             widget: "list"
@@ -76,7 +106,15 @@ collections:
               - {label: "Size", name: "size", widget: "string"}
               - {label: "Floor Plan Image", name: "image", widget: "image", media_folder: "/images/cubix/floor-plans"}
               - {label: "Availability", name: "availability", widget: "select", options: ["Available", "Rental", "Operational", "Sold Out"]}
+          - label: "Nearby Landmarks"
+            name: "landmarks"
+            widget: "list"
+            fields:
+              - {label: "Icon (emoji)", name: "icon", widget: "string"}
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Distance", name: "distance", widget: "string"}
 
+  # ── JEPPU ──
   - name: "jeppu"
     label: "Jeppu Medicity"
     files:
@@ -88,18 +126,22 @@ collections:
           - {label: "Tagline", name: "tagline", widget: "string"}
           - {label: "Status", name: "status", widget: "select", options: ["Ongoing", "Completed", "Upcoming"]}
           - {label: "Description", name: "description", widget: "text"}
+          - {label: "Google Maps Embed URL", name: "maps_embed", widget: "string", required: false}
+          - {label: "Google Maps Link", name: "maps_link", widget: "string", required: false}
           - label: "YouTube Videos"
             name: "videos"
             widget: "list"
             fields:
               - {label: "Video Title", name: "title", widget: "string"}
               - {label: "YouTube Video ID", name: "youtube_id", widget: "string"}
+              - {label: "Description", name: "description", widget: "string", required: false}
           - label: "Gallery Images"
             name: "gallery"
             widget: "list"
             fields:
               - {label: "Image", name: "image", widget: "image", media_folder: "/images/jeppu/gallery"}
               - {label: "Caption", name: "caption", widget: "string", required: false}
+              - {label: "Category", name: "category", widget: "select", options: ["Exterior", "Interior", "Aerial View", "Lobby & Common Areas", "3D Render - Exterior", "3D Render - Interior", "Construction Progress", "Completed"]}
           - label: "Floor Plans"
             name: "floor_plans"
             widget: "list"
@@ -108,7 +150,15 @@ collections:
               - {label: "Size", name: "size", widget: "string"}
               - {label: "Floor Plan Image", name: "image", widget: "image", media_folder: "/images/jeppu/floor-plans"}
               - {label: "Availability", name: "availability", widget: "select", options: ["Available", "Operational", "Sold Out"]}
+          - label: "Nearby Landmarks"
+            name: "landmarks"
+            widget: "list"
+            fields:
+              - {label: "Icon (emoji)", name: "icon", widget: "string"}
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Distance", name: "distance", widget: "string"}
 
+  # ── BONITA ──
   - name: "bonita"
     label: "Bonita"
     files:
@@ -120,19 +170,22 @@ collections:
           - {label: "Tagline", name: "tagline", widget: "string"}
           - {label: "Status", name: "status", widget: "select", options: ["Ongoing", "Completed", "Upcoming"]}
           - {label: "Description", name: "description", widget: "text"}
+          - {label: "Google Maps Embed URL", name: "maps_embed", widget: "string", required: false}
+          - {label: "Google Maps Link", name: "maps_link", widget: "string", required: false}
           - label: "YouTube Videos"
             name: "videos"
             widget: "list"
             fields:
               - {label: "Video Title", name: "title", widget: "string"}
               - {label: "YouTube Video ID", name: "youtube_id", widget: "string"}
+              - {label: "Description", name: "description", widget: "string", required: false}
           - label: "Gallery Images"
             name: "gallery"
             widget: "list"
             fields:
               - {label: "Image", name: "image", widget: "image", media_folder: "/images/bonita/gallery"}
               - {label: "Caption", name: "caption", widget: "string", required: false}
-              - {label: "Category", name: "category", widget: "select", options: ["gallery", "completed"]}
+              - {label: "Category", name: "category", widget: "select", options: ["Exterior", "Interior", "Aerial View", "Lobby & Common Areas", "Amenities", "3D Render - Exterior", "3D Render - Interior", "Construction Progress", "Completed"]}
           - label: "Floor Plans"
             name: "floor_plans"
             widget: "list"
@@ -141,7 +194,15 @@ collections:
               - {label: "Size", name: "size", widget: "string"}
               - {label: "Floor Plan Image", name: "image", widget: "image", media_folder: "/images/bonita/floor-plans"}
               - {label: "Availability", name: "availability", widget: "select", options: ["Available", "Sold Out"]}
+          - label: "Nearby Landmarks"
+            name: "landmarks"
+            widget: "list"
+            fields:
+              - {label: "Icon (emoji)", name: "icon", widget: "string"}
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Distance", name: "distance", widget: "string"}
 
+  # ── SALUBRITY ──
   - name: "salubrity"
     label: "Salubrity"
     files:
@@ -153,18 +214,22 @@ collections:
           - {label: "Tagline", name: "tagline", widget: "string"}
           - {label: "Status", name: "status", widget: "select", options: ["Ongoing", "Completed", "Upcoming"]}
           - {label: "Description", name: "description", widget: "text"}
+          - {label: "Google Maps Embed URL", name: "maps_embed", widget: "string", required: false}
+          - {label: "Google Maps Link", name: "maps_link", widget: "string", required: false}
           - label: "YouTube Videos"
             name: "videos"
             widget: "list"
             fields:
               - {label: "Video Title", name: "title", widget: "string"}
               - {label: "YouTube Video ID", name: "youtube_id", widget: "string"}
+              - {label: "Description", name: "description", widget: "string", required: false}
           - label: "Gallery Images"
             name: "gallery"
             widget: "list"
             fields:
               - {label: "Image", name: "image", widget: "image", media_folder: "/images/salubrity/gallery"}
               - {label: "Caption", name: "caption", widget: "string", required: false}
+              - {label: "Category", name: "category", widget: "select", options: ["Exterior", "Interior", "Aerial View", "Lobby & Common Areas", "3D Render - Exterior", "3D Render - Interior", "Completed"]}
           - label: "Floor Plans"
             name: "floor_plans"
             widget: "list"
@@ -173,7 +238,15 @@ collections:
               - {label: "Size", name: "size", widget: "string"}
               - {label: "Floor Plan Image", name: "image", widget: "image", media_folder: "/images/salubrity/floor-plans"}
               - {label: "Availability", name: "availability", widget: "select", options: ["Available", "Operational", "Sold Out"]}
+          - label: "Nearby Landmarks"
+            name: "landmarks"
+            widget: "list"
+            fields:
+              - {label: "Icon (emoji)", name: "icon", widget: "string"}
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Distance", name: "distance", widget: "string"}
 
+  # ── SKYDALE ──
   - name: "skydale"
     label: "Skydale"
     files:
@@ -185,19 +258,22 @@ collections:
           - {label: "Tagline", name: "tagline", widget: "string"}
           - {label: "Status", name: "status", widget: "select", options: ["Ongoing", "Completed", "Upcoming"]}
           - {label: "Description", name: "description", widget: "text"}
+          - {label: "Google Maps Embed URL", name: "maps_embed", widget: "string", required: false}
+          - {label: "Google Maps Link", name: "maps_link", widget: "string", required: false}
           - label: "YouTube Videos"
             name: "videos"
             widget: "list"
             fields:
               - {label: "Video Title", name: "title", widget: "string"}
               - {label: "YouTube Video ID", name: "youtube_id", widget: "string"}
+              - {label: "Description", name: "description", widget: "string", required: false}
           - label: "Gallery Images"
             name: "gallery"
             widget: "list"
             fields:
               - {label: "Image", name: "image", widget: "image", media_folder: "/images/skydale/gallery"}
               - {label: "Caption", name: "caption", widget: "string", required: false}
-              - {label: "Category", name: "category", widget: "select", options: ["gallery", "completed"]}
+              - {label: "Category", name: "category", widget: "select", options: ["Exterior", "Interior", "Aerial View", "Lobby & Common Areas", "Amenities", "3D Render - Exterior", "3D Render - Interior", "Construction Progress", "Completed"]}
           - label: "Floor Plans"
             name: "floor_plans"
             widget: "list"
@@ -206,7 +282,15 @@ collections:
               - {label: "Size", name: "size", widget: "string"}
               - {label: "Floor Plan Image", name: "image", widget: "image", media_folder: "/images/skydale/floor-plans"}
               - {label: "Availability", name: "availability", widget: "select", options: ["Available", "Delivered", "Sold Out"]}
+          - label: "Nearby Landmarks"
+            name: "landmarks"
+            widget: "list"
+            fields:
+              - {label: "Icon (emoji)", name: "icon", widget: "string"}
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Distance", name: "distance", widget: "string"}
 
+  # ── FAIRMONT ──
   - name: "fairmont"
     label: "Fairmont"
     files:
@@ -218,18 +302,22 @@ collections:
           - {label: "Tagline", name: "tagline", widget: "string"}
           - {label: "Status", name: "status", widget: "select", options: ["Ongoing", "Completed", "Upcoming"]}
           - {label: "Description", name: "description", widget: "text"}
+          - {label: "Google Maps Embed URL", name: "maps_embed", widget: "string", required: false}
+          - {label: "Google Maps Link", name: "maps_link", widget: "string", required: false}
           - label: "YouTube Videos"
             name: "videos"
             widget: "list"
             fields:
               - {label: "Video Title", name: "title", widget: "string"}
               - {label: "YouTube Video ID", name: "youtube_id", widget: "string"}
+              - {label: "Description", name: "description", widget: "string", required: false}
           - label: "Gallery Images"
             name: "gallery"
             widget: "list"
             fields:
               - {label: "Image", name: "image", widget: "image", media_folder: "/images/fairmont/gallery"}
               - {label: "Caption", name: "caption", widget: "string", required: false}
+              - {label: "Category", name: "category", widget: "select", options: ["Exterior", "Interior", "Aerial View", "Lobby & Common Areas", "Amenities", "3D Render - Exterior", "3D Render - Interior", "Completed"]}
           - label: "Floor Plans"
             name: "floor_plans"
             widget: "list"
@@ -238,7 +326,15 @@ collections:
               - {label: "Size", name: "size", widget: "string"}
               - {label: "Floor Plan Image", name: "image", widget: "image", media_folder: "/images/fairmont/floor-plans"}
               - {label: "Availability", name: "availability", widget: "select", options: ["Available", "Operational", "Sold Out"]}
+          - label: "Nearby Landmarks"
+            name: "landmarks"
+            widget: "list"
+            fields:
+              - {label: "Icon (emoji)", name: "icon", widget: "string"}
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Distance", name: "distance", widget: "string"}
 
+  # ── OHANA ──
   - name: "ohana"
     label: "Ohana Luxury Stays"
     files:
@@ -250,19 +346,22 @@ collections:
           - {label: "Tagline", name: "tagline", widget: "string"}
           - {label: "Status", name: "status", widget: "select", options: ["Ongoing", "Completed", "Upcoming"]}
           - {label: "Description", name: "description", widget: "text"}
+          - {label: "Google Maps Embed URL", name: "maps_embed", widget: "string", required: false}
+          - {label: "Google Maps Link", name: "maps_link", widget: "string", required: false}
           - label: "YouTube Videos"
             name: "videos"
             widget: "list"
             fields:
               - {label: "Video Title", name: "title", widget: "string"}
               - {label: "YouTube Video ID", name: "youtube_id", widget: "string"}
+              - {label: "Description", name: "description", widget: "string", required: false}
           - label: "Gallery Images"
             name: "gallery"
             widget: "list"
             fields:
               - {label: "Image", name: "image", widget: "image", media_folder: "/images/ohana/gallery"}
               - {label: "Caption", name: "caption", widget: "string", required: false}
-              - {label: "Category", name: "category", widget: "select", options: ["gallery", "completed"]}
+              - {label: "Category", name: "category", widget: "select", options: ["Exterior", "Interior", "Aerial View", "Cottages", "Amenities", "Nature & Views", "3D Render - Exterior", "3D Render - Interior", "Completed"]}
           - label: "Cottage Types"
             name: "floor_plans"
             widget: "list"
@@ -271,7 +370,15 @@ collections:
               - {label: "Description", name: "size", widget: "string"}
               - {label: "Image", name: "image", widget: "image", media_folder: "/images/ohana/gallery"}
               - {label: "Availability", name: "availability", widget: "select", options: ["Available", "Limited", "Sold Out"]}
+          - label: "Nearby Landmarks"
+            name: "landmarks"
+            widget: "list"
+            fields:
+              - {label: "Icon (emoji)", name: "icon", widget: "string"}
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Distance", name: "distance", widget: "string"}
 
+  # ── SPLENDID ──
   - name: "splendid"
     label: "Splendid Homes"
     files:
@@ -283,19 +390,22 @@ collections:
           - {label: "Tagline", name: "tagline", widget: "string"}
           - {label: "Status", name: "status", widget: "select", options: ["Ongoing", "Completed", "Upcoming"]}
           - {label: "Description", name: "description", widget: "text"}
+          - {label: "Google Maps Embed URL", name: "maps_embed", widget: "string", required: false}
+          - {label: "Google Maps Link", name: "maps_link", widget: "string", required: false}
           - label: "YouTube Videos"
             name: "videos"
             widget: "list"
             fields:
               - {label: "Video Title", name: "title", widget: "string"}
               - {label: "YouTube Video ID", name: "youtube_id", widget: "string"}
+              - {label: "Description", name: "description", widget: "string", required: false}
           - label: "Gallery Images"
             name: "gallery"
             widget: "list"
             fields:
               - {label: "Image", name: "image", widget: "image", media_folder: "/images/splendid/gallery"}
               - {label: "Caption", name: "caption", widget: "string", required: false}
-              - {label: "Category", name: "category", widget: "select", options: ["gallery", "completed"]}
+              - {label: "Category", name: "category", widget: "select", options: ["Exterior", "Interior", "Aerial View", "Lobby & Common Areas", "Amenities", "3D Render - Exterior", "3D Render - Interior", "Construction Progress", "Completed"]}
           - label: "Floor Plans"
             name: "floor_plans"
             widget: "list"
@@ -304,3 +414,10 @@ collections:
               - {label: "Size", name: "size", widget: "string"}
               - {label: "Floor Plan Image", name: "image", widget: "image", media_folder: "/images/splendid/floor-plans"}
               - {label: "Availability", name: "availability", widget: "select", options: ["Available", "Delivered", "Sold Out"]}
+          - label: "Nearby Landmarks"
+            name: "landmarks"
+            widget: "list"
+            fields:
+              - {label: "Icon (emoji)", name: "icon", widget: "string"}
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Distance", name: "distance", widget: "string"}
