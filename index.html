@@ -306,7 +306,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);display:
   background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.2);
   color:rgba(255,255,255,0.9);
 }
-/* placeholder visuals */
+/* When filtered — auto flow, no fixed positions, no gaps */
+#pgrid.filtered{
+  grid-template-columns:1fr 1fr;
+  grid-auto-rows:calc((50vw - 2px) / 2);
+  grid-auto-flow:row dense;
+}
+#pgrid.filtered .proj-card{
+  grid-column:unset !important;
+  grid-row:unset !important;
+}
+@media(min-width:768px){
+  #pgrid.filtered{
+    grid-auto-rows:calc((50vw - 32px) / 2);
+  }
+}
 .v-sig{background:linear-gradient(170deg,#1e1a08,#2a2010,#1e1a08)}
 .v-van{background:linear-gradient(170deg,#0c1420,#14203a,#0c1420)}
 .v-sal{background:linear-gradient(170deg,#1a100a,#241610,#1a100a)}
@@ -1006,9 +1020,27 @@ document.addEventListener('click',e=>{
 function filterP(cat,btn){
   document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  document.querySelectorAll('#pgrid .proj-card').forEach(c=>{
-    c.style.display=(cat==='all'||c.dataset.cat.includes(cat))?'':'none';
-  });
+  const grid=document.getElementById('pgrid');
+  const cards=document.querySelectorAll('#pgrid .proj-card');
+
+  if(cat==='all'){
+    // Restore original layout with explicit positions
+    grid.classList.remove('filtered');
+    cards.forEach(c=>{
+      c.style.display='';
+      c.style.gridColumn='';
+      c.style.gridRow='';
+    });
+  } else {
+    // Switch to auto-flow grid — no gaps
+    grid.classList.add('filtered');
+    cards.forEach(c=>{
+      const show=c.dataset.cat.includes(cat);
+      c.style.display=show?'block':'none';
+      c.style.gridColumn='';
+      c.style.gridRow='';
+    });
+  }
 }
 
 // ── SCROLL REVEAL ──
