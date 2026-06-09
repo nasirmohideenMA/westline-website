@@ -204,9 +204,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);display:
   gap:16px;
 }
 .proj-card{
-  background:var(--surface);
+  background:var(--ivory);
   border:1px solid var(--border);
-  border-radius:6px;
+  border-radius:4px;
   overflow:visible;
   display:flex;
   flex-direction:column;
@@ -214,62 +214,93 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);display:
   transition:transform 0.3s ease,box-shadow 0.3s ease;
   text-decoration:none;
 }
-.proj-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(166,124,61,0.12)}
+.proj-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(166,124,61,0.15)}
 /* Image container */
-.proj-img-wrap{width:100%;aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:6px 6px 0 0;flex-shrink:0}
+.proj-img-wrap{width:100%;aspect-ratio:4/3;position:relative;overflow:hidden;border-radius:4px 4px 0 0;flex-shrink:0}
 .proj-img{
   width:100%;height:100%;
   background-size:cover;background-position:center;
   position:absolute;inset:0;
-  transition:transform 0.5s ease;
+  transition:transform 0.6s ease;
 }
-.proj-card:hover .proj-img{transform:scale(1.05)}
+.proj-card:hover .proj-img{transform:scale(1.06)}
 .proj-status{
   position:absolute;top:10px;left:10px;
-  font-size:8px;letter-spacing:0.18em;text-transform:uppercase;
-  padding:4px 10px;font-weight:600;z-index:2;
+  font-size:7px;letter-spacing:0.18em;text-transform:uppercase;
+  padding:4px 10px;font-weight:600;z-index:2;border-radius:2px;
 }
-.s-ongoing{background:rgba(140,96,36,0.95);color:#fff}
-.s-completed{background:rgba(34,100,60,0.95);color:#fff}
-.s-upcoming{background:rgba(30,80,170,0.95);color:#fff}
+.s-ongoing{background:rgba(140,96,36,0.92);color:#fff}
+.s-completed{background:rgba(34,100,60,0.92);color:#fff}
+.s-upcoming{background:rgba(30,80,170,0.92);color:#fff}
 .proj-type-badge{
   position:absolute;top:10px;right:10px;
-  font-size:8px;letter-spacing:0.15em;text-transform:uppercase;
-  padding:4px 10px;font-weight:600;z-index:2;
-  background:rgba(0,0,0,0.55);border:1px solid rgba(255,255,255,0.25);color:#fff;
+  font-size:7px;letter-spacing:0.15em;text-transform:uppercase;
+  padding:4px 10px;font-weight:600;z-index:2;border-radius:2px;
+  background:rgba(10,8,6,0.6);border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.95);
 }
-.proj-body{padding:14px 16px}
+/* Gold top border on hover */
+.proj-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;
+  transition:transform 0.4s ease;z-index:5;border-radius:4px 4px 0 0;
+}
+.proj-card:hover::before{transform:scaleX(1)}
+.proj-body{
+  padding:14px 16px 16px;
+  background:var(--ivory);
+  border-top:1px solid var(--border);
+  flex:1;display:flex;flex-direction:column;
+}
 .proj-name{
   font-family:'Cormorant Garamond',serif;
-  font-size:20px;font-weight:300;line-height:1.1;
+  font-size:18px;font-weight:300;line-height:1.15;
   color:var(--ink);margin-bottom:3px;
 }
-.proj-loc{font-size:11px;color:var(--text2);margin-bottom:6px}
-.proj-price{font-size:11px;font-weight:500;color:var(--gold);margin-bottom:10px;letter-spacing:0.04em}
+.proj-loc{
+  font-size:10px;color:var(--text2);margin-bottom:6px;
+  display:flex;align-items:center;gap:4px;
+}
+.proj-loc::before{content:'📍';font-size:9px}
+.proj-price{
+  font-size:11px;font-weight:500;color:var(--gold);
+  margin-bottom:10px;letter-spacing:0.04em;font-family:'Jost',sans-serif;
+}
 .proj-specs{
-  display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;
   border-top:1px solid var(--border);padding-top:10px;margin-bottom:10px;
+  background:var(--cream2);
+  margin-left:-16px;margin-right:-16px;
+  padding-left:16px;padding-right:16px;
+  padding-bottom:10px;
 }
 .spec-item{display:flex;flex-direction:column;gap:2px}
-.spec-key{font-size:8px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted)}
-.spec-val{font-size:11px;font-weight:500;color:var(--text)}
+.spec-key{
+  font-size:7px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--muted);font-family:'Jost',sans-serif;
+}
+.spec-val{font-size:11px;font-weight:500;color:var(--text);font-family:'Jost',sans-serif}
 .proj-footer{
   display:flex;justify-content:space-between;align-items:center;
-  border-top:1px solid var(--border);padding-top:10px;
+  border-top:1px solid var(--border);padding-top:10px;margin-top:auto;
 }
 .proj-cta-link{
   font-size:9px;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--gold);font-weight:500;display:flex;align-items:center;gap:5px;transition:gap 0.3s;
+  color:var(--gold);font-weight:500;display:flex;align-items:center;
+  gap:5px;transition:gap 0.3s;font-family:'Jost',sans-serif;
 }
 .proj-card:hover .proj-cta-link{gap:9px}
 .proj-cta-link::after{content:'→'}
 .proj-enq-btn{
-  font-size:9px;letter-spacing:0.15em;text-transform:uppercase;
-  padding:6px 14px;background:var(--gold);color:#fff;
-  border:none;border-radius:2px;cursor:pointer;font-family:'Jost',sans-serif;font-weight:600;transition:background 0.3s;
+  font-size:8px;letter-spacing:0.15em;text-transform:uppercase;
+  padding:7px 14px;background:var(--gold);color:#fff;
+  border:none;border-radius:2px;cursor:pointer;
+  font-family:'Jost',sans-serif;font-weight:600;transition:background 0.3s;
 }
 .proj-enq-btn:hover{background:var(--ink)}
-/* filtered — cards just reflow */
+/* Dark theme card adjustments */
+[data-theme="dark"] .proj-card{background:var(--surface);border-color:var(--border)}
+[data-theme="dark"] .proj-body{background:var(--surface)}
+[data-theme="dark"] .proj-specs{background:var(--bg2)}
 #pgrid.filtered .proj-card[style*="display: none"]{display:none!important}
 /* Mobile — 1 column */
 @media(max-width:600px){.proj-grid{grid-template-columns:1fr;gap:12px}}
@@ -590,7 +621,7 @@ footer{background:var(--footer-bg);padding:40px 24px 32px;transition:background 
     <!-- 1: SIGNATURE -->
     <a class="proj-card" data-cat="residential ongoing" href="signature.html">
       <div class="proj-img-wrap">
-        <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/signature.jpg')"></div>
+        <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto,w_800/signature.jpg')"></div>
         <span class="proj-status s-ongoing">Ongoing · Flagship</span>
         <span class="proj-type-badge">Residential</span>
       </div>
@@ -613,7 +644,7 @@ footer{background:var(--footer-bg);padding:40px 24px 32px;transition:background 
     <!-- 2: VANTAGE -->
     <a class="proj-card" data-cat="commercial upcoming" href="vantage.html">
       <div class="proj-img-wrap">
-        <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/vantage.jpg')"></div>
+        <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto,w_800/vantage.jpg')"></div>
         <span class="proj-status s-upcoming">Just Launched</span>
         <span class="proj-type-badge">Commercial</span>
       </div>
@@ -636,7 +667,7 @@ footer{background:var(--footer-bg);padding:40px 24px 32px;transition:background 
     <!-- 3: SALUBRITY -->
     <a class="proj-card" data-cat="commercial completed" href="salubrity.html">
       <div class="proj-img-wrap">
-        <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/salubrity.jpg')"></div>
+        <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto,w_800/salubrity.jpg')"></div>
         <span class="proj-status s-completed">Completed</span>
         <span class="proj-type-badge">Commercial</span>
       </div>
@@ -659,7 +690,7 @@ footer{background:var(--footer-bg);padding:40px 24px 32px;transition:background 
     <!-- 4: JEPPU -->
     <a class="proj-card" data-cat="commercial completed" href="jeppu.html">
       <div class="proj-img-wrap">
-        <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/jeppu.jpg')"></div>
+        <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto,w_800/jeppu.jpg')"></div>
         <span class="proj-status s-completed">Completed</span>
         <span class="proj-type-badge">Commercial</span>
       </div>
@@ -682,7 +713,7 @@ footer{background:var(--footer-bg);padding:40px 24px 32px;transition:background 
     <!-- 5: CUBIX -->
     <a class="proj-card" data-cat="commercial completed" href="cubix.html">
       <div class="proj-img-wrap">
-        <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/cubix.jpg')"></div>
+        <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto,w_800/cubix.jpg')"></div>
         <span class="proj-status s-completed">Completed</span>
         <span class="proj-type-badge">Commercial</span>
       </div>
@@ -705,7 +736,7 @@ footer{background:var(--footer-bg);padding:40px 24px 32px;transition:background 
     <!-- 6: SKYDALE -->
     <a class="proj-card" data-cat="residential completed" href="skydale.html">
       <div class="proj-img-wrap">
-        <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/skydale.jpg')"></div>
+        <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto,w_800/skydale.jpg')"></div>
         <span class="proj-status s-completed">Completed</span>
         <span class="proj-type-badge">Residential</span>
       </div>
@@ -728,7 +759,7 @@ footer{background:var(--footer-bg);padding:40px 24px 32px;transition:background 
     <!-- 7: OHANA -->
     <a class="proj-card" data-cat="hospitality completed" href="ohana.html">
       <div class="proj-img-wrap">
-        <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/ohana.jpg')"></div>
+        <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto,w_800/ohana.jpg')"></div>
         <span class="proj-status s-completed">Completed</span>
         <span class="proj-type-badge">Hospitality</span>
       </div>
@@ -751,7 +782,7 @@ footer{background:var(--footer-bg);padding:40px 24px 32px;transition:background 
     <!-- 8: FAIRMONT -->
     <a class="proj-card" data-cat="hospitality completed" href="fairmont.html">
       <div class="proj-img-wrap">
-        <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/fairmont.jpg')"></div>
+        <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto,w_800/fairmont.jpg')"></div>
         <span class="proj-status s-completed">Completed</span>
         <span class="proj-type-badge">Hospitality</span>
       </div>
@@ -774,7 +805,7 @@ footer{background:var(--footer-bg);padding:40px 24px 32px;transition:background 
     <!-- 9: SPLENDID -->
     <a class="proj-card" data-cat="residential completed" href="splendid.html">
       <div class="proj-img-wrap">
-        <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/splendid.jpg')"></div>
+        <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto,w_800/splendid.jpg')"></div>
         <span class="proj-status s-completed">Completed</span>
         <span class="proj-type-badge">Residential</span>
       </div>
@@ -797,7 +828,7 @@ footer{background:var(--footer-bg);padding:40px 24px 32px;transition:background 
     <!-- 10: BONITA -->
     <a class="proj-card" data-cat="residential completed" href="bonita.html">
       <div class="proj-img-wrap">
-        <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/bonita.jpg')"></div>
+        <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto,w_800/bonita.jpg')"></div>
         <span class="proj-status s-completed">Completed</span>
         <span class="proj-type-badge">Residential</span>
       </div>
