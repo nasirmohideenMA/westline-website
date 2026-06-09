@@ -197,130 +197,81 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);display:
 .filter-scroll::-webkit-scrollbar{display:none}
 .fbtn{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;padding:8px 16px;border:1px solid var(--border);color:var(--text2);background:transparent;cursor:pointer;white-space:nowrap;flex-shrink:0;font-family:'Jost',sans-serif;transition:all 0.3s}
 .fbtn.active,.fbtn:active{border-color:var(--gold);color:var(--gold);background:var(--gold-p)}
-/* ══ PROJECT GRID ══
-   2 equal columns.
-   Row height = (50vw - 2px) / 2  →  half cards are square (1:1)
-   Tall cards span 2 rows          →  portrait ratio exactly 1:2
-
-   Col:  1           2
-   Row1: [SIGNATURE] [Vantage  ]   ← Signature 1:2 portrait (spans rows 1+2)
-   Row2: [SIGNATURE] [Salubrity]
-   Row3: [Jeppu    ] [CUBIX    ]   ← Cubix 1:2 portrait (spans rows 3+4)
-   Row4: [Skydale  ] [CUBIX    ]
-   Row5: [Ohana    ] [Fairmont ]
-   Row6: [Splendid ] [Bonita   ]
-*/
+/* ══ PROJECT GRID — OPTION B LIGHT CARDS ══ */
 .proj-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  grid-auto-rows:calc((50vw - 2px) / 2);
-  gap:3px;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:20px;
 }
-.proj-card{position:relative;overflow:hidden;display:block;cursor:pointer}
-
-/* 1: SIGNATURE — col1, rows 1-2 (1:2 portrait TALL) */
-.proj-card:nth-child(1){grid-column:1;grid-row:1 / span 2}
-/* 2: VANTAGE — col2, row 1 (square) */
-.proj-card:nth-child(2){grid-column:2;grid-row:1}
-/* 3: SALUBRITY — col2, row 2 (square) */
-.proj-card:nth-child(3){grid-column:2;grid-row:2}
-/* 4: JEPPU — col1, row 3 (square) */
-.proj-card:nth-child(4){grid-column:1;grid-row:3}
-/* 5: CUBIX — col2, rows 3-4 (1:2 portrait TALL) */
-.proj-card:nth-child(5){grid-column:2;grid-row:3 / span 2}
-/* 6: SKYDALE — col1, row 4 (square) */
-.proj-card:nth-child(6){grid-column:1;grid-row:4}
-/* 7: OHANA — col1, row 5 (square) */
-.proj-card:nth-child(7){grid-column:1;grid-row:5}
-/* 8: FAIRMONT — col2, row 5 (square) */
-.proj-card:nth-child(8){grid-column:2;grid-row:5}
-/* 9: SPLENDID — col1, row 6 (square) */
-.proj-card:nth-child(9){grid-column:1;grid-row:6}
-/* 10: BONITA — col2, row 6 (square) */
-.proj-card:nth-child(10){grid-column:2;grid-row:6}
-
-/* Image always fills 100% of card */
+.proj-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:6px;
+  overflow:hidden;
+  display:block;
+  cursor:pointer;
+  transition:transform 0.3s ease,box-shadow 0.3s ease;
+}
+.proj-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(166,124,61,0.12)}
 .proj-img{
-  position:absolute;top:0;left:0;width:100%;height:100%;
-  background-size:cover;background-position:center center;
-  transition:transform 0.7s ease;
+  width:100%;aspect-ratio:16/9;
+  background-size:cover;background-position:center;
+  position:relative;overflow:hidden;display:block;
+  transition:transform 0.5s ease;
 }
-.proj-card:hover .proj-img,.proj-card:active .proj-img{transform:scale(1.04)}
-
-/* Overlay fills card, content bottom-aligned */
-.proj-overlay{
-  position:absolute;top:0;left:0;width:100%;height:100%;
-  background:linear-gradient(to top,rgba(6,4,2,0.96) 0%,rgba(6,4,2,0.6) 35%,rgba(6,4,2,0.1) 60%,transparent 100%);
-  display:flex;flex-direction:column;justify-content:flex-end;
-  padding:12px;transition:background 0.4s;
-}
-.proj-card:nth-child(1) .proj-overlay,
-.proj-card:nth-child(5) .proj-overlay{padding:20px}
-
-/* Gold accent on hover */
-.proj-card::after{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:var(--gold);transform:scaleX(0);transform-origin:left;
-  transition:transform 0.4s ease;z-index:5;
-}
-.proj-card:hover::after{transform:scaleX(1)}
-
-/* Status badge — mobile small */
+.proj-card:hover .proj-img{transform:scale(1.03)}
 .proj-status{
-  display:inline-block;font-size:7px;letter-spacing:0.12em;
-  text-transform:uppercase;padding:3px 8px;margin-bottom:4px;
-  font-weight:600;align-self:flex-start;backdrop-filter:blur(8px);
+  position:absolute;top:10px;left:10px;
+  font-size:8px;letter-spacing:0.18em;text-transform:uppercase;
+  padding:4px 10px;font-weight:600;z-index:2;
 }
-.s-ongoing{background:rgba(166,124,61,0.25);border:1px solid rgba(166,124,61,0.6);color:var(--gold-l)}
-.s-completed{background:rgba(80,180,100,0.2);border:1px solid rgba(80,180,100,0.5);color:#7dd49a}
-.s-upcoming{background:rgba(100,150,220,0.2);border:1px solid rgba(100,150,220,0.5);color:#78a8e0}
-
-/* Project name — mobile small */
-.proj-name{
-  font-family:'Cormorant Garamond',serif;font-size:14px;
-  font-weight:300;line-height:1.05;margin-bottom:2px;color:#fff;
-}
-/* Tall cards slightly bigger on mobile */
-.proj-card:nth-child(1) .proj-name,
-.proj-card:nth-child(5) .proj-name{font-size:18px;margin-bottom:3px}
-
-/* Location — mobile small */
-.proj-loc{font-size:9px;color:rgba(255,255,255,0.65);margin-bottom:4px;letter-spacing:0.03em;display:block}
-.proj-card:nth-child(1) .proj-loc,
-.proj-card:nth-child(5) .proj-loc{font-size:10px}
-
-/* CTA — mobile small */
-.proj-cta-link{
-  display:inline-flex;align-items:center;gap:4px;
-  font-size:7px;letter-spacing:0.12em;text-transform:uppercase;
-  color:var(--gold-l);font-weight:500;
-}
-.proj-cta-link::after{content:'→';transition:transform 0.3s}
-.proj-card:hover .proj-cta-link::after{transform:translateX(3px)}
-
-/* Type badge — mobile small */
+.s-ongoing{background:rgba(140,96,36,0.95);color:#fff}
+.s-completed{background:rgba(34,100,60,0.95);color:#fff}
+.s-upcoming{background:rgba(30,80,170,0.95);color:#fff}
 .proj-type-badge{
-  position:absolute;top:7px;right:7px;z-index:4;
-  font-size:6px;letter-spacing:0.15em;text-transform:uppercase;
-  padding:3px 7px;font-weight:600;backdrop-filter:blur(8px);
-  background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.2);
-  color:rgba(255,255,255,0.9);
+  position:absolute;top:10px;right:10px;
+  font-size:8px;letter-spacing:0.15em;text-transform:uppercase;
+  padding:4px 10px;font-weight:600;z-index:2;
+  background:rgba(0,0,0,0.55);border:1px solid rgba(255,255,255,0.25);color:#fff;
 }
-/* When filtered — auto flow, no fixed positions, no gaps */
-#pgrid.filtered{
-  grid-template-columns:1fr 1fr;
-  grid-auto-rows:calc((50vw - 2px) / 2);
-  grid-auto-flow:row dense;
+.proj-body{padding:16px 18px}
+.proj-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:300;line-height:1.1;
+  color:var(--ink);margin-bottom:4px;
 }
-#pgrid.filtered .proj-card{
-  grid-column:unset !important;
-  grid-row:unset !important;
+.proj-loc{font-size:11px;color:var(--text2);margin-bottom:8px}
+.proj-price{font-size:11px;font-weight:500;color:var(--gold);margin-bottom:12px;letter-spacing:0.05em}
+.proj-specs{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;
+  border-top:1px solid var(--border);padding-top:12px;margin-bottom:12px;
 }
-@media(min-width:768px){
-  #pgrid.filtered{
-    grid-auto-rows:calc((50vw - 32px) / 2);
-  }
+.spec-item{display:flex;flex-direction:column;gap:2px}
+.spec-key{font-size:8px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted)}
+.spec-val{font-size:11px;font-weight:500;color:var(--text)}
+.proj-footer{
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid var(--border);padding-top:12px;
 }
+.proj-cta-link{
+  font-size:9px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--gold);font-weight:500;display:flex;align-items:center;gap:5px;transition:gap 0.3s;
+}
+.proj-card:hover .proj-cta-link{gap:9px}
+.proj-cta-link::after{content:'→'}
+.proj-enq-btn{
+  font-size:9px;letter-spacing:0.15em;text-transform:uppercase;
+  padding:7px 16px;background:var(--gold);color:#fff;
+  border:none;border-radius:2px;cursor:pointer;font-family:'Jost',sans-serif;font-weight:600;transition:background 0.3s;
+}
+.proj-enq-btn:hover{background:var(--ink)}
+/* filtered state */
+#pgrid.filtered .proj-card[style*="display: none"]{display:none!important}
+/* Mobile — single column */
+@media(max-width:540px){
+  .proj-grid{grid-template-columns:1fr;gap:16px}
+}
+
 .v-sig{background:linear-gradient(170deg,#1e1a08,#2a2010,#1e1a08)}
 .v-van{background:linear-gradient(170deg,#0c1420,#14203a,#0c1420)}
 .v-sal{background:linear-gradient(170deg,#1a100a,#241610,#1a100a)}
@@ -634,121 +585,221 @@ footer{background:var(--footer-bg);padding:40px 24px 32px;transition:background 
 
     <!-- 1: SIGNATURE -->
     <a class="proj-card" data-cat="residential ongoing" href="signature.html">
-      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/signature.jpg');background-position:center top"></div>
-      <span class="proj-type-badge">Residential</span>
-      <div class="proj-overlay">
+      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/signature.jpg')">
         <span class="proj-status s-ongoing">Ongoing · Flagship</span>
+        <span class="proj-type-badge">Residential</span>
+      </div>
+      <div class="proj-body">
         <div class="proj-name">Westline Signature</div>
-        <div class="proj-loc">3B+G+50 Floors · NH66, Nanthoor</div>
-        <span class="proj-cta-link">View Project</span>
+        <div class="proj-loc">NH66, Nanthoor Hilltop · Mangalore</div>
+        <div class="proj-price">Price on Request</div>
+        <div class="proj-specs">
+          <div class="spec-item"><span class="spec-key">Type</span><span class="spec-val">Luxury Residential</span></div>
+          <div class="spec-item"><span class="spec-key">Floors</span><span class="spec-val">3B + G + 50</span></div>
+          <div class="spec-item"><span class="spec-key">Status</span><span class="spec-val">Ongoing</span></div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-cta-link">View Project</span>
+          <button class="proj-enq-btn" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enquire</button>
+        </div>
       </div>
     </a>
 
     <!-- 2: VANTAGE -->
     <a class="proj-card" data-cat="commercial upcoming" href="vantage.html">
-      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/vantage.jpg');background-position:center center"></div>
-      <span class="proj-type-badge">Commercial</span>
-      <div class="proj-overlay">
+      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/vantage.jpg')">
         <span class="proj-status s-upcoming">Just Launched</span>
+        <span class="proj-type-badge">Commercial</span>
+      </div>
+      <div class="proj-body">
         <div class="proj-name">Vantage</div>
-        <div class="proj-loc">Kankanady, Mangalore</div>
-        <span class="proj-cta-link">View Project</span>
+        <div class="proj-loc">Fr Muller Road & Balikashram Road · Kankanady</div>
+        <div class="proj-price">Price on Request</div>
+        <div class="proj-specs">
+          <div class="spec-item"><span class="spec-key">Type</span><span class="spec-val">Commercial</span></div>
+          <div class="spec-item"><span class="spec-key">Floors</span><span class="spec-val">3B + G + 6</span></div>
+          <div class="spec-item"><span class="spec-key">Status</span><span class="spec-val">Upcoming</span></div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-cta-link">View Project</span>
+          <button class="proj-enq-btn" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enquire</button>
+        </div>
       </div>
     </a>
 
     <!-- 3: SALUBRITY -->
     <a class="proj-card" data-cat="commercial completed" href="salubrity.html">
-      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/salubrity.jpg');background-position:center center"></div>
-      <span class="proj-type-badge">Commercial</span>
-      <div class="proj-overlay">
+      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/salubrity.jpg')">
         <span class="proj-status s-completed">Completed</span>
+        <span class="proj-type-badge">Commercial</span>
+      </div>
+      <div class="proj-body">
         <div class="proj-name">Salubrity</div>
-        <div class="proj-loc">Falnir, Mangalore</div>
-        <span class="proj-cta-link">View Project</span>
+        <div class="proj-loc">Falnir · Mangalore</div>
+        <div class="proj-price">Price on Request</div>
+        <div class="proj-specs">
+          <div class="spec-item"><span class="spec-key">Type</span><span class="spec-val">Polyclinics</span></div>
+          <div class="spec-item"><span class="spec-key">Floors</span><span class="spec-val">G + 5</span></div>
+          <div class="spec-item"><span class="spec-key">Status</span><span class="spec-val">Completed</span></div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-cta-link">View Project</span>
+          <button class="proj-enq-btn" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enquire</button>
+        </div>
       </div>
     </a>
 
     <!-- 4: JEPPU -->
     <a class="proj-card" data-cat="commercial completed" href="jeppu.html">
-      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/jeppu.jpg');background-position:center center"></div>
-      <span class="proj-type-badge">Commercial</span>
-      <div class="proj-overlay">
+      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/jeppu.jpg')">
         <span class="proj-status s-completed">Completed</span>
+        <span class="proj-type-badge">Commercial</span>
+      </div>
+      <div class="proj-body">
         <div class="proj-name">Jeppu Medicity</div>
-        <div class="proj-loc">Jeppu, Mangalore</div>
-        <span class="proj-cta-link">View Project</span>
+        <div class="proj-loc">Jeppu · Mangalore</div>
+        <div class="proj-price">Price on Request</div>
+        <div class="proj-specs">
+          <div class="spec-item"><span class="spec-key">Type</span><span class="spec-val">Healthcare</span></div>
+          <div class="spec-item"><span class="spec-key">Floors</span><span class="spec-val">G + 4</span></div>
+          <div class="spec-item"><span class="spec-key">Status</span><span class="spec-val">Completed</span></div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-cta-link">View Project</span>
+          <button class="proj-enq-btn" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enquire</button>
+        </div>
       </div>
     </a>
 
     <!-- 5: CUBIX -->
     <a class="proj-card" data-cat="commercial completed" href="cubix.html">
-      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/cubix.jpg');background-position:center top"></div>
-      <span class="proj-type-badge">Commercial</span>
-      <div class="proj-overlay">
+      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/cubix.jpg')">
         <span class="proj-status s-completed">Completed</span>
+        <span class="proj-type-badge">Commercial</span>
+      </div>
+      <div class="proj-body">
         <div class="proj-name">Cubix</div>
-        <div class="proj-loc">IT Park &amp; Hotel · Kadri</div>
-        <span class="proj-cta-link">View Project</span>
+        <div class="proj-loc">Kadri · Mangalore</div>
+        <div class="proj-price">Price on Request</div>
+        <div class="proj-specs">
+          <div class="spec-item"><span class="spec-key">Type</span><span class="spec-val">IT Park & Hotel</span></div>
+          <div class="spec-item"><span class="spec-key">Floors</span><span class="spec-val">G + 6</span></div>
+          <div class="spec-item"><span class="spec-key">Status</span><span class="spec-val">Completed</span></div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-cta-link">View Project</span>
+          <button class="proj-enq-btn" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enquire</button>
+        </div>
       </div>
     </a>
 
     <!-- 6: SKYDALE -->
     <a class="proj-card" data-cat="residential completed" href="skydale.html">
-      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/skydale.jpg');background-position:center center"></div>
-      <span class="proj-type-badge">Residential</span>
-      <div class="proj-overlay">
+      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/skydale.jpg')">
         <span class="proj-status s-completed">Completed</span>
+        <span class="proj-type-badge">Residential</span>
+      </div>
+      <div class="proj-body">
         <div class="proj-name">Skydale</div>
-        <div class="proj-loc">Bikkarnakatte, Mangalore</div>
-        <span class="proj-cta-link">View Project</span>
+        <div class="proj-loc">Bikkarnakatte · Mangalore</div>
+        <div class="proj-price">Price on Request</div>
+        <div class="proj-specs">
+          <div class="spec-item"><span class="spec-key">Type</span><span class="spec-val">Residential</span></div>
+          <div class="spec-item"><span class="spec-key">Floors</span><span class="spec-val">G + 4</span></div>
+          <div class="spec-item"><span class="spec-key">Status</span><span class="spec-val">Delivered</span></div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-cta-link">View Project</span>
+          <button class="proj-enq-btn" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enquire</button>
+        </div>
       </div>
     </a>
 
     <!-- 7: OHANA -->
     <a class="proj-card" data-cat="hospitality completed" href="ohana.html">
-      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/ohana.jpg');background-position:center center"></div>
-      <span class="proj-type-badge">Hospitality</span>
-      <div class="proj-overlay">
+      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/ohana.jpg')">
         <span class="proj-status s-completed">Completed</span>
+        <span class="proj-type-badge">Hospitality</span>
+      </div>
+      <div class="proj-body">
         <div class="proj-name">Ohana Luxury Stays</div>
-        <div class="proj-loc">Boutique Resort · Chikmagalur</div>
-        <span class="proj-cta-link">View Project</span>
+        <div class="proj-loc">Mullayanagiri · Chikmagalur</div>
+        <div class="proj-price">Price on Request</div>
+        <div class="proj-specs">
+          <div class="spec-item"><span class="spec-key">Type</span><span class="spec-val">Boutique Resort</span></div>
+          <div class="spec-item"><span class="spec-key">Altitude</span><span class="spec-val">1,900m ASL</span></div>
+          <div class="spec-item"><span class="spec-key">Status</span><span class="spec-val">Operational</span></div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-cta-link">View Project</span>
+          <button class="proj-enq-btn" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enquire</button>
+        </div>
       </div>
     </a>
 
     <!-- 8: FAIRMONT -->
     <a class="proj-card" data-cat="hospitality completed" href="fairmont.html">
-      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/fairmont.jpg');background-position:center center"></div>
-      <span class="proj-type-badge">Hospitality</span>
-      <div class="proj-overlay">
+      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/fairmont.jpg')">
         <span class="proj-status s-completed">Completed</span>
+        <span class="proj-type-badge">Hospitality</span>
+      </div>
+      <div class="proj-body">
         <div class="proj-name">Fairmont</div>
-        <div class="proj-loc">Serviced Apartments · Kadri</div>
-        <span class="proj-cta-link">View Project</span>
+        <div class="proj-loc">Kadri · Mangalore</div>
+        <div class="proj-price">Price on Request</div>
+        <div class="proj-specs">
+          <div class="spec-item"><span class="spec-key">Type</span><span class="spec-val">Serviced Apts</span></div>
+          <div class="spec-item"><span class="spec-key">Floors</span><span class="spec-val">G + 4</span></div>
+          <div class="spec-item"><span class="spec-key">Status</span><span class="spec-val">Operational</span></div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-cta-link">View Project</span>
+          <button class="proj-enq-btn" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enquire</button>
+        </div>
       </div>
     </a>
 
     <!-- 9: SPLENDID -->
     <a class="proj-card" data-cat="residential completed" href="splendid.html">
-      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/splendid.jpg');background-position:center center"></div>
-      <span class="proj-type-badge">Residential</span>
-      <div class="proj-overlay">
+      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/splendid.jpg')">
         <span class="proj-status s-completed">Completed</span>
+        <span class="proj-type-badge">Residential</span>
+      </div>
+      <div class="proj-body">
         <div class="proj-name">Splendid Homes</div>
-        <div class="proj-loc">Residential · Kulashekar</div>
-        <span class="proj-cta-link">View Project</span>
+        <div class="proj-loc">Kulashekar · Mangalore</div>
+        <div class="proj-price">Price on Request</div>
+        <div class="proj-specs">
+          <div class="spec-item"><span class="spec-key">Type</span><span class="spec-val">Residential</span></div>
+          <div class="spec-item"><span class="spec-key">Floors</span><span class="spec-val">G + 3</span></div>
+          <div class="spec-item"><span class="spec-key">Status</span><span class="spec-val">Delivered</span></div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-cta-link">View Project</span>
+          <button class="proj-enq-btn" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enquire</button>
+        </div>
       </div>
     </a>
 
     <!-- 10: BONITA -->
     <a class="proj-card" data-cat="residential completed" href="bonita.html">
-      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/bonita.jpg');background-position:center center"></div>
-      <span class="proj-type-badge">Residential</span>
-      <div class="proj-overlay">
+      <div class="proj-img" style="background-image:url('https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/bonita.jpg')">
         <span class="proj-status s-completed">Completed</span>
+        <span class="proj-type-badge">Residential</span>
+      </div>
+      <div class="proj-body">
         <div class="proj-name">Bonita</div>
-        <div class="proj-loc">Thokkottu, Mangalore</div>
-        <span class="proj-cta-link">View Project</span>
+        <div class="proj-loc">Thokkottu · Mangalore</div>
+        <div class="proj-price">Price on Request</div>
+        <div class="proj-specs">
+          <div class="spec-item"><span class="spec-key">Type</span><span class="spec-val">Residential</span></div>
+          <div class="spec-item"><span class="spec-key">Floors</span><span class="spec-val">G + 3</span></div>
+          <div class="spec-item"><span class="spec-key">Status</span><span class="spec-val">Delivered</span></div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-cta-link">View Project</span>
+          <button class="proj-enq-btn" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enquire</button>
+        </div>
       </div>
     </a>
 
