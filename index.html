@@ -155,9 +155,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);display:
 .scroll-label{font-size:8px;letter-spacing:0.35em;color:rgba(255,255,255,0.7);text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg)}
 @keyframes scrollBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 @media(max-width:767px){
-  .hero-scroll-wrap{bottom:calc(30% + 12px)}
+  .hero-scroll-wrap{bottom:calc(50% + 12px)}
   .scroll-label{display:none}
   .hero-scroll-btn svg{width:16px;height:22px}
+  .slide-content{background:linear-gradient(to top,rgba(6,4,2,0.97) 0%,rgba(6,4,2,0.7) 50%,transparent 100%)}
+  .slide-title{font-size:clamp(46px,13vw,64px) !important}
 }
 .slide-tag{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:12px;opacity:0;transform:translateY(20px);transition:all 0.8s ease 0.3s}
 .slide-tag::before{content:'';display:block;width:28px;height:1px;background:var(--gold)}
