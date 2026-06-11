@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Jost',sans-serif;font-weight:300;background:#FAF7F2;color:#3D3228}
+
+/* SECTION */
+.nbh-sec{padding:80px 24px;background:#FAF7F2;max-width:1100px;margin:0 auto}
+.sec-tag{font-size:9px;letter-spacing:0.38em;text-transform:uppercase;color:#A67C3D;margin-bottom:10px;display:flex;align-items:center;gap:12px}
+.sec-tag::before{content:'';display:block;width:24px;height:1px;background:#A67C3D}
+.sec-h{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,5vw,48px);font-weight:300;color:#1A1410;line-height:1.05;margin-bottom:8px}
+.sec-h em{font-style:italic;color:#A67C3D}
+.sec-sub{font-size:13px;color:#7A6B58;line-height:1.8;max-width:520px;margin-bottom:40px}
+
+/* CATEGORY TABS */
+.nbh-tabs{display:flex;gap:0;border-bottom:1px solid rgba(166,124,61,0.15);margin-bottom:36px;overflow-x:auto;scrollbar-width:none}
+.nbh-tabs::-webkit-scrollbar{display:none}
+.ntab{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;padding:11px 18px;border:none;background:transparent;color:#A89880;cursor:pointer;font-family:'Jost',sans-serif;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;transition:all 0.3s;display:flex;align-items:center;gap:7px;flex-shrink:0}
+.ntab.active{color:#A67C3D;border-bottom-color:#A67C3D}
+.ntab:hover{color:#A67C3D}
+.ntab-icon{font-size:14px}
+
+/* PANEL */
+.nbh-panel{display:none}
+.nbh-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+
+/* PLACE CARD */
+.place-card{background:#FFFDF9;border:1px solid rgba(166,124,61,0.12);padding:16px 18px;display:flex;align-items:center;gap:14px;transition:all 0.25s;cursor:default}
+.place-card:hover{border-color:rgba(166,124,61,0.35);transform:translateX(3px)}
+.place-icon{width:36px;height:36px;background:rgba(166,124,61,0.08);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.place-info{flex:1;min-width:0}
+.place-name{font-size:13px;font-weight:500;color:#1A1410;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.place-meta{font-size:11px;color:#A89880;display:flex;gap:10px}
+.place-dist{color:#A67C3D;font-weight:500}
+.place-time{color:#A89880}
+
+/* WHY BOX */
+.why-box{margin-top:28px;background:#1A1410;padding:28px 32px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.why-title{grid-column:1/-1;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#E8E4DC;margin-bottom:4px}
+.why-title em{font-style:italic;color:#C9A96E}
+.why-point{display:flex;gap:10px;align-items:flex-start}
+.why-dot{width:4px;height:4px;background:#C9A96E;border-radius:50%;flex-shrink:0;margin-top:6px}
+.why-text{font-size:12px;color:rgba(255,255,255,0.55);line-height:1.75}
+
+/* MAP PLACEHOLDER */
+.map-wrap{margin-top:4px;height:220px;background:linear-gradient(135deg,#1a2535 0%,#1e3a4a 50%,#152030 100%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.map-pin{width:12px;height:12px;background:#C9A96E;border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+.map-pin::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:28px;height:28px;border:1px solid rgba(201,169,110,0.4);border-radius:50%;animation:ping 2s ease infinite}
+@keyframes ping{0%{transform:translate(-50%,-50%) scale(1);opacity:1}100%{transform:translate(-50%,-50%) scale(2.5);opacity:0}}
+.map-label{position:absolute;bottom:16px;left:16px;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+.map-label strong{color:#C9A96E;display:block;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:300;letter-spacing:0;text-transform:none;margin-bottom:2px}
+
+@media(max-width:700px){
+  .nbh-panel.active{grid-template-columns:1fr}
+  .why-box{grid-template-columns:1fr}
+  .nbh-sec{padding:56px 20px}
+}
+</style>
+</head>
+<body>
+
+<section class="nbh-sec">
+  <div class="sec-tag">Location Intelligence</div>
+  <h2 class="sec-h">Everything You Need,<br><em>Minutes Away</em></h2>
+  <p class="sec-sub">Nanthoor Hilltop sits on NH66 — Mangalore's primary growth spine. Everything that matters in this city is within reach, while the elevation keeps you above it all.</p>
+
+  <div class="nbh-tabs">
+    <button class="ntab active" onclick="showTab('connectivity',this)"><span class="ntab-icon">🛣</span> Connectivity</button>
+    <button class="ntab" onclick="showTab('health',this)"><span class="ntab-icon">🏥</span> Healthcare</button>
+    <button class="ntab" onclick="showTab('education',this)"><span class="ntab-icon">🎓</span> Education</button>
+    <button class="ntab" onclick="showTab('life',this)"><span class="ntab-icon">🛒</span> Daily Life</button>
+    <button class="ntab" onclick="showTab('lifestyle',this)"><span class="ntab-icon">🌿</span> Lifestyle</button>
+  </div>
+
+  <!-- CONNECTIVITY -->
+  <div class="nbh-panel active" id="tab-connectivity">
+    <div class="place-card"><div class="place-icon">🛣</div><div class="place-info"><div class="place-name">NH66 — Direct Frontage</div><div class="place-meta"><span class="place-dist">0 km</span><span class="place-time">At your doorstep</span></div></div></div>
+    <div class="place-card"><div class="place-icon">✈️</div><div class="place-info"><div class="place-name">Mangalore International Airport</div><div class="place-meta"><span class="place-dist">12 km</span><span class="place-time">~22 min</span></div></div></div>
+    <div class="place-card"><div class="place-icon">🚂</div><div class="place-info"><div class="place-name">Mangalore Central Railway Station</div><div class="place-meta"><span class="place-dist">8 km</span><span class="place-time">~18 min</span></div></div></div>
+    <div class="place-card"><div class="place-icon">🚌</div><div class="place-info"><div class="place-name">Mangalore City Bus Stand</div><div class="place-meta"><span class="place-dist">7 km</span><span class="place-time">~15 min</span></div></div></div>
+    <div class="place-card"><div class="place-icon">🔵</div><div class="place-info"><div class="place-name">Pumpwell Circle</div><div class="place-meta"><span class="place-dist">3 km</span><span class="place-time">~8 min</span></div></div></div>
+    <div class="place-card"><div class="place-icon">🔵</div><div class="place-info"><div class="place-name">Surathkal (NITK)</div><div class="place-meta"><span class="place-dist">18 km</span><span class="place-time">~28 min</span></div></div></div>
+  </div>
+
+  <!-- HEALTHCARE -->
+  <div class="nbh-panel" id="tab-health">
+    <div class="place-card"><div class="place-icon">🏥</div><div class="place-info"><div class="place-name">KMC Hospital, Attavar</div><div class="place-meta"><span class="place-dist">4 km</span><span class="place-time">~10 min</span></div></div></div>
+    <div class="place-card"><div class="place-icon">🏥</div><div class="place-info"><div class="place-name">AJ Hospital, Kuntikana</div><div class="place-meta"><span class="place-dist">5 km</span><span class="place-time">~12 min</span></div></div></div>
+    <div class="place-card"><div class="place-icon">🏥</div><div class="place-info"><div class="place-name">Father Muller Hospital</div><div class="place-meta"><span class="place-dist">6 km</span><span class="place-time">~14 min</span></div></div></div>
+    <div class="place-card"><div class="place-icon">🏥</div><div class="place-info"><div class="place-name">Yenepoya Hospital, Deralakatte</div><div class="place-meta"><span class="place-dist">9 km</span><span class="place-time">~20 min</span></div></div></div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="nbh-panel" id="tab-education">
+    <div class="place-card"><div class="place-icon">🎓</div><div class="place-info"><div class="place-name">St Aloysius College</div><div class="place-meta"><span class="place-dist">6 km</span><span class="place-time">~14 min</span></div></div></div>
+    <div class="place-card"><div class="place-icon">🎓</div><div class="place-info"><div class="place-name">Lourdes Central School</div><div class="place-meta"><span class="place-dist">4 km</span><span class="place-time">~10 min</span></div></div></div>
+    <div class="place-card"><div class="place-icon">🎓</div><div class="place-info"><div class="place-name">Canara High School</div><div class="place-meta"><span class="place-dist">5 km</span><span class="place-time">~12 min</span></div></div></div>
+    <div class="place-card"><div class="place-icon">🎓</div><div class="place-info"><div class="place-name">NITK Surathkal</div><div class="place-meta"><span class="place-dist">18 km</span><span class="place-time">~28 min</span></div></div></div>
+  </div>
+
+  <!-- DAILY LIFE -->
+  <div class="nbh-panel" id="tab-life">
+    <div class="place-card"><div class="place-icon">🛒</div><div class="place-info"><div class="place-name">More Supermarket, Nanthoor</div><div class="place-meta"><span class="place-dist">1.2 km</span><span class="place-time">~4 min</span></div></div></div>
+    <div class="place-card"><div class="place-icon">🏬</div><div class="place-info"><div class="place-name">Bharat Mall</div><div class="place-meta"><span class="place-dist">8 km</span><span class="place-time">~18 min</span></div></div></div>
+    <div class="place-card"><div class="place-icon">🏦</div><div class="place-info"><div class="place-name">SBI, HDFC, Canara Bank</div><div class="place-meta"><span class="place-dist">2–3 km</span><span class="place-time">~6 min</span></div></div></div>
+    <div class="place-card"><div class="place-icon">🍽</div><div class="place-info"><div class="place-name">Restaurants & Cafes, Kadri</div><div class="place-meta"><span class="place-dist">5 km</span><span class="place-time">~12 min</span></div></div></div>
+  </div>
+
+  <!-- LIFESTYLE -->
+  <div class="nbh-panel" id="tab-lifestyle">
+    <div class="place-card"><div class="place-icon">⛳</div><div class="place-info"><div class="place-name">Pilikula Golf Club</div><div class="place-meta"><span class="place-dist">7 km</span><span class="place-time">~16 min</span></div></div></div>
+    <div class="place-card"><div class="place-icon">🌊</div><div class="place-info"><div class="place-name">Tannirbhavi Beach</div><div class="place-meta"><span class="place-dist">9 km</span><span class="place-time">~20 min</span></div></div></div>
+    <div class="place-card"><div class="place-icon">🌿</div><div class="place-info"><div class="place-name">Kadri Manjunatha Temple & Park</div><div class="place-meta"><span class="place-dist">5 km</span><span class="place-time">~12 min</span></div></div></div>
+    <div class="place-card"><div class="place-icon">🎡</div><div class="place-info"><div class="place-name">Pilikula Nisargadhama</div><div class="place-meta"><span class="place-dist">8 km</span><span class="place-time">~18 min</span></div></div></div>
+  </div>
+
+  <!-- MAP PLACEHOLDER -->
+  <div class="map-wrap">
+    <div class="map-pin"></div>
+    <div class="map-label"><strong>Westline Signature</strong>NH66, Nanthoor Hilltop · Mangalore</div>
+  </div>
+
+  <!-- WHY THIS LOCATION -->
+  <div class="why-box">
+    <div class="why-title">Why This Location <em>Will Appreciate</em></div>
+    <div class="why-point"><div class="why-dot"></div><div class="why-text">NH66 is Mangalore's primary growth corridor — all major commercial development is concentrated along this spine</div></div>
+    <div class="why-point"><div class="why-dot"></div><div class="why-text">Nanthoor Hilltop elevation delivers unobstructed Arabian Sea views — a permanently scarce asset no future development can block</div></div>
+    <div class="why-point"><div class="why-dot"></div><div class="why-text">Ongoing NH66 infrastructure upgrades — flyovers and service roads actively improving access and reducing commute times</div></div>
+    <div class="why-point"><div class="why-dot"></div><div class="why-text">Very limited supply of premium high-rise land on this NH66 stretch — scarcity drives long-term value</div></div>
+  </div>
+</section>
+
+<script>
+function showTab(id, btn){
+  document.querySelectorAll('.ntab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.nbh-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-'+id).classList.add('active');
+}
+</script>
+</body>
+</html>

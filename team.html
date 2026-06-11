@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#FAF7F2" id="theme-color-meta">
+<title>Our Team | Westline Builders Mangalore</title>
+<meta name="description" content="Meet the people behind Westline Builders — the leadership and senior team driving Mangalore's most ambitious real estate developer.">
+<link rel="canonical" href="https://westline.co.in/team.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#A67C3D;--gold-l:#C9A96E;--gold-d:#D4B483;--gold-p:#F0E4CC;
+  --bg:#FAF7F2;--bg2:#F5F0E8;--bg3:#EDE5D8;--surface:#FFFDF9;
+  --ink:#1A1410;--text:#3D3228;--text2:#7A6B58;--muted:#A89880;
+  --border:rgba(166,124,61,0.15);
+  --nav-bg:rgba(250,247,242,0.97);--nav-h:68px;
+}
+[data-theme="dark"]{
+  --gold:#C9A96E;--gold-l:#E8D5A3;--gold-d:#7A6340;--gold-p:rgba(201,169,110,0.1);
+  --bg:#0A0A0A;--bg2:#111;--bg3:#1C1C1C;--surface:#141414;
+  --ink:#E8E4DC;--text:#E8E4DC;--text2:#A09080;--muted:#666;
+  --border:rgba(201,169,110,0.12);
+  --nav-bg:rgba(10,10,10,0.97);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;transition:background 0.4s,color 0.4s}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);display:flex;justify-content:space-between;align-items:center;padding:0 24px;background:var(--nav-bg);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;letter-spacing:0.14em;color:var(--gold)}
+.nav-logo span{font-style:italic;font-weight:300;color:var(--text)}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.nav-back{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text2);border:1px solid var(--border);padding:7px 14px;transition:all 0.3s}
+.nav-back:hover{color:var(--gold);border-color:var(--gold)}
+.theme-toggle{width:40px;height:22px;background:var(--border);border-radius:11px;position:relative;cursor:pointer;border:none;transition:background 0.3s;flex-shrink:0}
+.theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--gold);transition:transform 0.3s}
+[data-theme="dark"] .theme-toggle::after{transform:translateX(18px)}
+
+/* PAGE HEADER */
+.page-header{padding:calc(var(--nav-h) + 56px) 24px 52px;background:var(--bg2);border-bottom:1px solid var(--border);text-align:center}
+.sec-tag{font-size:9px;letter-spacing:0.38em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:12px}
+.sec-tag::before,.sec-tag::after{content:'';display:block;width:24px;height:1px;background:var(--gold)}
+.page-header h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,8vw,60px);font-weight:300;color:var(--ink);line-height:1.0;margin-bottom:16px}
+.page-header h1 em{font-style:italic;color:var(--gold)}
+.page-header p{font-size:14px;color:var(--text2);line-height:1.9;max-width:520px;margin:0 auto}
+
+/* LEADERSHIP — MD featured card */
+.leadership{padding:64px 24px 0}
+.md-card{display:grid;grid-template-columns:1fr;gap:0;background:var(--surface);border:1px solid var(--border);overflow:hidden;max-width:900px;margin:0 auto}
+.md-photo{aspect-ratio:4/3;background:var(--bg3);position:relative;overflow:hidden}
+.md-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(100%);transition:filter 0.6s ease}
+.md-card:hover .md-photo img{filter:grayscale(0%)}
+.placeholder-photo{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,var(--bg3),var(--bg2))}
+.placeholder-initials{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;color:var(--gold);opacity:0.35}
+.md-info{padding:36px 32px}
+.md-label{font-size:8px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.md-name{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,6vw,48px);font-weight:300;color:var(--ink);line-height:1.0;margin-bottom:6px}
+.md-title{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
+.md-bio{font-size:14px;color:var(--text2);line-height:1.9;margin-bottom:24px}
+.md-quote{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--gold);border-left:3px solid var(--gold);padding-left:16px;line-height:1.6;margin-bottom:24px}
+.md-tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag-pill{background:var(--gold-p);border:1px solid var(--gold-d);padding:6px 14px;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold)}
+
+/* TEAM GRID */
+.team-section{padding:48px 24px 80px;max-width:900px;margin:0 auto}
+.team-section-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--ink);margin-bottom:28px;display:flex;align-items:center;gap:16px}
+.team-section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.member-card{background:var(--surface);border:1px solid var(--border);overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;position:relative}
+.member-card:hover{transform:translateY(-3px);box-shadow:0 12px 36px var(--shadow,rgba(166,124,61,0.1))}
+.member-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 0.4s}
+.member-card:hover::before{transform:scaleX(1)}
+.member-photo{aspect-ratio:1/1;background:var(--bg3);position:relative;overflow:hidden}
+.member-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(100%);transition:filter 0.6s}
+.member-card:hover .member-photo img{filter:grayscale(0%)}
+.member-body{padding:18px 16px 20px}
+.member-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:var(--ink);margin-bottom:3px;line-height:1.1}
+.member-role{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.member-desc{font-size:12px;color:var(--text2);line-height:1.75}
+
+/* VALUES STRIP */
+.values-strip{background:#1A1410;padding:52px 24px;text-align:center}
+.values-strip h2{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,5vw,38px);font-weight:300;color:#E8E4DC;margin-bottom:8px}
+.values-strip h2 em{font-style:italic;color:var(--gold-l)}
+.values-strip p{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.8;max-width:480px;margin:0 auto 32px}
+.join-btn{display:inline-block;border:1px solid rgba(201,169,110,0.5);color:var(--gold-l);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;padding:13px 28px;transition:all 0.3s;font-family:'Jost',sans-serif}
+.join-btn:hover{background:var(--gold-l);color:#1A1410}
+
+/* FOOTER */
+.mini-footer{background:var(--bg2);border-top:1px solid var(--border);padding:24px;text-align:center;font-size:11px;color:var(--muted)}
+.mini-footer a{color:var(--gold)}
+
+/* DESKTOP */
+@media(min-width:768px){
+  nav{padding:0 60px}
+  .page-header{padding:calc(var(--nav-h) + 72px) 60px 60px}
+  .leadership{padding:80px 60px 0;max-width:none}
+  .leadership .md-card{grid-template-columns:420px 1fr;max-width:960px;margin:0 auto}
+  .md-photo{aspect-ratio:unset}
+  .team-section{padding:56px 60px 100px;max-width:none}
+  .team-grid{grid-template-columns:repeat(4,1fr);gap:24px}
+  .team-section-title{max-width:960px;margin:0 auto 32px}
+  .team-grid-wrap{max-width:960px;margin:0 auto}
+  .values-strip{padding:72px 60px}
+}
+@media(max-width:400px){
+  .team-grid{grid-template-columns:1fr}
+}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">WESTLINE <span>Builders</span></a>
+  <div class="nav-actions">
+    <a href="index.html" class="nav-back">← Back to Home</a>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="sec-tag">The People Behind the Work</div>
+  <h1>Built by <em>People</em><br>Who Care</h1>
+  <p>Every project Westline delivers is the result of a team that treats each building not as a transaction, but as a contribution to Mangalore's future.</p>
+</div>
+
+<!-- MD FEATURED -->
+<div class="leadership reveal">
+  <div class="md-card">
+    <div class="md-photo">
+      <div class="placeholder-photo">
+        <div class="placeholder-initials">NM</div>
+      </div>
+    </div>
+    <div class="md-info">
+      <div class="md-label">Leadership</div>
+      <div class="md-name">Nasir Mohideen</div>
+      <div class="md-title">Managing Director</div>
+      <p class="md-bio">Nasir founded Westline Builders with a conviction that Mangalore deserved a developer willing to build what no one else had. Under his leadership, the company has grown from its first residential project to building Karnataka's tallest residential tower — a benchmark that has redefined what is possible in this city.</p>
+      <p class="md-bio" style="margin-top:12px">His hands-on approach spans land acquisition, structured finance, design oversight, and regulatory compliance — bringing rigour and vision to every stage of a project's life.</p>
+      <div class="md-quote">"We don't build to sell. We build to stand."</div>
+      <div class="md-tags">
+        <span class="tag-pill">Real Estate Development</span>
+        <span class="tag-pill">Structured Finance</span>
+        <span class="tag-pill">Urban Strategy</span>
+        <span class="tag-pill">Mangalore</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM GRID -->
+<div class="team-section">
+  <div class="team-section-title">Senior Team</div>
+  <div class="team-grid-wrap">
+    <div class="team-grid">
+
+      <!-- YASIR -->
+      <div class="member-card reveal">
+        <div class="member-photo">
+          <div class="placeholder-photo">
+            <div class="placeholder-initials" style="font-size:48px">YR</div>
+          </div>
+        </div>
+        <div class="member-body">
+          <div class="member-name">Yasir Rahman</div>
+          <div class="member-role">Director</div>
+          <p class="member-desc">Oversees all construction activities across Westline's active project sites — ensuring quality, safety, and delivery timelines are met without compromise.</p>
+        </div>
+      </div>
+
+      <!-- FRAZ -->
+      <div class="member-card reveal" style="transition-delay:0.1s">
+        <div class="member-photo">
+          <div class="placeholder-photo">
+            <div class="placeholder-initials" style="font-size:48px">FA</div>
+          </div>
+        </div>
+        <div class="member-body">
+          <div class="member-name">Fraz Ahmed</div>
+          <div class="member-role">Marketing & Sales Manager</div>
+          <p class="member-desc">Drives sales strategy and marketing for all Westline projects — from brand positioning to buyer engagement and lead conversion.</p>
+        </div>
+      </div>
+
+      <!-- LENITA -->
+      <div class="member-card reveal" style="transition-delay:0.2s">
+        <div class="member-photo">
+          <div class="placeholder-photo">
+            <div class="placeholder-initials" style="font-size:48px">LQ</div>
+          </div>
+        </div>
+        <div class="member-body">
+          <div class="member-name">Lenita Quadris</div>
+          <div class="member-role">Administrative Head</div>
+          <p class="member-desc">Keeps the organisation running with precision — managing day-to-day operations, coordination across teams, and ensuring nothing falls through the cracks.</p>
+        </div>
+      </div>
+
+      <!-- SOUMYA -->
+      <div class="member-card reveal" style="transition-delay:0.3s">
+        <div class="member-photo">
+          <div class="placeholder-photo">
+            <div class="placeholder-initials" style="font-size:48px">SS</div>
+          </div>
+        </div>
+        <div class="member-body">
+          <div class="member-name">Soumya Sharma</div>
+          <div class="member-role">Lead Architect</div>
+          <p class="member-desc">Leads architectural design across Westline's residential and commercial projects — translating vision into buildable, beautiful structures that define the city's skyline.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- VALUES STRIP -->
+<div class="values-strip">
+  <h2>Shaped by <em>Integrity,</em><br>Driven by Excellence</h2>
+  <p>Everyone on the Westline team shares one standard — the work we put our name on must be something we are proud of, long after the keys are handed over.</p>
+  <a class="join-btn" href="https://wa.me/919900033888?text=I'd like to enquire about career opportunities at Westline Builders." target="_blank">Join Our Team →</a>
+</div>
+
+<div class="mini-footer">
+  <p>© 2025 Westline Builders Private Limited · <a href="index.html">Back to Home</a> · Mangalore, Karnataka</p>
+</div>
+
+<script>
+function getTimeTheme(){const h=new Date().getHours();return(h>=6&&h<18)?'light':'dark'}
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'');document.getElementById('theme-color-meta').content=t==='dark'?'#0A0A0A':'#FAF7F2';localStorage.setItem('wl-theme-override',t)}
+function toggleTheme(){const cur=document.documentElement.getAttribute('data-theme')||'light';applyTheme(cur==='dark'?'light':'dark')}
+(function(){const o=localStorage.getItem('wl-theme-override');applyTheme(o||getTimeTheme())})();
+
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
