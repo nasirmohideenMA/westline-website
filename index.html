@@ -72,26 +72,15 @@
   --bg:#FAF7F2;--bg2:#F5F0E8;--bg3:#EDE5D8;--surface:#FFFDF9;--ivory:#FFFDF9;
   --ink:#1A1410;--ink2:#2C2218;--text:#3D3228;--text2:#7A6B58;--muted:#A89880;
   --border:rgba(166,124,61,0.15);--border2:rgba(166,124,61,0.08);
-  --nav-bg:rgba(250,247,242,0.97);--nav-h:68px;
+  --nav-bg:rgba(8,7,5,0.8);--nav-h:68px;
+  --nav-shadow:0 2px 6px rgba(45,45,45,0.65),0 1px 2px rgba(0,0,0,0.55);
   --hero-bar-grad:linear-gradient(to top,rgba(6,4,2,0.97) 0%,rgba(6,4,2,0.6) 45%,transparent 100%);
   --hero-overlay:radial-gradient(ellipse 70% 80% at 62% 50%,transparent 20%,rgba(250,247,242,0.45) 55%,rgba(250,247,242,0.88) 100%),linear-gradient(to top,rgba(250,247,242,0.85) 0%,transparent 35%),linear-gradient(to right,rgba(250,247,242,0.65) 0%,transparent 30%);
   --hero-overlay-mob:radial-gradient(ellipse 90% 70% at 50% 40%,transparent 15%,rgba(250,247,242,0.5) 55%,rgba(250,247,242,0.92) 100%),linear-gradient(to top,rgba(250,247,242,0.97) 0%,rgba(250,247,242,0.4) 40%,transparent 65%);
   --card-bg:var(--surface);--stat-bg:#1A1410;--stat-text:rgba(255,255,255,0.35);
   --footer-bg:#2C2218;--shadow:rgba(166,124,61,0.12);
 }
-[data-theme="dark"] {
-  --gold:#C9A96E;--gold-l:#E8D5A3;--gold-d:#7A6340;--gold-p:rgba(201,169,110,0.1);
-  --bg:#0A0A0A;--bg2:#111111;--bg3:#1C1C1C;--surface:#141414;--ivory:#141414;
-  --ink:#E8E4DC;--ink2:#B0A898;--text:#E8E4DC;--text2:#A09080;--muted:#666;
-  --border:rgba(201,169,110,0.12);--border2:rgba(201,169,110,0.06);
-  --nav-bg:rgba(10,10,10,0.97);
-  --hero-bar-grad:linear-gradient(to top,rgba(6,4,2,0.97) 0%,rgba(6,4,2,0.75) 55%,transparent 100%);
-  --hero-bar-grad:linear-gradient(to top,rgba(6,4,2,0.97) 0%,rgba(6,4,2,0.6) 45%,transparent 100%);
-  --hero-overlay:radial-gradient(ellipse 70% 80% at 62% 50%,transparent 20%,rgba(2,2,4,0.45) 55%,rgba(2,2,4,0.88) 100%),linear-gradient(to top,rgba(2,2,4,0.85) 0%,transparent 35%),linear-gradient(to right,rgba(2,2,4,0.65) 0%,transparent 30%);
-  --hero-overlay-mob:radial-gradient(ellipse 90% 70% at 50% 40%,transparent 15%,rgba(2,2,4,0.5) 55%,rgba(2,2,4,0.92) 100%),linear-gradient(to top,rgba(2,2,4,0.97) 0%,rgba(2,2,4,0.4) 40%,transparent 65%);
-  --card-bg:#141414;--stat-bg:#111111;--stat-text:rgba(255,255,255,0.35);
-  --footer-bg:#111111;--shadow:rgba(0,0,0,0.4);
-}
+
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;transition:background 0.5s,color 0.5s}
@@ -100,25 +89,19 @@ img{max-width:100%;display:block}
 
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);display:flex;justify-content:space-between;align-items:center;padding:0 24px;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:background 0.5s,border-color 0.5s}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;letter-spacing:0.14em;color:var(--gold);flex-shrink:0}
-.nav-logo span{font-style:italic;font-weight:300;color:var(--text)}
-.nav-links{display:none;gap:32px;list-style:none}
-.nav-links a{color:var(--text2);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;transition:color 0.3s}
-.nav-links a:hover{color:var(--gold)}
-.nav-actions{display:flex;gap:10px;align-items:center}
-.nav-call{display:none;border:1px solid var(--gold-d);color:var(--gold);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;padding:8px 16px;transition:all 0.3s;font-family:'Jost',sans-serif}
-.nav-call:hover{background:var(--gold);color:#fff}
-.theme-toggle{width:40px;height:22px;background:var(--border);border-radius:11px;position:relative;cursor:pointer;border:none;transition:background 0.3s;flex-shrink:0}
-.theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--gold);transition:transform 0.3s}
-[data-theme="dark"] .theme-toggle::after{transform:translateX(18px)}
-.theme-toggle-wrap{display:flex;align-items:center;gap:6px}
-.theme-icon{font-size:12px;transition:opacity 0.3s}
-.icon-sun{opacity:1}.icon-moon{opacity:0.4}
-[data-theme="dark"] .icon-sun{opacity:0.4}[data-theme="dark"] .icon-moon{opacity:1}
-.nav-wa-icon{width:34px;height:34px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.nav-wa-icon svg{width:17px;height:17px;fill:#fff}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;letter-spacing:0.14em;color:#fff;flex-shrink:0;text-shadow:var(--nav-shadow);display:flex;align-items:center;height:100%}
+.nav-logo span{font-style:italic;font-weight:300;color:#fff}
+.nav-links{display:none;gap:32px;list-style:none;align-items:center;height:100%}
+.nav-links li{display:flex;align-items:center;height:100%}
+.nav-links a{color:#fff;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;transition:color 0.3s;text-shadow:var(--nav-shadow);display:flex;align-items:center;gap:5px;height:100%}
+.nav-links a:hover{color:var(--gold-l)}
+.nav-current{color:var(--gold-l)!important;text-shadow:var(--nav-shadow)}
+.nav-actions{display:flex;gap:8px;align-items:center}
+.nav-icon-btn{width:34px;height:34px;border-radius:50%;border:1px solid rgba(201,169,110,0.55);color:var(--gold-l);display:flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(255,255,255,0.03);transition:all 0.3s;filter:drop-shadow(0 2px 4px rgba(30,30,30,0.55))}
+.nav-icon-btn:hover{background:rgba(201,169,110,0.18);border-color:var(--gold-l)}
+.nav-icon-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8}
 .hamburger{width:34px;height:34px;display:flex;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
-.hamburger span{display:block;height:1.5px;background:var(--text);transition:all 0.3s;transform-origin:center}
+.hamburger span{display:block;height:1.5px;background:#fff;transition:all 0.3s;transform-origin:center;box-shadow:var(--nav-shadow)}
 .hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
@@ -132,33 +115,41 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);display:
 .mob-call{display:flex;align-items:center;justify-content:center;border:1px solid var(--gold-d);color:var(--gold);padding:14px;font-size:13px;font-family:'Jost',sans-serif}
 
 /* ── HERO ── */
-.hero{position:relative;height:100svh;min-height:640px;overflow:hidden}
+.hero{position:relative;height:100svh;min-height:640px;overflow:hidden;background:var(--bg)}
 .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
 .slide.active{opacity:1;z-index:2}
 .slide.prev{opacity:0;z-index:1}
 .slide:not(.active) video{display:none}
 .slide-bg{position:absolute;inset:0;background-size:cover;background-position:center top;transform:scale(1.04);transition:transform 8s ease}
 .slide.active .slide-bg{transform:scale(1)}
-.slide-overlay{position:absolute;inset:0;background:var(--hero-overlay-mob)}
+/* V2: light editorial — video fades into cream at the edges, no full-frame overlay */
+.slide-overlay{position:absolute;inset:0;background:
+  linear-gradient(to bottom, transparent 0%, transparent 55%, var(--bg) 96%),
+  linear-gradient(to right, var(--bg) 0%, rgba(250,247,242,0.55) 18%, transparent 42%);
+}
 .slide-content{
-  position:absolute;bottom:0;left:0;right:0;
-  padding:0 24px 32px;z-index:3;
-  background:var(--hero-bar-grad);
+  position:absolute;bottom:0;left:0;right:0;top:0;
+  padding:0 24px 48px;z-index:3;
   display:flex;flex-direction:column;justify-content:flex-end;
 }
-.slide-inner{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:0}
+.slide-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:18px;opacity:0;transform:translateY(16px);transition:all 0.8s ease 0.2s}
+.slide.active .slide-eyebrow{opacity:1;transform:translateY(0)}
+.slide-eyebrow-line{width:30px;height:1px;background:var(--gold)}
+.slide-eyebrow-text{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.slide-inner{display:flex;flex-direction:column;align-items:flex-start;gap:0;margin-bottom:0;max-width:680px}
 .slide-text{flex:1;min-width:0}
-.slide-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;opacity:0;transform:translateY(12px);transition:all 0.8s ease 0.9s}
+.slide-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;opacity:0;transform:translateY(12px);transition:all 0.8s ease 0.9s}
 .slide.active .slide-actions{opacity:1;transform:translateY(0)}
-.hero-scroll-wrap{position:absolute;left:50%;transform:translateX(-50%);z-index:10;bottom:40px}
-.hero-scroll-btn{display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;text-decoration:none;animation:scrollBounce 2s ease-in-out infinite}
-.scroll-label{font-size:8px;letter-spacing:0.35em;color:rgba(255,255,255,0.7);text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg)}
+.hero-scroll-wrap{position:absolute;right:24px;z-index:10;bottom:42px}
+.hero-scroll-btn{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;text-decoration:none;animation:scrollBounce 2s ease-in-out infinite}
+.scroll-label{font-size:9px;letter-spacing:0.3em;color:#fff;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg);text-shadow:0 2px 12px rgba(0,0,0,0.6),0 1px 4px rgba(0,0,0,0.5);font-weight:500}
 @keyframes scrollBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 @media(max-width:767px){
   .hero-scroll-wrap{display:none}
+  .slide-overlay{background:none !important}
   .slide-content{
     padding:10px 20px 100px;
-    background:linear-gradient(to top,rgba(6,4,2,0.97) 0%,rgba(6,4,2,0.7) 50%,transparent 100%);
+    background:linear-gradient(to top, rgba(6,4,2,0.75) 0%, rgba(6,4,2,0.45) 20%, transparent 35%);
     gap:4px;
   }
   .slide-tag{font-size:9px;letter-spacing:0.12em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:4px}
@@ -168,14 +159,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);display:
   .btn-primary{padding:10px 16px;font-size:9px}
   .btn-secondary{padding:9px 12px;font-size:9px}
 }
-.slide-tag{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:12px;opacity:0;transform:translateY(20px);transition:all 0.8s ease 0.3s}
-.slide-tag::before{content:'';display:block;width:28px;height:1px;background:var(--gold)}
+.slide-tag{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-l);margin-bottom:12px;display:flex;align-items:center;gap:12px;opacity:0;transform:translateY(20px);transition:all 0.8s ease 0.3s;text-shadow:0 2px 12px rgba(0,0,0,0.5)}
+.slide-tag::before{content:'';display:block;width:28px;height:1px;background:var(--gold-l);box-shadow:0 1px 6px rgba(0,0,0,0.4)}
 .slide.active .slide-tag{opacity:1;transform:translateY(0)}
-.slide-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,4vw,42px);font-weight:300;line-height:0.92;color:#fff;margin-bottom:8px;opacity:0;transform:translateY(24px);transition:all 0.9s ease 0.5s}
-.slide-title em{font-style:italic;color:var(--gold)}
+.slide-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,4vw,42px);font-weight:300;line-height:0.92;color:#fff;margin-bottom:8px;opacity:0;transform:translateY(24px);transition:all 0.9s ease 0.5s;text-shadow:0 4px 30px rgba(0,0,0,0.55),0 2px 10px rgba(0,0,0,0.45),0 1px 3px rgba(0,0,0,0.6)}
+.slide-title em{font-style:italic;color:var(--gold-l)}
 .slide.active .slide-title{opacity:1;transform:translateY(0)}
 
-.slide-sub{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:rgba(255,255,255,0.65);margin-bottom:0;opacity:0;transform:translateY(16px);transition:all 0.8s ease 0.7s;line-height:1.4}
+.slide-sub{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:rgba(255,255,255,0.8);margin-bottom:0;opacity:0;transform:translateY(16px);transition:all 0.8s ease 0.7s;line-height:1.4;text-shadow:0 2px 14px rgba(0,0,0,0.6),0 1px 4px rgba(0,0,0,0.5)}
 .slide.active .slide-sub{opacity:1;transform:translateY(0)}
 
 
@@ -183,12 +174,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);display:
 .btn-primary:hover{background:var(--ink2);box-shadow:none}
 .btn-secondary{border:1px solid rgba(166,124,61,0.55);color:var(--gold);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;padding:13px 22px;background:rgba(166,124,61,0.1);backdrop-filter:blur(8px);font-family:'Jost',sans-serif;cursor:pointer;transition:all 0.3s;display:inline-block}
 .btn-secondary:hover{background:rgba(166,124,61,0.2);border-color:var(--gold)}
-.slider-dots{position:absolute;top:20px;left:24px;z-index:10;display:flex;gap:8px;align-items:center}
-.dot{width:28px;height:3px;background:rgba(166,124,61,0.25);border-radius:2px;cursor:pointer;transition:all 0.3s}
-.dot.active{background:var(--gold);width:44px}
+.slider-dots{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:8px;align-items:center}
+.dot{width:28px;height:3px;background:rgba(255,255,255,0.3);border-radius:2px;cursor:pointer;transition:all 0.3s;box-shadow:0 1px 6px rgba(0,0,0,0.3)}
+.dot.active{background:var(--gold-l);width:44px}
 .slider-progress{position:absolute;bottom:0;left:0;height:2px;background:linear-gradient(to right,var(--gold),var(--gold-l));z-index:10;transition:width 0.1s linear}
-.slide-num{position:absolute;top:22px;right:24px;z-index:10;font-family:'Cormorant Garamond',serif;font-size:13px;color:rgba(255,255,255,0.5)}
-.slide-num span{color:var(--gold);font-size:20px}
+.slide-num{position:absolute;top:22px;right:24px;z-index:10;font-family:'Cormorant Garamond',serif;font-size:13px;color:rgba(255,255,255,0.7);text-shadow:0 2px 10px rgba(0,0,0,0.5)}
+.slide-num span{color:var(--gold-l);font-size:20px}
 
 /* ── TRUST BAR ── */
 .trust-bar{background:var(--gold);padding:12px 24px;overflow:hidden;position:relative}
@@ -215,9 +206,38 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);display:
 
 /* ── PROJECTS ── */
 .proj-sec{background:var(--bg2)}
+.proj-body-wrap{display:grid;grid-template-columns:1fr 270px;gap:24px}
+.callback-wrap{height:100%}
+.callback-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:24px 24px;box-shadow:0 12px 40px rgba(166,124,61,0.08);width:100%;position:sticky;top:calc(var(--nav-h) + 20px)}
+.callback-title{font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:0.06em;color:var(--gold);margin-bottom:18px;font-weight:500;text-transform:uppercase}
+.callback-row{margin-bottom:16px}
+.callback-label{font-size:11px;color:var(--text);margin-bottom:7px;display:block}
+.callback-label .req{color:var(--gold)}
+.callback-input,.callback-select{width:100%;background:transparent;border:none;border-bottom:1.5px solid var(--border);padding:7px 0;color:var(--text);font-family:'Jost',sans-serif;font-size:13px;outline:none;transition:border-color .3s;border-radius:0;appearance:none}
+.callback-input::placeholder{color:var(--muted)}
+.callback-input:focus,.callback-select:focus{border-bottom-color:var(--gold)}
+.callback-select{cursor:pointer;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23A67C3D" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>');background-repeat:no-repeat;background-position:right center;background-size:13px}
+.callback-select option{color:var(--text)}
+.callback-phone-wrap{display:flex;align-items:center;gap:7px;border-bottom:1.5px solid var(--border)}
+.callback-phone-wrap:focus-within{border-bottom-color:var(--gold)}
+.callback-phone-prefix{font-size:13px;color:var(--text2);padding:7px 0;flex-shrink:0}
+.callback-phone-wrap .callback-input{border-bottom:none}
+.callback-consent{display:flex;gap:8px;align-items:flex-start;margin-bottom:12px}
+.callback-consent input{margin-top:3px;accent-color:var(--gold);flex-shrink:0;cursor:pointer}
+.callback-consent label{font-size:10.5px;color:var(--text2);line-height:1.55}
+.callback-consent a{color:var(--gold);font-weight:500}
+.callback-consent a:hover{text-decoration:underline}
+.callback-btn{width:100%;background:var(--gold);color:#fff;border:none;padding:12px 0;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;cursor:pointer;margin-top:4px;transition:background .3s;border-radius:2px}
+.callback-btn:hover{background:var(--ink2)}
+@media(max-width:1100px){.proj-body-wrap{grid-template-columns:1fr}.callback-card{position:static;max-width:420px}}
+@media(max-width:480px){.callback-card{padding:22px 20px;max-width:100%}}
 .filter-scroll{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;margin-bottom:24px;-webkit-overflow-scrolling:touch}
 .filter-scroll::-webkit-scrollbar{display:none}
 .fbtn{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;padding:8px 16px;border:1px solid var(--border);color:var(--text2);background:transparent;cursor:pointer;white-space:nowrap;flex-shrink:0;font-family:'Jost',sans-serif;transition:all 0.3s}
+@media(max-width:600px){
+  .filter-scroll{flex-wrap:wrap;overflow-x:visible}
+  .fbtn{flex-shrink:1}
+}
 .fbtn.active,.fbtn:active{border-color:var(--gold);color:var(--gold);background:var(--gold-p)}
 
 /* ── PROJECT GRID ── */
@@ -249,9 +269,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);display:
 .proj-cta-link::after{content:'→'}
 .proj-enq-btn{font-size:8px;letter-spacing:0.15em;text-transform:uppercase;padding:7px 14px;background:var(--gold);color:#fff;border:none;border-radius:2px;cursor:pointer;font-family:'Jost',sans-serif;font-weight:600;transition:background 0.3s}
 .proj-enq-btn:hover{background:var(--ink)}
-[data-theme="dark"] .proj-card{background:var(--surface)}
-[data-theme="dark"] .proj-body{background:var(--surface)}
-[data-theme="dark"] .proj-specs{background:var(--bg2)}
+
 @media(max-width:600px){.proj-grid{grid-template-columns:1fr;gap:12px}}
 @media(min-width:601px) and (max-width:900px){.proj-grid{grid-template-columns:1fr 1fr;gap:14px}}
 @media(min-width:901px) and (max-width:1279px){.proj-grid{grid-template-columns:repeat(3,1fr);gap:16px}}
@@ -358,14 +376,12 @@ footer{background:var(--footer-bg);padding:40px 24px 32px;transition:background 
   :root{--nav-h:72px}
   nav{padding:0 60px}
   .nav-links{display:flex}
-  .nav-call{display:block}
-  .nav-wa-icon{display:none}
   .hamburger{display:none}
-  .slide-overlay{background:transparent}
+  .slide-overlay{background:linear-gradient(to bottom, transparent 0%, transparent 65%, rgba(6,4,2,0.55) 100%)}
 
   .slide-title{font-size:clamp(56px,7vw,96px)}
-  .slider-dots{left:60px;bottom:48px}
-  .slide-num{right:64px;bottom:52px}
+  .slider-dots{bottom:64px}
+  .slide-num{right:64px;bottom:68px}
   .stats-bar{grid-template-columns:repeat(4,1fr);padding:44px 60px}
   .stat{border-bottom:none;padding:0 16px;border-right:1px solid rgba(255,255,255,0.06)}
   .stat:nth-child(2n){border-right:1px solid rgba(255,255,255,0.06)}
@@ -403,51 +419,31 @@ footer{background:var(--footer-bg);padding:40px 24px 32px;transition:background 
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── NAV DROPDOWNS ── */
+.nav-links li.has-dd{position:relative}
+.nav-links li.has-dd>a{display:flex;align-items:center;gap:5px}
+.nav-chev{width:9px;height:9px;opacity:0.65;transition:transform .3s}
+.nav-links li.has-dd:hover .nav-chev{transform:rotate(180deg)}
+.nav-links li.has-dd::after{content:'';position:absolute;top:100%;left:-20px;right:-20px;height:16px}
+.nav-current{color:var(--gold-dim)!important}
+.dd{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(6px);background:rgba(18,14,9,0.985);backdrop-filter:blur(18px);border:1px solid rgba(201,169,110,0.22);padding:24px 28px;display:flex;gap:34px;opacity:0;visibility:hidden;transition:opacity .25s,transform .25s,visibility .25s;z-index:260;box-shadow:0 18px 50px rgba(0,0,0,0.45)}
+.nav-links li.has-dd:hover .dd,.nav-links li.has-dd:focus-within .dd{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.dd-sm{gap:0}
+.dd-col{display:flex;flex-direction:column;min-width:158px}
+.dd-label{font-size:8px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:10px;padding-bottom:7px;border-bottom:1px solid rgba(201,169,110,0.18);white-space:nowrap}
+.dd a{font-size:12.5px;color:rgba(255,255,255,0.72);padding:7px 0;letter-spacing:0.01em;text-transform:none;white-space:nowrap;transition:color .25s}
+.dd a:hover{color:var(--gold-dim)}
+/* mobile menu groups */
+.mob-label{font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);margin:22px 0 4px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.mob-sub{font-family:'Jost',sans-serif;font-size:15px;color:var(--text2);padding:11px 0;border-bottom:1px solid var(--border2);display:block;transition:color .25s}
+.mob-sub:hover{color:var(--gold)}
+@media(max-width:1100px){.dd{padding:20px 22px;gap:24px}.dd-col{min-width:140px}}
 </style>
 </head>
 <body>
 
-<nav id="nav">
-  <a href="index.html" class="nav-logo">WESTLINE <span>Builders</span></a>
-  <ul class="nav-links">
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="tools.html">Tools</a></li>
-    <li><a href="team.html">Team</a></li>
-    <li><a href="careers.html">Careers</a></li>
-  </ul>
-  <div class="nav-actions">
-    <div class="theme-toggle-wrap">
-      <span class="theme-icon icon-sun">☀</span>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" onclick="toggleTheme()"></button>
-      <span class="theme-icon icon-moon">☽</span>
-    </div>
-    <a class="nav-wa-icon" href="https://wa.me/919900033888" target="_blank" aria-label="WhatsApp">
-      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    </a>
-    <a class="nav-call" href="tel:+919900033888">+91 99000 33888</a>
-    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-
-<div class="mob-menu" id="mob-menu">
-  <a class="mob-link" href="#projects" onclick="toggleMenu()">Projects</a>
-  <a class="mob-link" href="#about" onclick="toggleMenu()">About</a>
-  <a class="mob-link" href="#process" onclick="toggleMenu()">Process</a>
-  <a class="mob-link" href="#contact" onclick="toggleMenu()">Contact</a>
-  <a class="mob-link" href="tools.html">Calculators & Tools</a>
-  <a class="mob-link" href="team.html">Our Team</a>
-  <a class="mob-link" href="careers.html">Careers</a>
-  <div class="mob-contact">
-    <a class="mob-wa" href="https://wa.me/919900033888" target="_blank">
-      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Chat on WhatsApp
-    </a>
-    <a class="mob-call" href="tel:+919900033888">+91 99000 33888</a>
-  </div>
-</div>
+<div id="nav-placeholder"></div>
 
 <!-- HERO -->
 <section class="hero" id="hero" aria-label="Featured projects">
@@ -455,6 +451,7 @@ footer{background:var(--footer-bg);padding:40px 24px 32px;transition:background 
     <video autoplay muted loop playsinline poster="https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto,w_1920/1.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0">
       <source src="https://res.cloudinary.com/dbw8ugwim/video/upload/q_auto/1.mp4" type="video/mp4">
     </video>
+    <div class="slide-overlay"></div>
     <div class="slide-content">
       <div class="slide-inner">
         <div class="slide-text">
@@ -473,6 +470,7 @@ footer{background:var(--footer-bg);padding:40px 24px 32px;transition:background 
     <video autoplay muted loop playsinline poster="https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto,w_1920/2.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0">
       <source src="https://res.cloudinary.com/dbw8ugwim/video/upload/q_auto/2.mp4" type="video/mp4">
     </video>
+    <div class="slide-overlay"></div>
     <div class="slide-content">
       <div class="slide-inner">
         <div class="slide-text">
@@ -491,6 +489,7 @@ footer{background:var(--footer-bg);padding:40px 24px 32px;transition:background 
     <video autoplay muted loop playsinline poster="https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto,w_1920/3.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0">
       <source src="https://res.cloudinary.com/dbw8ugwim/video/upload/q_auto/3.mp4" type="video/mp4">
     </video>
+    <div class="slide-overlay"></div>
     <div class="slide-content">
       <div class="slide-inner">
         <div class="slide-text">
@@ -505,12 +504,31 @@ footer{background:var(--footer-bg);padding:40px 24px 32px;transition:background 
       </div>
     </div>
   </div>
+  <div class="slide" id="slide-3">
+    <video autoplay muted loop playsinline poster="https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto,w_1920/4.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0">
+      <source src="https://res.cloudinary.com/dbw8ugwim/video/upload/q_auto/4.mp4" type="video/mp4">
+    </video>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <div class="slide-inner">
+        <div class="slide-text">
+          <div class="slide-tag">Upcoming · Retail, Office & Hotel</div>
+          <h2 class="slide-title">A New Benchmark<br>for <em>Kadri</em></h2>
+          <p class="slide-sub">Cubix — NH66, Next to Planet SKS, Kadri, Mangalore</p>
+        </div>
+                <div class="slide-actions">
+          <a class="btn-primary" href="cubix.html">View Project</a>
+          <a class="btn-secondary" href="https://wa.me/919900033888?text=I'm interested in Cubix. Please share details." target="_blank">Enquire Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="hero-scroll-wrap">
     <a class="hero-scroll-btn" href="#trust-bar" aria-label="Scroll down">
       <span class="scroll-label">SCROLL</span>
-      <svg width="18" height="28" viewBox="0 0 18 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="9" y1="0" x2="9" y2="20" stroke="white" stroke-width="1.5"/>
-        <polyline points="2,14 9,22 16,14" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg width="22" height="34" viewBox="0 0 18 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 2px 10px rgba(0,0,0,0.6)) drop-shadow(0 1px 4px rgba(0,0,0,0.5))">
+        <line x1="9" y1="0" x2="9" y2="20" stroke="white" stroke-width="1.8"/>
+        <polyline points="2,14 9,22 16,14" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
   </div>
@@ -518,8 +536,9 @@ footer{background:var(--footer-bg);padding:40px 24px 32px;transition:background 
     <div class="dot active" onclick="goToSlide(0)" role="tab" aria-label="Slide 1"></div>
     <div class="dot" onclick="goToSlide(1)" role="tab" aria-label="Slide 2"></div>
     <div class="dot" onclick="goToSlide(2)" role="tab" aria-label="Slide 3"></div>
+    <div class="dot" onclick="goToSlide(3)" role="tab" aria-label="Slide 4"></div>
   </div>
-  <div class="slide-num"><span id="current-slide">1</span> / 3</div>
+  <div class="slide-num"><span id="current-slide">1</span> / 4</div>
   <div class="slider-progress" id="slider-progress"></div>
 </section>
 
@@ -568,7 +587,9 @@ footer{background:var(--footer-bg);padding:40px 24px 32px;transition:background 
     <button class="fbtn" onclick="filterP('upcoming',this)">Upcoming</button>
     <button class="fbtn" onclick="filterP('completed',this)">Completed</button>
   </div>
-  <div class="proj-grid" id="pgrid">
+
+  <div class="proj-body-wrap">
+    <div class="proj-grid" id="pgrid">
 
     <!-- 1: SIGNATURE — Ongoing, Residential, 3B+G+51 -->
     <a class="proj-card" data-cat="residential ongoing" href="signature.html">
@@ -800,6 +821,84 @@ footer{background:var(--footer-bg);padding:40px 24px 32px;transition:background 
       </div>
     </a>
 
+    </div>
+
+    <div class="callback-wrap">
+    <div class="callback-card reveal" id="callback">
+      <div class="callback-title">Request a Callback</div>
+
+      <div class="callback-row">
+        <label class="callback-label">Your Name<span class="req">*</span></label>
+        <input type="text" class="callback-input" data-field="name" placeholder="Enter Your Name" autocomplete="name">
+      </div>
+
+      <div class="callback-row">
+        <label class="callback-label">Mobile<span class="req">*</span></label>
+        <div class="callback-phone-wrap">
+          <span class="callback-phone-prefix">+91</span>
+          <input type="tel" class="callback-input" data-field="phone" placeholder="Your Mobile" autocomplete="tel" maxlength="10">
+        </div>
+      </div>
+
+      <div class="callback-row">
+        <label class="callback-label">Your Email<span class="req">*</span></label>
+        <input type="email" class="callback-input" data-field="email" placeholder="Enter Your Email" autocomplete="email">
+      </div>
+
+      <div class="callback-row">
+        <label class="callback-label">City</label>
+        <input type="text" class="callback-input" data-field="city" placeholder="Your City" autocomplete="address-level2">
+      </div>
+
+      <div class="callback-row">
+        <label class="callback-label">Project of Interest</label>
+        <select class="callback-select" id="cb-project" data-field="project" onchange="updateUnitTypes()">
+          <option value="">Select a project</option>
+          <option value="signature">Westline Signature — Nanthoor</option>
+          <option value="cubix">Cubix — Kadri</option>
+          <option value="vantage">Vantage — Kankanady</option>
+          <option value="salubrity">Salubrity — Falnir</option>
+          <option value="fairmont">Fairmont — Kadri</option>
+          <option value="ohana">Ohana Luxury Stays — Chikmagalur</option>
+          <option value="jeppu">Jeppu Medicity</option>
+          <option value="skydale">Skydale</option>
+          <option value="splendid">Splendid Homes</option>
+          <option value="bonita">Bonita</option>
+          <option value="notsure">Not Sure Yet</option>
+        </select>
+      </div>
+
+      <div class="callback-row">
+        <label class="callback-label">Unit Type</label>
+        <select class="callback-select" id="cb-unittype" data-field="unit_type">
+          <option value="">Select a project first</option>
+        </select>
+      </div>
+
+      <div class="callback-row">
+        <label class="callback-label">I'm Looking to Purchase</label>
+        <select class="callback-select" data-field="purchase_timeline">
+          <option value="">Select</option>
+          <option>Immediately</option>
+          <option>In the Next 3 Months</option>
+          <option>In the Next 6 Months</option>
+          <option>In the Next 12 Months</option>
+          <option>Just Curious</option>
+        </select>
+      </div>
+
+      <div class="callback-consent">
+        <input type="checkbox" id="cb-consent-terms" data-field="terms_accepted">
+        <label for="cb-consent-terms">I confirm that I am 18 years of age or older and agree to the <a href="terms.html">Terms and Conditions</a> and <a href="privacy.html">Privacy Policy</a>, including the collection and processing of my personal data.</label>
+      </div>
+      <div class="callback-consent">
+        <input type="checkbox" id="cb-consent-marketing" data-field="marketing_opt_in">
+        <label for="cb-consent-marketing">Inform me about upcoming projects and offers.</label>
+      </div>
+
+      <button class="callback-btn" data-orig="Request a Callback" onclick="submitForm(event)">Request a Callback</button>
+    </div>
+    </div>
   </div>
 </section>
 
@@ -961,70 +1060,28 @@ footer{background:var(--footer-bg);padding:40px 24px 32px;transition:background 
   </a>
 </div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="ft-brand">WESTLINE</div>
-  <p class="ft-tag">Building Mangalore's skyline with precision, integrity, and an unwavering commitment to excellence since 2014. Home to Mangalore's tallest residential tower.</p>
-  <div class="ft-rera">
-    <p><strong>Regulatory Disclosure:</strong> Westline Builders Private Limited is a K-RERA registered developer. All projects are registered under the Karnataka Real Estate Regulatory Authority. Buyers are advised to verify project details on the RERA portal before making any purchase decision. Images shown may be artist impressions. Actual product may vary.</p>
-  </div>
-  <div class="ft-grid">
-    <div>
-      <div class="ft-col-t">Projects</div>
-      <ul class="ft-links">
-        <li><a href="signature.html">Westline Signature</a></li>
-        <li><a href="vantage.html">Vantage · Kankanady</a></li>
-        <li><a href="salubrity.html">Salubrity · Falnir</a></li>
-        <li><a href="cubix.html">Cubix · Kadri</a></li>
-        <li><a href="jeppu.html">Jeppu Medicity</a></li>
-        <li><a href="ohana.html">Ohana Luxury Stays</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="ft-col-t">More Projects</div>
-      <ul class="ft-links">
-        <li><a href="skydale.html">Skydale</a></li>
-        <li><a href="fairmont.html">Fairmont</a></li>
-        <li><a href="splendid.html">Splendid Homes</a></li>
-        <li><a href="bonita.html">Bonita</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="ft-col-t">Company</div>
-      <ul class="ft-links">
-        <li><a href="#about">About Westline</a></li>
-        <li><a href="#process">Our Process</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-        <li><a href="tools.html">Tools & Calculators</a></li>
-        <li><a href="team.html">Our Team</a></li>
-        <li><a href="careers.html">Careers</a></li>
-        <li><a href="https://www.instagram.com/westlinebuilders" target="_blank">Instagram</a></li>
-        <li><a href="https://youtube.com/@nasirmohideen1" target="_blank">YouTube</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="ft-col-t">Legal</div>
-      <ul class="ft-links">
-        <li><a href="#">RERA Disclosures</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Use</a></li>
-        <li><a href="https://originone.lovable.app" target="_blank">Employee Login</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="ft-bottom">
-    <span class="ft-copy">© 2025 Westline Builders Private Limited. All Rights Reserved.</span>
-    <span class="ft-disclaimer">K-RERA Registered Developer · Mangalore, Karnataka</span>
-  </div>
-</footer>
+<div id="footer-placeholder"></div>
+
 
 <script>
-function getTimeTheme(){const h=new Date().getHours();return(h>=6&&h<18)?'light':'dark'}
-function applyTheme(t){document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'');document.getElementById('theme-color-meta').content=t==='dark'?'#0A0A0A':'#FAF7F2';localStorage.setItem('wl-theme-override',t)}
-function toggleTheme(){const cur=document.documentElement.getAttribute('data-theme')||'light';applyTheme(cur==='dark'?'light':'dark')}
-(function(){const o=localStorage.getItem('wl-theme-override');if(o){applyTheme(o)}else{applyTheme(getTimeTheme())}setInterval(()=>{if(!localStorage.getItem('wl-theme-override')){applyTheme(getTimeTheme())}},60000)})();
 
-let currentSlide=0;const totalSlides=3;let progressTimer;let progressWidth=0;const SLIDE_DURATION=6000;
+// ── SHARED NAV & FOOTER LOADER ──
+// nav.html and footer.html are single source-of-truth files. Edit either one
+// and the change appears on every page that includes this loader — no need
+// to update each page's markup by hand.
+// Note: this uses fetch(), so it only works when the site is served over
+// http/https (e.g. Cloudflare Pages, or any local dev server) — opening the
+// HTML file directly via file:// will not load the nav/footer due to browser
+// CORS restrictions on local file access.
+Promise.all([
+  fetch('nav.html').then(r => r.text()),
+  fetch('footer.html').then(r => r.text())
+]).then(([navHtml, footerHtml]) => {
+  document.getElementById('nav-placeholder').innerHTML = navHtml;
+  document.getElementById('footer-placeholder').innerHTML = footerHtml;
+}).catch(err => console.error('Nav/footer failed to load — is this page being served over http(s)?', err));
+
+let currentSlide=0;const totalSlides=4;let progressTimer;let progressWidth=0;const SLIDE_DURATION=6000;
 function goToSlide(n){
   const slides=document.querySelectorAll('.slide');
   const dots=document.querySelectorAll('.dot');
@@ -1041,9 +1098,8 @@ function goToSlide(n){
   // Play new video from start
   const newVid=slides[currentSlide].querySelector('video');
   if(newVid){newVid.currentTime=0;newVid.play();}
-  // Use video duration for progress bar if available, else default
-  const dur=(newVid&&newVid.duration>1)?newVid.duration*1000:SLIDE_DURATION;
-  resetProgress(dur);
+  // Fixed 6s duration per slide — matches video length
+  resetProgress(SLIDE_DURATION);
 }
 function nextSlide(){goToSlide((currentSlide+1)%totalSlides)}
 function resetProgress(duration){
@@ -1052,34 +1108,50 @@ function resetProgress(duration){
   const bar=document.getElementById('slider-progress');
   bar.style.width='0%';
   const dur=duration||SLIDE_DURATION;
+  const stepMs=50;
   progressTimer=setInterval(()=>{
-    progressWidth+=100/(dur/100);
+    progressWidth+=100/(dur/stepMs);
     bar.style.width=Math.min(progressWidth,100)+'%';
     if(progressWidth>=100){clearInterval(progressTimer);nextSlide()}
-  },100);
+  },stepMs);
 }
 
-// For video slides — transition when video is 0.5s from end
+// Preload all slide videos on page load (no per-video transition listeners — the progress timer alone drives slide changes)
 function bindVideoSlide(slideId){
   const video=document.querySelector('#'+slideId+' video');
   if(!video)return;
-  video.addEventListener('timeupdate',function(){
-    if(this.duration&&this.currentTime>0&&(this.duration-this.currentTime)<0.5){
-      clearInterval(progressTimer);
-      document.getElementById('slider-progress').style.width='100%';
-      nextSlide();
-    }
-  },{once:false});
-  // Preload all videos
   video.load();
 }
-
-// Preload all slide videos on page load
-['slide-0','slide-1','slide-2'].forEach(id=>bindVideoSlide(id));
-resetProgress();
+['slide-0','slide-1','slide-2','slide-3'].forEach(id=>bindVideoSlide(id));
+resetProgress(SLIDE_DURATION);
 
 function toggleMenu(){const h=document.getElementById('hamburger');const m=document.getElementById('mob-menu');h.classList.toggle('open');m.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':''}
 document.addEventListener('click',e=>{const m=document.getElementById('mob-menu');const h=document.getElementById('hamburger');if(m&&m.classList.contains('open')&&!m.contains(e.target)&&!h.contains(e.target))toggleMenu()});
+
+const UNIT_TYPES_BY_PROJECT = {
+  signature: ['2 BHK Type 1 (1,590 sq ft)','2 BHK Type 2 (1,695 sq ft)','3 BHK (2,070 sq ft)','4 BHK Simplex (3,285 sq ft)','3 BHK Duplex + Media','4 BHK Duplex + Media','Sky Villa Penthouse','Not Sure — Show Me Options'],
+  cubix: ['Retail Space','Office / IT Park Floor','Hotel / Serviced Residence'],
+  vantage: ['Retail Unit','Office Unit'],
+  salubrity: ['Clinic / Practitioner Space','Diagnostic Lab','Pharmacy / Retail','General Office Use'],
+  fairmont: ['Studio Apartment','1 BHK Serviced Apartment','2 BHK Serviced Apartment'],
+  ohana: ['Cottage Unit','Suite Unit','Investment — Any Unit'],
+  jeppu: ['Resale Enquiry'],
+  skydale: ['Resale Enquiry'],
+  splendid: ['Resale Enquiry'],
+  bonita: ['Resale Enquiry'],
+  notsure: ['Not Sure Yet']
+};
+function updateUnitTypes(){
+  const project = document.getElementById('cb-project').value;
+  const unitSelect = document.getElementById('cb-unittype');
+  unitSelect.innerHTML = '';
+  if(!project){
+    unitSelect.innerHTML = '<option value="">Select a project first</option>';
+    return;
+  }
+  const opts = UNIT_TYPES_BY_PROJECT[project] || ['General Enquiry'];
+  unitSelect.innerHTML = '<option value="">Select a unit type</option>' + opts.map(o=>`<option>${o}</option>`).join('');
+}
 
 function filterP(cat,btn){
   document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
@@ -1140,5 +1212,6 @@ document.querySelector('.hero').addEventListener('touchend',e=>{const diff=touch
 })();
 
 </script>
+<script src="westline-forms.js"></script>
 </body>
 </html>
