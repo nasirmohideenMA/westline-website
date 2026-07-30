@@ -274,25 +274,7 @@ footer{background:var(--surface3);border-top:1px solid var(--border);padding:56p
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo">WESTLINE <span>Builders</span></a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="index.html#projects">Projects</a></li>
-    <li><a href="agents.html">Agents</a></li>
-    <li><a href="landowners.html">Landowners</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
-  </ul>
-  <div style="display:flex;align-items:center;gap:12px">
-    <a href="tel:+919900033888" class="nav-phone">+91 99000 33888</a>
-    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-<div class="mob-menu" id="mob-menu">
-  <a class="mob-link" href="index.html" onclick="toggleMenu()">Home</a>
-  <a class="mob-link" href="index.html#projects" onclick="toggleMenu()">All Projects</a>
-
-</div>
+<div id="nav-placeholder"></div>
 
 <section class="proj-hero" style="min-height:36vh">
   <div class="hero-fallback"></div>
@@ -306,7 +288,7 @@ footer{background:var(--surface3);border-top:1px solid var(--border);padding:56p
 
 <section class="panel" style="background:var(--surface2)">
   <div class="legal-body">
-    <p class="legal-updated">Effective date: [Month, Year] · Last updated: [Month, Year]</p>
+    <p class="legal-updated">Effective date: 30 July 2026 · Last updated: 30 July 2026</p>
     <p>This User Agreement governs your access to and use of westline.co.in (the "Site"), owned and operated by Westline Builders Private Limited ("Westline," "the Company," "we," "us," or "our"). By browsing the Site, submitting an enquiry, requesting a callback, or registering as a channel partner or landowner, you agree to be bound by this Agreement. If you do not agree, please discontinue use of the Site.</p>
 
     <div class="legal-toc">
@@ -391,7 +373,7 @@ footer{background:var(--surface3);border-top:1px solid var(--border);padding:56p
       <strong>Grievance Officer</strong><br>
       Westline Builders Private Limited<br>
       Phone: <a href="tel:+919900033888" style="color:var(--gold)">+91 99000 33888</a><br>
-      Email: [grievance officer email address — to be added]<br>
+      Email: officeadmin@westlinebuilders.com<br>
       Address: Westline Signature, 15-14-T-813/3, Panvel Kochi Kanyakumari Highway, Nanthoor, Mangaluru, Dakshina Kannada, Karnataka 575002
     </div>
     <p>We will acknowledge and address grievances within the timelines prescribed under applicable law.</p>
@@ -420,40 +402,7 @@ footer{background:var(--surface3);border-top:1px solid var(--border);padding:56p
   </div>
 </section>
 
-<footer>
-  <div>
-    <div class="ft-brand">WESTLINE</div>
-    <p class="ft-tag">Building Mangalore's skyline with precision, integrity and an unwavering commitment to excellence since 2014.</p>
-  </div>
-  <div>
-    <div class="ft-col-t">Legal</div>
-    <ul class="ft-links">
-      <li><a href="privacy.html">Privacy Policy</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
-    </ul>
-  </div>
-  <div>
-    <div class="ft-col-t">Company</div>
-    <ul class="ft-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="index.html#projects">All Projects</a></li>
-      <li><a href="agents.html">Agent Programme</a></li>
-      <li><a href="landowners.html">Landowners</a></li>
-    </ul>
-  </div>
-  <div>
-    <div class="ft-col-t">Contact</div>
-    <ul class="ft-links">
-      <li><a href="tel:+919900033888">+91 99000 33888</a></li>
-      <li><a href="https://wa.me/919900033888" target="_blank">WhatsApp</a></li>
-      <li>westline.co.in</li>
-    </ul>
-  </div>
-</footer>
-<div class="ft-bottom">
-  <span class="ft-copy">© 2025 Westline Builders Private Limited. All Rights Reserved.</span>
-  <span class="ft-rera">K-RERA Registered Developer · Mangalore, Karnataka</span>
-</div>
+<div id="footer-placeholder"></div>
 
 <script>
 
@@ -503,6 +452,20 @@ window.addEventListener('scroll',()=>{
 },{passive:true});
 
 
+</script>
+<script>
+// ── SHARED NAV & FOOTER LOADER ──
+// nav.html and footer.html are single source-of-truth files, shared across
+// every page. Edit either one and the change appears everywhere automatically.
+// Requires the site to be served over http/https (works on Cloudflare Pages;
+// will not work opening the file directly via file:// due to browser CORS).
+Promise.all([
+  fetch('nav.html').then(r => r.text()),
+  fetch('footer.html').then(r => r.text())
+]).then(([navHtml, footerHtml]) => {
+  document.getElementById('nav-placeholder').innerHTML = navHtml;
+  document.getElementById('footer-placeholder').innerHTML = footerHtml;
+}).catch(err => console.error('Nav/footer failed to load — is this page being served over http(s)?', err));
 </script>
 <script src="westline-forms.js"></script>
 </body>

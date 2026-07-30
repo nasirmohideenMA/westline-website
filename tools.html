@@ -1,465 +1,672 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#FAF7F2" id="theme-color-meta">
-<title>Buyer Tools & Calculators | Westline Builders Mangalore</title>
-<meta name="description" content="Free real estate calculators for Mangalore property buyers — EMI calculator, Karnataka stamp duty calculator, and project comparison tool by Westline Builders.">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tools & Calculators | EMI, Stamp Duty, Rent vs Buy | Westline Builders</title>
+<meta name="description" content="Free property calculators from Westline Builders — home loan EMI calculator, Karnataka stamp duty calculator, rent vs buy comparison, area unit converter and home loan rate comparison.">
 <link rel="canonical" href="https://westline.co.in/tools.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --gold:#A67C3D;--gold-l:#C9A96E;--gold-d:#D4B483;--gold-p:#F0E4CC;
-  --bg:#FAF7F2;--bg2:#F5F0E8;--surface:#FFFDF9;
-  --ink:#1A1410;--text:#3D3228;--text2:#7A6B58;--muted:#A89880;
-  --border:rgba(166,124,61,0.15);
-  --nav-bg:rgba(250,247,242,0.97);--nav-h:68px;
-  --shadow:rgba(166,124,61,0.12);
-}
-[data-theme="dark"]{
-  --gold:#C9A96E;--gold-l:#E8D5A3;--gold-d:#7A6340;--gold-p:rgba(201,169,110,0.1);
-  --bg:#0A0A0A;--bg2:#111;--surface:#141414;
-  --ink:#E8E4DC;--text:#E8E4DC;--text2:#A09080;--muted:#666;
-  --border:rgba(201,169,110,0.12);
-  --nav-bg:rgba(10,10,10,0.97);
-}
-*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;transition:background 0.4s,color 0.4s}
+
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--gold:#8C6520;--gold-light:#A67C3D;--gold-dim:#B8914F;--gold-bg:rgba(140,101,32,0.1);--ink:#1A1410;--surface:#FFFDF9;--surface2:#FAF7F2;--surface3:#EDE5D8;--muted:#6B5B48;--text:#2C2018;--text2:#5A4A38;--border:rgba(140,101,32,0.2);--border2:rgba(140,101,32,0.1)}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--surface2);color:var(--text);font-family:'Jost',sans-serif;font-weight:300}
 a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 60px;height:60px;display:flex;justify-content:space-between;align-items:center;background:rgba(20,16,10,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,169,110,0.15)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;letter-spacing:0.14em;color:var(--gold-dim);white-space:nowrap}
+.nav-logo span{color:#F5F0E8;font-style:italic;font-weight:300}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.6);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;transition:color 0.3s}
+.nav-links a:hover{color:var(--gold-dim)}
+.nav-phone{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dim);border:1px solid rgba(201,169,110,0.5);padding:8px 18px;font-family:'Jost',sans-serif;font-weight:500;transition:all 0.3s}
+.nav-phone:hover{background:var(--gold-dim);color:#fff}
+.hamburger{display:none;width:34px;height:34px;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;background:none;border:none;padding:4px;flex-shrink:0}
+.hamburger span{display:block;width:5px;height:5px;border-radius:50%;background:var(--gold-dim);transition:all 0.3s}
+.mob-menu{display:none;position:fixed;inset:0;top:56px;background:var(--surface);z-index:190;flex-direction:column;padding:24px;overflow-y:auto;border-top:1px solid var(--border)}
+.mob-menu.open{display:flex}
+.mob-link{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--text);padding:14px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.mob-link::after{content:'→';font-family:'Jost',sans-serif;font-size:14px;color:var(--gold)}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);display:flex;justify-content:space-between;align-items:center;padding:0 24px;background:var(--nav-bg);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;letter-spacing:0.14em;color:var(--gold)}
-.nav-logo span{font-style:italic;font-weight:300;color:var(--text)}
-.nav-actions{display:flex;align-items:center;gap:10px}
-.nav-back{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text2);border:1px solid var(--border);padding:7px 14px;transition:all 0.3s}
-.nav-back:hover{color:var(--gold);border-color:var(--gold)}
-.theme-toggle{width:40px;height:22px;background:var(--border);border-radius:11px;position:relative;cursor:pointer;border:none;transition:background 0.3s;flex-shrink:0}
-.theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--gold);transition:transform 0.3s}
-[data-theme="dark"] .theme-toggle::after{transform:translateX(18px)}
+.proj-hero{min-height:88vh;position:relative;display:flex;align-items:flex-end;padding:0 60px 70px;overflow:hidden;padding-top:80px;background:#0a0a08}
+.proj-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;filter:brightness(1.15) contrast(0.98)}
+.hero-fallback{position:absolute;inset:0;background:linear-gradient(155deg,#0a0a08 0%,#141208 40%,#1e1a0c 70%,#0a0a08 100%);z-index:0}
+.hero-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(201,169,110,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(201,169,110,0.035) 1px,transparent 1px);background-size:70px 70px;z-index:1}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(6,4,2,0.72) 0%,rgba(6,4,2,0.35) 55%,rgba(6,4,2,0.15) 100%),linear-gradient(to top,rgba(6,4,2,0.85) 0%,rgba(6,4,2,0.2) 45%,transparent 70%)}
+.hero-content{position:relative;z-index:3;max-width:720px}
+.breadcrumb{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.breadcrumb a{color:rgba(255,255,255,0.65);transition:color 0.3s}
+.breadcrumb a:hover{color:var(--gold-dim)}
+.breadcrumb span{color:var(--gold-dim)}
+.status-badge{display:inline-block;font-size:8px;letter-spacing:0.25em;text-transform:uppercase;padding:6px 14px;margin-bottom:18px;border:1px solid rgba(201,169,110,0.5);color:#fff}
+.b-ongoing{background:rgba(140,96,36,0.5)}
+.b-upcoming{background:rgba(30,80,170,0.45);border-color:rgba(120,160,230,0.6)}
+.b-completed{background:rgba(34,100,60,0.5);border-color:rgba(120,210,150,0.6)}
+.proj-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(50px,8vw,100px);font-weight:300;line-height:0.9;margin-bottom:14px;color:#fff;text-shadow:0 3px 26px rgba(0,0,0,0.55)}
+.proj-h1 em{font-style:italic;color:var(--gold-dim)}
+.proj-tagline{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.4vw,25px);font-style:italic;color:rgba(255,255,255,0.9);margin-bottom:12px;text-shadow:0 2px 12px rgba(0,0,0,0.5);line-height:1.4}
+.proj-claim{font-size:13px;color:rgba(255,255,255,0.62);margin-bottom:30px;line-height:1.7;max-width:560px;text-shadow:0 1px 8px rgba(0,0,0,0.5)}
+.hero-meta{display:flex;gap:36px;flex-wrap:wrap;margin-bottom:32px}
+.meta-item{display:flex;flex-direction:column;gap:5px}
+.meta-label{font-size:8px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.6)}
+.meta-value{font-size:13px;color:#fff;letter-spacing:0.04em;font-weight:400;text-shadow:0 1px 6px rgba(0,0,0,0.5)}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn-icon-hero{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(255,255,255,0.45);color:#fff;background:rgba(255,255,255,0.08);backdrop-filter:blur(8px);transition:all 0.3s;flex-shrink:0}
+.btn-icon-hero:hover{border-color:var(--gold-dim);background:rgba(166,124,61,0.25)}
+.btn-icon-gold{background:var(--gold);border-color:var(--gold)}
+.btn-icon-gold:hover{background:var(--gold-light);border-color:var(--gold-light)}
+.btn-hero-main{display:inline-flex;align-items:center;background:var(--gold);color:#fff;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;padding:0 24px;height:44px;font-weight:600;font-family:'Jost',sans-serif;transition:all 0.3s}
+.btn-hero-main:hover{background:var(--gold-light)}
+.btn-hero-ghost{display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.45);color:#fff;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;padding:0 20px;height:44px;background:transparent;font-family:'Jost',sans-serif;transition:all 0.3s}
+.btn-hero-ghost:hover{border-color:var(--gold-dim);color:var(--gold-dim)}
 
-/* PAGE HEADER */
-.page-header{padding:calc(var(--nav-h) + 48px) 24px 40px;background:var(--bg2);border-bottom:1px solid var(--border)}
-.page-header .sec-tag{font-size:9px;letter-spacing:0.38em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:12px}
-.page-header .sec-tag::before{content:'';display:block;width:24px;height:1px;background:var(--gold)}
-.page-header h1{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,7vw,52px);font-weight:300;color:var(--ink);line-height:1.05;margin-bottom:12px}
-.page-header h1 em{font-style:italic;color:var(--gold)}
-.page-header p{font-size:14px;color:var(--text2);line-height:1.8;max-width:560px}
+.tabs-bar{background:var(--surface2);border-bottom:1px solid var(--border);position:sticky;top:60px;z-index:199;box-shadow:0 2px 12px rgba(166,124,61,0.06)}
+.tabs-inner{display:flex;padding:0 60px;overflow-x:auto;scrollbar-width:none}
+.tabs-inner::-webkit-scrollbar{display:none}
+.tab-btn{position:relative;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;padding:20px 26px;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:all 0.3s;white-space:nowrap;background:none;border:none;font-family:'Jost',sans-serif;text-decoration:none;display:inline-block}
+.tab-btn:not(:last-child)::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:1px;height:14px;background:var(--border)}
+.tab-btn.active,.tab-btn:hover{color:var(--gold);border-bottom-color:var(--gold)}
 
-/* TOOL TABS */
-.tools-wrap{max-width:900px;margin:0 auto;padding:40px 24px 80px}
-.tool-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:40px;overflow-x:auto;scrollbar-width:none}
-.tool-tabs::-webkit-scrollbar{display:none}
-.tab-btn{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;padding:12px 20px;border:none;background:transparent;color:var(--text2);cursor:pointer;font-family:'Jost',sans-serif;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;transition:all 0.3s;flex-shrink:0}
-.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
-.tab-btn:hover{color:var(--gold)}
-.tool-panel{display:none}
-.tool-panel.active{display:block}
+.panel{padding:78px 60px}
+.sec-tag{font-size:9px;letter-spacing:0.38em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:14px}
+.sec-tag::before{content:'';display:block;width:28px;height:1px;background:var(--gold)}
+.sec-h{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4.2vw,52px);font-weight:300;line-height:1.06;margin-bottom:20px;color:var(--ink)}
+.sec-h em{font-style:italic;color:var(--gold)}
+.sec-lede{color:var(--text2);font-size:15px;line-height:1.9;max-width:680px}
+.body-text{color:var(--text2);font-size:15px;line-height:1.95;margin-bottom:20px}
 
-/* TOOL CARD */
-.tool-card{background:var(--surface);border:1px solid var(--border);padding:32px 28px}
-.tool-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:var(--ink);margin-bottom:6px}
-.tool-desc{font-size:13px;color:var(--text2);margin-bottom:28px;line-height:1.7}
+.ov-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:start}
+.highlight-box{background:var(--surface3);border-left:3px solid var(--gold);padding:26px 30px;margin-bottom:30px}
+.highlight-box p{font-family:'Cormorant Garamond',serif;font-size:21px;font-style:italic;color:var(--ink);line-height:1.5}
+.specs-card{background:var(--surface);border:1px solid var(--border);margin-bottom:18px}
+.specs-head{padding:18px 24px;border-bottom:1px solid var(--border);font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);background:var(--surface3)}
+.spec-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:13px 24px;border-bottom:1px solid var(--border2)}
+.spec-row:last-child{border-bottom:none}
+.spec-k{font-size:11px;color:var(--text2);letter-spacing:0.08em;font-weight:500;flex-shrink:0}
+.spec-v{font-size:12px;color:var(--ink);text-align:right;font-weight:500;word-break:break-word}
+.price-card{background:var(--ink);padding:28px}
+.price-label{font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:10px}
+.price-val{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#fff;margin-bottom:6px;line-height:1.2}
+.price-note{font-size:11.5px;color:rgba(255,255,255,0.5);margin-bottom:20px;line-height:1.7}
+.btn-gold-full{background:var(--gold);color:#fff;border:none;padding:15px 0;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;cursor:pointer;width:100%;transition:background 0.3s}
+.btn-gold-full:hover{background:var(--gold-light)}
 
-/* FORM ELEMENTS */
-.field-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
-.field-row.single{grid-template-columns:1fr}
-.field{display:flex;flex-direction:column;gap:6px}
-.field label{font-size:8px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted)}
-.field input,.field select{background:transparent;border:none;border-bottom:1.5px solid var(--border);padding:10px 0;color:var(--text);font-family:'Jost',sans-serif;font-size:15px;font-weight:300;outline:none;transition:border-color 0.3s;-webkit-appearance:none;border-radius:0}
-.field input:focus,.field select:focus{border-bottom-color:var(--gold)}
-.field select option{background:var(--bg2);color:var(--text)}
-.range-wrap{display:flex;flex-direction:column;gap:8px}
-.range-val{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);font-weight:300}
-input[type=range]{-webkit-appearance:none;width:100%;height:2px;background:var(--border);outline:none;border:none;padding:0}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--gold);cursor:pointer}
+.spec-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:36px 0}
+.spec-strip-card{background:var(--ink);border-radius:6px;padding:22px}
+.spec-strip-card svg{width:24px;height:24px;stroke:var(--gold-dim);fill:none;stroke-width:1.6}
+.ss-label{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dim);margin:14px 0 6px}
+.ss-title{font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;margin-bottom:6px;line-height:1.25;font-weight:500}
+.ss-desc{font-size:11px;color:rgba(255,255,255,0.5);line-height:1.6}
 
-/* CALC BTN */
-.calc-btn{background:var(--gold);color:#fff;border:none;padding:14px 32px;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:background 0.3s;margin-top:8px}
-.calc-btn:hover{background:var(--ink)}
+.why-sec{background:var(--surface)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.why-card{background:var(--surface2);border:1px solid var(--border2);padding:30px 26px;transition:all 0.35s}
+.why-card:hover{border-color:var(--gold-dim);transform:translateY(-3px);box-shadow:0 14px 38px rgba(140,101,32,0.09)}
+.why-ico{width:26px;height:26px;color:var(--gold);margin-bottom:16px}
+.why-t{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:400;color:var(--ink);margin-bottom:9px;line-height:1.2}
+.why-d{font-size:13px;color:var(--text2);line-height:1.75}
 
-/* RESULT BOX */
-.result-box{margin-top:28px;padding:24px;background:var(--bg2);border-left:3px solid var(--gold);display:none}
-.result-box.show{display:block}
-.result-main{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--gold);margin-bottom:4px}
-.result-label{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
-.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-top:16px;border-top:1px solid var(--border)}
-.result-item{display:flex;flex-direction:column;gap:3px}
-.result-item-val{font-size:16px;font-weight:500;color:var(--text)}
-.result-item-lbl{font-size:8px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)}
+.roi-sec{background:var(--ink);color:#fff}
+.roi-sec .sec-h{color:#fff}
+.roi-sec .sec-h em{color:var(--gold-dim)}
+.roi-sec .sec-tag{color:var(--gold-dim)}
+.roi-sec .sec-tag::before{background:var(--gold-dim)}
+.roi-sec .sec-lede{color:rgba(255,255,255,0.55)}
+.roi-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:44px;align-items:start}
+.roi-calc{background:rgba(255,255,255,0.04);border:1px solid rgba(201,169,110,0.18);padding:32px}
+.roi-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.roi-row label{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.55)}
+.roi-row input{width:130px;background:transparent;border:none;border-bottom:1px solid rgba(201,169,110,0.35);padding:8px 0;color:#fff;font-family:'Cormorant Garamond',serif;font-size:20px;text-align:right;outline:none}
+.roi-result{border-top:1px solid rgba(201,169,110,0.2);margin-top:10px;padding-top:22px;display:flex;justify-content:space-between;align-items:baseline}
+.roi-result-l{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-dim)}
+.roi-result-v{font-family:'Cormorant Garamond',serif;font-size:32px;color:#fff}
+.roi-tenants{display:flex;flex-direction:column;gap:0}
+.roi-tenant{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid rgba(201,169,110,0.14);align-items:flex-start}
+.roi-tenant:last-child{border-bottom:none}
+.roi-tenant-ico{width:18px;height:18px;color:var(--gold-dim);flex-shrink:0;margin-top:2px}
+.roi-tenant-t{font-size:13.5px;color:#fff;font-weight:500;margin-bottom:3px}
+.roi-tenant-d{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.6}
 
-/* STAMP DUTY TABLE */
-.sd-table{width:100%;border-collapse:collapse;margin-top:16px}
-.sd-table th{font-size:8px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);padding:8px 12px;text-align:left;border-bottom:1px solid var(--border)}
-.sd-table td{font-size:13px;color:var(--text);padding:10px 12px;border-bottom:1px solid var(--border)}
-.sd-table tr:last-child td{border-bottom:none}
-.sd-table td:last-child{font-weight:500;color:var(--gold);text-align:right}
-.sd-total{display:flex;justify-content:space-between;align-items:center;padding:16px 12px;background:var(--bg);margin-top:4px;border-top:2px solid var(--gold)}
-.sd-total-lbl{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text2)}
-.sd-total-val{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);font-weight:300}
+.amen-tabs-bar,.loc-tabs-bar{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:24px;overflow-x:auto;scrollbar-width:none;flex-wrap:wrap}
+.amen-tabs-bar::-webkit-scrollbar,.loc-tabs-bar::-webkit-scrollbar{display:none}
+.amen-tab,.loc-tab{padding:10px 18px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:'Jost',sans-serif;white-space:nowrap;transition:all 0.3s}
+.amen-tab:hover,.loc-tab:hover{color:var(--gold)}
+.amen-tab.active,.loc-tab.active{color:var(--gold);border-bottom-color:var(--gold);font-weight:500}
+.amen-panel,.loc-panel{display:none}
+.amen-panel.active,.loc-panel.active{display:block}
+.amen-list{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}
+.amen-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border2)}
+.amen-ico{width:17px;height:17px;color:var(--gold);flex-shrink:0}
+.amen-row span{font-size:13px;color:var(--text2);line-height:1.4}
+.loc-cards{display:flex;flex-direction:column;gap:0}
+.loc-card{background:transparent;border:none;border-bottom:1px solid var(--border2);padding:13px 2px;transition:opacity 0.3s;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.loc-card:last-child{border-bottom:none}
+.loc-card:hover{opacity:0.75}
+.loc-card-main{display:flex;align-items:center;gap:12px;min-width:0}
+.loc-ico{width:17px;height:17px;color:var(--gold);flex-shrink:0}
+.loc-name{font-size:13px;font-weight:400;color:var(--ink)}
+.loc-dist{font-size:11px;color:var(--gold);font-weight:500;white-space:nowrap;flex-shrink:0}
 
-/* COMPARISON */
-.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
-.compare-select-wrap{display:flex;flex-direction:column;gap:6px}
-.compare-select-wrap label{font-size:8px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted)}
-.compare-select-wrap select{background:transparent;border:none;border-bottom:1.5px solid var(--border);padding:10px 0;color:var(--text);font-family:'Jost',sans-serif;font-size:14px;font-weight:300;outline:none;-webkit-appearance:none;cursor:pointer}
-.compare-table{width:100%;border-collapse:collapse;display:none}
-.compare-table.show{display:table}
-.compare-table th{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);padding:10px 14px;text-align:left;background:var(--bg2);border-bottom:1px solid var(--border)}
-.compare-table th.proj-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:var(--gold);letter-spacing:0;text-transform:none}
-.compare-table td{font-size:13px;color:var(--text);padding:11px 14px;border-bottom:1px solid var(--border);vertical-align:top}
-.compare-table td:first-child{color:var(--muted);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;width:30%}
-.compare-table tr:last-child td{border-bottom:none}
-.badge-s{display:inline-block;font-size:7px;letter-spacing:0.15em;text-transform:uppercase;padding:3px 8px;font-weight:600;border-radius:2px}
-.b-ongoing{background:rgba(140,96,36,0.15);color:#A67C3D;border:1px solid rgba(140,96,36,0.3)}
-.b-upcoming{background:rgba(30,80,170,0.12);color:#4a7fd4;border:1px solid rgba(30,80,170,0.3)}
-.b-completed{background:rgba(34,100,60,0.12);color:#3a8a5a;border:1px solid rgba(34,100,60,0.3)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+.gal-item{aspect-ratio:4/3;background:linear-gradient(140deg,var(--surface3),#E2D6C2);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:all 0.35s;cursor:pointer}
+.gal-item:hover{border-color:var(--gold-dim);transform:translateY(-2px)}
+.gal-item img{width:100%;height:100%;object-fit:cover}
+.gal-ph{text-align:center;padding:16px}
+.gal-ph svg{width:26px;height:26px;stroke:var(--gold-dim);fill:none;stroke-width:1.2;margin:0 auto 8px}
+.gal-ph-t{font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);line-height:1.6}
 
-/* CTA STRIP */
-.tool-cta{margin-top:28px;padding:20px 24px;background:linear-gradient(to right,var(--gold-p),transparent);border:1px solid var(--gold-d);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.tool-cta p{font-size:13px;color:var(--text2);line-height:1.6}
-.tool-cta p strong{color:var(--ink);font-weight:500}
-.cta-link{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:10px 18px;white-space:nowrap;transition:all 0.3s;flex-shrink:0}
-.cta-link:hover{background:var(--gold);color:#fff}
+.map-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:52px;align-items:start}
+.map-frame{aspect-ratio:4/3;border:1px solid var(--border);overflow:hidden}
+.map-frame iframe{width:100%;height:100%;border:none}
+.map-cta{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#fff;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;padding:14px 24px;font-weight:600;transition:all 0.3s;margin-top:18px}
+.map-cta:hover{background:var(--gold-light)}
 
-/* FOOTER */
-.mini-footer{background:var(--bg2);border-top:1px solid var(--border);padding:24px;text-align:center;font-size:11px;color:var(--muted)}
-.mini-footer a{color:var(--gold)}
+.faq-list{max-width:860px;margin-top:38px}
+.faq-item{border-bottom:1px solid var(--border2)}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:21px 40px 21px 0;font-family:'Jost',sans-serif;font-size:15px;color:var(--ink);cursor:pointer;position:relative;font-weight:400;transition:color 0.3s}
+.faq-q:hover{color:var(--gold)}
+.faq-q::after{content:'+';position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:20px;color:var(--gold);font-weight:300}
+.faq-item.open .faq-q::after{content:'−'}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.4s ease}
+.faq-item.open .faq-a{max-height:460px;padding-bottom:22px}
+.faq-a p{font-size:14px;color:var(--text2);line-height:1.9;padding-right:40px}
 
-/* RESPONSIVE */
+.enq-sec{background:var(--ink)}
+.enq-wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:66px;align-items:start}
+.enq-sec .sec-h{color:#fff}
+.enq-sec .sec-h em{color:var(--gold-dim)}
+.enq-sec .sec-tag{color:var(--gold-dim)}
+.enq-sec .sec-tag::before{background:var(--gold-dim)}
+.enq-intro{font-size:14px;color:rgba(255,255,255,0.62);line-height:1.9;margin-bottom:30px}
+.fc-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px}
+.fc-ico{width:19px;height:19px;color:var(--gold-dim);flex-shrink:0;margin-top:2px}
+.fc-l{font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:4px}
+.fc-v{font-size:14px;color:rgba(255,255,255,0.85);line-height:1.6}
+.enq-form{background:rgba(255,255,255,0.04);border:1px solid rgba(201,169,110,0.18);padding:36px}
+.form-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:#fff;margin-bottom:6px}
+.form-note{font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:28px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fg{margin-bottom:22px}
+.fl{font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:8px}
+.fi,.fsel,.fta{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(201,169,110,0.3);padding:11px 0;color:#fff;font-family:'Jost',sans-serif;font-size:14px;font-weight:300;outline:none;transition:border-color 0.3s;border-radius:0}
+.fi:focus,.fsel:focus,.fta:focus{border-bottom-color:var(--gold-dim)}
+.fi::placeholder,.fta::placeholder{color:rgba(255,255,255,0.3)}
+.fsel option{background:var(--ink);color:#fff}
+.fta{resize:none;height:78px}
+.fsub{background:var(--gold);color:#fff;border:none;padding:16px 0;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;cursor:pointer;width:100%;margin-top:8px;transition:background 0.3s}
+.fsub:hover{background:var(--gold-light)}
+
+footer{background:var(--surface3);border-top:1px solid var(--border);padding:56px 60px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+.ft-brand{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ink);margin-bottom:12px;letter-spacing:0.12em}
+.ft-tag{font-size:12px;color:var(--text2);line-height:1.7;max-width:250px}
+.ft-col-t{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:12px;color:var(--text);transition:color 0.3s}
+.ft-links a:hover{color:var(--gold)}
+.ft-bottom{background:var(--surface2);border-top:1px solid var(--border);padding:20px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.ft-copy,.ft-rera{font-size:10px;color:var(--text2)}
+
+/* COMPLETED-PROJECT SPECIFIC */
+.proof-strip{background:var(--ink);padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.proof-stat{padding:30px 24px;text-align:center;border-right:1px solid rgba(255,255,255,0.07)}
+.proof-stat:last-child{border-right:none}
+.proof-stat-n{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--gold-dim);line-height:1}
+.proof-stat-l{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:8px}
+.testi-box{background:var(--surface3);border-left:3px solid var(--gold);padding:32px 36px;margin-top:36px;max-width:760px}
+.testi-q{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--ink);line-height:1.5;margin-bottom:14px}
+.testi-a{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold)}
+
+/* RESPONSIVE (shared) */
+@media(max-width:1000px){
+  .ov-grid,.map-grid,.enq-wrap,.roi-wrap{grid-template-columns:1fr;gap:44px}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .gal-grid{grid-template-columns:1fr 1fr 1fr}
+  .spec-strip{grid-template-columns:1fr}
+  .proof-strip{grid-template-columns:1fr 1fr}
+  .proof-stat:nth-child(2n){border-right:none}
+}
+@media(max-width:900px){
+  nav{padding:0 20px;height:56px}
+  .nav-links,.nav-phone{display:none}
+  .hamburger{display:flex}
+  .tabs-bar{top:56px}
+  .tabs-inner{padding:0 20px}
+  .proj-hero{padding:80px 20px 48px;min-height:auto}
+  .panel{padding:52px 20px}
+  .hero-meta{gap:22px;margin-bottom:24px}
+  .amen-list{grid-template-columns:1fr}
+  footer{grid-template-columns:1fr 1fr;padding:44px 20px;gap:30px}
+  .ft-bottom{padding:18px 20px;flex-direction:column;text-align:center}
+}
 @media(max-width:600px){
-  .tools-wrap{padding:28px 16px 80px}
-  .tool-card{padding:24px 18px}
-  .field-row{grid-template-columns:1fr}
-  .result-grid{grid-template-columns:1fr 1fr}
-  .compare-grid{grid-template-columns:1fr}
-  .tool-cta{flex-direction:column;align-items:flex-start}
-  .tab-btn{padding:12px 14px;font-size:9px}
+  .why-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+  .enq-form{padding:26px 20px}
+  .amen-tabs-bar,.loc-tabs-bar{overflow-x:visible;flex-wrap:wrap;border-bottom:none;gap:6px}
+  .amen-tab,.loc-tab{border:1px solid var(--border);border-radius:3px;padding:7px 12px}
+  .amen-tab.active,.loc-tab.active{border-color:var(--gold);background:var(--gold-bg)}
+  .tabs-inner{flex-wrap:wrap;overflow-x:visible}
+  footer{grid-template-columns:1fr}
+  .proof-strip{grid-template-columns:1fr 1fr}
 }
-@media(min-width:768px){
-  nav{padding:0 60px}
-  .page-header{padding:calc(var(--nav-h) + 64px) 60px 52px}
+
+
+.calc-card{background:var(--surface);border:1px solid var(--border);padding:36px;max-width:960px}
+.calc-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:start}
+.calc-row{margin-bottom:26px}
+.calc-row label{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text2);display:block;margin-bottom:10px}
+.calc-input-wrap{display:flex;align-items:center;gap:10px}
+.calc-input-wrap input[type="range"]{flex:1;accent-color:var(--gold)}
+.calc-input-wrap input[type="text"]{width:110px;flex-shrink:0;background:var(--surface2);border:1px solid var(--border);padding:8px 10px;font-family:'Jost',sans-serif;font-size:14px;color:var(--ink);text-align:right;outline:none}
+.calc-input-wrap input[type="text"]:focus{border-color:var(--gold)}
+.calc-prefix,.calc-suffix{font-size:13px;color:var(--muted);flex-shrink:0}
+.calc-radio-group{display:flex;gap:20px}
+.calc-radio{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text);cursor:pointer}
+.calc-radio input{accent-color:var(--gold)}
+.calc-results{background:var(--ink);padding:28px}
+.calc-result-main{margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid rgba(201,169,110,0.2)}
+.calc-result-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px}
+.calc-result-value{font-family:'Cormorant Garamond',serif;font-size:34px;color:#fff;font-weight:300}
+.calc-result-row{display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,0.65);padding:9px 0}
+.calc-result-total{border-top:1px solid rgba(201,169,110,0.2);margin-top:6px;padding-top:16px;color:#fff;font-weight:500}
+.conv-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.conv-field label{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text2);display:block;margin-bottom:8px}
+.conv-field input{width:100%;background:var(--surface2);border:1px solid var(--border);padding:12px;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--ink);text-align:center;outline:none}
+.conv-field input:focus{border-color:var(--gold)}
+.rates-table-wrap{overflow-x:auto;max-width:960px}
+.rates-table{width:100%;border-collapse:collapse;background:var(--surface)}
+.rates-table th{background:var(--ink);color:var(--gold-dim);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;padding:14px 16px;text-align:left;white-space:nowrap}
+.rates-table td{padding:14px 16px;font-size:13px;color:var(--text);border-bottom:1px solid var(--border2);white-space:nowrap}
+.rates-table tr:hover td{background:var(--surface2)}
+@media(max-width:900px){
+  .calc-grid{grid-template-columns:1fr;gap:28px}
+  .conv-row{grid-template-columns:1fr 1fr}
+  .calc-card{padding:24px 20px}
 }
+@media(max-width:600px){
+  .conv-row{grid-template-columns:1fr}
+}
+
+
+/* ── NAV DROPDOWNS ── */
+.nav-links li.has-dd{position:relative}
+.nav-links li.has-dd>a{display:flex;align-items:center;gap:5px}
+.nav-chev{width:9px;height:9px;opacity:0.65;transition:transform .3s}
+.nav-links li.has-dd:hover .nav-chev{transform:rotate(180deg)}
+.nav-links li.has-dd::after{content:'';position:absolute;top:100%;left:-20px;right:-20px;height:16px}
+.nav-current{color:var(--gold-dim)!important}
+.dd{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(6px);background:rgba(18,14,9,0.985);backdrop-filter:blur(18px);border:1px solid rgba(201,169,110,0.22);padding:24px 28px;display:flex;gap:34px;opacity:0;visibility:hidden;transition:opacity .25s,transform .25s,visibility .25s;z-index:260;box-shadow:0 18px 50px rgba(0,0,0,0.45)}
+.nav-links li.has-dd:hover .dd,.nav-links li.has-dd:focus-within .dd{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.dd-sm{gap:0}
+.dd-col{display:flex;flex-direction:column;min-width:158px}
+.dd-label{font-size:8px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:10px;padding-bottom:7px;border-bottom:1px solid rgba(201,169,110,0.18);white-space:nowrap}
+.dd a{font-size:12.5px;color:rgba(255,255,255,0.72);padding:7px 0;letter-spacing:0.01em;text-transform:none;white-space:nowrap;transition:color .25s}
+.dd a:hover{color:var(--gold-dim)}
+/* mobile menu groups */
+.mob-label{font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);margin:22px 0 4px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.mob-sub{font-family:'Jost',sans-serif;font-size:15px;color:var(--text2);padding:11px 0;border-bottom:1px solid var(--border2);display:block;transition:color .25s}
+.mob-sub:hover{color:var(--gold)}
+@media(max-width:1100px){.dd{padding:20px 22px;gap:24px}.dd-col{min-width:140px}}
 </style>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo">WESTLINE <span>Builders</span></a>
-  <div class="nav-actions">
-    <a href="index.html" class="nav-back">← Back to Home</a>
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
-  </div>
-</nav>
+<div id="nav-placeholder"></div>
 
-<div class="page-header">
-  <div class="sec-tag">Buyer Resources</div>
-  <h1>Tools & <em>Calculators</em></h1>
-  <p>Everything you need to make an informed property decision — EMI estimates, Karnataka stamp duty breakdowns, and side-by-side project comparisons.</p>
+<section class="proj-hero" style="min-height:62vh">
+  <div class="hero-fallback"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a> · <span>Tools &amp; Calculators</span></div>
+    <span class="status-badge" style="background:rgba(140,101,32,0.4);border-color:rgba(201,169,110,0.6)">Free To Use · No Sign-Up</span>
+    <h1 class="proj-h1">Do The Maths<br><em>Before You Decide</em></h1>
+    <p class="proj-claim">EMI, stamp duty, rent-vs-buy, area conversions and home loan rates — everything you need to plan a purchase, in one place.</p>
+  </div>
+</section>
+
+<div class="tabs-bar">
+  <div class="tabs-inner">
+    <a class="tab-btn active" href="#sec-emi">EMI Calculator</a>
+    <a class="tab-btn" href="#sec-stamp">Stamp Duty</a>
+    <a class="tab-btn" href="#sec-rentbuy">Rent vs Buy</a>
+    <a class="tab-btn" href="#sec-convert">Area Converter</a>
+    <a class="tab-btn" href="#sec-rates">Loan Rates</a>
+    <a class="tab-btn" href="#sec-faq">FAQ</a>
+  </div>
 </div>
 
-<div class="tools-wrap">
-  <div class="tool-tabs">
-    <button class="tab-btn active" onclick="switchTab('emi',this)">EMI Calculator</button>
-    <button class="tab-btn" onclick="switchTab('stamp',this)">Stamp Duty</button>
-    <button class="tab-btn" onclick="switchTab('compare',this)">Compare Projects</button>
-  </div>
+<!-- EMI CALCULATOR -->
+<section class="panel" id="sec-emi" style="background:var(--surface2)">
+  <div class="sec-tag">Home Loan EMI Calculator</div>
+  <h2 class="sec-h">What Will Your<br><em>Monthly EMI Be?</em></h2>
+  <p class="sec-lede" style="margin-bottom:36px">Enter the loan amount, interest rate and tenure to see your monthly instalment and total interest payable.</p>
 
-  <!-- ── EMI CALCULATOR ── -->
-  <div class="tool-panel active" id="tab-emi">
-    <div class="tool-card">
-      <div class="tool-title">EMI Calculator</div>
-      <div class="tool-desc">Estimate your monthly home loan payment. Adjust loan amount, interest rate, and tenure to find what works for you.</div>
-
-      <div class="field-row">
-        <div class="field">
-          <label>Property Value (₹)</label>
-          <input type="number" id="propVal" placeholder="e.g. 15000000" value="15000000" oninput="updateLoan()">
+  <div class="calc-card">
+    <div class="calc-grid">
+      <div class="calc-inputs">
+        <div class="calc-row">
+          <label>Loan Amount</label>
+          <div class="calc-input-wrap"><span class="calc-prefix">₹</span><input type="range" min="500000" max="30000000" step="50000" value="5000000" id="emi-amount-slider" oninput="syncEMI('amount')"><input type="text" id="emi-amount" value="50,00,000" oninput="syncEMI('amount-text')"></div>
         </div>
-        <div class="field">
-          <label>Down Payment (₹)</label>
-          <input type="number" id="downPay" placeholder="e.g. 3000000" value="3000000" oninput="updateLoan()">
+        <div class="calc-row">
+          <label>Interest Rate (% per annum)</label>
+          <div class="calc-input-wrap"><input type="range" min="6" max="14" step="0.05" value="8.5" id="emi-rate-slider" oninput="syncEMI('rate')"><input type="text" id="emi-rate" value="8.50" oninput="syncEMI('rate-text')"><span class="calc-suffix">%</span></div>
+        </div>
+        <div class="calc-row">
+          <label>Loan Tenure (Years)</label>
+          <div class="calc-input-wrap"><input type="range" min="1" max="30" step="1" value="20" id="emi-tenure-slider" oninput="syncEMI('tenure')"><input type="text" id="emi-tenure" value="20" oninput="syncEMI('tenure-text')"><span class="calc-suffix">yrs</span></div>
         </div>
       </div>
-      <div class="field-row single">
-        <div class="field range-wrap">
-          <label>Loan Amount: <span class="range-val" id="loanDisplay">₹1.20 Cr</span></label>
-          <input type="range" id="loanAmt" min="500000" max="50000000" step="100000" value="12000000" oninput="syncLoan(this.value)">
+      <div class="calc-results">
+        <div class="calc-result-main">
+          <div class="calc-result-label">Monthly EMI</div>
+          <div class="calc-result-value" id="emi-monthly">₹43,391</div>
         </div>
-      </div>
-      <div class="field-row">
-        <div class="field range-wrap">
-          <label>Interest Rate: <span class="range-val" id="rateDisplay">8.5%</span></label>
-          <input type="range" id="intRate" min="6" max="15" step="0.1" value="8.5" oninput="document.getElementById('rateDisplay').textContent=this.value+'%';calcEMI()">
-        </div>
-        <div class="field range-wrap">
-          <label>Tenure: <span class="range-val" id="tenureDisplay">20 Years</span></label>
-          <input type="range" id="tenure" min="5" max="30" step="1" value="20" oninput="document.getElementById('tenureDisplay').textContent=this.value+' Years';calcEMI()">
-        </div>
-      </div>
-      <button class="calc-btn" onclick="calcEMI()">Calculate EMI</button>
-
-      <div class="result-box show" id="emiResult">
-        <div class="result-main" id="emiVal">₹1,04,428</div>
-        <div class="result-label">Monthly EMI</div>
-        <div class="result-grid">
-          <div class="result-item"><div class="result-item-val" id="totalInt">₹1.31 Cr</div><div class="result-item-lbl">Total Interest</div></div>
-          <div class="result-item"><div class="result-item-val" id="totalPay">₹2.51 Cr</div><div class="result-item-lbl">Total Payment</div></div>
-          <div class="result-item"><div class="result-item-val" id="loanAmtDisp">₹1.20 Cr</div><div class="result-item-lbl">Loan Amount</div></div>
-        </div>
+        <div class="calc-result-row"><span>Principal Amount</span><span id="emi-principal">₹50,00,000</span></div>
+        <div class="calc-result-row"><span>Total Interest Payable</span><span id="emi-interest">₹54,13,840</span></div>
+        <div class="calc-result-row calc-result-total"><span>Total Amount Payable</span><span id="emi-total">₹1,04,13,840</span></div>
       </div>
     </div>
-    <div class="tool-cta">
-      <p><strong>Ready to explore your options?</strong><br>Our sales team can connect you with leading banks offering competitive rates for Westline projects.</p>
-      <a class="cta-link" href="https://wa.me/919900033888?text=I used the EMI calculator and would like to know more about home loan options." target="_blank">Talk to Sales →</a>
-    </div>
   </div>
+  <p style="font-size:11px;color:var(--muted);margin-top:18px;max-width:680px;line-height:1.7">This is an indicative estimate for planning purposes only. Actual EMI depends on your lender's terms, processing fees and any rate changes over the loan tenure.</p>
+</section>
 
-  <!-- ── STAMP DUTY CALCULATOR ── -->
-  <div class="tool-panel" id="tab-stamp">
-    <div class="tool-card">
-      <div class="tool-title">Karnataka Stamp Duty Calculator</div>
-      <div class="tool-desc">Estimate registration costs for properties in Mangalore. Rates are as per Karnataka stamp duty schedule — consult your advocate for exact figures.</div>
+<!-- STAMP DUTY -->
+<section class="panel" id="sec-stamp" style="background:var(--surface)">
+  <div class="sec-tag">Karnataka Stamp Duty &amp; Registration</div>
+  <h2 class="sec-h">The Real Cost<br><em>Beyond The Sale Price</em></h2>
+  <p class="sec-lede" style="margin-bottom:36px">Stamp duty and registration charges add a meaningful amount on top of your property's price. Estimate it here.</p>
 
-      <div class="field-row">
-        <div class="field">
-          <label>Property Value (₹)</label>
-          <input type="number" id="sdPropVal" placeholder="e.g. 15000000" value="15000000" oninput="calcStampDuty()">
+  <div class="calc-card">
+    <div class="calc-grid">
+      <div class="calc-inputs">
+        <div class="calc-row">
+          <label>Property Value</label>
+          <div class="calc-input-wrap"><span class="calc-prefix">₹</span><input type="range" min="1000000" max="50000000" step="100000" value="6000000" id="stamp-value-slider" oninput="syncStamp('value')"><input type="text" id="stamp-value" value="60,00,000" oninput="syncStamp('value-text')"></div>
         </div>
-        <div class="field">
-          <label>Property Type</label>
-          <select id="sdPropType" onchange="calcStampDuty()">
-            <option value="residential">Residential Apartment</option>
-            <option value="commercial">Commercial Property</option>
-            <option value="plot">Plot / Land</option>
-          </select>
-        </div>
-      </div>
-      <div class="field-row">
-        <div class="field">
+        <div class="calc-row">
           <label>Buyer Category</label>
-          <select id="sdBuyer" onchange="calcStampDuty()">
-            <option value="general">General</option>
-            <option value="woman">Woman Buyer</option>
-          </select>
+          <div class="calc-radio-group">
+            <label class="calc-radio"><input type="radio" name="stamp-cat" value="general" checked onchange="calcStamp()"> General</label>
+            <label class="calc-radio"><input type="radio" name="stamp-cat" value="female" onchange="calcStamp()"> Female Owner</label>
+          </div>
         </div>
-        <div class="field">
-          <label>Location</label>
-          <select id="sdLoc" onchange="calcStampDuty()">
-            <option value="urban">Urban (Mangalore City)</option>
-            <option value="rural">Rural / Gram Panchayat</option>
-          </select>
+        <p style="font-size:11.5px;color:var(--muted);line-height:1.7;margin-top:8px">Karnataka applies tiered stamp duty rates based on property value, with a concession for properties registered solely in a woman's name. Rates shown are indicative slabs — confirm the exact applicable rate with your sub-registrar office at the time of registration.</p>
+      </div>
+      <div class="calc-results">
+        <div class="calc-result-main">
+          <div class="calc-result-label">Total Payable (Stamp Duty + Registration)</div>
+          <div class="calc-result-value" id="stamp-total">₹3,24,000</div>
         </div>
+        <div class="calc-result-row"><span>Stamp Duty</span><span id="stamp-duty">₹3,00,000</span></div>
+        <div class="calc-result-row"><span>Registration Charges (1%)</span><span id="stamp-reg">₹60,000</span></div>
+        <div class="calc-result-row calc-result-total"><span>All-In Property Cost</span><span id="stamp-allin">₹63,24,000</span></div>
       </div>
-
-      <div class="result-box show" id="sdResult">
-        <table class="sd-table" id="sdTable">
-          <thead><tr><th>Component</th><th>Rate</th><th style="text-align:right">Amount</th></tr></thead>
-          <tbody id="sdBody"></tbody>
-        </table>
-        <div class="sd-total"><span class="sd-total-lbl">Total Registration Cost</span><span class="sd-total-val" id="sdTotal">—</span></div>
-      </div>
-    </div>
-    <div class="tool-cta">
-      <p><strong>Need exact figures?</strong><br>Stamp duty rates vary by property and location. Our team can guide you through the exact costs for any Westline project.</p>
-      <a class="cta-link" href="https://wa.me/919900033888?text=I need help understanding stamp duty costs for a Westline property." target="_blank">Get Guidance →</a>
     </div>
   </div>
+</section>
 
-  <!-- ── PROJECT COMPARISON ── -->
-  <div class="tool-panel" id="tab-compare">
-    <div class="tool-card">
-      <div class="tool-title">Compare Projects</div>
-      <div class="tool-desc">Select any two Westline projects to compare side by side — type, location, floors, and status.</div>
+<!-- RENT VS BUY -->
+<section class="panel" id="sec-rentbuy" style="background:var(--surface2)">
+  <div class="sec-tag">Rent vs Buy</div>
+  <h2 class="sec-h">Which Actually<br><em>Costs You Less?</em></h2>
+  <p class="sec-lede" style="margin-bottom:36px">A straightforward side-by-side comparison over your chosen time horizon.</p>
 
-      <div class="compare-grid">
-        <div class="compare-select-wrap">
-          <label>Project 1</label>
-          <select id="proj1" onchange="compareProjects()">
-            <option value="">Select a project</option>
-            <option value="signature">Westline Signature</option>
-            <option value="vantage">Vantage</option>
-            <option value="salubrity">Salubrity</option>
-            <option value="jeppu">Jeppu Medicity</option>
-            <option value="cubix">Cubix</option>
-            <option value="skydale">Skydale</option>
-            <option value="ohana">Ohana Luxury Stays</option>
-            <option value="fairmont">Fairmont</option>
-            <option value="splendid">Splendid Homes</option>
-            <option value="bonita">Bonita</option>
-          </select>
-        </div>
-        <div class="compare-select-wrap">
-          <label>Project 2</label>
-          <select id="proj2" onchange="compareProjects()">
-            <option value="">Select a project</option>
-            <option value="signature">Westline Signature</option>
-            <option value="vantage">Vantage</option>
-            <option value="salubrity">Salubrity</option>
-            <option value="jeppu">Jeppu Medicity</option>
-            <option value="cubix">Cubix</option>
-            <option value="skydale">Skydale</option>
-            <option value="ohana">Ohana Luxury Stays</option>
-            <option value="fairmont">Fairmont</option>
-            <option value="splendid">Splendid Homes</option>
-            <option value="bonita">Bonita</option>
-          </select>
-        </div>
+  <div class="calc-card">
+    <div class="calc-grid">
+      <div class="calc-inputs">
+        <div class="calc-row"><label>Property Price</label><div class="calc-input-wrap"><span class="calc-prefix">₹</span><input type="text" id="rb-price" value="60,00,000" oninput="calcRentBuy()"></div></div>
+        <div class="calc-row"><label>Current Monthly Rent For Similar Home</label><div class="calc-input-wrap"><span class="calc-prefix">₹</span><input type="text" id="rb-rent" value="18,000" oninput="calcRentBuy()"></div></div>
+        <div class="calc-row"><label>Down Payment Available</label><div class="calc-input-wrap"><span class="calc-prefix">₹</span><input type="text" id="rb-down" value="12,00,000" oninput="calcRentBuy()"></div></div>
+        <div class="calc-row"><label>Time Horizon (Years)</label><div class="calc-input-wrap"><input type="text" id="rb-years" value="10" oninput="calcRentBuy()"><span class="calc-suffix">yrs</span></div></div>
       </div>
-
-      <table class="compare-table" id="compareTable">
-        <thead>
-          <tr>
-            <th></th>
-            <th class="proj-name" id="cHead1">—</th>
-            <th class="proj-name" id="cHead2">—</th>
-          </tr>
-        </thead>
-        <tbody id="compareBody"></tbody>
-      </table>
-    </div>
-    <div class="tool-cta">
-      <p><strong>Found your match?</strong><br>Schedule a site visit or speak to our sales team to explore units and pricing.</p>
-      <a class="cta-link" href="https://wa.me/919900033888?text=I compared projects and would like more information." target="_blank">Enquire Now →</a>
+      <div class="calc-results">
+        <div class="calc-result-row"><span>Total Rent Paid Over Period</span><span id="rb-rent-total">₹27,50,000</span></div>
+        <div class="calc-result-row"><span>Total Cost of Buying (EMI + Down Payment)</span><span id="rb-buy-total">₹68,20,000</span></div>
+        <div class="calc-result-row calc-result-total"><span id="rb-verdict-label">Buying builds equity of approx.</span><span id="rb-verdict-value">₹40,70,000</span></div>
+        <p style="font-size:11.5px;color:var(--muted);line-height:1.7;margin-top:14px">Unlike rent, EMI payments build ownership equity in an appreciating asset. This comparison excludes property appreciation, maintenance and tax benefits — all of which typically favour buying over a 10+ year horizon.</p>
+      </div>
     </div>
   </div>
+</section>
 
-</div>
+<!-- AREA CONVERTER -->
+<section class="panel" id="sec-convert" style="background:var(--surface)">
+  <div class="sec-tag">Area Unit Converter</div>
+  <h2 class="sec-h">Cents. Guntas.<br><em>Square Feet.</em></h2>
+  <p class="sec-lede" style="margin-bottom:36px">Mangalore land deals are quoted in cents and guntas as often as square feet. Convert between them instantly.</p>
 
-<div class="mini-footer">
-  <p>© 2025 Westline Builders Private Limited · <a href="index.html">Back to Home</a> · All calculations are estimates only. Consult a financial advisor for exact figures.</p>
-</div>
+  <div class="calc-card">
+    <div class="conv-row">
+      <div class="conv-field"><label>Square Feet</label><input type="text" id="conv-sqft" value="1000" oninput="convertArea('sqft')"></div>
+      <div class="conv-field"><label>Cents</label><input type="text" id="conv-cents" value="2.30" oninput="convertArea('cents')"></div>
+      <div class="conv-field"><label>Guntas</label><input type="text" id="conv-guntas" value="0.92" oninput="convertArea('guntas')"></div>
+      <div class="conv-field"><label>Acres</label><input type="text" id="conv-acres" value="0.023" oninput="convertArea('acres')"></div>
+    </div>
+    <p style="font-size:11px;color:var(--muted);margin-top:16px;line-height:1.7">1 Cent = 435.6 sq ft · 1 Gunta = 1,089 sq ft · 1 Acre = 43,560 sq ft = 100 Cents = 40 Guntas</p>
+  </div>
+</section>
+
+<!-- LOAN RATES -->
+<section class="panel" id="sec-rates" style="background:var(--surface2)">
+  <div class="sec-tag">Home Loan Rates</div>
+  <h2 class="sec-h">Compare <em>Top Lenders</em></h2>
+  <p class="sec-lede" style="margin-bottom:8px">Indicative home loan interest rates from leading banks. Rates change frequently — always confirm the current rate directly with the bank before applying.</p>
+  <p style="font-size:11px;color:var(--gold);margin-bottom:32px;font-weight:500">Rates as of: [Month, Year — update monthly]</p>
+
+  <div class="rates-table-wrap">
+    <table class="rates-table">
+      <thead>
+        <tr><th>Bank</th><th>Interest Rate (From)</th><th>Processing Fee</th><th>Max Tenure</th><th>Approved For Westline Projects</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>SBI</td><td>[X.XX]%</td><td>[X]</td><td>[X] yrs</td><td>[Y/N]</td></tr>
+        <tr><td>HDFC Bank</td><td>[X.XX]%</td><td>[X]</td><td>[X] yrs</td><td>[Y/N]</td></tr>
+        <tr><td>ICICI Bank</td><td>[X.XX]%</td><td>[X]</td><td>[X] yrs</td><td>[Y/N]</td></tr>
+        <tr><td>Axis Bank</td><td>[X.XX]%</td><td>[X]</td><td>[X] yrs</td><td>[Y/N]</td></tr>
+        <tr><td>Bank of Baroda</td><td>[X.XX]%</td><td>[X]</td><td>[X] yrs</td><td>[Y/N]</td></tr>
+        <tr><td>Canara Bank</td><td>[X.XX]%</td><td>[X]</td><td>[X] yrs</td><td>[Y/N]</td></tr>
+        <tr><td>Kotak Mahindra</td><td>[X.XX]%</td><td>[X]</td><td>[X] yrs</td><td>[Y/N]</td></tr>
+        <tr><td>LIC Housing Finance</td><td>[X.XX]%</td><td>[X]</td><td>[X] yrs</td><td>[Y/N]</td></tr>
+        <tr><td>PNB Housing</td><td>[X.XX]%</td><td>[X]</td><td>[X] yrs</td><td>[Y/N]</td></tr>
+        <tr><td>Federal Bank</td><td>[X.XX]%</td><td>[X]</td><td>[X] yrs</td><td>[Y/N]</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:11px;color:var(--muted);margin-top:14px">Fill actual rates in the "Bank Loan Rates" tab of your website data workbook — update monthly to keep this table accurate.</p>
+</section>
+
+<!-- FAQ -->
+<section class="panel faq-sec" id="sec-faq" style="background:var(--surface)">
+  <div class="sec-tag">Frequently Asked Questions</div>
+  <h2 class="sec-h">General <em>Buyer Questions</em></h2>
+  <p class="sec-lede" style="margin-bottom:8px">For agent-specific questions, see the <a href="agents.html" style="color:var(--gold)">Agent Programme page</a>. For landowner questions, see the <a href="landowners.html" style="color:var(--gold)">Landowner Partnership page</a>.</p>
+
+  <div class="faq-list" style="margin-top:32px">
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the typical booking amount for a Westline project?</button><div class="faq-a"><p>[Booking amount and payment schedule to be added — see Westline Website Data workbook, FAQ Answers tab.]</p></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Are Westline projects approved for home loans? Which banks?</button><div class="faq-a"><p>[Bank approval details to be added.]</p></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is included in the base price? What costs extra?</button><div class="faq-a"><p>[Inclusions/exclusions to be added — car parking, maintenance deposit, statutory charges, etc.]</p></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What are the ongoing maintenance charges?</button><div class="faq-a"><p>[Maintenance charge structure to be added.]</p></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How do I book a site visit?</button><div class="faq-a"><p>Call our sales hotline at +91 99000 33888, WhatsApp us, or use the enquiry form on any project page. Our team will schedule a convenient time.</p></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What happens if possession is delayed?</button><div class="faq-a"><p>RERA-registered projects carry statutory protections for buyers in the event of delay. We believe in disclosing construction status transparently — see the Construction Status section on the Westline Signature page for an example of how we handle this.</p></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can NRIs buy property with Westline? What documents are needed?</button><div class="faq-a"><p>[NRI purchase process and document checklist to be added.]</p></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do you offer interior fit-out as a package?</button><div class="faq-a"><p>Yes — see our <a href="services.html" style="color:var(--gold)">Construction &amp; Interiors</a> page for details on packages available to Westline buyers.</p></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is the title clear? Can I see the legal documents?</button><div class="faq-a"><p>Yes. All our projects undergo full legal due diligence before launch, and documentation is made available to serious buyers during the booking process.</p></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the difference between carpet area and super built-up area?</button><div class="faq-a"><p>Carpet area is the actual usable floor area within your unit's walls. Super built-up area additionally includes your share of common areas — lobbies, corridors, staircases and amenity spaces. RERA requires developers to clearly state both; ask our sales team for the exact figures on any unit you're considering.</p></div></div>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<section class="panel" id="sec-enquiry" style="background:var(--ink);text-align:center;padding:56px 24px">
+  <div style="font-family:'Cormorant Garamond',serif;font-size:26px;color:#fff;margin-bottom:14px">Still Have Questions?</div>
+  <p style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:24px">Our sales team is happy to walk you through the numbers for your specific situation.</p>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+    <a class="btn-hero-main" href="tel:+919900033888">Call +91 99000 33888</a>
+    <a class="btn-hero-ghost" href="https://wa.me/919900033888" target="_blank">WhatsApp Us</a>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
 
 <script>
-// THEME
-function getTimeTheme(){const h=new Date().getHours();return(h>=6&&h<18)?'light':'dark'}
-function applyTheme(t){document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'');document.getElementById('theme-color-meta').content=t==='dark'?'#0A0A0A':'#FAF7F2';localStorage.setItem('wl-theme-override',t)}
-function toggleTheme(){const cur=document.documentElement.getAttribute('data-theme')||'light';applyTheme(cur==='dark'?'light':'dark')}
-(function(){const o=localStorage.getItem('wl-theme-override');applyTheme(o||getTimeTheme())})();
 
-// TABS
-function switchTab(id, btn){
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelectorAll('.tool-panel').forEach(p=>p.classList.remove('active'));
+function toggleMenu(){
+  const h=document.getElementById('hamburger');
+  const m=document.getElementById('mob-menu');
+  h.classList.toggle('open');m.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+document.addEventListener('click',e=>{
+  const m=document.getElementById('mob-menu');
+  const h=document.getElementById('hamburger');
+  if(m&&m.classList.contains('open')&&!m.contains(e.target)&&!h.contains(e.target))toggleMenu();
+});
+function switchAmenTab(idx,btn){
+  document.querySelectorAll('.amen-tab').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
-  document.getElementById('tab-'+id).classList.add('active');
+  document.querySelectorAll('.amen-panel').forEach(p=>p.classList.toggle('active',p.dataset.panel===String(idx)));
 }
+function switchLocTab(idx,btn){
+  document.querySelectorAll('.loc-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.loc-panel').forEach(p=>p.classList.toggle('active',p.dataset.locpanel===String(idx)));
+}
+function toggleFaq(btn){
+  const item=btn.parentElement;
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen)item.classList.add('open');
+}
+function submitForm(e){
+  e.preventDefault();
+  const btn=e.target;
+  btn.textContent='Submitting...';btn.disabled=true;
+  setTimeout(()=>{
+    btn.textContent='✓ Enquiry Received';
+    btn.style.background='#2E7D4F';
+    setTimeout(()=>{btn.textContent=btn.dataset.orig||'Submit Enquiry';btn.style.background='';btn.disabled=false},3500);
+  },1200);
+}
+const sections=document.querySelectorAll('.panel[id]');
+const navLinks=document.querySelectorAll('.tabs-bar .tab-btn');
+window.addEventListener('scroll',()=>{
+  let current='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-140)current=s.id;});
+  navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current));
+},{passive:true});
 
-// FORMAT
-function fmt(n){
-  if(n>=10000000) return '₹'+(n/10000000).toFixed(2)+' Cr';
-  if(n>=100000) return '₹'+(n/100000).toFixed(2)+' L';
-  return '₹'+Math.round(n).toLocaleString('en-IN');
-}
-function fmtFull(n){return '₹'+Math.round(n).toLocaleString('en-IN')}
 
-// EMI
-function updateLoan(){
-  const pv=parseFloat(document.getElementById('propVal').value)||0;
-  const dp=parseFloat(document.getElementById('downPay').value)||0;
-  const loan=Math.max(0,pv-dp);
-  document.getElementById('loanAmt').value=loan;
-  syncLoan(loan);
-}
-function syncLoan(v){
-  document.getElementById('loanDisplay').textContent=fmt(v);
+function fmtINR(n){ return '₹' + Math.round(n).toLocaleString('en-IN'); }
+function parseNum(s){ return parseFloat(String(s).replace(/[^0-9.]/g,'')) || 0; }
+
+// EMI CALCULATOR
+function syncEMI(source){
+  if(source==='amount'){ document.getElementById('emi-amount').value = Number(document.getElementById('emi-amount-slider').value).toLocaleString('en-IN'); }
+  if(source==='amount-text'){ document.getElementById('emi-amount-slider').value = parseNum(document.getElementById('emi-amount').value); }
+  if(source==='rate'){ document.getElementById('emi-rate').value = document.getElementById('emi-rate-slider').value; }
+  if(source==='rate-text'){ document.getElementById('emi-rate-slider').value = parseNum(document.getElementById('emi-rate').value); }
+  if(source==='tenure'){ document.getElementById('emi-tenure').value = document.getElementById('emi-tenure-slider').value; }
+  if(source==='tenure-text'){ document.getElementById('emi-tenure-slider').value = parseNum(document.getElementById('emi-tenure').value); }
   calcEMI();
 }
 function calcEMI(){
-  const P=parseFloat(document.getElementById('loanAmt').value)||0;
-  const r=parseFloat(document.getElementById('intRate').value)/12/100;
-  const n=parseFloat(document.getElementById('tenure').value)*12;
-  if(!P||!r||!n) return;
-  const emi=P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
-  const total=emi*n;
-  const interest=total-P;
-  document.getElementById('emiVal').textContent=fmtFull(emi);
-  document.getElementById('totalInt').textContent=fmt(interest);
-  document.getElementById('totalPay').textContent=fmt(total);
-  document.getElementById('loanAmtDisp').textContent=fmt(P);
-  document.getElementById('emiResult').classList.add('show');
+  const P = parseNum(document.getElementById('emi-amount').value);
+  const annualRate = parseNum(document.getElementById('emi-rate').value);
+  const years = parseNum(document.getElementById('emi-tenure').value);
+  const r = annualRate/12/100;
+  const n = years*12;
+  const emi = r>0 ? (P*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1) : P/n;
+  const total = emi*n;
+  const interest = total-P;
+  document.getElementById('emi-monthly').textContent = fmtINR(emi);
+  document.getElementById('emi-principal').textContent = fmtINR(P);
+  document.getElementById('emi-interest').textContent = fmtINR(interest);
+  document.getElementById('emi-total').textContent = fmtINR(total);
 }
-// Init EMI on load
 calcEMI();
 
-// STAMP DUTY
-function calcStampDuty(){
-  const val=parseFloat(document.getElementById('sdPropVal').value)||0;
-  if(!val) return;
-  const type=document.getElementById('sdPropType').value;
-  const buyer=document.getElementById('sdBuyer').value;
-  const loc=document.getElementById('sdLoc').value;
-
-  // Karnataka stamp duty rates (approximate)
-  let sdRate = type==='residential' ? (loc==='urban' ? 0.056 : 0.055) : 0.056;
-  if(buyer==='woman') sdRate=Math.max(sdRate-0.01, 0.03);
-  const regRate=0.01; // 1% registration
-  const surcharge=0.002; // 0.2% Swachh Bharat cess
-
-  const sd=val*sdRate;
-  const reg=Math.min(val*regRate,300000); // capped at ₹3L
-  const sur=val*surcharge;
-  const total=sd+reg+sur;
-
-  const rows=[
-    ['Stamp Duty', (sdRate*100).toFixed(1)+'%', fmtFull(sd)],
-    ['Registration Fee', '1% (max ₹3L)', fmtFull(reg)],
-    ['Swachh Bharat Cess', '0.2%', fmtFull(sur)],
-  ];
-  document.getElementById('sdBody').innerHTML = rows.map(r=>
-    `<tr><td>${r[0]}</td><td style="color:var(--text2)">${r[1]}</td><td style="text-align:right;color:var(--gold);font-weight:500">${r[2]}</td></tr>`
-  ).join('');
-  document.getElementById('sdTotal').textContent=fmtFull(total);
-  document.getElementById('sdResult').classList.add('show');
+// STAMP DUTY (Karnataka indicative slabs)
+function syncStamp(source){
+  if(source==='value'){ document.getElementById('stamp-value').value = Number(document.getElementById('stamp-value-slider').value).toLocaleString('en-IN'); }
+  if(source==='value-text'){ document.getElementById('stamp-value-slider').value = parseNum(document.getElementById('stamp-value').value); }
+  calcStamp();
 }
-calcStampDuty();
-
-// PROJECT DATA
-const PROJECTS={
-  signature:{name:'Westline Signature',type:'Ultra-Luxury Residential',location:'NH66, Near Nanthoor Hilltop, Mangalore',floors:'55 Floors (3B+G+51)',status:'ongoing',price:'Price on Request',url:'signature.html'},
-  vantage:{name:'Vantage',type:'Premium Corner Commercial',location:'Corner Fr. Muller Road & Balikashram Road, Kankanady',floors:'10 Floors (3B+G+6)',status:'upcoming',price:'Price on Request',url:'vantage.html'},
-  salubrity:{name:'Salubrity',type:'Premium Corner Commercial',location:'Corner Sturrock & SL Mathias Road, Falnir',floors:'7 Floors (2B+G+4)',status:'ongoing',price:'Price on Request',url:'salubrity.html'},
-  jeppu:{name:'Jeppu Medicity',type:'Commercial',location:'Jeppu Market Road, Jeppu, Mangalore',floors:'6 Floors (B+G+4)',status:'completed',price:'Price on Request',url:'jeppu.html'},
-  cubix:{name:'Cubix',type:'Retail, Office & Hotel',location:'NH66, Next to Planet SKS, Kadri',floors:'53 Floors (6B+G+46)',status:'upcoming',price:'Price on Request',url:'cubix.html'},
-  skydale:{name:'Skydale',type:'Residential',location:'Behind Ahsanul Mosque, Bikkarnakatte',floors:'7 Floors (B+G+4)',status:'completed',price:'Price on Request',url:'skydale.html'},
-  ohana:{name:'Ohana Luxury Stays',type:'Resort',location:'Mullayanagiri, Chikmagalur',floors:'2 Floors',status:'upcoming',price:'Price on Request',url:'ohana.html'},
-  fairmont:{name:'Fairmont',type:'Serviced Apartments',location:'Karavali Lane, Kadri, Mangalore',floors:'6 Floors (B+G+4)',status:'ongoing',price:'Price on Request',url:'fairmont.html'},
-  splendid:{name:'Splendid Homes',type:'Residential',location:'Silvas Gate, Kulashekar, Mangalore',floors:'5 Floors (G+4)',status:'completed',price:'Price on Request',url:'splendid.html'},
-  bonita:{name:'Bonita',type:'Residential',location:'NH66, Next to Transit Mall, Thokkottu',floors:'6 Floors (B+G+4)',status:'completed',price:'Price on Request',url:'bonita.html'},
-};
-
-function compareProjects(){
-  const k1=document.getElementById('proj1').value;
-  const k2=document.getElementById('proj2').value;
-  if(!k1||!k2||k1===k2) return;
-  const p1=PROJECTS[k1], p2=PROJECTS[k2];
-  const badgeCls=s=>s==='ongoing'?'b-ongoing':s==='upcoming'?'b-upcoming':'b-completed';
-  const badgeTxt=s=>s.charAt(0).toUpperCase()+s.slice(1);
-
-  document.getElementById('cHead1').textContent=p1.name;
-  document.getElementById('cHead2').textContent=p2.name;
-
-  const rows=[
-    ['Type', p1.type, p2.type],
-    ['Location', p1.location, p2.location],
-    ['Floors', p1.floors, p2.floors],
-    ['Status',
-      `<span class="badge-s ${badgeCls(p1.status)}">${badgeTxt(p1.status)}</span>`,
-      `<span class="badge-s ${badgeCls(p2.status)}">${badgeTxt(p2.status)}</span>`],
-    ['Price', p1.price, p2.price],
-    ['Details',
-      `<a href="${p1.url}" style="color:var(--gold);font-size:9px;letter-spacing:0.15em;text-transform:uppercase">View Project →</a>`,
-      `<a href="${p2.url}" style="color:var(--gold);font-size:9px;letter-spacing:0.15em;text-transform:uppercase">View Project →</a>`],
-  ];
-
-  document.getElementById('compareBody').innerHTML=rows.map(r=>
-    `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`
-  ).join('');
-  document.getElementById('compareTable').classList.add('show');
+function calcStamp(){
+  const val = parseNum(document.getElementById('stamp-value').value);
+  const isFemale = document.querySelector('input[name="stamp-cat"]:checked').value === 'female';
+  let rate;
+  if(val <= 2000000) rate = 0.02;
+  else if(val <= 4500000) rate = 0.03;
+  else rate = 0.05;
+  if(isFemale) rate = Math.max(rate - 0.01, 0.02);
+  const duty = val*rate;
+  const reg = val*0.01;
+  document.getElementById('stamp-duty').textContent = fmtINR(duty);
+  document.getElementById('stamp-reg').textContent = fmtINR(reg);
+  document.getElementById('stamp-total').textContent = fmtINR(duty+reg);
+  document.getElementById('stamp-allin').textContent = fmtINR(val+duty+reg);
 }
+calcStamp();
+
+// RENT VS BUY
+function calcRentBuy(){
+  const price = parseNum(document.getElementById('rb-price').value);
+  const rent = parseNum(document.getElementById('rb-rent').value);
+  const down = parseNum(document.getElementById('rb-down').value);
+  const years = parseNum(document.getElementById('rb-years').value) || 1;
+  const loan = Math.max(price - down, 0);
+  const r = 0.085/12;
+  const n = 20*12;
+  const emi = r>0 ? (loan*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1) : loan/n;
+  const rentTotal = rent*12*years*1.05; // slight escalation assumption
+  const buyTotal = down + (emi*12*years);
+  const equity = buyTotal - rentTotal;
+  document.getElementById('rb-rent-total').textContent = fmtINR(rentTotal);
+  document.getElementById('rb-buy-total').textContent = fmtINR(buyTotal);
+  if(equity > 0){
+    document.getElementById('rb-verdict-label').textContent = 'Extra spent buying, but building equity of approx.';
+  } else {
+    document.getElementById('rb-verdict-label').textContent = 'Buying costs less over this period by approx.';
+  }
+  document.getElementById('rb-verdict-value').textContent = fmtINR(Math.abs(equity));
+}
+calcRentBuy();
+
+// AREA CONVERTER
+const SQFT_PER_CENT = 435.6;
+const SQFT_PER_GUNTA = 1089;
+const SQFT_PER_ACRE = 43560;
+function convertArea(source){
+  let sqft;
+  if(source==='sqft') sqft = parseNum(document.getElementById('conv-sqft').value);
+  else if(source==='cents') sqft = parseNum(document.getElementById('conv-cents').value) * SQFT_PER_CENT;
+  else if(source==='guntas') sqft = parseNum(document.getElementById('conv-guntas').value) * SQFT_PER_GUNTA;
+  else if(source==='acres') sqft = parseNum(document.getElementById('conv-acres').value) * SQFT_PER_ACRE;
+
+  if(source!=='sqft') document.getElementById('conv-sqft').value = Math.round(sqft);
+  if(source!=='cents') document.getElementById('conv-cents').value = (sqft/SQFT_PER_CENT).toFixed(2);
+  if(source!=='guntas') document.getElementById('conv-guntas').value = (sqft/SQFT_PER_GUNTA).toFixed(2);
+  if(source!=='acres') document.getElementById('conv-acres').value = (sqft/SQFT_PER_ACRE).toFixed(3);
+}
+
 </script>
+<script>
+// ── SHARED NAV & FOOTER LOADER ──
+// nav.html and footer.html are single source-of-truth files, shared across
+// every page. Edit either one and the change appears everywhere automatically.
+// Requires the site to be served over http/https (works on Cloudflare Pages;
+// will not work opening the file directly via file:// due to browser CORS).
+Promise.all([
+  fetch('nav.html').then(r => r.text()),
+  fetch('footer.html').then(r => r.text())
+]).then(([navHtml, footerHtml]) => {
+  document.getElementById('nav-placeholder').innerHTML = navHtml;
+  document.getElementById('footer-placeholder').innerHTML = footerHtml;
+}).catch(err => console.error('Nav/footer failed to load — is this page being served over http(s)?', err));
+</script>
+<script src="westline-forms.js"></script>
 </body>
 </html>

@@ -2,209 +2,817 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cubix – IT Park & Hotel | Westline Builders Mangalore</title>
-<meta name="description" content="Cubix by Westline Builders — Premium IT Park and Hotel complex in Kadri, Mangalore.">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="project-style.css">
+<title>Cubix | South India's Tallest Commercial Tower | IT Park &amp; Hotel, Kadri Mangalore</title>
+<meta name="description" content="Cubix — 53 floors (6B+G+46) of retail, Grade-A office and hotel on NH66, Kadri, Mangalore. The proposed tallest commercial tower in South India. Leasing enquiries open. Completion December 2028.">
+<meta name="keywords" content="office space Mangalore, IT park Mangalore, commercial lease Mangalore, Cubix Kadri, Grade A office Mangalore, retail space NH66">
+<link rel="canonical" href="https://westline.co.in/cubix.html">
+<meta property="og:title" content="Cubix | South India's Tallest Commercial Tower">
+<meta property="og:description" content="53 floors of retail, office and hotel on NH66, Kadri. Leasing enquiries now open.">
+<meta property="og:image" content="https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto/cubix.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--gold:#8C6520;--gold-light:#A67C3D;--gold-dim:#B8914F;--gold-bg:rgba(140,101,32,0.1);--ink:#1A1410;--surface:#FFFDF9;--surface2:#FAF7F2;--surface3:#EDE5D8;--muted:#6B5B48;--text:#2C2018;--text2:#5A4A38;--border:rgba(140,101,32,0.2);--border2:rgba(140,101,32,0.1)}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--surface2);color:var(--text);font-family:'Jost',sans-serif;font-weight:300}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 60px;height:60px;display:flex;justify-content:space-between;align-items:center;background:rgba(20,16,10,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,169,110,0.15)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;letter-spacing:0.14em;color:var(--gold-dim);white-space:nowrap}
+.nav-logo span{color:#F5F0E8;font-style:italic;font-weight:300}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.6);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;transition:color 0.3s}
+.nav-links a:hover{color:var(--gold-dim)}
+.nav-phone{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dim);border:1px solid rgba(201,169,110,0.5);padding:8px 18px;font-family:'Jost',sans-serif;font-weight:500;transition:all 0.3s}
+.nav-phone:hover{background:var(--gold-dim);color:#fff}
+.hamburger{display:none;width:34px;height:34px;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;background:none;border:none;padding:4px;flex-shrink:0}
+.hamburger span{display:block;width:5px;height:5px;border-radius:50%;background:var(--gold-dim);transition:all 0.3s}
+.mob-menu{display:none;position:fixed;inset:0;top:56px;background:var(--surface);z-index:190;flex-direction:column;padding:24px;overflow-y:auto;border-top:1px solid var(--border)}
+.mob-menu.open{display:flex}
+.mob-link{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--text);padding:14px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.mob-link::after{content:'→';font-family:'Jost',sans-serif;font-size:14px;color:var(--gold)}
+
+/* HERO */
+.proj-hero{min-height:92vh;position:relative;display:flex;align-items:flex-end;padding:0 60px 70px;overflow:hidden;padding-top:80px;background:#0a0a08}
+.proj-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;filter:brightness(1.15) contrast(0.98)}
+.hero-fallback{position:absolute;inset:0;background:linear-gradient(155deg,#0a0a08 0%,#141208 40%,#1e1a0c 70%,#0a0a08 100%);z-index:0}
+.hero-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(201,169,110,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(201,169,110,0.035) 1px,transparent 1px);background-size:70px 70px;z-index:1}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(6,4,2,0.72) 0%,rgba(6,4,2,0.35) 55%,rgba(6,4,2,0.15) 100%),linear-gradient(to top,rgba(6,4,2,0.85) 0%,rgba(6,4,2,0.2) 45%,transparent 70%)}
+.hero-content{position:relative;z-index:3;max-width:720px}
+.breadcrumb{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.breadcrumb a{color:rgba(255,255,255,0.65);transition:color 0.3s}
+.breadcrumb a:hover{color:var(--gold-dim)}
+.breadcrumb span{color:var(--gold-dim)}
+.status-badge{display:inline-block;font-size:8px;letter-spacing:0.25em;text-transform:uppercase;padding:6px 14px;background:rgba(30,80,170,0.45);border:1px solid rgba(120,160,230,0.6);color:#fff;margin-bottom:18px}
+.proj-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(50px,8vw,102px);font-weight:300;line-height:0.9;margin-bottom:14px;color:#fff;text-shadow:0 3px 26px rgba(0,0,0,0.55)}
+.proj-h1 em{font-style:italic;color:var(--gold-dim)}
+.proj-tagline{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.4vw,25px);font-style:italic;color:rgba(255,255,255,0.9);margin-bottom:12px;text-shadow:0 2px 12px rgba(0,0,0,0.5);line-height:1.4}
+.proj-claim{font-size:13px;color:rgba(255,255,255,0.62);margin-bottom:30px;line-height:1.7;max-width:560px;text-shadow:0 1px 8px rgba(0,0,0,0.5)}
+.hero-meta{display:flex;gap:36px;flex-wrap:wrap;margin-bottom:32px}
+.meta-item{display:flex;flex-direction:column;gap:5px}
+.meta-label{font-size:8px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.6)}
+.meta-value{font-size:13px;color:#fff;letter-spacing:0.04em;font-weight:400;text-shadow:0 1px 6px rgba(0,0,0,0.5)}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn-icon-hero{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(255,255,255,0.45);color:#fff;background:rgba(255,255,255,0.08);backdrop-filter:blur(8px);transition:all 0.3s;flex-shrink:0}
+.btn-icon-hero:hover{border-color:var(--gold-dim);background:rgba(166,124,61,0.25)}
+.btn-icon-gold{background:var(--gold);border-color:var(--gold)}
+.btn-icon-gold:hover{background:var(--gold-light);border-color:var(--gold-light)}
+.btn-hero-main{display:inline-flex;align-items:center;background:var(--gold);color:#fff;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;padding:0 24px;height:44px;font-weight:600;font-family:'Jost',sans-serif;transition:all 0.3s}
+.btn-hero-main:hover{background:var(--gold-light)}
+.btn-hero-ghost{display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.45);color:#fff;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;padding:0 20px;height:44px;background:transparent;font-family:'Jost',sans-serif;transition:all 0.3s}
+.btn-hero-ghost:hover{border-color:var(--gold-dim);color:var(--gold-dim)}
+
+/* TABS */
+.tabs-bar{background:var(--surface2);border-bottom:1px solid var(--border);position:sticky;top:60px;z-index:199;box-shadow:0 2px 12px rgba(166,124,61,0.06)}
+.tabs-inner{display:flex;padding:0 60px;overflow-x:auto;scrollbar-width:none}
+.tabs-inner::-webkit-scrollbar{display:none}
+.tab-btn{position:relative;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;padding:20px 26px;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:all 0.3s;white-space:nowrap;background:none;border:none;font-family:'Jost',sans-serif;text-decoration:none;display:inline-block}
+.tab-btn:not(:last-child)::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:1px;height:14px;background:var(--border)}
+.tab-btn.active,.tab-btn:hover{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* SECTIONS */
+.panel{padding:78px 60px}
+.sec-tag{font-size:9px;letter-spacing:0.38em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:14px}
+.sec-tag::before{content:'';display:block;width:28px;height:1px;background:var(--gold)}
+.sec-h{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4.2vw,52px);font-weight:300;line-height:1.06;margin-bottom:20px;color:var(--ink)}
+.sec-h em{font-style:italic;color:var(--gold)}
+.sec-lede{color:var(--text2);font-size:15px;line-height:1.9;max-width:680px}
+.body-text{color:var(--text2);font-size:15px;line-height:1.95;margin-bottom:20px}
+
+/* OVERVIEW */
+.ov-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:start}
+.highlight-box{background:var(--surface3);border-left:3px solid var(--gold);padding:26px 30px;margin-bottom:30px}
+.highlight-box p{font-family:'Cormorant Garamond',serif;font-size:21px;font-style:italic;color:var(--ink);line-height:1.5}
+.specs-card{background:var(--surface);border:1px solid var(--border);margin-bottom:18px}
+.specs-head{padding:18px 24px;border-bottom:1px solid var(--border);font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);background:var(--surface3)}
+.spec-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:13px 24px;border-bottom:1px solid var(--border2)}
+.spec-row:last-child{border-bottom:none}
+.spec-k{font-size:11px;color:var(--text2);letter-spacing:0.08em;font-weight:500;flex-shrink:0}
+.spec-v{font-size:12px;color:var(--ink);text-align:right;font-weight:500;word-break:break-word}
+.lease-card{background:var(--ink);padding:28px}
+.lease-label{font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:10px}
+.lease-val{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#fff;margin-bottom:6px;line-height:1.2}
+.lease-note{font-size:11.5px;color:rgba(255,255,255,0.5);margin-bottom:20px;line-height:1.7}
+.btn-gold-full{background:var(--gold);color:#fff;border:none;padding:15px 0;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;cursor:pointer;width:100%;transition:background 0.3s}
+.btn-gold-full:hover{background:var(--gold-light)}
+
+/* HERO SPEC STRIP */
+.spec-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:36px 0}
+.spec-strip-card{background:var(--ink);border-radius:6px;padding:22px}
+.spec-strip-card svg{width:24px;height:24px;stroke:var(--gold-dim);fill:none;stroke-width:1.6}
+.ss-label{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dim);margin:14px 0 6px}
+.ss-title{font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;margin-bottom:6px;line-height:1.25;font-weight:500}
+.ss-desc{font-size:11px;color:rgba(255,255,255,0.5);line-height:1.6}
+
+/* WHY / CASE */
+.why-sec{background:var(--surface)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.why-card{background:var(--surface2);border:1px solid var(--border2);padding:30px 26px;transition:all 0.35s}
+.why-card:hover{border-color:var(--gold-dim);transform:translateY(-3px);box-shadow:0 14px 38px rgba(140,101,32,0.09)}
+.why-ico{width:26px;height:26px;color:var(--gold);margin-bottom:16px}
+.why-t{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:400;color:var(--ink);margin-bottom:9px;line-height:1.2}
+.why-d{font-size:13px;color:var(--text2);line-height:1.75}
+
+/* SPACE TYPES */
+.space-sec{background:var(--ink);color:#fff}
+.space-sec .sec-h{color:#fff}
+.space-sec .sec-h em{color:var(--gold-dim)}
+.space-sec .sec-tag{color:var(--gold-dim)}
+.space-sec .sec-tag::before{background:var(--gold-dim)}
+.space-sec .sec-lede{color:rgba(255,255,255,0.55)}
+.space-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:46px}
+.space-card{background:rgba(255,255,255,0.03);border:1px solid rgba(201,169,110,0.16);padding:0;overflow:hidden;transition:all 0.35s;display:flex;flex-direction:column}
+.space-card:hover{border-color:var(--gold-dim);background:rgba(201,169,110,0.06);transform:translateY(-4px)}
+.space-img{aspect-ratio:16/10;background:linear-gradient(140deg,#241f16,#15120c);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.space-img img{width:100%;height:100%;object-fit:cover}
+.space-ph{text-align:center;padding:20px}
+.space-ph svg{width:30px;height:30px;stroke:var(--gold-dim);fill:none;stroke-width:1.2;margin:0 auto 10px}
+.space-ph-t{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.4);line-height:1.6}
+.space-floors{position:absolute;top:12px;left:12px;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;background:rgba(140,101,32,0.9);color:#fff;padding:5px 11px;font-weight:600;z-index:2}
+.space-body{padding:24px 22px;flex:1;display:flex;flex-direction:column}
+.space-t{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--gold-dim);margin-bottom:8px}
+.space-d{font-size:13px;color:rgba(255,255,255,0.62);line-height:1.75;margin-bottom:18px}
+.space-list{list-style:none;display:flex;flex-direction:column;gap:9px;padding-top:16px;border-top:1px solid rgba(201,169,110,0.16);margin-top:auto}
+.space-list li{font-size:12px;color:rgba(255,255,255,0.7);line-height:1.5;display:flex;gap:9px;align-items:flex-start}
+.space-list li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold-dim);flex-shrink:0;margin-top:6px}
+
+/* AMENITY + LOCATION TABS */
+.amen-tabs-bar,.loc-tabs-bar{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:24px;overflow-x:auto;scrollbar-width:none;flex-wrap:wrap}
+.amen-tabs-bar::-webkit-scrollbar,.loc-tabs-bar::-webkit-scrollbar{display:none}
+.amen-tab,.loc-tab{padding:10px 18px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:'Jost',sans-serif;white-space:nowrap;transition:all 0.3s}
+.amen-tab:hover,.loc-tab:hover{color:var(--gold)}
+.amen-tab.active,.loc-tab.active{color:var(--gold);border-bottom-color:var(--gold);font-weight:500}
+.amen-panel,.loc-panel{display:none}
+.amen-panel.active,.loc-panel.active{display:block}
+.amen-list{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}
+.amen-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border2)}
+.amen-ico{width:17px;height:17px;color:var(--gold);flex-shrink:0}
+.amen-row span{font-size:13px;color:var(--text2);line-height:1.4}
+.loc-cards{display:flex;flex-direction:column;gap:0}
+.loc-card{background:transparent;border:none;border-bottom:1px solid var(--border2);padding:13px 2px;transition:opacity 0.3s;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.loc-card:last-child{border-bottom:none}
+.loc-card:hover{opacity:0.75}
+.loc-card-main{display:flex;align-items:center;gap:12px;min-width:0}
+.loc-ico{width:17px;height:17px;color:var(--gold);flex-shrink:0}
+.loc-name{font-size:13px;font-weight:400;color:var(--ink)}
+.loc-dist{font-size:11px;color:var(--gold);font-weight:500;white-space:nowrap;flex-shrink:0}
+
+/* GALLERY */
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+.gal-item{aspect-ratio:4/3;background:linear-gradient(140deg,var(--surface3),#E2D6C2);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:all 0.35s;cursor:pointer}
+.gal-item:hover{border-color:var(--gold-dim);transform:translateY(-2px)}
+.gal-item img{width:100%;height:100%;object-fit:cover}
+.gal-ph{text-align:center;padding:16px}
+.gal-ph svg{width:26px;height:26px;stroke:var(--gold-dim);fill:none;stroke-width:1.2;margin:0 auto 8px}
+.gal-ph-t{font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);line-height:1.6}
+
+/* MAP */
+.map-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:52px;align-items:start}
+.map-frame{aspect-ratio:4/3;border:1px solid var(--border);overflow:hidden}
+.map-frame iframe{width:100%;height:100%;border:none}
+.map-cta{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#fff;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;padding:14px 24px;font-weight:600;transition:all 0.3s;margin-top:18px}
+.map-cta:hover{background:var(--gold-light)}
+
+/* FAQ */
+.faq-list{max-width:860px;margin-top:38px}
+.faq-item{border-bottom:1px solid var(--border2)}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:21px 40px 21px 0;font-family:'Jost',sans-serif;font-size:15px;color:var(--ink);cursor:pointer;position:relative;font-weight:400;transition:color 0.3s}
+.faq-q:hover{color:var(--gold)}
+.faq-q::after{content:'+';position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:20px;color:var(--gold);font-weight:300}
+.faq-item.open .faq-q::after{content:'−'}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.4s ease}
+.faq-item.open .faq-a{max-height:460px;padding-bottom:22px}
+.faq-a p{font-size:14px;color:var(--text2);line-height:1.9;padding-right:40px}
+
+/* ENQUIRY */
+.enq-sec{background:var(--ink)}
+.enq-wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:66px;align-items:start}
+.enq-sec .sec-h{color:#fff}
+.enq-sec .sec-h em{color:var(--gold-dim)}
+.enq-sec .sec-tag{color:var(--gold-dim)}
+.enq-sec .sec-tag::before{background:var(--gold-dim)}
+.enq-intro{font-size:14px;color:rgba(255,255,255,0.62);line-height:1.9;margin-bottom:30px}
+.fc-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px}
+.fc-ico{width:19px;height:19px;color:var(--gold-dim);flex-shrink:0;margin-top:2px}
+.fc-l{font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:4px}
+.fc-v{font-size:14px;color:rgba(255,255,255,0.85);line-height:1.6}
+.enq-form{background:rgba(255,255,255,0.04);border:1px solid rgba(201,169,110,0.18);padding:36px}
+.form-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:#fff;margin-bottom:6px}
+.form-note{font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:28px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fg{margin-bottom:22px}
+.fl{font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:8px}
+.fi,.fsel,.fta{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(201,169,110,0.3);padding:11px 0;color:#fff;font-family:'Jost',sans-serif;font-size:14px;font-weight:300;outline:none;transition:border-color 0.3s;border-radius:0}
+.fi:focus,.fsel:focus,.fta:focus{border-bottom-color:var(--gold-dim)}
+.fi::placeholder,.fta::placeholder{color:rgba(255,255,255,0.3)}
+.fsel option{background:var(--ink);color:#fff}
+.fta{resize:none;height:78px}
+.fsub{background:var(--gold);color:#fff;border:none;padding:16px 0;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;cursor:pointer;width:100%;margin-top:8px;transition:background 0.3s}
+.fsub:hover{background:var(--gold-light)}
+
+/* FOOTER */
+footer{background:var(--surface3);border-top:1px solid var(--border);padding:56px 60px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+.ft-brand{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ink);margin-bottom:12px;letter-spacing:0.12em}
+.ft-tag{font-size:12px;color:var(--text2);line-height:1.7;max-width:250px}
+.ft-col-t{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:12px;color:var(--text);transition:color 0.3s}
+.ft-links a:hover{color:var(--gold)}
+.ft-bottom{background:var(--surface2);border-top:1px solid var(--border);padding:20px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.ft-copy,.ft-rera{font-size:10px;color:var(--text2)}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+  .ov-grid,.map-grid,.enq-wrap{grid-template-columns:1fr;gap:44px}
+  .why-grid,.space-grid{grid-template-columns:1fr 1fr}
+  .gal-grid{grid-template-columns:1fr 1fr 1fr}
+  .spec-strip{grid-template-columns:1fr}
+}
+@media(max-width:900px){
+  nav{padding:0 20px;height:56px}
+  .nav-links,.nav-phone{display:none}
+  .hamburger{display:flex}
+  .tabs-bar{top:56px}
+  .tabs-inner{padding:0 20px}
+  .proj-hero{padding:80px 20px 48px;min-height:auto}
+  .panel{padding:52px 20px}
+  .hero-meta{gap:22px;margin-bottom:24px}
+  .amen-list{grid-template-columns:1fr}
+  footer{grid-template-columns:1fr 1fr;padding:44px 20px;gap:30px}
+  .ft-bottom{padding:18px 20px;flex-direction:column;text-align:center}
+}
+@media(max-width:600px){
+  .why-grid,.space-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+  .enq-form{padding:26px 20px}
+  .amen-tabs-bar,.loc-tabs-bar{overflow-x:visible;flex-wrap:wrap;border-bottom:none;gap:6px}
+  .amen-tab,.loc-tab{border:1px solid var(--border);border-radius:3px;padding:7px 12px}
+  .amen-tab.active,.loc-tab.active{border-color:var(--gold);background:var(--gold-bg)}
+  .tabs-inner{flex-wrap:wrap;overflow-x:visible}
+  footer{grid-template-columns:1fr}
+}
+
+/* ── NAV DROPDOWNS ── */
+.nav-links li.has-dd{position:relative}
+.nav-links li.has-dd>a{display:flex;align-items:center;gap:5px}
+.nav-chev{width:9px;height:9px;opacity:0.65;transition:transform .3s}
+.nav-links li.has-dd:hover .nav-chev{transform:rotate(180deg)}
+.nav-links li.has-dd::after{content:'';position:absolute;top:100%;left:-20px;right:-20px;height:16px}
+.nav-current{color:var(--gold-dim)!important}
+.dd{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(6px);background:rgba(18,14,9,0.985);backdrop-filter:blur(18px);border:1px solid rgba(201,169,110,0.22);padding:24px 28px;display:flex;gap:34px;opacity:0;visibility:hidden;transition:opacity .25s,transform .25s,visibility .25s;z-index:260;box-shadow:0 18px 50px rgba(0,0,0,0.45)}
+.nav-links li.has-dd:hover .dd,.nav-links li.has-dd:focus-within .dd{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.dd-sm{gap:0}
+.dd-col{display:flex;flex-direction:column;min-width:158px}
+.dd-label{font-size:8px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:10px;padding-bottom:7px;border-bottom:1px solid rgba(201,169,110,0.18);white-space:nowrap}
+.dd a{font-size:12.5px;color:rgba(255,255,255,0.72);padding:7px 0;letter-spacing:0.01em;text-transform:none;white-space:nowrap;transition:color .25s}
+.dd a:hover{color:var(--gold-dim)}
+/* mobile menu groups */
+.mob-label{font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);margin:22px 0 4px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.mob-sub{font-family:'Jost',sans-serif;font-size:15px;color:var(--text2);padding:11px 0;border-bottom:1px solid var(--border2);display:block;transition:color .25s}
+.mob-sub:hover{color:var(--gold)}
+@media(max-width:1100px){.dd{padding:20px 22px;gap:24px}.dd-col{min-width:140px}}
+</style>
 </head>
 <body>
-<nav>
-  <a href="index.html" class="nav-logo">WESTLINE <span>Builders</span></a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="index.html#projects-sec">Projects</a></li>
-    <li><a href="index.html#about-sec">About</a></li>
-    <li><a href="index.html#contact-sec">Contact</a></li>
-  </ul>
-  <a class="nav-wa" href="https://wa.me/919900033888?text=I'm interested in Cubix" target="_blank">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    WhatsApp
-  </a>
-</nav>
 
+<div id="nav-placeholder"></div>
+
+<!-- HERO -->
 <section class="proj-hero">
-  <div class="hero-visual" style="background:linear-gradient(155deg,#080c14 0%,#0c1422 50%,#080c14 100%)"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-pat" style="position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 30px,rgba(100,150,220,0.07) 30px,rgba(100,150,220,0.07) 31px)"></div>
-  <div class="hero-letter">C</div>
+  <div class="hero-fallback"></div>
+  <video autoplay muted loop playsinline poster="https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto,w_1920/4.jpg">
+    <source src="https://res.cloudinary.com/dbw8ugwim/video/upload/q_auto/4.mp4" type="video/mp4">
+  </video>
+  <div class="hero-grid-lines"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="breadcrumb"><a href="index.html">All Projects</a> <span>Cubix</span></div>
-    <span class="status-badge status-completed">Completed · Operational</span>
-    <div class="proj-h1">Cubix</div>
-    <div class="proj-tagline">Where Work Meets World-Class</div>
+    <div class="breadcrumb"><a href="index.html">Home</a> · <a href="index.html#projects">All Projects</a> · <span>Cubix</span></div>
+    <span class="status-badge">Upcoming · Leasing Enquiries Open</span>
+    <h1 class="proj-h1"><em>Cubix</em></h1>
+    <p class="proj-tagline">Where Mangalore Comes To Do Business</p>
+    <p class="proj-claim">The proposed tallest commercial tower in South India. Fifty-three floors of Grade-A office, curated retail and hospitality — on the city's most connected address.</p>
     <div class="hero-meta">
-      <div class="meta-item"><span class="meta-label">Type</span><span class="meta-value">IT Park &amp; Hotel</span></div>
-      <div class="meta-item"><span class="meta-label">Location</span><span class="meta-value">Kadri, Mangalore</span></div>
-      <div class="meta-item"><span class="meta-label">Use</span><span class="meta-value">Rental — Investment Asset</span></div>
+      <div class="meta-item"><span class="meta-label">Type</span><span class="meta-value">IT Park, Retail &amp; Hotel</span></div>
+      <div class="meta-item"><span class="meta-label">Structure</span><span class="meta-value">53 Floors (6B+G+46)</span></div>
+      <div class="meta-item"><span class="meta-label">Location</span><span class="meta-value">NH66, Kadri, Mangalore</span></div>
+      <div class="meta-item"><span class="meta-label">Completion</span><span class="meta-value">December 2028</span></div>
     </div>
     <div class="hero-btns">
-      <a class="btn-wa" href="https://wa.me/919900033888?text=I'm interested in Cubix. Please share details." target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp Enquiry
+      <a class="btn-icon-hero" href="https://wa.me/919900033888?text=I'm%20interested%20in%20leasing%20space%20at%20Cubix.%20Please%20share%20details." target="_blank" title="WhatsApp">
+        <svg viewBox="0 0 24 24" width="19" height="19"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       </a>
-      <a class="btn-call" href="tel:+919900033888">📞 Call Now</a>
-      <a class="btn-enq" href="#enquiry" onclick="document.getElementById('enq-tab').click()">Send Enquiry</a>
+      <a class="btn-icon-hero btn-icon-gold" href="tel:+919900033888" title="Call">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 010 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+      </a>
+      <a class="btn-hero-main" href="#sec-enquiry">Register Interest</a>
+      <a class="btn-hero-ghost" href="#sec-spaces">View Spaces</a>
     </div>
   </div>
 </section>
 
+<!-- TAB NAV -->
 <div class="tabs-bar">
   <div class="tabs-inner">
-    <button class="tab-btn active" onclick="switchTab(this,'overview')">Overview</button>
-    <button class="tab-btn" onclick="switchTab(this,'gallery')">Gallery</button>
-    <button class="tab-btn" onclick="switchTab(this,'floorplans')">Floor Plans</button>
-    <button class="tab-btn" onclick="switchTab(this,'videos')">Videos</button>
-    <button class="tab-btn" onclick="switchTab(this,'location')">Location &amp; Map</button>
-    <button class="tab-btn" id="enq-tab" onclick="switchTab(this,'enquiry')">Enquire Now</button>
+    <a class="tab-btn active" href="#sec-overview">Overview</a>
+    <a class="tab-btn" href="#sec-spaces">Spaces</a>
+    <a class="tab-btn" href="#sec-amenities">Amenities</a>
+    <a class="tab-btn" href="#sec-gallery">Gallery</a>
+    <a class="tab-btn" href="#sec-location">Location</a>
+    <a class="tab-btn" href="#sec-faq">FAQ</a>
+    <a class="tab-btn" href="#sec-enquiry">Enquire</a>
   </div>
 </div>
 
-<div class="tab-panel active" id="tab-overview" style="background:var(--ink)">
-  <div class="overview-grid">
+<!-- OVERVIEW -->
+<section class="panel" id="sec-overview" style="background:var(--surface2)">
+  <div class="ov-grid">
     <div>
-      <div class="sec-tag">About the Project</div>
-      <h2 class="sec-h">Cubix — <em>IT Park &amp; Hotel</em></h2>
-      <div class="highlight-box"><p>"Where Mangalore's business community works, meets, and stays — all under one world-class roof."</p></div>
-      <p class="body-text">Cubix is Westline's landmark IT park and hotel complex situated in Kadri — one of Mangalore's most connected and sought-after commercial corridors.</p>
-      <p class="body-text">Designed for technology companies, startups, and business travellers, Cubix combines premium Grade-A office spaces with hotel accommodation in a single integrated campus. A fully operational rental asset delivering consistent returns to investors.</p>
-      <p class="body-text">The project reflects Westline's vision to diversify beyond residential development — creating commercial landmarks that serve Mangalore's growing professional and business community.</p>
-      <div class="sec-tag" style="margin-top:40px">Amenities &amp; Features</div>
-      <div class="amenities-grid">
-        <div class="amenity">Grade-A Offices</div><div class="amenity">Hotel Suites</div><div class="amenity">Conference Rooms</div>
-        <div class="amenity">High-Speed Internet</div><div class="amenity">Cafeteria</div><div class="amenity">Ample Parking</div>
-        <div class="amenity">24×7 Security</div><div class="amenity">Power Backup</div><div class="amenity">Business Lounge</div>
+      <div class="sec-tag">About The Project</div>
+      <h2 class="sec-h">A Business Address<br>That <em>Means Something</em></h2>
+      <div class="highlight-box"><p>"The proposed tallest commercial tower in South India — and the first address in Mangalore built to match the ambition of the companies inside it."</p></div>
+
+      <p class="body-text">Mangalore's economy has outgrown its commercial real estate. The city has the talent, the connectivity and the appetite — but businesses looking for genuine Grade-A space have had to compromise on floor plates, power reliability, parking or simply prestige.</p>
+      <p class="body-text">Cubix exists to end that compromise. Fifty-three floors on NH66 at Kadri, combining curated retail at the base, large-format office floors through the tower, and a hotel with serviced residences above — so that a company can host a client, run an operation and put up a visiting team without anyone leaving the building.</p>
+      <p class="body-text">For an occupier, that means an address that does part of the selling for you. For an investor, it means a mixed-use asset in a market with very little comparable supply.</p>
+
+      <div class="spec-strip">
+        <div class="spec-strip-card">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+          <div class="ss-label">Floor Plates</div>
+          <div class="ss-title">Large, Column-Efficient Spans</div>
+          <div class="ss-desc">Open layouts that adapt as your headcount changes — not fixed cabins you have to work around</div>
+        </div>
+        <div class="spec-strip-card">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+          <div class="ss-label">Infrastructure</div>
+          <div class="ss-title">Centralised VRF &amp; Power Backup</div>
+          <div class="ss-desc">Building-wide air conditioning and backup provisioning, so your operation doesn't stop</div>
+        </div>
+        <div class="spec-strip-card">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 6h4M10 18h4"/></svg>
+          <div class="ss-label">Vertical Transport</div>
+          <div class="ss-title">High-Speed Passenger &amp; Service Lifts</div>
+          <div class="ss-desc">Dedicated service cores so goods movement never competes with people movement</div>
+        </div>
       </div>
     </div>
+
     <div>
       <div class="specs-card">
-        <div class="specs-head">Project Details</div>
-        <div class="spec-row"><span class="spec-k">Type</span><span class="spec-v">IT Park &amp; Hotel</span></div>
-        <div class="spec-row"><span class="spec-k">Location</span><span class="spec-v">Kadri, Mangalore</span></div>
-        <div class="spec-row"><span class="spec-k">Use</span><span class="spec-v">Rental — Investment Asset</span></div>
-        <div class="spec-row"><span class="spec-k">Status</span><span class="spec-v">Completed &amp; Operational</span></div>
-        <div class="spec-row"><span class="spec-k">Developer</span><span class="spec-v">Westline Builders Pvt Ltd</span></div>
-        <div class="spec-row"><span class="spec-k">Price</span><span class="spec-v">Price on Request</span></div>
+        <div class="specs-head">Project Specifications</div>
+        <div class="spec-row"><span class="spec-k">Type</span><span class="spec-v">IT Park, Retail &amp; Hotel</span></div>
+        <div class="spec-row"><span class="spec-k">Configuration</span><span class="spec-v">53 Floors (6B+G+46)</span></div>
+        <div class="spec-row"><span class="spec-k">Location</span><span class="spec-v">NH66, Next to Planet SKS, Kadri, Mangalore</span></div>
+        <div class="spec-row"><span class="spec-k">Offering</span><span class="spec-v">Lease Only</span></div>
+        <div class="spec-row"><span class="spec-k">Space Types</span><span class="spec-v">Retail · Office · Hotel &amp; Serviced Residences</span></div>
+        <div class="spec-row"><span class="spec-k">Parking</span><span class="spec-v">6 Basement Levels</span></div>
+        <div class="spec-row"><span class="spec-k">Air Conditioning</span><span class="spec-v">Centralised VRF Provisioning</span></div>
+        <div class="spec-row"><span class="spec-k">Security</span><span class="spec-v">24×7 with On-Site Management</span></div>
+        <div class="spec-row"><span class="spec-k">Completion</span><span class="spec-v">31 December 2028</span></div>
+        <div class="spec-row"><span class="spec-k">RERA</span><span class="spec-v">[RERA number to be added on registration]</span></div>
       </div>
-      <div class="price-card">
-        <div class="price-label">Pricing</div>
-        <div class="price-val">Price on Request</div>
-        <div class="price-note">Contact our team for rental and investment details</div>
-        <button class="btn-gold-full" onclick="document.getElementById('enq-tab').click()">Enquire Now →</button>
+
+      <div class="lease-card">
+        <div class="lease-label">Availability</div>
+        <div class="lease-val">Lease Only</div>
+        <p class="lease-note">Cubix is offered on lease, not for sale. Floor plates, rental terms and fit-out options are shared with qualified occupiers on enquiry. Early registrations receive first choice of floor and orientation.</p>
+        <button class="btn-gold-full" onclick="document.getElementById('sec-enquiry').scrollIntoView({behavior:'smooth'})">Request Leasing Details →</button>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<div class="tab-panel" id="tab-gallery" style="background:var(--ink2)">
+<!-- WHY -->
+<section class="panel why-sec">
+  <div class="sec-tag">The Commercial Case</div>
+  <h2 class="sec-h">Why Businesses Will<br><em>Choose This Building</em></h2>
+  <p class="sec-lede">An office is a recruitment tool, a client impression and an operational asset all at once. Cubix was planned around all three.</p>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 8l-2 4 2 4M19 8l2 4-2 4"/></svg>
+      <div class="why-t">On The Highway, Not Behind It</div>
+      <div class="why-d">Direct NH66 frontage at Kadri. Your staff commute is simpler, your clients find you first time, and your signage is seen by the volume of traffic that passes daily.</div>
+    </div>
+    <div class="why-card">
+      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h18"/></svg>
+      <div class="why-t">Space That Grows With You</div>
+      <div class="why-d">Large, efficient floor plates that can be taken whole or subdivided. Expand within the same building instead of relocating every time you hire.</div>
+    </div>
+    <div class="why-card">
+      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-7 9 7v11"/><path d="M9 21v-7h6v7"/></svg>
+      <div class="why-t">Everything Under One Roof</div>
+      <div class="why-d">Cafés, restaurants, conference rooms, a banquet hall, a fitness centre and serviced residences. Host a board meeting and accommodate the attendees without leaving the building.</div>
+    </div>
+    <div class="why-card">
+      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div class="why-t">Secure And Professionally Run</div>
+      <div class="why-d">Round-the-clock security with on-site building management. Multiple security kiosks, controlled access and a team accountable for the building's day-to-day operation.</div>
+    </div>
+    <div class="why-card">
+      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <div class="why-t">Built To Retain Talent</div>
+      <div class="why-d">Good people compare offices. Natural light, quality air conditioning, proper amenities and a landmark address make a measurable difference to who accepts your offer — and who stays.</div>
+    </div>
+    <div class="why-card">
+      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+      <div class="why-t">Scarce Supply, Strong Position</div>
+      <div class="why-d">Mangalore has very little genuine Grade-A commercial stock. Taking space in the city's landmark tower positions your business ahead of a supply gap, not behind it.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SPACES -->
+<section class="panel space-sec" id="sec-spaces">
+  <div class="sec-tag">Three Worlds, One Tower</div>
+  <h2 class="sec-h">Retail. Office.<br><em>Hospitality.</em></h2>
+  <p class="sec-lede">Cubix is zoned vertically so that each use supports the others — footfall at the base, enterprise through the middle, hospitality above.</p>
+
+  <div class="space-grid">
+    <div class="space-card">
+      <div class="space-img">
+        <span class="space-floors">Lower Levels</span>
+        <!-- PLACEHOLDER IMAGE: cubix-retail.jpg — render of the retail atrium or storefront level.
+             Landscape 16:10, min 1200px wide. -->
+        <div class="space-ph">
+          <svg viewBox="0 0 24 24"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg>
+          <div class="space-ph-t">Retail Level Render</div>
+        </div>
+      </div>
+      <div class="space-body">
+        <div class="space-t">Retail</div>
+        <p class="space-d">Curated storefronts and food and beverage at the base of the tower, drawing footfall from NH66 and serving the working population above.</p>
+        <ul class="space-list">
+          <li>High-visibility highway frontage</li>
+          <li>Captive daily footfall from office floors</li>
+          <li>Multiple cafeterias and restaurants</li>
+          <li>Dedicated visitor parking access</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="space-card">
+      <div class="space-img">
+        <span class="space-floors">Mid &amp; Upper Levels</span>
+        <!-- PLACEHOLDER IMAGE: cubix-office.jpg — render of an open-plan office floor,
+             ideally showing the window line and city view. Landscape 16:10. -->
+        <div class="space-ph">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+          <div class="space-ph-t">Office Floor Render</div>
+        </div>
+      </div>
+      <div class="space-body">
+        <div class="space-t">Office &amp; IT Park</div>
+        <p class="space-d">Large-format, column-efficient floor plates designed for scale — from a growing local firm to a national company opening a Mangalore operation.</p>
+        <ul class="space-list">
+          <li>Open layouts, flexible subdivision</li>
+          <li>Advanced IT infrastructure provisioning</li>
+          <li>Conference rooms and auditoriums on site</li>
+          <li>Large panoramic windows, natural light</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="space-card">
+      <div class="space-img">
+        <span class="space-floors">Upper Levels</span>
+        <!-- PLACEHOLDER IMAGE: cubix-hotel.jpg — render of the hotel lobby, a suite,
+             or the rooftop hospitality level. Landscape 16:10. -->
+        <div class="space-ph">
+          <svg viewBox="0 0 24 24"><path d="M4 20v-7a8 8 0 0116 0v7"/><path d="M2 20h20M6 20v2M18 20v2"/></svg>
+          <div class="space-ph-t">Hotel &amp; Residences Render</div>
+        </div>
+      </div>
+      <div class="space-body">
+        <div class="space-t">Hotel &amp; Serviced Residences</div>
+        <p class="space-d">Accommodation for visiting teams, clients and executives on extended assignment — in the same building as the meeting they came for.</p>
+        <ul class="space-list">
+          <li>Serviced residences for long stays</li>
+          <li>Banquet hall for corporate events</li>
+          <li>Fitness centre and wellness facilities</li>
+          <li>Panoramic city and coastline views</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AMENITIES -->
+<section class="panel" id="sec-amenities" style="background:var(--surface)">
+  <div class="sec-tag">Amenities &amp; Facilities</div>
+  <h2 class="sec-h">Everything A Business<br><em>Actually Needs</em></h2>
+  <p class="sec-lede" style="margin-bottom:36px">Planned around how companies really operate — client meetings, team events, late shifts, visiting staff and everything in between.</p>
+
+  <div class="amen-tabs-bar">
+    <button class="amen-tab active" onclick="switchAmenTab(0,this)">Business</button>
+    <button class="amen-tab" onclick="switchAmenTab(1,this)">Hospitality</button>
+    <button class="amen-tab" onclick="switchAmenTab(2,this)">Building Infrastructure</button>
+    <button class="amen-tab" onclick="switchAmenTab(3,this)">Green Efficiency</button>
+  </div>
+
+  <div class="amen-panel active" data-panel="0">
+    <div class="amen-list">
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="11" rx="1"/><path d="M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/></svg><span>Conference Rooms</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 9h18"/></svg><span>Auditoriums</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l8-5 8 5v13"/><path d="M4 12h16"/></svg><span>Banquet Hall</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 3v18M3 9h18"/></svg><span>Advanced IT Infrastructure</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-7 9 7v11"/><path d="M9 21v-7h6v7"/></svg><span>Grand Double Height Lobby</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>On-Site Building Management</span></div>
+    </div>
+  </div>
+
+  <div class="amen-panel" data-panel="1">
+    <div class="amen-list">
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20v-7a8 8 0 0116 0v7"/><path d="M2 20h20"/></svg><span>Hotel</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="12" rx="1"/><path d="M7 9V6a2 2 0 012-2h6a2 2 0 012 2v3"/></svg><span>Serviced Residences</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg><span>Multiple Cafeterias</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h1v11M7 2v9M11 2v9M18 2v20"/></svg><span>Restaurants</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M5 22l3-9 4 3 4-3 3 9"/></svg><span>Fitness Centre</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span>Retail &amp; Convenience</span></div>
+    </div>
+  </div>
+
+  <div class="amen-panel" data-panel="2">
+    <div class="amen-list">
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="1"/><path d="M9 7h6M9 11h6"/></svg><span>Centralised AC Provisioning (VRF)</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 6h4M10 18h4"/></svg><span>High-Speed Glass Elevators</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 6h6M9 18h6"/></svg><span>Super Large Service Elevator</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M9 11V7a3 3 0 016 0v4"/></svg><span>24×7 Security &amp; Multiple Kiosks</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg><span>Large Panoramic Windows</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="1"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><span>Six Basement Parking Levels</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2"/></svg><span>Professional Building Illumination</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9h16M9 4v16"/></svg><span>Built on Aluminium Form Work</span></div>
+    </div>
+  </div>
+
+  <div class="amen-panel" data-panel="3">
+    <div class="amen-list">
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2"/></svg><span>Solar Energy</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg><span>Energy-Efficient Fixtures</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 18h6M10 21h4"/></svg><span>LED Common Area Lighting</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 4-5 6.5-5 10a5 5 0 0010 0c0-3.5-2-6-5-10z"/></svg><span>Water-Efficient Plumbing Fixtures</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4"/><path d="M3 7v10l9 4 9-4V7"/></svg><span>Waste Water Treatment &amp; Reuse</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l1 6M12 3l1 6M19 3l1 6"/><path d="M4 9h18l-2 4H6l-2-4z"/></svg><span>Rainwater Harvesting</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="panel" id="sec-gallery" style="background:var(--surface2)">
   <div class="sec-tag">Visual Gallery</div>
-  <h2 class="sec-h" style="margin-bottom:16px">Gallery &amp; <em>Visuals</em></h2>
-  <p class="gallery-intro">Photographs and renders of Cubix IT Park &amp; Hotel, Kadri, Mangalore.</p>
-  <div class="gallery-grid">
-    <div class="gallery-item tall"><div class="gallery-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Exterior</span></div></div>
-    <div class="gallery-item"><div class="gallery-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Office Space</span></div></div>
-    <div class="gallery-item"><div class="gallery-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Hotel Lobby</span></div></div>
-    <div class="gallery-item wide"><div class="gallery-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Aerial View</span></div></div>
-    <div class="gallery-item"><div class="gallery-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Conference Room</span></div></div>
-    <div class="gallery-item"><div class="gallery-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Hotel Suite</span></div></div>
-  </div>
-  <div class="upload-note">Upload your actual images to GitHub and send me the filenames — I'll replace placeholders instantly.</div>
-</div>
+  <h2 class="sec-h">See It <em>Before It Rises</em></h2>
+  <p class="sec-lede">Architectural renders and design studies. Site progress imagery will be added as construction advances.</p>
 
-<div class="tab-panel" id="tab-floorplans" style="background:var(--ink)">
-  <div class="sec-tag">Floor Plans</div>
-  <h2 class="sec-h" style="margin-bottom:16px">Space <em>Configurations</em></h2>
-  <p class="gallery-intro" style="margin-bottom:40px">Available office and hotel unit types at Cubix.</p>
-  <div class="fp-grid">
-    <div class="fp-card"><div class="fp-vis"><div class="fp-bg"></div><div class="fp-outline"><div class="fp-room">Office</div><div class="fp-room">Lounge</div><div class="fp-room">Meeting</div><div class="fp-room">Services</div></div></div><div class="fp-info"><div class="fp-type">Office Suite</div><div class="fp-size">500 – 2,000 sq ft</div><span class="fp-tag">Rental</span></div></div>
-    <div class="fp-card"><div class="fp-vis"><div class="fp-bg"></div><div class="fp-outline"><div class="fp-room">Suite</div><div class="fp-room">Living</div><div class="fp-room">Bath</div><div class="fp-room">Balcony</div></div></div><div class="fp-info"><div class="fp-type">Hotel Room</div><div class="fp-size">Standard &amp; Deluxe</div><span class="fp-tag">Operational</span></div></div>
+  <!-- PLACEHOLDER: replace each .gal-item's inner placeholder with an <img> once uploaded.
+       Filenames: cubix-gallery-1.jpg through cubix-gallery-8.jpg
+       Suggested mix: 2 exterior wide shots, 1 worm's-eye, 1 night render,
+       1 lobby, 1 office interior, 1 retail level, 1 aerial context shot. -->
+  <div class="gal-grid">
+    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Exterior<br>Wide Shot</div></div></div>
+    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Worm's Eye<br>View</div></div></div>
+    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Night<br>Render</div></div></div>
+    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Aerial<br>Context</div></div></div>
+    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Entrance<br>Lobby</div></div></div>
+    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Office<br>Interior</div></div></div>
+    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Retail<br>Level</div></div></div>
+    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Hotel<br>Level</div></div></div>
   </div>
-  <div class="upload-note" style="margin-top:24px">Send me your actual floor plan drawings to replace these layouts.</div>
-</div>
+</section>
 
-<div class="tab-panel" id="tab-videos" style="background:var(--ink2)">
-  <div class="sec-tag">Video Gallery</div>
-  <h2 class="sec-h" style="margin-bottom:16px">Watch &amp; <em>Experience</em></h2>
-  <p class="gallery-intro" style="margin-bottom:40px">Add your YouTube video IDs to activate these players.</p>
-  <div class="video-grid">
-    <div class="video-card"><div class="video-thumb" onclick="playVideo(this,'VIDEO_ID')"><div class="play-btn"></div></div><div class="video-info"><h4>Cubix Overview</h4><p>IT Park &amp; Hotel Tour</p></div></div>
-    <div class="video-card"><div class="video-thumb" onclick="playVideo(this,'VIDEO_ID')"><div class="play-btn"></div></div><div class="video-info"><h4>Location Advantage</h4><p>Kadri, Mangalore</p></div></div>
-  </div>
-</div>
-
-<div class="tab-panel" id="tab-location" style="background:var(--ink)">
+<!-- LOCATION -->
+<section class="panel" id="sec-location" style="background:var(--surface)">
   <div class="sec-tag">Location</div>
-  <h2 class="sec-h" style="margin-bottom:44px">Where to <em>Find Us</em></h2>
+  <h2 class="sec-h">Kadri. On <em>NH66.</em></h2>
+  <p class="sec-lede" style="margin-bottom:40px">Positioned on Mangalore's primary arterial highway, next to Planet SKS — one of the most recognised landmarks in the city.</p>
+
   <div class="map-grid">
     <div>
       <div class="map-frame">
-        <iframe src="https://maps.google.com/maps?q=Kadri+Mangalore+Karnataka&output=embed" allowfullscreen loading="lazy"></iframe>
+        <!-- Map centred on Kadri, Mangalore. Replace the embed URL with an exact
+             pin once the site coordinates are finalised. -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5!2d74.8560!3d12.8850!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35a2b5c8f0e1d%3A0x1234567890abcdef!2sKadri%2C%20Mangaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000" allowfullscreen loading="lazy"></iframe>
       </div>
-      <a class="map-cta-link" href="https://www.google.com/maps/search/Kadri+Mangalore" target="_blank">Open in Google Maps →</a>
+      <a class="map-cta" href="https://www.google.com/maps/search/Kadri+Mangalore" target="_blank">Open in Google Maps →</a>
     </div>
     <div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;margin-bottom:6px">Kadri, Mangalore</div>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:28px">Karnataka, India</div>
-      <div class="loc-cards">
-        <div class="loc-card"><div class="loc-icon">🏙️</div><div class="loc-name">Kadri Commercial Hub</div><div class="loc-dist">Prime location</div></div>
-        <div class="loc-card"><div class="loc-icon">🛣️</div><div class="loc-name">NH66</div><div class="loc-dist">~5 minutes</div></div>
-        <div class="loc-card"><div class="loc-icon">✈️</div><div class="loc-name">Mangalore Airport</div><div class="loc-dist">~20 minutes</div></div>
-        <div class="loc-card"><div class="loc-icon">🏥</div><div class="loc-name">KMC Hospital</div><div class="loc-dist">~10 minutes</div></div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:300;margin-bottom:6px">NH66, Next to Planet SKS</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:24px;letter-spacing:0.08em">Kadri, Mangalore, Karnataka</div>
+
+      <div class="loc-tabs-bar">
+        <button class="loc-tab active" onclick="switchLocTab(0,this)">Connectivity</button>
+        <button class="loc-tab" onclick="switchLocTab(1,this)">Business</button>
+        <button class="loc-tab" onclick="switchLocTab(2,this)">Hospitality</button>
+        <button class="loc-tab" onclick="switchLocTab(3,this)">Civic</button>
+      </div>
+
+      <div class="loc-panel active" data-locpanel="0">
+        <div class="loc-cards">
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 8l-2 4 2 4M19 8l2 4-2 4"/></svg><span class="loc-name">NH66 — National Highway</span></div><span class="loc-dist">Direct frontage</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 9.5l5.5 1.5-1 2-6.5-1-3.5 3-2-.5 1.5-3-4-1 1-1.5 4 .5 3-3.5-1-2 2-.5z"/></svg><span class="loc-name">Mangalore International Airport</span></div><span class="loc-dist">[X] km</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="1"/><path d="M3 9l2-5h14l2 5"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><span class="loc-name">Mangalore Central Railway</span></div><span class="loc-dist">[X] km</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 9h18M3 15h18"/></svg><span class="loc-name">Pumpwell Circle</span></div><span class="loc-dist">[X] km</span></div>
+        </div>
+      </div>
+
+      <div class="loc-panel" data-locpanel="1">
+        <div class="loc-cards">
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 3v18M3 9h18"/></svg><span class="loc-name">[Nearby business park / IT hub]</span></div><span class="loc-dist">[X] km</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-7 9 7v11"/></svg><span class="loc-name">[Nearby commercial centre]</span></div><span class="loc-dist">[X] km</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="11" rx="1"/><path d="M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/></svg><span class="loc-name">[Banking / financial district]</span></div><span class="loc-dist">[X] km</span></div>
+        </div>
+      </div>
+
+      <div class="loc-panel" data-locpanel="2">
+        <div class="loc-cards">
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span class="loc-name">Forum Fiza Mall</span></div><span class="loc-dist">[X] km</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span class="loc-name">City Centre Mall</span></div><span class="loc-dist">[X] km</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20v-7a8 8 0 0116 0v7"/><path d="M2 20h20"/></svg><span class="loc-name">[Nearby hotels]</span></div><span class="loc-dist">[X] km</span></div>
+        </div>
+      </div>
+
+      <div class="loc-panel" data-locpanel="3">
+        <div class="loc-cards">
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg><span class="loc-name">Father Muller Medical College</span></div><span class="loc-dist">[X] km</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg><span class="loc-name">KMC Hospital</span></div><span class="loc-dist">[X] km</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M9 5l3 3 3-3M5 21h14M6 21V11l6-4 6 4v10"/></svg><span class="loc-name">Kadri Manjunatha Temple</span></div><span class="loc-dist">[X] km</span></div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<div class="tab-panel" id="tab-enquiry" style="background:var(--ink2)">
-  <div class="enq-grid">
-    <div>
-      <div class="sec-tag">Get In Touch</div>
-      <div class="enq-title"><em>Enquire About</em><br>Cubix</div>
-      <p class="enq-body">Our team responds within 24 hours with full details, rental yield projections, and a personalised consultation.</p>
-      <div class="contact-item"><div class="contact-item-label">Sales Hotline</div><div class="contact-item-val"><a href="tel:+919900033888" style="color:var(--gold)">+91 99000 33888</a></div></div>
-      <div class="contact-item"><div class="contact-item-label">Location</div><div class="contact-item-val">Kadri, Mangalore, Karnataka</div></div>
-      <a class="wa-btn" href="https://wa.me/919900033888?text=I'm interested in Cubix IT Park. Please share details." target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp Enquiry
-      </a>
+<!-- FAQ -->
+<section class="panel" id="sec-faq" style="background:var(--surface2)">
+  <div class="sec-tag">Leasing Questions</div>
+  <h2 class="sec-h">Before You <em>Enquire</em></h2>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Is any part of Cubix available to buy?</button>
+      <div class="faq-a"><p>No. Cubix is a lease-only asset across all three uses — retail, office and hospitality. Holding the building in single ownership lets us maintain a consistent tenant mix, service standard and building management, which protects the value of the address for everyone in it.</p></div>
     </div>
-    <div class="enq-form-box">
-      <div class="form-title">Request Details</div>
-      <div class="form-row">
-        <div class="fg"><label class="fl">Full Name</label><input class="fi" type="text" placeholder="Your name"></div>
-        <div class="fg"><label class="fl">Mobile</label><input class="fi" type="tel" placeholder="+91 XXXXX XXXXX"></div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">What size spaces are available?</button>
+      <div class="faq-a"><p>Floor plates can be taken whole or subdivided depending on your requirement, from smaller suites through to full floors. Share your approximate headcount and preferred use in the enquiry form and we will come back with the configurations that fit.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">What are the rental rates?</button>
+      <div class="faq-a"><p>Rates vary by floor, use and lease term, and are shared directly with qualified occupiers rather than published. Register your interest and our commercial leasing team will discuss terms with you.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">When can we move in?</button>
+      <div class="faq-a"><p>The scheduled completion date is 31 December 2028. Fit-out access for committed occupiers is coordinated ahead of that, with the exact window depending on your floor and the state of works at that stage.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Why register interest this early?</button>
+      <div class="faq-a"><p>Two reasons that matter commercially. First, floor and orientation are allocated in the order commitments are received — the higher floors and better aspects go first. Second, early occupiers have the opportunity to influence fit-out and layout while the design still allows it, which is far cheaper than changing it later.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Can we customise our floor?</button>
+      <div class="faq-a"><p>Within structural limits, yes. Larger occupiers committing early have meaningful scope to shape layout, services and finishes. Our in-house interiors team can also deliver the fit-out, so the space is handed over ready to occupy rather than as a shell.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How much parking is available?</button>
+      <div class="faq-a"><p>Six basement levels serve the building, with allocation to occupiers based on the space taken. Precise ratios are confirmed as part of your leasing proposal.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Westline's residential flagship is running late. Should that concern us?</button>
+      <div class="faq-a"><p>It's a fair question and we would rather you asked it now than wondered about it later. Westline Signature is behind its original schedule, with a RERA completion date of September 2027, and we publish that openly on its project page. We are happy to talk you through what caused it, what we changed as a result, and how that experience is being applied to Cubix's programme. A leasing decision of this size should be made on evidence, not assurances.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY -->
+<section class="panel enq-sec" id="sec-enquiry">
+  <div class="enq-wrap">
+    <div>
+      <div class="sec-tag">Leasing</div>
+      <h2 class="sec-h">Register Your<br><em>Interest</em></h2>
+      <p class="enq-intro">Tell us what your business needs and our commercial leasing team will come back with the floor options, indicative terms and a walkthrough of the plans. Early registrations receive first choice of floor and orientation.</p>
+      <div>
+        <div class="fc-item">
+          <svg class="fc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 010 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+          <div><div class="fc-l">Commercial Leasing</div><div class="fc-v"><a href="tel:+919900033888">+91 99000 33888</a></div></div>
+        </div>
+        <div class="fc-item">
+          <svg class="fc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><div class="fc-l">Site</div><div class="fc-v">NH66, Next to Planet SKS<br>Kadri, Mangalore</div></div>
+        </div>
+        <div class="fc-item">
+          <svg class="fc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+          <div><div class="fc-l">Email</div><div class="fc-v">[leasing email address]</div></div>
+        </div>
       </div>
-      <div class="fg"><label class="fl">Email</label><input class="fi" type="email" placeholder="your@email.com"></div>
-      <div class="fg"><label class="fl">Enquiry Type</label>
+    </div>
+
+    <div class="enq-form">
+      <div class="form-title">Leasing Enquiry</div>
+      <div class="form-note">Our leasing team responds within two working days.</div>
+      <div class="form-row">
+        <div class="fg"><label class="fl">Contact Name *</label><input class="fi" type="text" placeholder="Your name"></div>
+        <div class="fg"><label class="fl">Company Name *</label><input class="fi" type="text" placeholder="Organisation"></div>
+      </div>
+      <div class="form-row">
+        <div class="fg"><label class="fl">Mobile Number *</label><input class="fi" type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        <div class="fg"><label class="fl">Email Address *</label><input class="fi" type="email" placeholder="your@company.com"></div>
+      </div>
+      <div class="fg"><label class="fl">Space Type Required</label>
         <select class="fsel">
-          <option>Office Space — Rental</option>
-          <option>Hotel Room — Booking</option>
-          <option>Investment Enquiry</option>
-          <option>General Enquiry</option>
+          <option value="">Select</option>
+          <option>Office / IT Park</option>
+          <option>Retail</option>
+          <option>Hotel / Serviced Residences</option>
+          <option>Multiple / Not sure yet</option>
         </select>
       </div>
-      <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="Any questions or requirements..."></textarea></div>
-      <button class="fsub">Send Enquiry</button>
+      <div class="form-row">
+        <div class="fg"><label class="fl">Approx. Area Needed</label><input class="fi" type="text" placeholder="e.g. 5,000 sq ft"></div>
+        <div class="fg"><label class="fl">Team Size</label><input class="fi" type="text" placeholder="e.g. 60 people"></div>
+      </div>
+      <div class="fg"><label class="fl">When Do You Need It?</label>
+        <select class="fsel">
+          <option value="">Select</option>
+          <option>As soon as available</option>
+          <option>2027</option>
+          <option>2028 — on completion</option>
+          <option>2029 or later</option>
+          <option>Exploring options</option>
+        </select>
+      </div>
+      <div class="fg"><label class="fl">Requirements or Questions</label><textarea class="fta" placeholder="Current location, reason for moving, must-have requirements, fit-out expectations..."></textarea></div>
+      <button class="fsub" onclick="submitForm(event)">Submit Leasing Enquiry</button>
     </div>
   </div>
-</div>
+</section>
 
-<footer>
-  <div><div class="ft-brand">WESTLINE</div><p class="ft-tag">Building Mangalore's skyline with precision and pride since 2014.</p></div>
-  <div><div class="ft-col-t">All Projects</div><ul class="ft-links">
-    <li><a href="signature.html">Westline Signature</a></li><li><a href="cubix.html">Cubix</a></li>
-    <li><a href="jeppu.html">Jeppu Medicity</a></li><li><a href="bonita.html">Bonita</a></li>
-    <li><a href="ohana.html">Ohana Luxury Stays</a></li><li><a href="skydale.html">Skydale</a></li>
-    <li><a href="salubrity.html">Salubrity</a></li><li><a href="fairmont.html">Fairmont</a></li>
-    <li><a href="splendid.html">Splendid Homes</a></li>
-  </ul></div>
-  <div><div class="ft-col-t">Company</div><ul class="ft-links"><li><a href="index.html">Home</a></li><li><a href="index.html#about-sec">About</a></li><li><a href="index.html#contact-sec">Contact</a></li></ul></div>
-  <div><div class="ft-col-t">Contact</div><ul class="ft-links"><li><a href="tel:+919900033888">+91 99000 33888</a></li><li><a href="https://wa.me/919900033888" target="_blank">WhatsApp</a></li><li>westline.co.in</li></ul></div>
-</footer>
-<div class="ft-bottom"><span class="ft-copy">© 2025 Westline Builders Pvt Ltd. All Rights Reserved.</span><span class="ft-rera">K-RERA Registered · Mangalore</span></div>
+<div id="footer-placeholder"></div>
+
 <script>
-function switchTab(btn,id){document.querySelectorAll('.tab-btn').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));btn.classList.add('active');document.getElementById('tab-'+id).classList.add('active');document.querySelector('.tabs-bar').scrollIntoView({behavior:'smooth',block:'nearest'})}
-function playVideo(el,v){el.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube.com/embed/'+v+'?autoplay=1" frameborder="0" allow="autoplay;encrypted-media" allowfullscreen></iframe>'}
+function toggleMenu(){
+  const h=document.getElementById('hamburger');
+  const m=document.getElementById('mob-menu');
+  h.classList.toggle('open');m.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+document.addEventListener('click',e=>{
+  const m=document.getElementById('mob-menu');
+  const h=document.getElementById('hamburger');
+  if(m&&m.classList.contains('open')&&!m.contains(e.target)&&!h.contains(e.target))toggleMenu();
+});
+
+function switchAmenTab(idx,btn){
+  document.querySelectorAll('.amen-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.amen-panel').forEach(p=>p.classList.toggle('active',p.dataset.panel===String(idx)));
+}
+function switchLocTab(idx,btn){
+  document.querySelectorAll('.loc-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.loc-panel').forEach(p=>p.classList.toggle('active',p.dataset.locpanel===String(idx)));
+}
+function toggleFaq(btn){
+  const item=btn.parentElement;
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen)item.classList.add('open');
+}
+function submitForm(e){
+  e.preventDefault();
+  const btn=e.target;
+  btn.textContent='Submitting...';btn.disabled=true;
+  setTimeout(()=>{
+    btn.textContent='✓ Enquiry Received';
+    btn.style.background='#2E7D4F';
+    setTimeout(()=>{btn.textContent='Submit Leasing Enquiry';btn.style.background='';btn.disabled=false},3500);
+  },1200);
+}
+
+// Scroll spy for tab bar
+const sections=document.querySelectorAll('.panel[id]');
+const navLinks=document.querySelectorAll('.tabs-bar .tab-btn');
+window.addEventListener('scroll',()=>{
+  let current='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-140)current=s.id;});
+  navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current));
+},{passive:true});
 </script>
+<script>
+// ── SHARED NAV & FOOTER LOADER ──
+// nav.html and footer.html are single source-of-truth files, shared across
+// every page. Edit either one and the change appears everywhere automatically.
+// Requires the site to be served over http/https (works on Cloudflare Pages;
+// will not work opening the file directly via file:// due to browser CORS).
+Promise.all([
+  fetch('nav.html').then(r => r.text()),
+  fetch('footer.html').then(r => r.text())
+]).then(([navHtml, footerHtml]) => {
+  document.getElementById('nav-placeholder').innerHTML = navHtml;
+  document.getElementById('footer-placeholder').innerHTML = footerHtml;
+}).catch(err => console.error('Nav/footer failed to load — is this page being served over http(s)?', err));
+</script>
+<script src="westline-forms.js"></script>
 </body>
 </html>

@@ -2,183 +2,601 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Salubrity | Westline Builders Mangalore</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="project-style.css">
+<title>Salubrity | Commercial & Polyclinics | Falnir, Mangalore</title>
+<meta name="description" content="Salubrity — 7 floors of commercial space and polyclinics at the corner of Sturrock & SL Mathias Road, Falnir, Mangalore. Starting ₹39 Lakh. Ongoing project.">
+<link rel="canonical" href="https://westline.co.in/salubrity.html">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--gold:#8C6520;--gold-light:#A67C3D;--gold-dim:#B8914F;--gold-bg:rgba(140,101,32,0.1);--ink:#1A1410;--surface:#FFFDF9;--surface2:#FAF7F2;--surface3:#EDE5D8;--muted:#6B5B48;--text:#2C2018;--text2:#5A4A38;--border:rgba(140,101,32,0.2);--border2:rgba(140,101,32,0.1)}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--surface2);color:var(--text);font-family:'Jost',sans-serif;font-weight:300}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 60px;height:60px;display:flex;justify-content:space-between;align-items:center;background:rgba(20,16,10,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,169,110,0.15)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;letter-spacing:0.14em;color:var(--gold-dim);white-space:nowrap}
+.nav-logo span{color:#F5F0E8;font-style:italic;font-weight:300}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.6);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;transition:color 0.3s}
+.nav-links a:hover{color:var(--gold-dim)}
+.nav-phone{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dim);border:1px solid rgba(201,169,110,0.5);padding:8px 18px;font-family:'Jost',sans-serif;font-weight:500;transition:all 0.3s}
+.nav-phone:hover{background:var(--gold-dim);color:#fff}
+.hamburger{display:none;width:34px;height:34px;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;background:none;border:none;padding:4px;flex-shrink:0}
+.hamburger span{display:block;width:5px;height:5px;border-radius:50%;background:var(--gold-dim);transition:all 0.3s}
+.mob-menu{display:none;position:fixed;inset:0;top:56px;background:var(--surface);z-index:190;flex-direction:column;padding:24px;overflow-y:auto;border-top:1px solid var(--border)}
+.mob-menu.open{display:flex}
+.mob-link{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--text);padding:14px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.mob-link::after{content:'→';font-family:'Jost',sans-serif;font-size:14px;color:var(--gold)}
+
+.proj-hero{min-height:88vh;position:relative;display:flex;align-items:flex-end;padding:0 60px 70px;overflow:hidden;padding-top:80px;background:#0a0a08}
+.proj-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;filter:brightness(1.15) contrast(0.98)}
+.hero-fallback{position:absolute;inset:0;background:linear-gradient(155deg,#0a0a08 0%,#141208 40%,#1e1a0c 70%,#0a0a08 100%);z-index:0}
+.hero-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(201,169,110,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(201,169,110,0.035) 1px,transparent 1px);background-size:70px 70px;z-index:1}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(6,4,2,0.72) 0%,rgba(6,4,2,0.35) 55%,rgba(6,4,2,0.15) 100%),linear-gradient(to top,rgba(6,4,2,0.85) 0%,rgba(6,4,2,0.2) 45%,transparent 70%)}
+.hero-content{position:relative;z-index:3;max-width:720px}
+.breadcrumb{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.breadcrumb a{color:rgba(255,255,255,0.65);transition:color 0.3s}
+.breadcrumb a:hover{color:var(--gold-dim)}
+.breadcrumb span{color:var(--gold-dim)}
+.status-badge{display:inline-block;font-size:8px;letter-spacing:0.25em;text-transform:uppercase;padding:6px 14px;margin-bottom:18px;border:1px solid rgba(201,169,110,0.5);color:#fff}
+.b-ongoing{background:rgba(140,96,36,0.5)}
+.b-upcoming{background:rgba(30,80,170,0.45);border-color:rgba(120,160,230,0.6)}
+.b-completed{background:rgba(34,100,60,0.5);border-color:rgba(120,210,150,0.6)}
+.proj-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(50px,8vw,100px);font-weight:300;line-height:0.9;margin-bottom:14px;color:#fff;text-shadow:0 3px 26px rgba(0,0,0,0.55)}
+.proj-h1 em{font-style:italic;color:var(--gold-dim)}
+.proj-tagline{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.4vw,25px);font-style:italic;color:rgba(255,255,255,0.9);margin-bottom:12px;text-shadow:0 2px 12px rgba(0,0,0,0.5);line-height:1.4}
+.proj-claim{font-size:13px;color:rgba(255,255,255,0.62);margin-bottom:30px;line-height:1.7;max-width:560px;text-shadow:0 1px 8px rgba(0,0,0,0.5)}
+.hero-meta{display:flex;gap:36px;flex-wrap:wrap;margin-bottom:32px}
+.meta-item{display:flex;flex-direction:column;gap:5px}
+.meta-label{font-size:8px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.6)}
+.meta-value{font-size:13px;color:#fff;letter-spacing:0.04em;font-weight:400;text-shadow:0 1px 6px rgba(0,0,0,0.5)}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn-icon-hero{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(255,255,255,0.45);color:#fff;background:rgba(255,255,255,0.08);backdrop-filter:blur(8px);transition:all 0.3s;flex-shrink:0}
+.btn-icon-hero:hover{border-color:var(--gold-dim);background:rgba(166,124,61,0.25)}
+.btn-icon-gold{background:var(--gold);border-color:var(--gold)}
+.btn-icon-gold:hover{background:var(--gold-light);border-color:var(--gold-light)}
+.btn-hero-main{display:inline-flex;align-items:center;background:var(--gold);color:#fff;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;padding:0 24px;height:44px;font-weight:600;font-family:'Jost',sans-serif;transition:all 0.3s}
+.btn-hero-main:hover{background:var(--gold-light)}
+.btn-hero-ghost{display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.45);color:#fff;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;padding:0 20px;height:44px;background:transparent;font-family:'Jost',sans-serif;transition:all 0.3s}
+.btn-hero-ghost:hover{border-color:var(--gold-dim);color:var(--gold-dim)}
+
+.tabs-bar{background:var(--surface2);border-bottom:1px solid var(--border);position:sticky;top:60px;z-index:199;box-shadow:0 2px 12px rgba(166,124,61,0.06)}
+.tabs-inner{display:flex;padding:0 60px;overflow-x:auto;scrollbar-width:none}
+.tabs-inner::-webkit-scrollbar{display:none}
+.tab-btn{position:relative;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;padding:20px 26px;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:all 0.3s;white-space:nowrap;background:none;border:none;font-family:'Jost',sans-serif;text-decoration:none;display:inline-block}
+.tab-btn:not(:last-child)::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:1px;height:14px;background:var(--border)}
+.tab-btn.active,.tab-btn:hover{color:var(--gold);border-bottom-color:var(--gold)}
+
+.panel{padding:78px 60px}
+.sec-tag{font-size:9px;letter-spacing:0.38em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:14px}
+.sec-tag::before{content:'';display:block;width:28px;height:1px;background:var(--gold)}
+.sec-h{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4.2vw,52px);font-weight:300;line-height:1.06;margin-bottom:20px;color:var(--ink)}
+.sec-h em{font-style:italic;color:var(--gold)}
+.sec-lede{color:var(--text2);font-size:15px;line-height:1.9;max-width:680px}
+.body-text{color:var(--text2);font-size:15px;line-height:1.95;margin-bottom:20px}
+
+.ov-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:start}
+.highlight-box{background:var(--surface3);border-left:3px solid var(--gold);padding:26px 30px;margin-bottom:30px}
+.highlight-box p{font-family:'Cormorant Garamond',serif;font-size:21px;font-style:italic;color:var(--ink);line-height:1.5}
+.specs-card{background:var(--surface);border:1px solid var(--border);margin-bottom:18px}
+.specs-head{padding:18px 24px;border-bottom:1px solid var(--border);font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);background:var(--surface3)}
+.spec-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:13px 24px;border-bottom:1px solid var(--border2)}
+.spec-row:last-child{border-bottom:none}
+.spec-k{font-size:11px;color:var(--text2);letter-spacing:0.08em;font-weight:500;flex-shrink:0}
+.spec-v{font-size:12px;color:var(--ink);text-align:right;font-weight:500;word-break:break-word}
+.price-card{background:var(--ink);padding:28px}
+.price-label{font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:10px}
+.price-val{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#fff;margin-bottom:6px;line-height:1.2}
+.price-note{font-size:11.5px;color:rgba(255,255,255,0.5);margin-bottom:20px;line-height:1.7}
+.btn-gold-full{background:var(--gold);color:#fff;border:none;padding:15px 0;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;cursor:pointer;width:100%;transition:background 0.3s}
+.btn-gold-full:hover{background:var(--gold-light)}
+
+.spec-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:36px 0}
+.spec-strip-card{background:var(--ink);border-radius:6px;padding:22px}
+.spec-strip-card svg{width:24px;height:24px;stroke:var(--gold-dim);fill:none;stroke-width:1.6}
+.ss-label{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dim);margin:14px 0 6px}
+.ss-title{font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;margin-bottom:6px;line-height:1.25;font-weight:500}
+.ss-desc{font-size:11px;color:rgba(255,255,255,0.5);line-height:1.6}
+
+.why-sec{background:var(--surface)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.why-card{background:var(--surface2);border:1px solid var(--border2);padding:30px 26px;transition:all 0.35s}
+.why-card:hover{border-color:var(--gold-dim);transform:translateY(-3px);box-shadow:0 14px 38px rgba(140,101,32,0.09)}
+.why-ico{width:26px;height:26px;color:var(--gold);margin-bottom:16px}
+.why-t{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:400;color:var(--ink);margin-bottom:9px;line-height:1.2}
+.why-d{font-size:13px;color:var(--text2);line-height:1.75}
+
+.roi-sec{background:var(--ink);color:#fff}
+.roi-sec .sec-h{color:#fff}
+.roi-sec .sec-h em{color:var(--gold-dim)}
+.roi-sec .sec-tag{color:var(--gold-dim)}
+.roi-sec .sec-tag::before{background:var(--gold-dim)}
+.roi-sec .sec-lede{color:rgba(255,255,255,0.55)}
+.roi-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:44px;align-items:start}
+.roi-calc{background:rgba(255,255,255,0.04);border:1px solid rgba(201,169,110,0.18);padding:32px}
+.roi-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.roi-row label{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.55)}
+.roi-row input{width:130px;background:transparent;border:none;border-bottom:1px solid rgba(201,169,110,0.35);padding:8px 0;color:#fff;font-family:'Cormorant Garamond',serif;font-size:20px;text-align:right;outline:none}
+.roi-result{border-top:1px solid rgba(201,169,110,0.2);margin-top:10px;padding-top:22px;display:flex;justify-content:space-between;align-items:baseline}
+.roi-result-l{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-dim)}
+.roi-result-v{font-family:'Cormorant Garamond',serif;font-size:32px;color:#fff}
+.roi-tenants{display:flex;flex-direction:column;gap:0}
+.roi-tenant{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid rgba(201,169,110,0.14);align-items:flex-start}
+.roi-tenant:last-child{border-bottom:none}
+.roi-tenant-ico{width:18px;height:18px;color:var(--gold-dim);flex-shrink:0;margin-top:2px}
+.roi-tenant-t{font-size:13.5px;color:#fff;font-weight:500;margin-bottom:3px}
+.roi-tenant-d{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.6}
+
+.amen-tabs-bar,.loc-tabs-bar{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:24px;overflow-x:auto;scrollbar-width:none;flex-wrap:wrap}
+.amen-tabs-bar::-webkit-scrollbar,.loc-tabs-bar::-webkit-scrollbar{display:none}
+.amen-tab,.loc-tab{padding:10px 18px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:'Jost',sans-serif;white-space:nowrap;transition:all 0.3s}
+.amen-tab:hover,.loc-tab:hover{color:var(--gold)}
+.amen-tab.active,.loc-tab.active{color:var(--gold);border-bottom-color:var(--gold);font-weight:500}
+.amen-panel,.loc-panel{display:none}
+.amen-panel.active,.loc-panel.active{display:block}
+.amen-list{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}
+.amen-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border2)}
+.amen-ico{width:17px;height:17px;color:var(--gold);flex-shrink:0}
+.amen-row span{font-size:13px;color:var(--text2);line-height:1.4}
+.loc-cards{display:flex;flex-direction:column;gap:0}
+.loc-card{background:transparent;border:none;border-bottom:1px solid var(--border2);padding:13px 2px;transition:opacity 0.3s;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.loc-card:last-child{border-bottom:none}
+.loc-card:hover{opacity:0.75}
+.loc-card-main{display:flex;align-items:center;gap:12px;min-width:0}
+.loc-ico{width:17px;height:17px;color:var(--gold);flex-shrink:0}
+.loc-name{font-size:13px;font-weight:400;color:var(--ink)}
+.loc-dist{font-size:11px;color:var(--gold);font-weight:500;white-space:nowrap;flex-shrink:0}
+
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+.gal-item{aspect-ratio:4/3;background:linear-gradient(140deg,var(--surface3),#E2D6C2);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:all 0.35s;cursor:pointer}
+.gal-item:hover{border-color:var(--gold-dim);transform:translateY(-2px)}
+.gal-item img{width:100%;height:100%;object-fit:cover}
+.gal-ph{text-align:center;padding:16px}
+.gal-ph svg{width:26px;height:26px;stroke:var(--gold-dim);fill:none;stroke-width:1.2;margin:0 auto 8px}
+.gal-ph-t{font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);line-height:1.6}
+
+.map-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:52px;align-items:start}
+.map-frame{aspect-ratio:4/3;border:1px solid var(--border);overflow:hidden}
+.map-frame iframe{width:100%;height:100%;border:none}
+.map-cta{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#fff;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;padding:14px 24px;font-weight:600;transition:all 0.3s;margin-top:18px}
+.map-cta:hover{background:var(--gold-light)}
+
+.faq-list{max-width:860px;margin-top:38px}
+.faq-item{border-bottom:1px solid var(--border2)}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:21px 40px 21px 0;font-family:'Jost',sans-serif;font-size:15px;color:var(--ink);cursor:pointer;position:relative;font-weight:400;transition:color 0.3s}
+.faq-q:hover{color:var(--gold)}
+.faq-q::after{content:'+';position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:20px;color:var(--gold);font-weight:300}
+.faq-item.open .faq-q::after{content:'−'}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.4s ease}
+.faq-item.open .faq-a{max-height:460px;padding-bottom:22px}
+.faq-a p{font-size:14px;color:var(--text2);line-height:1.9;padding-right:40px}
+
+.enq-sec{background:var(--ink)}
+.enq-wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:66px;align-items:start}
+.enq-sec .sec-h{color:#fff}
+.enq-sec .sec-h em{color:var(--gold-dim)}
+.enq-sec .sec-tag{color:var(--gold-dim)}
+.enq-sec .sec-tag::before{background:var(--gold-dim)}
+.enq-intro{font-size:14px;color:rgba(255,255,255,0.62);line-height:1.9;margin-bottom:30px}
+.fc-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px}
+.fc-ico{width:19px;height:19px;color:var(--gold-dim);flex-shrink:0;margin-top:2px}
+.fc-l{font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:4px}
+.fc-v{font-size:14px;color:rgba(255,255,255,0.85);line-height:1.6}
+.enq-form{background:rgba(255,255,255,0.04);border:1px solid rgba(201,169,110,0.18);padding:36px}
+.form-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:#fff;margin-bottom:6px}
+.form-note{font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:28px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fg{margin-bottom:22px}
+.fl{font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:8px}
+.fi,.fsel,.fta{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(201,169,110,0.3);padding:11px 0;color:#fff;font-family:'Jost',sans-serif;font-size:14px;font-weight:300;outline:none;transition:border-color 0.3s;border-radius:0}
+.fi:focus,.fsel:focus,.fta:focus{border-bottom-color:var(--gold-dim)}
+.fi::placeholder,.fta::placeholder{color:rgba(255,255,255,0.3)}
+.fsel option{background:var(--ink);color:#fff}
+.fta{resize:none;height:78px}
+.fsub{background:var(--gold);color:#fff;border:none;padding:16px 0;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;cursor:pointer;width:100%;margin-top:8px;transition:background 0.3s}
+.fsub:hover{background:var(--gold-light)}
+
+footer{background:var(--surface3);border-top:1px solid var(--border);padding:56px 60px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+.ft-brand{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ink);margin-bottom:12px;letter-spacing:0.12em}
+.ft-tag{font-size:12px;color:var(--text2);line-height:1.7;max-width:250px}
+.ft-col-t{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:12px;color:var(--text);transition:color 0.3s}
+.ft-links a:hover{color:var(--gold)}
+.ft-bottom{background:var(--surface2);border-top:1px solid var(--border);padding:20px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.ft-copy,.ft-rera{font-size:10px;color:var(--text2)}
+
+/* COMPLETED-PROJECT SPECIFIC */
+.proof-strip{background:var(--ink);padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.proof-stat{padding:30px 24px;text-align:center;border-right:1px solid rgba(255,255,255,0.07)}
+.proof-stat:last-child{border-right:none}
+.proof-stat-n{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--gold-dim);line-height:1}
+.proof-stat-l{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:8px}
+.testi-box{background:var(--surface3);border-left:3px solid var(--gold);padding:32px 36px;margin-top:36px;max-width:760px}
+.testi-q{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--ink);line-height:1.5;margin-bottom:14px}
+.testi-a{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold)}
+
+/* RESPONSIVE (shared) */
+@media(max-width:1000px){
+  .ov-grid,.map-grid,.enq-wrap,.roi-wrap{grid-template-columns:1fr;gap:44px}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .gal-grid{grid-template-columns:1fr 1fr 1fr}
+  .spec-strip{grid-template-columns:1fr}
+  .proof-strip{grid-template-columns:1fr 1fr}
+  .proof-stat:nth-child(2n){border-right:none}
+}
+@media(max-width:900px){
+  nav{padding:0 20px;height:56px}
+  .nav-links,.nav-phone{display:none}
+  .hamburger{display:flex}
+  .tabs-bar{top:56px}
+  .tabs-inner{padding:0 20px}
+  .proj-hero{padding:80px 20px 48px;min-height:auto}
+  .panel{padding:52px 20px}
+  .hero-meta{gap:22px;margin-bottom:24px}
+  .amen-list{grid-template-columns:1fr}
+  footer{grid-template-columns:1fr 1fr;padding:44px 20px;gap:30px}
+  .ft-bottom{padding:18px 20px;flex-direction:column;text-align:center}
+}
+@media(max-width:600px){
+  .why-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+  .enq-form{padding:26px 20px}
+  .amen-tabs-bar,.loc-tabs-bar{overflow-x:visible;flex-wrap:wrap;border-bottom:none;gap:6px}
+  .amen-tab,.loc-tab{border:1px solid var(--border);border-radius:3px;padding:7px 12px}
+  .amen-tab.active,.loc-tab.active{border-color:var(--gold);background:var(--gold-bg)}
+  .tabs-inner{flex-wrap:wrap;overflow-x:visible}
+  footer{grid-template-columns:1fr}
+  .proof-strip{grid-template-columns:1fr 1fr}
+}
+
+
+
+/* ── NAV DROPDOWNS ── */
+.nav-links li.has-dd{position:relative}
+.nav-links li.has-dd>a{display:flex;align-items:center;gap:5px}
+.nav-chev{width:9px;height:9px;opacity:0.65;transition:transform .3s}
+.nav-links li.has-dd:hover .nav-chev{transform:rotate(180deg)}
+.nav-links li.has-dd::after{content:'';position:absolute;top:100%;left:-20px;right:-20px;height:16px}
+.nav-current{color:var(--gold-dim)!important}
+.dd{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(6px);background:rgba(18,14,9,0.985);backdrop-filter:blur(18px);border:1px solid rgba(201,169,110,0.22);padding:24px 28px;display:flex;gap:34px;opacity:0;visibility:hidden;transition:opacity .25s,transform .25s,visibility .25s;z-index:260;box-shadow:0 18px 50px rgba(0,0,0,0.45)}
+.nav-links li.has-dd:hover .dd,.nav-links li.has-dd:focus-within .dd{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.dd-sm{gap:0}
+.dd-col{display:flex;flex-direction:column;min-width:158px}
+.dd-label{font-size:8px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:10px;padding-bottom:7px;border-bottom:1px solid rgba(201,169,110,0.18);white-space:nowrap}
+.dd a{font-size:12.5px;color:rgba(255,255,255,0.72);padding:7px 0;letter-spacing:0.01em;text-transform:none;white-space:nowrap;transition:color .25s}
+.dd a:hover{color:var(--gold-dim)}
+/* mobile menu groups */
+.mob-label{font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);margin:22px 0 4px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.mob-sub{font-family:'Jost',sans-serif;font-size:15px;color:var(--text2);padding:11px 0;border-bottom:1px solid var(--border2);display:block;transition:color .25s}
+.mob-sub:hover{color:var(--gold)}
+@media(max-width:1100px){.dd{padding:20px 22px;gap:24px}.dd-col{min-width:140px}}
+</style>
 </head>
 <body>
-<nav>
-  <a href="index.html" class="nav-logo">WESTLINE <span>Builders</span></a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li><li><a href="index.html#projects-sec">Projects</a></li>
-    <li><a href="index.html#about-sec">About</a></li><li><a href="index.html#contact-sec">Contact</a></li>
-  </ul>
-  <a class="nav-wa" href="https://wa.me/919900033888?text=I'm interested in Salubrity" target="_blank">
-    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    WhatsApp
-  </a>
-</nav>
+
+<div id="nav-placeholder"></div>
+
 <section class="proj-hero">
-  <div class="hero-visual" style="background:linear-gradient(155deg,#0e0808 0%,#1a100a 50%,#0e0808 100%)"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-pat" style="position:absolute;inset:0;background:repeating-linear-gradient(transparent,transparent 16px,rgba(220,150,80,0.06) 16px,rgba(220,150,80,0.06) 17px)"></div>
-  <div class="hero-letter">S</div>
+  <div class="hero-fallback"></div>
+  <video autoplay muted loop playsinline poster="https://res.cloudinary.com/dbw8ugwim/image/upload/f_auto,q_auto,w_1920/3.jpg">
+    <source src="https://res.cloudinary.com/dbw8ugwim/video/upload/q_auto/3.mp4" type="video/mp4">
+  </video>
+  <div class="hero-grid-lines"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="breadcrumb"><a href="index.html">All Projects</a> <span>Salubrity</span></div>
-    <span class="status-badge status-completed">Completed · Operational</span>
-    <div class="proj-h1">Salubrity</div>
-    <div class="proj-tagline">Wellness Spaces, Prime Location</div>
+    <div class="breadcrumb"><a href="index.html">Home</a> · <a href="index.html#projects">All Projects</a> · <span>Salubrity</span></div>
+    <span class="status-badge b-ongoing">Ongoing · Commercial &amp; Polyclinics</span>
+    <h1 class="proj-h1"><em>Salubrity</em></h1>
+    <p class="proj-tagline">Wellness at the Heart of the City</p>
+    <p class="proj-claim">Seven floors of commercial space purpose-built for healthcare and wellness practices, at the corner of Sturrock and SL Mathias Road, Falnir — walking distance from Mangalore's established medical corridor.</p>
     <div class="hero-meta">
       <div class="meta-item"><span class="meta-label">Type</span><span class="meta-value">Commercial &amp; Polyclinics</span></div>
+      <div class="meta-item"><span class="meta-label">Structure</span><span class="meta-value">7 Floors (2B+G+4)</span></div>
       <div class="meta-item"><span class="meta-label">Location</span><span class="meta-value">Falnir, Mangalore</span></div>
-      <div class="meta-item"><span class="meta-label">Price</span><span class="meta-value">Price on Request</span></div>
+      <div class="meta-item"><span class="meta-label">Price</span><span class="meta-value">From ₹39 Lakh*</span></div>
     </div>
     <div class="hero-btns">
-      <a class="btn-wa" href="https://wa.me/919900033888?text=I'm interested in Salubrity. Please share details." target="_blank">
-        <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
-      <a class="btn-call" href="tel:+919900033888">Call Now</a>
-      <a class="btn-enq" href="#enquiry" onclick="document.getElementById('enq-tab').click()">Send Enquiry</a>
+      <a class="btn-icon-hero" href="https://wa.me/919900033888?text=I%27m%20interested%20in%20Salubrity.%20Please%20share%20details." target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24" width="19" height="19"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+      <a class="btn-icon-hero btn-icon-gold" href="tel:+919900033888" title="Call"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 010 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg></a>
+      <a class="btn-hero-main" href="#sec-enquiry">Enquire Now</a>
+      <a class="btn-hero-ghost" href="#sec-roi">Investment Case</a>
     </div>
   </div>
 </section>
-<div class="tabs-bar"><div class="tabs-inner">
-  <button class="tab-btn active" onclick="switchTab(this,'overview')">Overview</button>
-  <button class="tab-btn" onclick="switchTab(this,'gallery')">Gallery</button>
-  <button class="tab-btn" onclick="switchTab(this,'floorplans')">Floor Plans</button>
-  <button class="tab-btn" onclick="switchTab(this,'videos')">Videos</button>
-  <button class="tab-btn" onclick="switchTab(this,'location')">Location &amp; Map</button>
-  <button class="tab-btn" id="enq-tab" onclick="switchTab(this,'enquiry')">Enquire Now</button>
-</div></div>
-<div class="tab-panel active" id="tab-overview" style="background:var(--ink)">
-  <div class="overview-grid">
+
+<div class="tabs-bar">
+  <div class="tabs-inner">
+    <a class="tab-btn active" href="#sec-overview">Overview</a>
+    <a class="tab-btn" href="#sec-roi">Investment Case</a>
+    <a class="tab-btn" href="#sec-amenities">Amenities</a>
+    <a class="tab-btn" href="#sec-gallery">Gallery</a>
+    <a class="tab-btn" href="#sec-location">Location</a>
+    <a class="tab-btn" href="#sec-faq">FAQ</a>
+    <a class="tab-btn" href="#sec-enquiry">Enquire</a>
+  </div>
+</div>
+
+<section class="panel" id="sec-overview" style="background:var(--surface2)">
+  <div class="ov-grid">
     <div>
-      <div class="sec-tag">About the Project</div>
-      <h2 class="sec-h">Salubrity</h2>
-      <div class="highlight-box"><p>"Wellness Spaces, Prime Location"</p></div>
-      <p class="body-text">Salubrity is Westline's wellness-focused commercial project in Falnir — one of Mangalore's premium residential and healthcare neighbourhoods. Offering polyclinic suites and retail commercial spaces for medical professionals and wellness businesses.</p>
-      <p class="body-text">Strategically positioned in Falnir's high-footfall corridor, Salubrity offers excellent visibility, accessibility, and an established patient catchment. Ideal for doctors, clinics, and allied health businesses.</p>
-      <div class="sec-tag" style="margin-top:40px">Amenities &amp; Features</div>
-      <div class="amenities-grid"><div class="amenity">Polyclinic Suites</div><div class="amenity">Retail Spaces</div><div class="amenity">Lift Access</div><div class="amenity">Parking</div><div class="amenity">Security</div><div class="amenity">Power Backup</div><div class="amenity">Reception Lobby</div><div class="amenity">Signage Rights</div></div>
+      <div class="sec-tag">About The Project</div>
+      <h2 class="sec-h">Purpose-Built<br>For <em>Practitioners</em></h2>
+      <div class="highlight-box"><p>"Healthcare businesses don't need a generic commercial shell — they need power backup that never fails, waiting areas that reassure patients, and neighbours in the same field."</p></div>
+      <p class="body-text">Salubrity was conceived specifically around the needs of clinicians, diagnostic operators and wellness practitioners — a building where a dermatology clinic, a physiotherapy centre and a diagnostic lab can each operate professionally, supported by infrastructure built for exactly that use.</p>
+      <p class="body-text">Falnir sits within Mangalore's established medical corridor, close to major hospitals — meaning referral networks, patient familiarity with the area, and a built-in professional ecosystem from day one.</p>
+
+      <div class="spec-strip">
+        <div class="spec-strip-card">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg>
+          <div class="ss-label">Purpose-Built</div>
+          <div class="ss-title">Designed For Clinical Use</div>
+          <div class="ss-desc">Layouts, power provisioning and access designed with clinics and diagnostics in mind</div>
+        </div>
+        <div class="spec-strip-card">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+          <div class="ss-label">Reliability</div>
+          <div class="ss-title">Power Backup Provisioning</div>
+          <div class="ss-desc">Uninterrupted operation for equipment-dependent practices</div>
+        </div>
+        <div class="spec-strip-card">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 8l-2 4 2 4M19 8l2 4-2 4"/></svg>
+          <div class="ss-label">Position</div>
+          <div class="ss-title">Corner Frontage, Falnir</div>
+          <div class="ss-desc">Sturrock &amp; SL Mathias Road corner — within the established medical corridor</div>
+        </div>
+      </div>
     </div>
     <div>
       <div class="specs-card">
-        <div class="specs-head">Project Details</div>
+        <div class="specs-head">Project Specifications</div>
         <div class="spec-row"><span class="spec-k">Type</span><span class="spec-v">Commercial &amp; Polyclinics</span></div>
-        <div class="spec-row"><span class="spec-k">Location</span><span class="spec-v">Falnir, Mangalore</span></div>
-        <div class="spec-row"><span class="spec-k">Status</span><span class="spec-v">Completed · Operational</span></div>
-        <div class="spec-row"><span class="spec-k">Units</span><span class="spec-v">Polyclinic Suites and Retail</span></div>
-        <div class="spec-row"><span class="spec-k">Developer</span><span class="spec-v">Westline Builders Pvt Ltd</span></div>
-        <div class="spec-row"><span class="spec-k">Price</span><span class="spec-v">Price on Request</span></div>
+        <div class="spec-row"><span class="spec-k">Configuration</span><span class="spec-v">7 Floors (2B+G+4)</span></div>
+        <div class="spec-row"><span class="spec-k">Location</span><span class="spec-v">Corner Sturrock &amp; SL Mathias Road, Falnir, Mangalore</span></div>
+        <div class="spec-row"><span class="spec-k">Unit Types</span><span class="spec-v">[Clinic / Office units — sizes to be added]</span></div>
+        <div class="spec-row"><span class="spec-k">Parking</span><span class="spec-v">2 Basement Levels</span></div>
+        <div class="spec-row"><span class="spec-k">Status</span><span class="spec-v">Ongoing</span></div>
+        <div class="spec-row"><span class="spec-k">RERA</span><span class="spec-v">[RERA number to be added]</span></div>
       </div>
       <div class="price-card">
         <div class="price-label">Pricing</div>
-        <div class="price-val">Price on Request</div>
-        <div class="price-note">Contact our sales team for current pricing</div>
-        <button class="btn-gold-full" onclick="document.getElementById('enq-tab').click()">Enquire Now</button>
+        <div class="price-val">From ₹39 Lakh*</div>
+        <p class="price-note">*Indicative starting price. Final pricing depends on floor, unit size and configuration — confirm with our sales team.</p>
+        <button class="btn-gold-full" onclick="document.getElementById('sec-enquiry').scrollIntoView({behavior:'smooth'})">Get Pricing Details →</button>
       </div>
     </div>
   </div>
-</div>
-<div class="tab-panel" id="tab-gallery" style="background:var(--ink2)">
+</section>
+
+<section class="panel why-sec">
+  <div class="sec-tag">Why Salubrity</div>
+  <h2 class="sec-h">Built Around The<br>Way You <em>Practise</em></h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg>
+      <div class="why-t">A Ready-Made Ecosystem</div>
+      <div class="why-d">Sharing a building with other clinical practices means cross-referrals, shared patient trust, and a location patients already associate with healthcare.</div>
+    </div>
+    <div class="why-card">
+      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-7 9 7v11"/><path d="M9 21v-7h6v7"/></svg>
+      <div class="why-t">Established Medical Corridor</div>
+      <div class="why-d">Falnir sits close to Mangalore's major hospitals — an address patients already trust for healthcare needs.</div>
+    </div>
+    <div class="why-card">
+      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="1"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg>
+      <div class="why-t">Patient-Friendly Parking</div>
+      <div class="why-d">Dedicated basement parking removes one of the biggest friction points for patients visiting a clinic in a busy commercial pocket.</div>
+    </div>
+  </div>
+</section>
+
+<section class="panel roi-sec" id="sec-roi">
+  <div class="sec-tag">The Investment Case</div>
+  <h2 class="sec-h">Healthcare Real Estate<br>Holds Its <em>Value</em></h2>
+  <p class="sec-lede">Clinical tenants tend to sign longer leases and invest heavily in fit-out — both of which favour landlord stability. Use the estimate below as a starting point.</p>
+  <div class="roi-wrap">
+    <div class="roi-calc">
+      <div class="roi-row"><label>Unit Price (₹)</label><input type="text" id="roi-price" value="4500000" oninput="calcROI()"></div>
+      <div class="roi-row"><label>Expected Monthly Rent (₹)</label><input type="text" id="roi-rent" value="28000" oninput="calcROI()"></div>
+      <div class="roi-result">
+        <span class="roi-result-l">Estimated Annual Yield</span>
+        <span class="roi-result-v" id="roi-output">7.5%</span>
+      </div>
+      <p style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:16px;line-height:1.7">Indicative only. Excludes maintenance, taxes, vacancy periods and financing costs.</p>
+    </div>
+    <div>
+      <div class="sec-tag" style="color:var(--gold-dim)">Ideal Tenant Profile</div>
+      <div class="roi-tenants">
+        <div class="roi-tenant"><svg class="roi-tenant-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg><div><div class="roi-tenant-t">Diagnostic Labs</div><div class="roi-tenant-d">Pathology and imaging centres seeking a recognisable medical-corridor address.</div></div></div>
+        <div class="roi-tenant"><svg class="roi-tenant-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg><div><div class="roi-tenant-t">Dental &amp; Specialist Clinics</div><div class="roi-tenant-d">Single-practitioner and small group clinics benefiting from shared building footfall.</div></div></div>
+        <div class="roi-tenant"><svg class="roi-tenant-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M5 22l3-9 4 3 4-3 3 9"/></svg><div><div class="roi-tenant-t">Physiotherapy &amp; Wellness</div><div class="roi-tenant-d">Rehabilitation and wellness practices needing dedicated floor space and patient parking.</div></div></div>
+        <div class="roi-tenant"><svg class="roi-tenant-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><div><div class="roi-tenant-t">Pharmacies</div><div class="roi-tenant-d">Ground-floor retail pharmacy serving the building's clinical tenants and passing footfall.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="sec-amenities" style="background:var(--surface)">
+  <div class="sec-tag">Amenities &amp; Facilities</div>
+  <h2 class="sec-h">Infrastructure For<br><em>Clinical Practice</em></h2>
+  <div class="amen-tabs-bar">
+    <button class="amen-tab active" onclick="switchAmenTab(0,this)">Building</button>
+    <button class="amen-tab" onclick="switchAmenTab(1,this)">Infrastructure</button>
+  </div>
+  <div class="amen-panel active" data-panel="0">
+    <div class="amen-list">
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg><span>Full Glass Façade</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 6h4M10 18h4"/></svg><span>Passenger Lift</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M9 11V7a3 3 0 016 0v4"/></svg><span>24×7 Security</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l8-5 8 5v13"/><path d="M4 12h16"/></svg><span>Shared Waiting Lounge</span></div>
+    </div>
+  </div>
+  <div class="amen-panel" data-panel="1">
+    <div class="amen-list">
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg><span>Power Backup Provisioning</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="1"/><path d="M9 7h6M9 11h6"/></svg><span>Centralised AC Provisioning</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="1"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><span>2 Basement Parking Levels</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 4-5 6.5-5 10a5 5 0 0010 0c0-3.5-2-6-5-10z"/></svg><span>Dedicated Water Supply Line</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="sec-gallery" style="background:var(--surface2)">
   <div class="sec-tag">Visual Gallery</div>
-  <h2 class="sec-h" style="margin-bottom:16px">Gallery &amp; <em>Visuals</em></h2>
-  <p class="gallery-intro">Photographs, renders and visuals of Salubrity.</p>
-  <div class="gallery-grid">
-    <div class="gallery-item tall"><div class="gallery-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Hero Shot</span></div></div>
-    <div class="gallery-item"><div class="gallery-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Exterior</span></div></div>
-    <div class="gallery-item"><div class="gallery-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Interior</span></div></div>
-    <div class="gallery-item wide"><div class="gallery-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Aerial View</span></div></div>
-    <div class="gallery-item"><div class="gallery-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>View 1</span></div></div>
-    <div class="gallery-item"><div class="gallery-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>View 2</span></div></div>
+  <h2 class="sec-h">See <em>Salubrity</em></h2>
+  <p class="sec-lede">Renders and site images. Filenames: salubrity-gallery-1.jpg through salubrity-gallery-8.jpg</p>
+  <div class="gal-grid">
+    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Corner<br>Exterior</div></div></div>
+    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Clinic<br>Interior</div></div></div>
+    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Lobby &amp;<br>Waiting Area</div></div></div>
+    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Site<br>Progress</div></div></div>
   </div>
-  <div class="upload-note">Upload your actual images to GitHub and send me filenames — I'll replace placeholders instantly.</div>
-</div>
-<div class="tab-panel" id="tab-floorplans" style="background:var(--ink)">
-  <div class="sec-tag">Floor Plans</div>
-  <h2 class="sec-h" style="margin-bottom:16px">Unit <em>Configurations</em></h2>
-  <p class="gallery-intro" style="margin-bottom:40px">Available unit types at Salubrity.</p>
-  <div class="fp-grid"><div class="fp-card"><div class="fp-vis"><div class="fp-bg"></div><div class="fp-outline"><div class="fp-room">Clinic</div><div class="fp-room">Waiting</div><div class="fp-room">Consult</div><div class="fp-room">Services</div></div></div><div class="fp-info"><div class="fp-type">Polyclinic Suite</div><div class="fp-size">300 - 700 sq ft</div><span class="fp-tag">Operational</span></div></div><div class="fp-card"><div class="fp-vis"><div class="fp-bg"></div><div class="fp-outline"><div class="fp-room">Retail</div><div class="fp-room">Storage</div><div class="fp-room">Counter</div><div class="fp-room">Office</div></div></div><div class="fp-info"><div class="fp-type">Retail Space</div><div class="fp-size">400 - 1000 sq ft</div><span class="fp-tag">Operational</span></div></div></div>
-  <div class="upload-note" style="margin-top:24px">Send me your actual floor plan drawings to replace these layouts.</div>
-</div>
-<div class="tab-panel" id="tab-videos" style="background:var(--ink2)">
-  <div class="sec-tag">Video Gallery</div>
-  <h2 class="sec-h" style="margin-bottom:16px">Watch &amp; <em>Experience</em></h2>
-  <p class="gallery-intro" style="margin-bottom:40px">Add your YouTube video IDs to activate these players.</p>
-  <div class="video-grid">
-    <div class="video-card"><div class="video-thumb" onclick="playVideo(this,'VIDEO_ID')"><div class="play-btn"></div></div><div class="video-info"><h4>Salubrity Overview</h4><p>Falnir Commercial Hub</p></div></div>
-    <div class="video-card"><div class="video-thumb" onclick="playVideo(this,'VIDEO_ID')"><div class="play-btn"></div></div><div class="video-info"><h4>Location Tour</h4><p>Falnir, Mangalore</p></div></div>
-  </div>
-</div>
-<div class="tab-panel" id="tab-location" style="background:var(--ink)">
+</section>
+
+<section class="panel" id="sec-location" style="background:var(--surface)">
   <div class="sec-tag">Location</div>
-  <h2 class="sec-h" style="margin-bottom:44px">Where to <em>Find Us</em></h2>
+  <h2 class="sec-h">Falnir's <em>Medical Corridor</em></h2>
+  <p class="sec-lede" style="margin-bottom:40px">Corner of Sturrock and SL Mathias Road — within Mangalore's established healthcare district.</p>
   <div class="map-grid">
     <div>
       <div class="map-frame">
-        <iframe src="https://maps.google.com/maps?q=Falnir+Mangalore+Karnataka&output=embed" allowfullscreen loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0!2d74.8420!3d12.8695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35a1234567891%3A0xabc124!2sFalnir%2C%20Mangaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000001" allowfullscreen loading="lazy"></iframe>
       </div>
-      <a class="map-cta-link" href="https://www.google.com/maps/search/Falnir+Mangalore+Karnataka" target="_blank">Open in Google Maps</a>
+      <a class="map-cta" href="https://www.google.com/maps/search/Falnir+Mangalore" target="_blank">Open in Google Maps →</a>
     </div>
     <div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;margin-bottom:6px">Falnir, Mangalore</div>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:28px">Karnataka, India</div>
-      <div class="loc-cards"><div class="loc-card"><div class="loc-icon">🏥</div><div class="loc-name">Falnir Healthcare Zone</div><div class="loc-dist">Prime position</div></div><div class="loc-card"><div class="loc-icon">🛣️</div><div class="loc-name">City Centre</div><div class="loc-dist">~8 minutes</div></div><div class="loc-card"><div class="loc-icon">✈️</div><div class="loc-name">Airport</div><div class="loc-dist">~20 minutes</div></div></div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:300;margin-bottom:6px">Sturrock &amp; SL Mathias Road</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:24px;letter-spacing:0.08em">Falnir, Mangalore, Karnataka</div>
+      <div class="loc-cards">
+        <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg><span class="loc-name">KMC Hospital, Attavar</span></div><span class="loc-dist">[X] km</span></div>
+        <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg><span class="loc-name">A J Hospital &amp; Research Centre</span></div><span class="loc-dist">[X] km</span></div>
+        <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 8l-2 4 2 4M19 8l2 4-2 4"/></svg><span class="loc-name">Mangalore Central Railway</span></div><span class="loc-dist">[X] km</span></div>
+        <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 9h18M3 15h18"/></svg><span class="loc-name">Hampankatta / City Centre</span></div><span class="loc-dist">[X] km</span></div>
+      </div>
     </div>
   </div>
-</div>
-<div class="tab-panel" id="tab-enquiry" style="background:var(--ink2)">
-  <div class="enq-grid">
+</section>
+
+<section class="panel" id="sec-faq" style="background:var(--surface2)">
+  <div class="sec-tag">Questions</div>
+  <h2 class="sec-h">Before You <em>Enquire</em></h2>
+  <div class="faq-list">
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I use my unit for a purpose other than a clinic?</button><div class="faq-a"><p>Yes — while the building is designed with clinical use in mind, units can be used for general commercial and professional office purposes as well, subject to standard zoning compliance.</p></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is the ₹39 Lakh starting price for all units?</button><div class="faq-a"><p>That is the indicative starting price for the smallest available unit. Larger units and higher floors are priced accordingly — our sales team will share the full price list on enquiry.</p></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is bank financing available?</button><div class="faq-a"><p>Yes, commercial property loans are available through our banking partners for eligible buyers.</p></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">When is possession?</button><div class="faq-a"><p>Salubrity is an ongoing project. Our sales team will confirm the current construction stage and expected possession timeline at enquiry.</p></div></div>
+  </div>
+</section>
+
+<section class="panel enq-sec" id="sec-enquiry">
+  <div class="enq-wrap">
     <div>
       <div class="sec-tag">Get In Touch</div>
-      <div class="enq-title"><em>Enquire About</em><br>Salubrity</div>
-      <p class="enq-body">Our team responds within 24 hours with full details and a personalised consultation.</p>
-      <div class="contact-item"><div class="contact-item-label">Sales Hotline</div><div class="contact-item-val"><a href="tel:+919900033888" style="color:var(--gold)">+91 99000 33888</a></div></div>
-      <div class="contact-item"><div class="contact-item-label">Location</div><div class="contact-item-val">Falnir, Mangalore</div></div>
-      <a class="wa-btn" href="https://wa.me/919900033888?text=I'm interested in Salubrity. Please share pricing and details." target="_blank">
-        <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp Enquiry
-      </a>
+      <h2 class="sec-h">Enquire About<br><em>Salubrity</em></h2>
+      <p class="enq-intro">Our sales team will share pricing, floor plans and availability within 24 hours.</p>
+      <div class="fc-item"><svg viewBox="0 0 24 24" class="fc-ico" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 010 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg><div><div class="fc-l">Sales Hotline</div><div class="fc-v"><a href="tel:+919900033888">+91 99000 33888</a></div></div></div>
+      <div class="fc-item"><svg viewBox="0 0 24 24" class="fc-ico"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><div><div class="fc-l">WhatsApp</div><div class="fc-v"><a href="https://wa.me/919900033888" target="_blank">Chat With Us</a></div></div></div>
     </div>
-    <div class="enq-form-box">
+    <div class="enq-form">
       <div class="form-title">Request Details</div>
+      <div class="form-note">Response within 24 hours.</div>
       <div class="form-row">
-        <div class="fg"><label class="fl">Full Name</label><input class="fi" type="text" placeholder="Your name"></div>
-        <div class="fg"><label class="fl">Mobile</label><input class="fi" type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        <div class="fg"><label class="fl">Full Name *</label><input class="fi" type="text" placeholder="Your name"></div>
+        <div class="fg"><label class="fl">Mobile Number *</label><input class="fi" type="tel" placeholder="+91 XXXXX XXXXX"></div>
       </div>
-      <div class="fg"><label class="fl">Email</label><input class="fi" type="email" placeholder="your@email.com"></div>
-      <div class="fg"><label class="fl">Enquiry Type</label>
-        <select class="fsel"><option>Polyclinic Suite</option><option>Retail Space</option><option>Investment Enquiry</option><option>General Enquiry</option></select>
+      <div class="fg"><label class="fl">Email Address</label><input class="fi" type="email" placeholder="your@email.com"></div>
+      <div class="fg"><label class="fl">Practice / Business Type</label>
+        <select class="fsel">
+          <option value="">Select</option>
+          <option>Clinic / Practitioner</option>
+          <option>Diagnostic Lab</option>
+          <option>Pharmacy / Retail</option>
+          <option>General Office Use</option>
+          <option>Investment Enquiry</option>
+        </select>
       </div>
-      <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="Any questions or requirements..."></textarea></div>
-      <button class="fsub">Send Enquiry</button>
+      <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="Your requirement, budget, or questions..."></textarea></div>
+      <button class="fsub" data-orig="Submit Enquiry" onclick="submitForm(event)">Submit Enquiry</button>
     </div>
   </div>
-</div>
-<footer>
-  <div><div class="ft-brand">WESTLINE</div><p class="ft-tag">Building Mangalore's skyline with precision and pride since 2014.</p></div>
-  <div><div class="ft-col-t">All Projects</div><ul class="ft-links">
-    <li><a href="signature.html">Westline Signature</a></li><li><a href="cubix.html">Cubix</a></li>
-    <li><a href="jeppu.html">Jeppu Medicity</a></li><li><a href="bonita.html">Bonita</a></li>
-    <li><a href="ohana.html">Ohana Luxury Stays</a></li><li><a href="skydale.html">Skydale</a></li>
-    <li><a href="salubrity.html">Salubrity</a></li><li><a href="fairmont.html">Fairmont</a></li>
-    <li><a href="splendid.html">Splendid Homes</a></li>
-  </ul></div>
-  <div><div class="ft-col-t">Company</div><ul class="ft-links">
-    <li><a href="index.html">Home</a></li><li><a href="index.html#about-sec">About</a></li><li><a href="index.html#contact-sec">Contact</a></li>
-  </ul></div>
-  <div><div class="ft-col-t">Contact</div><ul class="ft-links">
-    <li><a href="tel:+919900033888">+91 99000 33888</a></li>
-    <li><a href="https://wa.me/919900033888" target="_blank">WhatsApp</a></li>
-    <li>westline.co.in</li>
-  </ul></div>
-</footer>
-<div class="ft-bottom"><span class="ft-copy">2025 Westline Builders Pvt Ltd. All Rights Reserved.</span><span class="ft-rera">K-RERA Registered Mangalore</span></div>
+</section>
+
+<div id="footer-placeholder"></div>
+
 <script>
-function switchTab(btn,id){document.querySelectorAll('.tab-btn').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));btn.classList.add('active');document.getElementById('tab-'+id).classList.add('active');document.querySelector('.tabs-bar').scrollIntoView({behavior:'smooth',block:'nearest'})}
-function playVideo(el,v){el.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube.com/embed/'+v+'?autoplay=1" frameborder="0" allow="autoplay;encrypted-media" allowfullscreen></iframe>'}
+
+function toggleMenu(){
+  const h=document.getElementById('hamburger');
+  const m=document.getElementById('mob-menu');
+  h.classList.toggle('open');m.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+document.addEventListener('click',e=>{
+  const m=document.getElementById('mob-menu');
+  const h=document.getElementById('hamburger');
+  if(m&&m.classList.contains('open')&&!m.contains(e.target)&&!h.contains(e.target))toggleMenu();
+});
+function switchAmenTab(idx,btn){
+  document.querySelectorAll('.amen-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.amen-panel').forEach(p=>p.classList.toggle('active',p.dataset.panel===String(idx)));
+}
+function switchLocTab(idx,btn){
+  document.querySelectorAll('.loc-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.loc-panel').forEach(p=>p.classList.toggle('active',p.dataset.locpanel===String(idx)));
+}
+function toggleFaq(btn){
+  const item=btn.parentElement;
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen)item.classList.add('open');
+}
+function submitForm(e){
+  e.preventDefault();
+  const btn=e.target;
+  btn.textContent='Submitting...';btn.disabled=true;
+  setTimeout(()=>{
+    btn.textContent='✓ Enquiry Received';
+    btn.style.background='#2E7D4F';
+    setTimeout(()=>{btn.textContent=btn.dataset.orig||'Submit Enquiry';btn.style.background='';btn.disabled=false},3500);
+  },1200);
+}
+const sections=document.querySelectorAll('.panel[id]');
+const navLinks=document.querySelectorAll('.tabs-bar .tab-btn');
+window.addEventListener('scroll',()=>{
+  let current='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-140)current=s.id;});
+  navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current));
+},{passive:true});
+
+
+function calcROI(){
+  const price=parseFloat(document.getElementById('roi-price').value)||0;
+  const rent=parseFloat(document.getElementById('roi-rent').value)||0;
+  const annual=rent*12;
+  const yield_pct=price>0?(annual/price*100):0;
+  document.getElementById('roi-output').textContent=yield_pct.toFixed(1)+'%';
+}
+calcROI();
+
 </script>
+<script>
+// ── SHARED NAV & FOOTER LOADER ──
+// nav.html and footer.html are single source-of-truth files, shared across
+// every page. Edit either one and the change appears everywhere automatically.
+// Requires the site to be served over http/https (works on Cloudflare Pages;
+// will not work opening the file directly via file:// due to browser CORS).
+Promise.all([
+  fetch('nav.html').then(r => r.text()),
+  fetch('footer.html').then(r => r.text())
+]).then(([navHtml, footerHtml]) => {
+  document.getElementById('nav-placeholder').innerHTML = navHtml;
+  document.getElementById('footer-placeholder').innerHTML = footerHtml;
+}).catch(err => console.error('Nav/footer failed to load — is this page being served over http(s)?', err));
+</script>
+<script src="westline-forms.js"></script>
 </body>
 </html>
