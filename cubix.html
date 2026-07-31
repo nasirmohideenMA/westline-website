@@ -12,16 +12,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--gold:#8C6520;--gold-light:#A67C3D;--gold-dim:#B8914F;--gold-bg:rgba(140,101,32,0.1);--ink:#1A1410;--surface:#FFFDF9;--surface2:#FAF7F2;--surface3:#EDE5D8;--muted:#6B5B48;--text:#2C2018;--text2:#5A4A38;--border:rgba(140,101,32,0.2);--border2:rgba(140,101,32,0.1)}
+:root{--gold:#8C6520;--gold-light:#A67C3D;--gold-dim:#B8914F;--gold-bg:rgba(140,101,32,0.1);--ink:#1A1410;--surface:#FFFDF9;--surface2:#FAF7F2;--surface3:#EDE5D8;--muted:#6B5B48;--text:#2C2018;--text2:#5A4A38;--border:rgba(140,101,32,0.2);--border2:rgba(140,101,32,0.1);--nav-bg:rgba(8,7,5,0.64)}
 html{scroll-behavior:smooth;overflow-x:hidden}
 body{background:var(--surface2);color:var(--text);font-family:'Jost',sans-serif;font-weight:300}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 60px;height:60px;display:flex;justify-content:space-between;align-items:center;background:rgba(20,16,10,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,169,110,0.15)}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;letter-spacing:0.14em;color:var(--gold-dim);white-space:nowrap}
-.nav-logo span{color:#F5F0E8;font-style:italic;font-weight:300}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 60px;height:60px;display:flex;justify-content:space-between;align-items:center;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,169,110,0.15)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;letter-spacing:0.14em;color:var(--gold-dim);text-transform:uppercase;flex-shrink:0;text-shadow:var(--nav-shadow);display:flex;align-items:center;height:100%}
+.nav-logo span{font-style:normal;font-weight:400;color:#fff;text-transform:uppercase;margin-left:6px}
 .nav-links{display:flex;gap:30px;list-style:none}
 .nav-links a{color:rgba(255,255,255,0.6);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;transition:color 0.3s}
 .nav-links a:hover{color:var(--gold-dim)}

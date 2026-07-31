@@ -68,11 +68,11 @@
 <style>
 /* ── THEME SYSTEM ── */
 :root {
-  --gold:#A67C3D;--gold-l:#C9A96E;--gold-d:#D4B483;--gold-p:#F0E4CC;
+  --gold:#A67C3D;--gold-l:#C9A96E;--gold-d:#D4B483;--gold-p:#F0E4CC;--gold-dim:#C9A96E;
   --bg:#FAF7F2;--bg2:#F5F0E8;--bg3:#EDE5D8;--surface:#FFFDF9;--ivory:#FFFDF9;
   --ink:#1A1410;--ink2:#2C2218;--text:#3D3228;--text2:#7A6B58;--muted:#A89880;
   --border:rgba(166,124,61,0.15);--border2:rgba(166,124,61,0.08);
-  --nav-bg:rgba(8,7,5,0.8);--nav-h:68px;
+  --nav-bg:rgba(8,7,5,0.64);--nav-h:68px;
   --nav-shadow:0 2px 6px rgba(45,45,45,0.65),0 1px 2px rgba(0,0,0,0.55);
   --hero-bar-grad:linear-gradient(to top,rgba(6,4,2,0.97) 0%,rgba(6,4,2,0.6) 45%,transparent 100%);
   --hero-overlay:radial-gradient(ellipse 70% 80% at 62% 50%,transparent 20%,rgba(250,247,242,0.45) 55%,rgba(250,247,242,0.88) 100%),linear-gradient(to top,rgba(250,247,242,0.85) 0%,transparent 35%),linear-gradient(to right,rgba(250,247,242,0.65) 0%,transparent 30%);
@@ -89,8 +89,8 @@ img{max-width:100%;display:block}
 
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);display:flex;justify-content:space-between;align-items:center;padding:0 24px;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:background 0.5s,border-color 0.5s}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;letter-spacing:0.14em;color:#fff;flex-shrink:0;text-shadow:var(--nav-shadow);display:flex;align-items:center;height:100%}
-.nav-logo span{font-style:italic;font-weight:300;color:#fff}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;letter-spacing:0.14em;color:var(--gold-dim);text-transform:uppercase;flex-shrink:0;text-shadow:var(--nav-shadow);display:flex;align-items:center;height:100%}
+.nav-logo span{font-style:normal;font-weight:400;color:#fff;text-transform:uppercase;margin-left:6px}
 .nav-links{display:none;gap:32px;list-style:none;align-items:center;height:100%}
 .nav-links li{display:flex;align-items:center;height:100%}
 .nav-links a{color:#fff;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;transition:color 0.3s;text-shadow:var(--nav-shadow);display:flex;align-items:center;gap:5px;height:100%}
