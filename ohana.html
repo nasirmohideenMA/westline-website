@@ -6,28 +6,17 @@
 <meta name="description" content="Ohana Luxury Stays — a fully managed resort investment at Mullayanagiri, Chikmagalur. Own a hill-country asset with professional hospitality management and owner-use benefits.">
 <link rel="canonical" href="https://westline.co.in/ohana.html">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="nav-footer.css">
 <style>
 
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--gold:#8C6520;--gold-light:#A67C3D;--gold-dim:#B8914F;--gold-bg:rgba(140,101,32,0.1);--ink:#1A1410;--surface:#FFFDF9;--surface2:#FAF7F2;--surface3:#EDE5D8;--muted:#6B5B48;--text:#2C2018;--text2:#5A4A38;--border:rgba(140,101,32,0.2);--border2:rgba(140,101,32,0.1);--nav-bg:rgba(8,7,5,0.64)}
+:root{--gold:#8C6520;--gold-light:#A67C3D;--gold-dim:#B8914F;--gold-bg:rgba(140,101,32,0.1);--ink:#1A1410;--surface:#FFFDF9;--surface2:#FAF7F2;--surface3:#EDE5D8;--muted:#6B5B48;--text:#2C2018;--text2:#5A4A38;--border:rgba(140,101,32,0.2);--border2:rgba(140,101,32,0.1);--nav-bg:rgba(8,7,5,0.64);--nav-h:68px;--nav-shadow:0 2px 6px rgba(45,45,45,0.65),0 1px 2px rgba(0,0,0,0.55)}
 html{scroll-behavior:smooth;overflow-x:hidden}
 body{background:var(--surface2);color:var(--text);font-family:'Jost',sans-serif;font-weight:300}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
-nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 60px;height:60px;display:flex;justify-content:space-between;align-items:center;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,169,110,0.15)}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;letter-spacing:0.14em;color:var(--gold-dim);text-transform:uppercase;flex-shrink:0;text-shadow:var(--nav-shadow);display:flex;align-items:center;height:100%}
-.nav-logo span{font-style:normal;font-weight:400;color:#fff;text-transform:uppercase;margin-left:6px}
-.nav-links{display:flex;gap:30px;list-style:none}
-.nav-links a{color:rgba(255,255,255,0.6);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;transition:color 0.3s}
-.nav-links a:hover{color:var(--gold-dim)}
 .nav-phone{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dim);border:1px solid rgba(201,169,110,0.5);padding:8px 18px;font-family:'Jost',sans-serif;font-weight:500;transition:all 0.3s}
 .nav-phone:hover{background:var(--gold-dim);color:#fff}
-.hamburger{display:none;width:34px;height:34px;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;background:none;border:none;padding:4px;flex-shrink:0}
-.hamburger span{display:block;width:5px;height:5px;border-radius:50%;background:var(--gold-dim);transition:all 0.3s}
-.mob-menu{display:none;position:fixed;inset:0;top:56px;background:var(--surface);z-index:190;flex-direction:column;padding:24px;overflow-y:auto;border-top:1px solid var(--border)}
-.mob-menu.open{display:flex}
-.mob-link{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--text);padding:14px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
-.mob-link::after{content:'→';font-family:'Jost',sans-serif;font-size:14px;color:var(--gold)}
 
 .proj-hero{min-height:88vh;position:relative;display:flex;align-items:flex-end;padding:0 60px 70px;overflow:hidden;padding-top:80px;background:#0a0a08}
 .proj-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;filter:brightness(1.15) contrast(0.98)}
@@ -197,15 +186,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 60px;height:60px;d
 .fsub{background:var(--gold);color:#fff;border:none;padding:16px 0;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;cursor:pointer;width:100%;margin-top:8px;transition:background 0.3s}
 .fsub:hover{background:var(--gold-light)}
 
-footer{background:var(--surface3);border-top:1px solid var(--border);padding:56px 60px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
-.ft-brand{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ink);margin-bottom:12px;letter-spacing:0.12em}
-.ft-tag{font-size:12px;color:var(--text2);line-height:1.7;max-width:250px}
-.ft-col-t{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
-.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
-.ft-links a{font-size:12px;color:var(--text);transition:color 0.3s}
-.ft-links a:hover{color:var(--gold)}
-.ft-bottom{background:var(--surface2);border-top:1px solid var(--border);padding:20px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-.ft-copy,.ft-rera{font-size:10px;color:var(--text2)}
 
 /* COMPLETED-PROJECT SPECIFIC */
 .proof-strip{background:var(--ink);padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
@@ -255,24 +235,7 @@ footer{background:var(--surface3);border-top:1px solid var(--border);padding:56p
 
 
 /* ── NAV DROPDOWNS ── */
-.nav-links li.has-dd{position:relative}
-.nav-links li.has-dd>a{display:flex;align-items:center;gap:5px}
-.nav-chev{width:9px;height:9px;opacity:0.65;transition:transform .3s}
-.nav-links li.has-dd:hover .nav-chev{transform:rotate(180deg)}
-.nav-links li.has-dd::after{content:'';position:absolute;top:100%;left:-20px;right:-20px;height:16px}
-.nav-current{color:var(--gold-dim)!important}
-.dd{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(6px);background:rgba(18,14,9,0.985);backdrop-filter:blur(18px);border:1px solid rgba(201,169,110,0.22);padding:24px 28px;display:flex;gap:34px;opacity:0;visibility:hidden;transition:opacity .25s,transform .25s,visibility .25s;z-index:260;box-shadow:0 18px 50px rgba(0,0,0,0.45)}
-.nav-links li.has-dd:hover .dd,.nav-links li.has-dd:focus-within .dd{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
-.dd-sm{gap:0}
-.dd-col{display:flex;flex-direction:column;min-width:158px}
-.dd-label{font-size:8px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:10px;padding-bottom:7px;border-bottom:1px solid rgba(201,169,110,0.18);white-space:nowrap}
-.dd a{font-size:12.5px;color:rgba(255,255,255,0.72);padding:7px 0;letter-spacing:0.01em;text-transform:none;white-space:nowrap;transition:color .25s}
-.dd a:hover{color:var(--gold-dim)}
 /* mobile menu groups */
-.mob-label{font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);margin:22px 0 4px;padding-bottom:6px;border-bottom:1px solid var(--border)}
-.mob-sub{font-family:'Jost',sans-serif;font-size:15px;color:var(--text2);padding:11px 0;border-bottom:1px solid var(--border2);display:block;transition:color .25s}
-.mob-sub:hover{color:var(--gold)}
-@media(max-width:1100px){.dd{padding:20px 22px;gap:24px}.dd-col{min-width:140px}}
 </style>
 </head>
 <body>

@@ -1,0 +1,91 @@
+/* ============================================================================
+   WESTLINE BUILDERS — SHARED NAV & FOOTER STYLES
+   ============================================================================
+   Every page links this one file for its nav bar and footer styling.
+   Edit a rule here once, and it updates on every page — no more hunting
+   through 18 separate <style> blocks for a value that drifted.
+
+   Each page's own <style> block must still define these CSS variables in
+   its :root, since they carry the page's colour theme:
+     --gold, --gold-dim, --nav-bg, --nav-h, --nav-shadow,
+     --surface, --text, --text2, --border, --border2
+   All 18 pages already define these consistently as of this file's creation.
+   ============================================================================ */
+
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);display:flex;justify-content:space-between;align-items:center;padding:0 24px;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:background 0.5s,border-color 0.5s}
+
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;letter-spacing:0.14em;color:var(--gold-dim);text-transform:uppercase;flex-shrink:0;text-shadow:var(--nav-shadow);display:flex;align-items:center;height:100%}
+.nav-logo span{font-style:normal;font-weight:400;color:#fff;text-transform:uppercase;margin-left:6px}
+
+.nav-links{display:none;gap:30px;list-style:none;align-items:center;height:100%}
+.nav-links li{display:flex;align-items:center;height:100%}
+.nav-links a{color:#fff;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;transition:color 0.3s;text-shadow:var(--nav-shadow);display:flex;align-items:center;gap:5px;height:100%;line-height:1;white-space:nowrap}
+.nav-links a:hover{color:var(--gold-dim)}
+.nav-current{color:var(--gold-dim)!important;text-shadow:var(--nav-shadow)}
+
+.nav-links li.has-dd{position:relative}
+.nav-links li.has-dd>a{display:flex;align-items:center;gap:5px;height:100%;line-height:1}
+.nav-chev{width:9px;height:9px;opacity:0.65;transition:transform .3s;display:block;flex-shrink:0}
+.nav-links li.has-dd:hover .nav-chev{transform:rotate(180deg)}
+.nav-links li.has-dd::after{content:'';position:absolute;top:100%;left:-20px;right:-20px;height:16px}
+.dd{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(6px);background:rgba(18,14,9,0.985);backdrop-filter:blur(18px);border:1px solid rgba(201,169,110,0.22);padding:24px 28px;display:flex;gap:34px;opacity:0;visibility:hidden;transition:opacity .25s,transform .25s,visibility .25s;z-index:260;box-shadow:0 18px 50px rgba(0,0,0,0.45)}
+.nav-links li.has-dd:hover .dd,.nav-links li.has-dd:focus-within .dd{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.dd-sm{gap:0}
+.dd-col{display:flex;flex-direction:column;min-width:158px}
+.dd-label{font-size:8px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:10px;padding-bottom:7px;border-bottom:1px solid rgba(201,169,110,0.18);white-space:nowrap}
+.dd a{font-size:12.5px;color:rgba(255,255,255,0.72);padding:7px 0;letter-spacing:0.01em;text-transform:none;white-space:nowrap;transition:color .25s}
+.dd a:hover{color:var(--gold-dim)}
+
+.nav-actions{display:flex;gap:4px;align-items:center}
+.nav-icon-btn{width:42px;height:42px;border-radius:50%;border:none;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:transparent;transition:all 0.3s;filter:drop-shadow(0 2px 4px rgba(20,20,20,0.6))}
+.nav-icon-btn:hover{background:rgba(255,255,255,0.12)}
+.nav-icon-btn svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:2}
+
+.hamburger{width:34px;height:34px;display:flex;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;height:1.5px;background:#fff;transition:all 0.3s;transform-origin:center;box-shadow:var(--nav-shadow)}
+
+.mob-menu{display:none;position:fixed;inset:0;top:var(--nav-h);background:var(--surface);z-index:290;flex-direction:column;padding:24px;overflow-y:auto;border-top:1px solid var(--border)}
+.mob-menu.open{display:flex}
+.mob-link{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--text);padding:13px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.mob-link::after{content:'→';font-family:'Jost',sans-serif;font-size:14px;color:var(--gold)}
+.mob-label{font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);margin:22px 0 4px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.mob-sub{font-family:'Jost',sans-serif;font-size:15px;color:var(--text2);padding:11px 0;border-bottom:1px solid var(--border2);display:block;transition:color .25s}
+.mob-sub:hover{color:var(--gold)}
+.mob-contact{margin-top:28px;display:flex;flex-direction:column;gap:10px}
+.mob-wa{display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:14px 18px;font-size:13px;font-weight:500;border-radius:2px}
+.mob-wa svg{width:18px;height:18px;fill:#fff}
+.mob-call{display:flex;align-items:center;justify-content:center;border:1px solid var(--gold-dim);color:var(--gold);padding:14px;font-size:13px;font-family:'Jost',sans-serif}
+
+@media(min-width:768px){
+  :root{--nav-h:72px}
+  nav{padding:0 60px}
+  .nav-links{display:flex}
+  .hamburger{display:none}
+}
+@media(max-width:1100px){
+  .dd{padding:20px 22px;gap:24px}
+  .dd-col{min-width:140px}
+}
+
+/* ── FOOTER ── */
+footer{background:var(--surface3);padding:52px 60px 0}
+.ft-brand{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);margin-bottom:10px;letter-spacing:0.12em}
+.ft-tag{font-size:12px;color:var(--text2);line-height:1.7;max-width:480px;margin-bottom:0}
+.ft-rera{font-size:11px;color:var(--text2);line-height:1.7;background:var(--surface2);border-left:3px solid var(--gold);padding:14px 18px;margin:24px 0 32px}
+.ft-rera strong{color:var(--gold)}
+.ft-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;padding-bottom:36px}
+.ft-col-t{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:12px;color:var(--text);transition:color 0.3s}
+.ft-links a:hover{color:var(--gold)}
+.ft-bottom{background:var(--surface2);border-top:1px solid var(--border);padding:20px 60px;margin:0 -60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.ft-copy,.ft-disclaimer{font-size:10px;color:var(--text2)}
+
+@media(max-width:900px){
+  footer{padding:44px 20px 0}
+  .ft-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .ft-bottom{padding:18px 20px;margin:0 -20px;flex-direction:column;text-align:center}
+}
+@media(max-width:600px){
+  .ft-grid{grid-template-columns:1fr}
+}
