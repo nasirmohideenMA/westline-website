@@ -9,34 +9,20 @@
 <link rel="canonical" href="https://westline.co.in/careers.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="nav-footer.css">
 <style>
 :root{
-  --gold:#A67C3D;--gold-l:#C9A96E;--gold-d:#D4B483;--gold-p:#F0E4CC;
-  --bg:#FAF7F2;--bg2:#F5F0E8;--bg3:#EDE5D8;--surface:#FFFDF9;
+  --gold:#A67C3D;--gold-l:#C9A96E;--gold-d:#D4B483;--gold-p:#F0E4CC;--gold-dim:#C9A96E;
+  --bg:#FAF7F2;--bg2:#F5F0E8;--bg3:#EDE5D8;--surface:#FFFDF9;--surface2:#F5F0E8;--surface3:#EDE5D8;
   --ink:#1A1410;--text:#3D3228;--text2:#7A6B58;--muted:#A89880;
-  --border:rgba(166,124,61,0.15);--nav-bg:rgba(250,247,242,0.97);--nav-h:68px;
-}
-[data-theme="dark"]{
-  --gold:#C9A96E;--gold-l:#E8D5A3;--gold-d:#7A6340;--gold-p:rgba(201,169,110,0.1);
-  --bg:#0A0A0A;--bg2:#111;--bg3:#1C1C1C;--surface:#141414;
-  --ink:#E8E4DC;--text:#E8E4DC;--text2:#A09080;--muted:#666;
-  --border:rgba(201,169,110,0.12);--nav-bg:rgba(10,10,10,0.97);
+  --border:rgba(166,124,61,0.15);--border2:rgba(166,124,61,0.08);
+  --nav-bg:rgba(8,7,5,0.64);--nav-h:68px;
+  --nav-shadow:0 2px 6px rgba(45,45,45,0.65),0 1px 2px rgba(0,0,0,0.55);
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;transition:background 0.4s,color 0.4s}
+body{background:var(--bg);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);display:flex;justify-content:space-between;align-items:center;padding:0 24px;background:var(--nav-bg);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;letter-spacing:0.14em;color:var(--gold)}
-.nav-logo span{font-style:italic;font-weight:300;color:var(--text)}
-.nav-actions{display:flex;align-items:center;gap:10px}
-.nav-back{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text2);border:1px solid var(--border);padding:7px 14px;transition:all 0.3s}
-.nav-back:hover{color:var(--gold);border-color:var(--gold)}
-.theme-toggle{width:40px;height:22px;background:var(--border);border-radius:11px;position:relative;cursor:pointer;border:none;flex-shrink:0}
-.theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--gold);transition:transform 0.3s}
-[data-theme="dark"] .theme-toggle::after{transform:translateX(18px)}
 
 /* HERO */
 .career-hero{min-height:100svh;background:#0A0806;display:flex;flex-direction:column;justify-content:flex-end;padding:0 24px calc(var(--nav-h) + 48px);position:relative;overflow:hidden}
@@ -129,10 +115,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);display:
 .back-home{display:inline-block;border:1px solid var(--gold);color:var(--gold);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;padding:12px 24px;transition:all 0.3s}
 .back-home:hover{background:var(--gold);color:#fff}
 
-/* MINI FOOTER */
-.mini-footer{background:var(--bg2);border-top:1px solid var(--border);padding:24px;text-align:center;font-size:11px;color:var(--muted)}
-.mini-footer a{color:var(--gold)}
-
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
@@ -162,13 +144,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);display:
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo">WESTLINE <span>Builders</span></a>
-  <div class="nav-actions">
-    <a href="index.html" class="nav-back">← Back to Home</a>
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
-  </div>
-</nav>
+<div id="nav-placeholder"></div>
+
 
 <!-- HERO -->
 <section class="career-hero" id="top">
@@ -324,20 +301,33 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);display:
   </div>
 </section>
 
-<div class="mini-footer">
-  <p>© 2025 Westline Builders Private Limited · <a href="index.html">Back to Home</a> · Mangalore, Karnataka</p>
-</div>
+<div id="footer-placeholder"></div>
 
 <script>
-// THEME
-function getTimeTheme(){const h=new Date().getHours();return(h>=6&&h<18)?'light':'dark'}
-function applyTheme(t){document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'');document.getElementById('theme-color-meta').content=t==='dark'?'#0A0A0A':'#FAF7F2';localStorage.setItem('wl-theme-override',t)}
-function toggleTheme(){const cur=document.documentElement.getAttribute('data-theme')||'light';applyTheme(cur==='dark'?'light':'dark')}
-(function(){const o=localStorage.getItem('wl-theme-override');applyTheme(o||getTimeTheme())})();
+// ── SHARED NAV & FOOTER LOADER ──
+Promise.all([
+  fetch('nav.html').then(r => r.text()),
+  fetch('footer.html').then(r => r.text())
+]).then(([navHtml, footerHtml]) => {
+  document.getElementById('nav-placeholder').innerHTML = navHtml;
+  document.getElementById('footer-placeholder').innerHTML = footerHtml;
+}).catch(err => console.error('Nav/footer failed to load — is this page being served over http(s)?', err));
 
 // SCROLL REVEAL
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+function toggleMenu(){
+  const h=document.getElementById('hamburger');
+  const m=document.getElementById('mob-menu');
+  h.classList.toggle('open');m.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+document.addEventListener('click',e=>{
+  const m=document.getElementById('mob-menu');
+  const h=document.getElementById('hamburger');
+  if(m&&h&&m.classList.contains('open')&&!m.contains(e.target)&&!h.contains(e.target))toggleMenu();
+});
 
 // FILE UPLOAD
 function handleFile(input){
@@ -367,6 +357,10 @@ dz.addEventListener('drop',e=>{
 });
 
 // SUBMIT — saves to FormData, shows success (backend to be connected later)
+// NOTE: this form includes a resume file upload, which the generic westline-forms.js
+// pipeline doesn't handle (EmailJS's API doesn't accept file attachments directly).
+// When wiring this up for real, the resume will likely need to upload to Cloudinary
+// (or similar) first, then just its URL gets sent along with the rest of the fields.
 function submitApp(){
   const name=document.getElementById('appName').value.trim();
   const phone=document.getElementById('appPhone').value.trim();
@@ -390,5 +384,6 @@ function submitApp(){
   },1500);
 }
 </script>
+<script src="westline-forms.js"></script>
 </body>
 </html>
