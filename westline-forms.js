@@ -19,17 +19,26 @@
     EMAILJS_PUBLIC_KEY: "",
   };
 
-  // Partner/services enquiries aren't buyer leads — they stay email-only and
-  // never reach OriginOne. Every other page (including both forms on
-  // index.html) is treated as a genuine buyer enquiry.
-  var EMAIL_ONLY_PAGES = ["agents.html", "landowners.html", "services.html"];
+  // Every page now posts to the same endpoint. It decides where a submission
+  // belongs: buyer enquiries become CRM leads, while agent, landowner,
+  // services and careers submissions go to the Website Enquiries inbox. That
+  // used to be decided here, and the three non-buyer pages simply sent
+  // nothing at all — they showed the visitor a success message and dropped
+  // the data on the floor.
 
   var PAGE_LOAD_TIME = Date.now();
   var MAX_CLIMB = 8;
 
+  // Cloudflare Pages serves clean URLs: it 308-redirects /agents.html to
+  // /agents, so in production location.pathname has no extension and this
+  // returned "agents" rather than "agents.html". The receiver looks the page
+  // up in two tables keyed by filename — which form type this is, and which
+  // project the enquiry is about — so both silently missed on every real
+  // submission. Always hand over the canonical filename.
   function currentPage() {
     var last = location.pathname.split("/").pop();
-    return last || "index.html";
+    if (!last) return "index.html";
+    return last.indexOf(".") === -1 ? last + ".html" : last;
   }
 
   function slugify(label) {
@@ -137,12 +146,8 @@
 
     var page = currentPage();
     var fields = collectFields(btn);
-    var isBuyerLead = EMAIL_ONLY_PAGES.indexOf(page) === -1;
 
-    var tasks = [sendToEmailJS(page, fields)];
-    if (isBuyerLead) tasks.push(sendToOriginOne(page, handlerName, fields));
-
-    Promise.all(tasks)
+    Promise.all([sendToEmailJS(page, fields), sendToOriginOne(page, handlerName, fields)])
       .then(function () {
         finish(btn, true);
       })
@@ -157,5 +162,17 @@
   };
   window.submitEnquiry = function (e) {
     handleSubmit(e, "submitEnquiry");
+  };
+
+  // careers.html can't use the handlers above: it validates its own required
+  // fields and swaps the whole card for a success panel rather than changing
+  // button text. It only needs the transport, so expose that much and let the
+  // page keep its own UI. Returns a promise.
+  window.westlineSubmitFields = function (fields, handlerName) {
+    var page = currentPage();
+    return Promise.all([
+      sendToEmailJS(page, fields),
+      sendToOriginOne(page, handlerName || "westlineSubmitFields", fields),
+    ]);
   };
 })();

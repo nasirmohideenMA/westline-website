@@ -296,6 +296,7 @@ a{text-decoration:none;color:inherit}
       <div class="success-icon">✦</div>
       <div class="success-title">Application <em>Received</em></div>
       <p class="success-msg">Thank you for your interest in Westline. We've received your application and will be in touch within 5 working days. We look forward to learning more about you.</p>
+      <p class="success-msg"><strong>One last step:</strong> please email your resume to <a href="mailto:officeadmin@westlinebuilders.com?subject=Resume%20—%20job%20application">officeadmin@westlinebuilders.com</a> so we can attach it to your application.</p>
       <a class="back-home" href="index.html">Back to Home</a>
     </div>
   </div>
@@ -356,16 +357,21 @@ dz.addEventListener('drop',e=>{
   }
 });
 
-// SUBMIT — saves to FormData, shows success (backend to be connected later)
-// NOTE: this form includes a resume file upload, which the generic westline-forms.js
-// pipeline doesn't handle (EmailJS's API doesn't accept file attachments directly).
-// When wiring this up for real, the resume will likely need to upload to Cloudinary
-// (or similar) first, then just its URL gets sent along with the rest of the fields.
+// SUBMIT — sends the application to the Website Enquiries inbox in OriginOne.
+//
+// ⚠️ The resume itself is NOT transmitted, only its filename. Sending the file
+// would mean uploading it somewhere first (Cloudinary, or a Supabase Storage
+// bucket via the intake function) and that isn't built yet. Because the form
+// insists on an attachment, staying silent about it would leave HR looking at
+// applications with no CV and wondering where it went — so the success panel
+// asks the applicant to email it, and the payload records the filename so the
+// two can be matched up.
 function submitApp(){
   const name=document.getElementById('appName').value.trim();
   const phone=document.getElementById('appPhone').value.trim();
   const email=document.getElementById('appEmail').value.trim();
   const dept=document.getElementById('appDept').value;
+  const exp=document.getElementById('appExp').value;
   const msg=document.getElementById('appMsg').value.trim();
   const file=document.getElementById('resumeFile').files[0];
 
@@ -376,12 +382,27 @@ function submitApp(){
   btn.disabled=true;
   document.getElementById('submitText').textContent='Submitting…';
 
-  // Simulate submission (replace with actual API call when backend is ready)
-  setTimeout(()=>{
+  const showSuccess=()=>{
     document.getElementById('formCard').style.display='none';
     document.getElementById('successBox').classList.add('show');
     document.getElementById('successBox').scrollIntoView({behavior:'smooth'});
-  },1500);
+  };
+
+  window.westlineSubmitFields({
+    name: name,
+    phone: phone,
+    email: email,
+    area_of_expertise: dept,
+    years_of_experience: exp,
+    why_westline: msg,
+    resume_file_name: file.name,
+    resume_attached: 'No — applicant asked to email it separately'
+  },'submitApp').then(showSuccess).catch(err=>{
+    console.error('[careers] application submission failed:',err);
+    btn.disabled=false;
+    document.getElementById('submitText').textContent='Something went wrong — try again';
+    setTimeout(()=>{document.getElementById('submitText').textContent='Submit Application';},3500);
+  });
 }
 </script>
 <script src="westline-forms.js"></script>
