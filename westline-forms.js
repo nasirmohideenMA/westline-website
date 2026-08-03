@@ -9,7 +9,7 @@
 
   var CONFIG = {
     ORIGINONE_ENABLED: true,
-    ORIGINONE_URL: "https://tercgsdwswtnyrrrjeab.functions.supabase.co/website-lead-intake",
+    ORIGINONE_URL: "https://tercgsdwswtnyrrrjeab.supabase.co/functions/v1/website-lead-intake",
     // Built and ready, but inert until an EmailJS account exists. Once you
     // have a Service ID / Template ID / Public Key, fill these in and flip
     // EMAILJS_ENABLED to true — nothing else needs to change.
