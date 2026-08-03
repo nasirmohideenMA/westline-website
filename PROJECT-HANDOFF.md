@@ -4,6 +4,26 @@
 **Repo:** `nasirmohideenMA/westline-website` on GitHub
 **Live site:** `westline-website.pages.dev` (Cloudflare Pages, auto-deploys from GitHub `main`)
 **Domain:** westline.co.in (currently on Wix — migration to this new site not yet cut over; verify DNS before going live)
+**Last updated:** 3 August 2026
+
+---
+
+## 0. Read This First — Current State
+
+The site is **built and functional**. All 21 pages are live, the shared nav/footer system works, and forms create real CRM leads. What remains is mostly **content, not code**.
+
+**Start here if you're picking this up cold:**
+
+| Priority | What | Type |
+|---|---|---|
+| 1 | ~60 placeholders across 15 pages — RERA numbers, emails, bank rates, distances | **Needs Nasir to supply data** |
+| 2 | Agent/landowner/careers/media forms discard their data (§5, §8) | Code + a decision |
+| 3 | Gallery images + team photos not uploaded | Needs assets |
+| 4 | Analytics, OTP, resume upload (§8) | Deferred by choice |
+
+**Nothing is broken.** No known bugs are outstanding. If a session has nothing else to go on, working through §4's placeholder list is the useful default — but most of it is blocked on Nasir, so **ask what data he has before planning work**.
+
+⚠️ **Sections below marked with a strikethrough or a ⚠️ were wrong in earlier versions of this doc and have been corrected against the actual repo.** Trust the code over any claim here; verify before relying on a statement.
 
 ---
 
@@ -75,37 +95,63 @@ Two naming schemes exist across older vs newer pages (e.g. `index.html` has lega
 | `terms.html` | ✅ Done | Includes no-binding-offer clause, arbitration (Westline-appointed sole arbitrator, seat Mangaluru), Grievance Officer |
 | `privacy.html` | ✅ Done | DPDP Act 2023 aligned, narrow third-party sharing, landowner confidentiality carve-out |
 | `careers.html` | ✅ Done | **Pre-existing page, not built by me** — rebuilt to use shared nav/footer, dark/light theme toggle removed (site is light-only). Has resume upload — see §5 for a real limitation there. |
+| `team.html` | ✅ Done | MD profile + 4 senior staff. §8 used to say this didn't exist — wrong, it was already built but unlinked. Retrofitted to shared nav/footer and linked into the nav (desktop + mobile) on 3 Aug 2026. Photos are still initials placeholders (NM/YR/FA/LQ/SS) |
 
 ---
 
 ## 4. Placeholders Still Needing Real Data
 
-All tracked in **`Westline_Website_Data.xlsx`** (9 tabs — fill yellow cells). Priority order:
+**This is now the bulk of the remaining work, and almost none of it is code — it's Nasir supplying facts.** Tracked in `Westline_Website_Data.xlsx` (9 tabs, fill yellow cells).
 
-1. **RERA numbers** — Vantage, Salubrity, Cubix, Fairmont, Ohana (Signature's is already real: `PRM/KA/RERA/1257/334/PR/171021/000845`)
-2. **Location tab distances** — most project pages have `[X] km` placeholders
-3. **Gallery images** — filenames already specified in each page's HTML comments, just need Cloudinary upload
-4. **Agent commission %** — `agents.html` has `[X]%` placeholders in all 4 tiers
-5. **2 landowner case studies** — `landowners.html`
-6. **Bank loan rates** — `tools.html`, 10 banks, update monthly
-7. **Signature construction photos** + current floor/stage — `signature.html` Construction Status tab
-8. **`contact.html`** — general enquiry email still placeholder
-9. **Fairmont/Ohana unit types** — reasonable estimates used in the homepage callback form's dropdown, not verified against real inventory
+Actual counts in the HTML as of 3 Aug 2026, by page:
+
+| Page | Placeholders | What's missing |
+|---|---|---|
+| `tools.html` | 24 | Bank loan rates — 10 banks × rate/tenure. Needs monthly refresh once live |
+| `landowners.html` | 6 | 2 case studies, plus the landowner enquiry email |
+| `cubix.html` | 6 | RERA number, unit sizes, location distances |
+| `splendid.html` / `skydale.html` / `bonita.html` | 5 each | Completed-project details — resident names for testimonials, nearby landmarks |
+| `vantage.html` | 3 | RERA number, retail/office sizes |
+| `services.html`, `salubrity.html`, `ohana.html`, `jeppu.html`, `fairmont.html` | 2 each | Mostly RERA numbers and distances |
+| `signature.html` | 1 | Construction stage (e.g. "Floor 24 of 55") — needs updating as the build progresses |
+| `contact.html` | 1 | General enquiry email address |
+| `agents.html` | 1 | Commission % across the 4 tiers |
+
+Priority order:
+
+1. **RERA numbers** — 7 pages still say `[RERA number to be added]`. Legally the most important. Signature's is real: `PRM/KA/RERA/1257/334/PR/171021/000845`
+2. **Department email addresses** — 4 still placeholder: general enquiry, leasing, partner, landowner
+3. **Bank loan rates** — 24 placeholders in `tools.html`; the calculator works, the rate table is empty
+4. **Location distances** — `[X.XX]` km and nearby school/hospital/landmark names
+5. **Agent commission %** — all 4 tiers
+6. **2 landowner case studies**
+7. **Gallery images** — filenames already named in HTML comments, just need Cloudinary upload
+8. **Signature construction photos** + current floor
+9. **Fairmont/Ohana unit types** — estimates used in the homepage dropdown, never verified against real inventory
 
 ---
 
-## 5. Form Backend — Not Yet Live
+## 5. Form Backend — LIVE (as of 3 Aug 2026)
 
-`westline-forms.js` powers every form site-wide (overrides each page's fake "success" animation). Two integrations, both currently **disabled**:
+`westline-forms.js` powers every form site-wide and **is working in production**. Buyer enquiries create real leads in the OriginOne CRM.
+
+> ⚠️ This file did not exist when the doc above was first written — every page referenced it but it 404'd, and each page's own `submitForm()` was a pure animation that discarded the data. It was built from scratch on 3 Aug 2026.
 
 ```js
-EMAIL_ENABLED: false,       // needs: EmailJS Service ID, Template ID, Public Key (~10 min setup at emailjs.com)
-ORIGINONE_ENABLED: false,   // needs: OriginOne webhook URL + auth method + expected field names — ask Nasir
+ORIGINONE_ENABLED: true,    // live — verified creating leads (LD-2608-0001, LD-2608-0002)
+ORIGINONE_URL: "https://tercgsdwswtnyrrrjeab.supabase.co/functions/v1/website-lead-intake",
+EMAILJS_ENABLED: false,     // deliberately NOT used — see below
 ```
 
-Until both are flipped to `true`, forms show the user a normal success message, but data goes nowhere except the browser console (logged with a warning).
+**EmailJS was evaluated and rejected.** It needs a separate account per company, has a 200 email/month free cap, and is another thing to maintain. OriginOne already sends email via Resend, so notifications belong there instead. Don't reintroduce EmailJS without a specific reason — the config keys are left in place only so a future page could opt in.
 
-**Special case — `careers.html` resume upload:** EmailJS's API doesn't handle file attachments. When wiring this up, the resume will need to upload to Cloudinary (or similar) first, then just its URL gets included in the notification — don't try to force it through the generic `submitForm()` pipeline as-is.
+**How submissions travel:** the script reads each input's `data-field` attribute, posts `{page, handler, fields, elapsed_ms}` to the Edge Function, which maps fields onto `crm_leads`. A submission faster than 2 seconds is treated as a bot and silently dropped.
+
+**Scope decision:** only genuine *buyer* enquiries become CRM leads (homepage callback, project pages, contact.html general enquiry). Agent, landowner, careers and media enquiries are not buyer leads and currently have **no destination** — they still show a success message to the visitor but the data goes nowhere. This is the biggest outstanding gap on the website side.
+
+**Known limitation — the receiver picks the wrong company.** `website-lead-intake` resolves the company by taking the oldest row in `company_groups`. Correct today (only Westline exists) but wrong the moment OriginOne has a second customer. It also hardcodes Westline project names for page→project matching. Tracked on the OriginOne side.
+
+**Special case — `careers.html` resume upload:** file attachments don't go through the generic pipeline. The resume needs uploading to Cloudinary first, then only its URL travels with the rest of the fields. Not built.
 
 ---
 
@@ -119,26 +165,19 @@ Until both are flipped to `true`, forms show the user a normal success message, 
 
 ---
 
-## 7. Repo Cleanup — In Progress
+## 7. Repo Cleanup — DONE
 
-Confirmed **safe to delete** (old Netlify/Decap CMS leftovers, predate this project):
-- `admin/` folder (`config.yml`, `index.html`)
-- `netlify.toml`
-- `neighbourhood-preview.html`
-
-**Check before deleting:**
-- `_data/` folder — likely old CMS content storage
-- `project-style.css` — old standalone stylesheet; confirm nothing still references it
-
-**Kept:** `careers.html` — genuinely good pre-existing page, now integrated into the shared design system (see §3).
+All removed in commit `454c5e4`: `admin/` (Decap CMS), `netlify.toml`, `neighbourhood-preview.html`, `_data/`, `project-style.css`. The working tree is clean; every file now present is in use.
 
 ---
 
 ## 8. Explicitly Deferred / Not Yet Built
 
-- **Cookie consent + analytics** — recommended starting with cookieless analytics (Plausible/Fathom, no consent banner legally required) rather than Google Analytics. Full cookie consent infrastructure + Google Tag Manager should wait until paid ad campaigns actually launch (Nasir confirmed he does run paid campaigns, so this will be needed eventually — just not yet).
-- **OTP verification** on the callback form — deliberately removed for now. Nasir has WAPI; check if it supports SMS OTP, otherwise Twilio is the fallback. Flagged as a real future requirement, not abandoned.
-- **`team.html`** — referenced nowhere currently; doesn't exist. Ask if it's wanted before building.
+- **Agent / landowner / careers / media enquiries have no destination.** Their forms show success but discard the data — see §5. **This is the highest-value outstanding item on the website.** Options: a second Edge Function writing to a general enquiries table, or notification-only. Needs a decision on where non-buyer enquiries should land.
+- **Cookie consent + analytics** — recommended starting with cookieless analytics (Plausible/Fathom, no consent banner legally required) rather than Google Analytics. Full cookie consent + GTM should wait until paid ad campaigns launch (Nasir does run paid campaigns, so this will be needed eventually).
+- **OTP verification** on the callback form — deliberately removed for now. ⚠️ The doc previously said "Nasir has WAPI, check if it supports SMS OTP" — **WATI has since been confirmed CANCELLED for about a year**, so that route is closed. Any OTP work needs a new provider decision first.
+- **`team.html`** — ~~doesn't exist~~ **it does; built and linked 3 Aug 2026.** See §3. Only the photos are outstanding.
+- **Resume upload on careers.html** — see §5.
 
 ---
 
