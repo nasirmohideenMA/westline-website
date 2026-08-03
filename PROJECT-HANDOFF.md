@@ -17,9 +17,11 @@ The site is **built and functional**. All 21 pages are live, the shared nav/foot
 | Priority | What | Type |
 |---|---|---|
 | 1 | ~60 placeholders across 15 pages — RERA numbers, emails, bank rates, distances | **Needs Nasir to supply data** |
-| 2 | Agent/landowner/careers/media forms discard their data (§5, §8) | Code + a decision |
-| 3 | Gallery images + team photos not uploaded | Needs assets |
-| 4 | Analytics, OTP, resume upload (§8) | Deferred by choice |
+| 2 | Gallery images + team photos not uploaded | Needs assets |
+| 3 | Resume upload on careers.html still not sent (§5) | Needs a decision |
+| 4 | Analytics, OTP (§8) | Deferred by choice |
+
+~~Agent/landowner/careers/media forms discard their data~~ — **fixed 3 Aug 2026, see §5.**
 
 **Nothing is broken.** No known bugs are outstanding. If a session has nothing else to go on, working through §4's placeholder list is the useful default — but most of it is blocked on Nasir, so **ask what data he has before planning work**.
 
@@ -147,11 +149,20 @@ EMAILJS_ENABLED: false,     // deliberately NOT used — see below
 
 **How submissions travel:** the script reads each input's `data-field` attribute, posts `{page, handler, fields, elapsed_ms}` to the Edge Function, which maps fields onto `crm_leads`. A submission faster than 2 seconds is treated as a bot and silently dropped.
 
-**Scope decision:** only genuine *buyer* enquiries become CRM leads (homepage callback, project pages, contact.html general enquiry). Agent, landowner, careers and media enquiries are not buyer leads and currently have **no destination** — they still show a success message to the visitor but the data goes nowhere. This is the biggest outstanding gap on the website side.
+**Every form now reaches a destination (fixed 3 Aug 2026).** The *receiver* decides where a submission belongs, so every page posts to the same endpoint:
+
+- **Buyer enquiries** (homepage callback, project pages, contact.html) → `crm_leads`, as before
+- **agents / landowners / services / careers** → a new `website_enquiries` table, visible in OriginOne under **Sales & CRM → Website Enquiries** (`/website-enquiries`), filterable by type and status, with every raw submitted field shown
+
+One inbox rather than four destinations: routing these into Channel Partners, Land Opportunities and a new recruitment module meant three modules to maintain for a handful of submissions a month. A landowner worth pursuing gets copied into `land_opportunities` by hand.
+
+⚠️ **`currentPage()` must send the filename with its `.html` extension.** Cloudflare Pages serves clean URLs and 308-redirects `/agents.html` → `/agents`, so `location.pathname` has no extension. The receiver keys *two* lookups on the filename — which form type this is, and which project the enquiry is about — so before this was fixed, both missed on every real submission. That is why every website lead created before 3 Aug 2026 has `primary_project_id` null. The edge function now normalises the incoming value too, so an old cached script can't reintroduce it. This class of bug is invisible in curl testing, because a handwritten payload sends the name the code expects rather than the one the site sends — **test forms through a browser.**
+
+⚠️ **`careers.html` still does not send the resume**, only its filename. The form insists on an attachment, so the success panel asks the applicant to email it to `officeadmin@westlinebuilders.com`, and the payload records `resume_attached: "No — ..."` so HR isn't left wondering. Sending the file properly needs an upload step (Cloudinary, or a Supabase Storage bucket via the intake function) — still a decision, see §8.
 
 **Known limitation — the receiver picks the wrong company.** `website-lead-intake` resolves the company by taking the oldest row in `company_groups`. Correct today (only Westline exists) but wrong the moment OriginOne has a second customer. It also hardcodes Westline project names for page→project matching. Tracked on the OriginOne side.
 
-**Special case — `careers.html` resume upload:** file attachments don't go through the generic pipeline. The resume needs uploading to Cloudinary first, then only its URL travels with the rest of the fields. Not built.
+**`careers.html` keeps its own submit handler** — it validates its own required fields and swaps the whole card for a success panel rather than changing button text. It borrows only the transport, via `window.westlineSubmitFields(fields, handlerName)` exported from `westline-forms.js`, so the endpoint URL stays in one place.
 
 ---
 
@@ -173,7 +184,8 @@ All removed in commit `454c5e4`: `admin/` (Decap CMS), `netlify.toml`, `neighbou
 
 ## 8. Explicitly Deferred / Not Yet Built
 
-- **Agent / landowner / careers / media enquiries have no destination.** Their forms show success but discard the data — see §5. **This is the highest-value outstanding item on the website.** Options: a second Edge Function writing to a general enquiries table, or notification-only. Needs a decision on where non-buyer enquiries should land.
+- ~~**Agent / landowner / careers / media enquiries have no destination.**~~ **Done 3 Aug 2026** — they land in the Website Enquiries inbox, see §5.
+- **Resume upload on careers.html.** The application text is captured but the file is not; the applicant is asked to email it. Doing this properly means either an unsigned Cloudinary upload preset (simplest, but an open upload endpoint invites abuse) or posting the file to the intake function for it to store in a private Supabase bucket (safer, needs a bucket + policy + a size guard). Needs a decision before it's worth building.
 - **Cookie consent + analytics** — recommended starting with cookieless analytics (Plausible/Fathom, no consent banner legally required) rather than Google Analytics. Full cookie consent + GTM should wait until paid ad campaigns launch (Nasir does run paid campaigns, so this will be needed eventually).
 - **OTP verification** on the callback form — deliberately removed for now. ⚠️ The doc previously said "Nasir has WAPI, check if it supports SMS OTP" — **WATI has since been confirmed CANCELLED for about a year**, so that route is closed. Any OTP work needs a new provider decision first.
 - **`team.html`** — ~~doesn't exist~~ **it does; built and linked 3 Aug 2026.** See §3. Only the photos are outstanding.
