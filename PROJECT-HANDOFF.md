@@ -16,12 +16,14 @@ The site is **built and functional**. All 21 pages are live, the shared nav/foot
 
 | Priority | What | Type |
 |---|---|---|
-| 1 | ~60 placeholders across 15 pages — RERA numbers, emails, bank rates, distances | **Needs Nasir to supply data** |
+| 1 | **Fairmont is unlinked from the site** — is it for sale or not? (§4) | **Needs Nasir — blocks nothing else** |
 | 2 | Gallery images + team photos not uploaded | Needs assets |
 | 3 | Resume upload on careers.html still not sent (§5) | Needs a decision |
-| 4 | Analytics, OTP (§8) | Deferred by choice |
+| 4 | Content removed for lack of data — testimonials, case studies, distances, 3 FAQ answers (§4) | Needs Nasir when convenient |
+| 5 | Analytics, OTP (§8) | Deferred by choice |
 
 ~~Agent/landowner/careers/media forms discard their data~~ — **fixed 3 Aug 2026, see §5.**
+~~~60 placeholders across 15 pages~~ — **cleared 3 Aug 2026. Every one of the 19 linked pages is now free of visible `[placeholder]` text.** See §4 for what was filled in versus removed.
 
 **Nothing is broken.** No known bugs are outstanding. If a session has nothing else to go on, working through §4's placeholder list is the useful default — but most of it is blocked on Nasir, so **ask what data he has before planning work**.
 
@@ -101,35 +103,54 @@ Two naming schemes exist across older vs newer pages (e.g. `index.html` has lega
 
 ---
 
-## 4. Placeholders Still Needing Real Data
+## 4. Content — Filled In, Removed, Or Still Open
 
-**This is now the bulk of the remaining work, and almost none of it is code — it's Nasir supplying facts.** Tracked in `Westline_Website_Data.xlsx` (9 tabs, fill yellow cells).
+**Cleared 3 Aug 2026.** Nasir filled in `Westline-Website-Fill-These-In.xlsx` (kept in this repo) and it was applied the same day. No linked page shows a visible placeholder any more.
 
-Actual counts in the HTML as of 3 Aug 2026, by page:
+To re-audit, search for bracketed text **without a length cap** — see the warning at the end of the removals table:
 
-| Page | Placeholders | What's missing |
+```bash
+grep -oE "\[[^]<>]{1,400}\]" *.html | grep -viE "navHtml|\[[0-9]+\]|type=|style\*|data-role"
+```
+
+### Filled in
+
+RERA rows on 8 project pages · 4 department emails (`properties@westlinebuilders.com` for general, leasing and partner; `nasirm@westlinebuilders.com` for landowner) · commission ladder 2 / 2.5 / 3 / 4% at 2, 5 and 8+ closures · unit types, plus Vantage's size range · years occupied on the four completed projects · Signature at 53 floors · services minimum size and interiors timeline · contact hours · the home-loan FAQ answer · a newly written NRI FAQ answer.
+
+**Only Jeppu supplied a real new RERA number** (`PRM/KA/RERA/1257/334/PR/200211/003258`). The rest are statuses rather than numbers: Cubix "Not applicable — lease only"; Vantage, Salubrity and Ohana "Registration in progress"; Skydale, Splendid and Bonita "Completed project — not applicable". Signature's remains `PRM/KA/RERA/1257/334/PR/171021/000845`.
+
+### Removed for lack of data — restore when Nasir has it
+
+Every removal left an HTML comment saying what to put back.
+
+| What | Where | Why |
 |---|---|---|
-| `tools.html` | 24 | Bank loan rates — 10 banks × rate/tenure. Needs monthly refresh once live |
-| `landowners.html` | 6 | 2 case studies, plus the landowner enquiry email |
-| `cubix.html` | 6 | RERA number, unit sizes, location distances |
-| `splendid.html` / `skydale.html` / `bonita.html` | 5 each | Completed-project details — resident names for testimonials, nearby landmarks |
-| `vantage.html` | 3 | RERA number, retail/office sizes |
-| `services.html`, `salubrity.html`, `ohana.html`, `jeppu.html`, `fairmont.html` | 2 each | Mostly RERA numbers and distances |
-| `signature.html` | 1 | Construction stage (e.g. "Floor 24 of 55") — needs updating as the build progresses |
-| `contact.html` | 1 | General enquiry email address |
-| `agents.html` | 1 | Commission % across the 4 tiers |
+| Bank interest-rate table | `tools.html` | Nasir: don't publish rates. The section became an **approved-lender list** (6 banks) rather than disappearing, so the tab link and the `#sec-rates` anchor still work |
+| 4 resident testimonials | skydale, splendid, bonita, jeppu | Quote *and* name were both placeholder. Only the `.testi-box` went; the delivery-proof section around it stays |
+| 2 landowner case studies | `landowners.html` | Every field including the narrative was placeholder. The whole `.case-sec` section was removed; its CSS is still in the file |
+| Nearby-landmark distances | 9 project pages | Named landmarks stayed and lost their distance chip. Cards blank on *both* name and distance were removed outright (13 of them). Skydale/Splendid/Bonita lost the list entirely but keep their map and address |
+| Per-sq-ft prices | `services.html` | Nasir: "do not mention" → now "On Request" |
+| 3 FAQ answers | `tools.html` | Booking amount, what the base price includes, maintenance charges |
 
-Priority order:
+⚠️ **The first two of those FAQ answers never reached the workbook.** The scan that generated it capped placeholders at 90 characters and both were longer, so Nasir was never asked about them. Six testimonial and case-study placeholders were missed the same way. When auditing for placeholders, don't cap the length.
 
-1. **RERA numbers** — 7 pages still say `[RERA number to be added]`. Legally the most important. Signature's is real: `PRM/KA/RERA/1257/334/PR/171021/000845`
-2. **Department email addresses** — 4 still placeholder: general enquiry, leasing, partner, landowner
-3. **Bank loan rates** — 24 placeholders in `tools.html`; the calculator works, the rate table is empty
-4. **Location distances** — `[X.XX]` km and nearby school/hospital/landmark names
-5. **Agent commission %** — all 4 tiers
-6. **2 landowner case studies**
-7. **Gallery images** — filenames already named in HTML comments, just need Cloudinary upload
-8. **Signature construction photos** + current floor
-9. **Fairmont/Ohana unit types** — estimates used in the homepage dropdown, never verified against real inventory
+### ⚠️ Fairmont is unlinked from the site
+
+Nasir marked Fairmont **and** Ohana "Not for Sale" in the workbook, but both pages sell ownership throughout. Asked directly, he said Ohana is a resort that *should* invite investors — so Ohana kept its page and got "Registration in progress". Fairmont was never resolved.
+
+Its page is headlined **"Own It. Let Us Run It."**, describes itself as built "for a specific kind of owner", quotes "Price on Request" with unit-wise pricing on enquiry, and carries a rental-yield calculator. None of that survives an edit to the RERA row — either the page is wrong or the workbook answer was, and publishing either claim on a public property advert risked stating something false.
+
+So `fairmont.html` is **untouched but unlinked**: removed from `nav.html` (desktop + mobile), `footer.html`, the homepage project grid, and both homepage form dropdowns. It is still reachable by direct URL. The now-dead `fairmont` key in the homepage unit-type map was left in place deliberately, so restoring is only a matter of putting the links back.
+
+**To restore:** search those four files for `Fairmont unlinked`, `Fairmont card hidden` and `Fairmont hidden`.
+
+### Still open
+
+1. **Fairmont's for-sale status** — the one question blocking that page
+2. **Gallery images** — filenames already named in HTML comments, just need Cloudinary upload
+3. **Signature construction photos**, and the floor count needs updating as the build progresses
+4. **Fairmont/Ohana unit types** — the homepage dropdown estimates were never verified against real inventory
+5. The removed content in the table above, whenever Nasir has it
 
 ---
 
