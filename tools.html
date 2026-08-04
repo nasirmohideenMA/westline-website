@@ -296,7 +296,7 @@ img{max-width:100%;display:block}
     <a class="tab-btn" href="#sec-stamp">Stamp Duty</a>
     <a class="tab-btn" href="#sec-rentbuy">Rent vs Buy</a>
     <a class="tab-btn" href="#sec-convert">Area Converter</a>
-    <a class="tab-btn" href="#sec-rates">Loan Rates</a>
+    <a class="tab-btn" href="#sec-rates">Loan Partners</a>
     <a class="tab-btn" href="#sec-faq">FAQ</a>
   </div>
 </div>
@@ -415,31 +415,25 @@ img{max-width:100%;display:block}
 
 <!-- LOAN RATES -->
 <section class="panel" id="sec-rates" style="background:var(--surface2)">
-  <div class="sec-tag">Home Loan Rates</div>
-  <h2 class="sec-h">Compare <em>Top Lenders</em></h2>
-  <p class="sec-lede" style="margin-bottom:8px">Indicative home loan interest rates from leading banks. Rates change frequently — always confirm the current rate directly with the bank before applying.</p>
-  <p style="font-size:11px;color:var(--gold);margin-bottom:32px;font-weight:500">Rates as of: [Month, Year — update monthly]</p>
+  <div class="sec-tag">Home Loan Partners</div>
+  <h2 class="sec-h">Lenders Who Have <em>Already Approved Us</em></h2>
+  <p class="sec-lede" style="margin-bottom:32px">These banks have vetted our project titles and approvals in advance, so a loan application against a Westline project skips that stage. You are free to use any other lender — it simply takes longer. We don't publish interest rates here: they change often and every applicant is quoted differently, so please confirm the current rate directly with the bank.</p>
 
   <div class="rates-table-wrap">
     <table class="rates-table">
       <thead>
-        <tr><th>Bank</th><th>Interest Rate (From)</th><th>Processing Fee</th><th>Max Tenure</th><th>Approved For Westline Projects</th></tr>
+        <tr><th>Bank</th><th>Approved For Westline Projects</th></tr>
       </thead>
       <tbody>
-        <tr><td>SBI</td><td>[X.XX]%</td><td>[X]</td><td>[X] yrs</td><td>[Y/N]</td></tr>
-        <tr><td>HDFC Bank</td><td>[X.XX]%</td><td>[X]</td><td>[X] yrs</td><td>[Y/N]</td></tr>
-        <tr><td>ICICI Bank</td><td>[X.XX]%</td><td>[X]</td><td>[X] yrs</td><td>[Y/N]</td></tr>
-        <tr><td>Axis Bank</td><td>[X.XX]%</td><td>[X]</td><td>[X] yrs</td><td>[Y/N]</td></tr>
-        <tr><td>Bank of Baroda</td><td>[X.XX]%</td><td>[X]</td><td>[X] yrs</td><td>[Y/N]</td></tr>
-        <tr><td>Canara Bank</td><td>[X.XX]%</td><td>[X]</td><td>[X] yrs</td><td>[Y/N]</td></tr>
-        <tr><td>Kotak Mahindra</td><td>[X.XX]%</td><td>[X]</td><td>[X] yrs</td><td>[Y/N]</td></tr>
-        <tr><td>LIC Housing Finance</td><td>[X.XX]%</td><td>[X]</td><td>[X] yrs</td><td>[Y/N]</td></tr>
-        <tr><td>PNB Housing</td><td>[X.XX]%</td><td>[X]</td><td>[X] yrs</td><td>[Y/N]</td></tr>
-        <tr><td>Federal Bank</td><td>[X.XX]%</td><td>[X]</td><td>[X] yrs</td><td>[Y/N]</td></tr>
+        <tr><td>SBI</td><td>Yes</td></tr>
+        <tr><td>ICICI Bank</td><td>Yes</td></tr>
+        <tr><td>Axis Bank</td><td>Yes</td></tr>
+        <tr><td>Canara Bank</td><td>Yes</td></tr>
+        <tr><td>Kotak Mahindra Bank</td><td>Yes</td></tr>
+        <tr><td>Karnataka Bank</td><td>Yes</td></tr>
       </tbody>
     </table>
   </div>
-  <p style="font-size:11px;color:var(--muted);margin-top:14px">Fill actual rates in the "Bank Loan Rates" tab of your website data workbook — update monthly to keep this table accurate.</p>
 </section>
 
 <!-- FAQ -->
@@ -449,13 +443,15 @@ img{max-width:100%;display:block}
   <p class="sec-lede" style="margin-bottom:8px">For agent-specific questions, see the <a href="agents.html" style="color:var(--gold)">Agent Programme page</a>. For landowner questions, see the <a href="landowners.html" style="color:var(--gold)">Landowner Partnership page</a>.</p>
 
   <div class="faq-list" style="margin-top:32px">
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the typical booking amount for a Westline project?</button><div class="faq-a"><p>[Booking amount and payment schedule to be added — see Westline Website Data workbook, FAQ Answers tab.]</p></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Are Westline projects approved for home loans? Which banks?</button><div class="faq-a"><p>[Bank approval details to be added.]</p></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is included in the base price? What costs extra?</button><div class="faq-a"><p>[Inclusions/exclusions to be added — car parking, maintenance deposit, statutory charges, etc.]</p></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What are the ongoing maintenance charges?</button><div class="faq-a"><p>[Maintenance charge structure to be added.]</p></div></div>
+    <!-- Removed pending Nasir's answers (3 Aug 2026): "What is the typical
+         booking amount", "What is included in the base price" and "What are
+         the ongoing maintenance charges". All three were still showing a
+         bracketed placeholder to the public. Restore them here once the
+         commercial terms are confirmed. -->
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Are Westline projects approved for home loans? Which banks?</button><div class="faq-a"><p>Westline Signature is pre-approved by SBI, Axis Bank, ICICI Bank, Canara Bank, Karnataka Bank and Kotak Mahindra Bank. Pre-approval means these lenders have already vetted the project’s title and approvals, so your loan application skips that stage. You are free to use any other lender — it simply takes longer.</p></div></div>
     <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How do I book a site visit?</button><div class="faq-a"><p>Call our sales hotline at +91 99000 33888, WhatsApp us, or use the enquiry form on any project page. Our team will schedule a convenient time.</p></div></div>
     <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What happens if possession is delayed?</button><div class="faq-a"><p>RERA-registered projects carry statutory protections for buyers in the event of delay. We believe in disclosing construction status transparently — see the Construction Status section on the Westline Signature page for an example of how we handle this.</p></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can NRIs buy property with Westline? What documents are needed?</button><div class="faq-a"><p>[NRI purchase process and document checklist to be added.]</p></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can NRIs buy property with Westline? What documents are needed?</button><div class="faq-a"><p>Yes. Under FEMA, an NRI or OCI cardholder may buy residential and commercial property in India without any prior permission from the Reserve Bank of India, and there is no limit on how many properties you may own. The one restriction is that agricultural land, plantation property and farmhouses cannot be purchased — those may only be inherited or received as a gift.</p><p><strong>Documents usually required:</strong> a valid passport (or OCI card), your visa or proof of overseas residence, a PAN card — which is mandatory for registration — overseas address proof, and passport-size photographs. If you cannot be present at registration, you will also need a Power of Attorney, executed in favour of someone in India and attested at the Indian embassy or consulate in your country of residence.</p><p><strong>Payment must move through normal banking channels</strong> — an inward remittance, or funds from your NRE, NRO or FCNR account. Payment in cash or in foreign currency is not permitted under FEMA. Home loans are available from Indian banks on the same basis as resident buyers, repaid from those same accounts.</p><p>On a later sale, tax is deducted at source, and repatriating sale proceeds out of India is subject to annual limits and conditions. Those rules change, and your position depends on which country you are tax-resident in, so please confirm the current position with your chartered accountant before committing. We are happy to walk you through the purchase and registration steps for any specific project — call +91 99000 33888.</p></div></div>
     <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do you offer interior fit-out as a package?</button><div class="faq-a"><p>Yes — see our <a href="services.html" style="color:var(--gold)">Construction &amp; Interiors</a> page for details on packages available to Westline buyers.</p></div></div>
     <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is the title clear? Can I see the legal documents?</button><div class="faq-a"><p>Yes. All our projects undergo full legal due diligence before launch, and documentation is made available to serious buyers during the booking process.</p></div></div>
     <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the difference between carpet area and super built-up area?</button><div class="faq-a"><p>Carpet area is the actual usable floor area within your unit's walls. Super built-up area additionally includes your share of common areas — lobbies, corridors, staircases and amenity spaces. RERA requires developers to clearly state both; ask our sales team for the exact figures on any unit you're considering.</p></div></div>
