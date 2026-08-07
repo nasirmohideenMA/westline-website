@@ -158,6 +158,16 @@ The grid now leads with an interior render per unit, the size set large, and the
 
 Everything else — every other size, and all ten floors/bed/bath figures — already agreed between the two sites. `westline.co.in` also lists the 4,360 unit as "Type 2" where this site calls it "Type 3", and gives the 4 BHK Duplex + Media T1 floors as "G to 44th", which looks like a data-entry slip against its siblings' "30–45".
 
+### Construction progress gallery → album cover card (8 Aug 2026)
+
+The Progress Gallery on the Construction Status tab was four grey placeholder tiles plus a line naming files that were never uploaded (`sig-progress-1.jpg` … `sig-progress-8.jpg`). It is now a single **album cover card** linking to the shared Google Photos album that was already kept current — the same album the Gallery section further down has always pointed to (`https://photos.app.goo.gl/5eUcXku62UuLpbt77`, which resolves to the `Signature Construction Updates` share).
+
+Three real site photographs cross-fade as the cover, saved to `images/progress/` (168 KB for all three, lazy-loaded). Title and the January 2018 – January 2026 range are read off the album's own metadata. **The mockup showed a photo count; that figure is not exposed anywhere verifiable, so it was left out rather than guessed.**
+
+The rotation script sits at the bottom of `signature.html`. It respects `prefers-reduced-motion`, only runs while the card is on screen (IntersectionObserver), and stops on `visibilitychange`. The first `<img>` carries `.is-on` in the markup so the card still shows a photograph with JS disabled.
+
+⚠️ **Testing note:** in the agent browser pane `document.hidden` is `true`, so the rotation correctly refuses to start and CSS transitions do not run — computed `opacity` reads frozen. Verify the class cycling (`is-on` moving 100 → 010 → 001) rather than computed styles, or check in a real browser.
+
 ### Still open
 
 1. **RERA registration numbers** for Vantage, Salubrity, Ohana and Fairmont — they replace the "Registration in progress" status text on those four pages
