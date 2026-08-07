@@ -186,12 +186,18 @@
     document.body.classList.toggle("cb-on", past);
   }
 
-  var ticking = false;
-  window.addEventListener("scroll", function () {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(function () { sync(); ticking = false; });
-  }, { passive: true });
+  // Throttled on a timestamp rather than requestAnimationFrame. sync() only
+  // reads one bounding box and toggles two classes, so it does not need to be
+  // frame-aligned, and rAF does not fire at all while a tab is hidden — which
+  // would leave a "waiting for the next frame" latch stuck shut.
+  var lastRun = 0;
+  function onScroll() {
+    var now = Date.now();
+    if (now - lastRun < 80) return;
+    lastRun = now;
+    sync();
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", sync);
   if (desktop.addEventListener) desktop.addEventListener("change", sync);
   sync();
