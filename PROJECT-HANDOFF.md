@@ -80,7 +80,7 @@ Two naming schemes exist across older vs newer pages (e.g. `index.html` has lega
 | File | Status | Notes |
 |---|---|---|
 | `index.html` | ✅ Done | Homepage. Hero video carousel (4 slides), project grid with filters, "Request a Callback" form (sticky sidebar, project→unit-type dependent dropdown) |
-| `signature.html` | ✅ Done, ⚠️ needs photos | Flagship project. Floor plans w/ lightbox+zoom, amenity/location tabs, 3D coverflow video reels, Construction Status tab (needs real photos + current floor) |
+| `signature.html` | ✅ Done | Flagship project. Unit cards with interior renders + floor-plan lightbox (§4), amenity/location tabs, Video Gallery (four films), Construction Status tab with the album cover banner (§4). The 3D coverflow reel and a duplicate construction clip strip were removed 8 Aug 2026 — the coverflow had no footage behind it and rendered as empty black cards, and 7 of the clip strip's 8 links had a corrupted share key |
 | `cubix.html` | ✅ Done, ⚠️ needs RERA# | Lease-only commercial. No floor plans/pricing (by design — leasing enquiry model) |
 | `vantage.html` | ✅ Done, ⚠️ needs RERA# | For-sale commercial, ROI calculator, tenant-fit panel |
 | `salubrity.html` | ✅ Done, ⚠️ needs RERA# | For-sale commercial/polyclinics, ROI calculator |
