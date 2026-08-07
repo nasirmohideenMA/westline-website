@@ -10,6 +10,11 @@
   var CONFIG = {
     ORIGINONE_ENABLED: true,
     ORIGINONE_URL: "https://tercgsdwswtnyrrrjeab.supabase.co/functions/v1/website-lead-intake",
+    // Tells OriginOne which company's website this is. Not a password — it is
+    // visible in view-source, and it is not meant to be secret. OriginOne also
+    // checks the request comes from a westlinebuilders.com page, which is what
+    // actually prevents someone else's site filing leads into this CRM.
+    ORIGINONE_SITE_KEY: "westline-web-9f4c21",
     // Built and ready, but inert until an EmailJS account exists. Once you
     // have a Service ID / Template ID / Public Key, fill these in and flip
     // EMAILJS_ENABLED to true — nothing else needs to change.
@@ -116,6 +121,7 @@
         handler: handlerName,
         fields: fields,
         elapsed_ms: Date.now() - PAGE_LOAD_TIME,
+        site_key: CONFIG.ORIGINONE_SITE_KEY,
       }),
     }).then(function (res) {
       if (!res.ok) throw new Error("OriginOne intake failed: " + res.status);
