@@ -162,7 +162,14 @@ Everything else — every other size, and all ten floors/bed/bath figures — al
 
 The Progress Gallery on the Construction Status tab was four grey placeholder tiles plus a line naming files that were never uploaded (`sig-progress-1.jpg` … `sig-progress-8.jpg`). It is now a single **album cover card** linking to the shared Google Photos album that was already kept current — the same album the Gallery section further down has always pointed to (`https://photos.app.goo.gl/5eUcXku62UuLpbt77`, which resolves to the `Signature Construction Updates` share).
 
-Three real site photographs cross-fade as the cover, saved to `images/progress/` (168 KB for all three, lazy-loaded). Title and the January 2018 – January 2026 range are read off the album's own metadata. **The mockup showed a photo count; that figure is not exposed anywhere verifiable, so it was left out rather than guessed.**
+Three real site photographs cross-fade as the cover, saved to `images/progress/` (~340 KB for all three at 1600px, lazy-loaded). Title and the January 2018 – January 2026 range are read off the album's own metadata. **The mockup showed a photo count; that figure is not exposed anywhere verifiable, so it was left out rather than guessed.**
+
+**It is a full-bleed banner, not a small card.** The first attempt capped it at 760px and it looked stranded under the full-width RERA box above it. It now spans the same width as that box at every breakpoint (verified: 1305px at a 1440 viewport, 350px at 390). Two layouts:
+
+- **Above 760px** — photograph fills the card, text overlaid bottom-left over a left-to-right + bottom-up gradient scrim. The scrim is doing real work: the three frames run from a bright midday aerial to a near-black dusk shot, so the text cannot rely on the photograph for contrast.
+- **760px and below** — stacks. Photograph on top at 16:10, text in a solid `--ink` panel beneath, scrim off. Position dots move to the top-right corner of the image.
+
+Card height is `clamp(260px, 27vw, 380px)` so it stays cinematic on wide screens without becoming a wall on small ones.
 
 The rotation script sits at the bottom of `signature.html`. It respects `prefers-reduced-motion`, only runs while the card is on screen (IntersectionObserver), and stops on `visibilitychange`. The first `<img>` carries `.is-on` in the markup so the card still shows a photograph with JS disabled.
 
