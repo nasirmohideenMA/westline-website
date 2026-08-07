@@ -141,6 +141,23 @@ He then confirmed both projects **do invite investors**. Both therefore carry **
 
 ⚠️ **This is the site's main remaining legal exposure and it is not a code problem.** Four projects — Vantage, Salubrity, Ohana, Fairmont — publicly solicit buyers or investors while stating that RERA registration is still in progress. RERA restricts advertising, marketing or taking bookings for an unregistered project. Nasir has been told this twice and has decided to proceed; that is his call to make, but **do not quietly "tidy" these lines, and do not let anyone assume the wording was chosen casually.** If registration numbers arrive, they replace the status text on those four pages.
 
+### Unit configurations on signature.html (rebuilt 8 Aug 2026)
+
+The grid now leads with an interior render per unit, the size set large, and the figures buyers ask for — floors available, bedrooms, bathrooms — with the floor plan behind a **View Floor Plan** click. The lightbox, including the duplex lower/upper pairs, is unchanged.
+
+**Where the renders came from.** The nine unit pages on `westline.co.in/properties/…` (the 9-item `properties` collection — *not* `properties-3`, which is 45 individual flats). Each page carries its own set of renders, server-rendered into the HTML, so they can be scraped without a browser. ⚠️ **The first image in markup order is the floor plan, not a render** — picking by position ships ten cropped floor plans. Each one was opened and checked before use. `4 BHK Duplex Type 2` (4,140 sq ft) has no page of its own and takes a second render from the other 4 BHK duplex.
+
+**Why the images are in `images/units/`, not Cloudinary.** Cloudinary's console is not reachable from the agent browser (blocked by policy) and fetch delivery returns **401** on this account, so the only route left was handling an API secret — not something to do on someone's behalf. Serving from the repo also drops the dependency on Wix, which is being retired. Ten JPEGs, ~1.3 MB total, lazy-loaded. Moving them to Cloudinary later is a find-and-replace on ten `src` attributes.
+
+⚠️ **Two figures disagree with westline.co.in and were left as-is rather than changed on a guess:**
+
+| This site says | westline.co.in says |
+|---|---|
+| 3 BHK — **2,070** sq ft (matches the floor plan artwork) | 3 BHK — **2,180** sq ft |
+| **Sky Villa Penthouse** — 7,920 sq ft | **5 BHK Penthouse** — 8,350 sq ft |
+
+Everything else — every other size, and all ten floors/bed/bath figures — already agreed between the two sites. `westline.co.in` also lists the 4,360 unit as "Type 2" where this site calls it "Type 3", and gives the 4 BHK Duplex + Media T1 floors as "G to 44th", which looks like a data-entry slip against its siblings' "30–45".
+
 ### Still open
 
 1. **RERA registration numbers** for Vantage, Salubrity, Ohana and Fairmont — they replace the "Registration in progress" status text on those four pages
@@ -149,6 +166,7 @@ He then confirmed both projects **do invite investors**. Both therefore carry **
 4. **Ohana unit types** — the homepage dropdown estimate was never verified against real inventory. Fairmont's was corrected to 1/2/3 BHK on 3 Aug 2026
 5. The removed content in the table above, whenever Nasir has it
 6. **Two FAQ answers Nasir was never asked for** — typical booking amount, and what the base price includes
+7. ⚠️ **The shared nav overflows horizontally on mobile, on every page.** At a 390px viewport `<nav id="nav">` renders 675px wide, so the whole page scrolls sideways. The desktop `.nav-actions` block (WhatsApp / Call buttons) stays visible at mobile widths instead of giving way to the mobile menu. Pre-existing — found while rebuilding the unit cards, not caused by it. Fix belongs in `nav-footer.css`; verify `document.body.scrollWidth <= documentElement.clientWidth` at 390/520/768px afterwards
 
 ---
 
