@@ -16,11 +16,10 @@ The site is **built and functional**. All 21 pages are live, the shared nav/foot
 
 | Priority | What | Type |
 |---|---|---|
-| 1 | **Fairmont is unlinked from the site** — is it for sale or not? (§4) | **Needs Nasir — blocks nothing else** |
-| 2 | Gallery images + team photos not uploaded | Needs assets |
-| 3 | Resume upload on careers.html still not sent (§5) | Needs a decision |
-| 4 | Content removed for lack of data — testimonials, case studies, distances, 3 FAQ answers (§4) | Needs Nasir when convenient |
-| 5 | Analytics, OTP (§8) | Deferred by choice |
+| 1 | Gallery images + team photos not uploaded | Needs assets |
+| 2 | Resume upload on careers.html still not sent (§5) | Needs a decision |
+| 3 | Content removed for lack of data — testimonials, case studies, distances, 3 FAQ answers (§4) | Needs Nasir when convenient |
+| 4 | Analytics, OTP (§8) | Deferred by choice |
 
 ~~Agent/landowner/careers/media forms discard their data~~ — **fixed 3 Aug 2026, see §5.**
 ~~~60 placeholders across 15 pages~~ — **cleared 3 Aug 2026. Every one of the 19 linked pages is now free of visible `[placeholder]` text.** See §4 for what was filled in versus removed.
@@ -134,23 +133,22 @@ Every removal left an HTML comment saying what to put back.
 
 ⚠️ **The first two of those FAQ answers never reached the workbook.** The scan that generated it capped placeholders at 90 characters and both were longer, so Nasir was never asked about them. Six testimonial and case-study placeholders were missed the same way. When auditing for placeholders, don't cap the length.
 
-### ⚠️ Fairmont is unlinked from the site
+### Fairmont and Ohana — resolved, but worth understanding
 
-Nasir marked Fairmont **and** Ohana "Not for Sale" in the workbook, but both pages sell ownership throughout. Asked directly, he said Ohana is a resort that *should* invite investors — so Ohana kept its page and got "Registration in progress". Fairmont was never resolved.
+Nasir initially marked **both** "Not for Sale" in the workbook, while both pages sell ownership throughout — Fairmont is headlined "Own It. Let Us Run It." and quotes "Price on Request"; Ohana says "Own A Piece Of The Hills". The two could not both be true, so Fairmont was temporarily unlinked rather than publish a possibly-false claim on a public property advert.
 
-Its page is headlined **"Own It. Let Us Run It."**, describes itself as built "for a specific kind of owner", quotes "Price on Request" with unit-wise pricing on enquiry, and carries a rental-yield calculator. None of that survives an edit to the RERA row — either the page is wrong or the workbook answer was, and publishing either claim on a public property advert risked stating something false.
+He then confirmed both projects **do invite investors**. Both therefore carry **"Registration in progress"**, the same wording he chose for Vantage and Salubrity, and Fairmont was relinked (nav desktop + mobile, footer, homepage project grid, both homepage form dropdowns). Its unit-type entry in the homepage dropdown map was also corrected from Studio/1/2 BHK to 1/2/3 BHK, to match what the project page now states.
 
-So `fairmont.html` is **untouched but unlinked**: removed from `nav.html` (desktop + mobile), `footer.html`, the homepage project grid, and both homepage form dropdowns. It is still reachable by direct URL. The now-dead `fairmont` key in the homepage unit-type map was left in place deliberately, so restoring is only a matter of putting the links back.
-
-**To restore:** search those four files for `Fairmont unlinked`, `Fairmont card hidden` and `Fairmont hidden`.
+⚠️ **This is the site's main remaining legal exposure and it is not a code problem.** Four projects — Vantage, Salubrity, Ohana, Fairmont — publicly solicit buyers or investors while stating that RERA registration is still in progress. RERA restricts advertising, marketing or taking bookings for an unregistered project. Nasir has been told this twice and has decided to proceed; that is his call to make, but **do not quietly "tidy" these lines, and do not let anyone assume the wording was chosen casually.** If registration numbers arrive, they replace the status text on those four pages.
 
 ### Still open
 
-1. **Fairmont's for-sale status** — the one question blocking that page
+1. **RERA registration numbers** for Vantage, Salubrity, Ohana and Fairmont — they replace the "Registration in progress" status text on those four pages
 2. **Gallery images** — filenames already named in HTML comments, just need Cloudinary upload
-3. **Signature construction photos**, and the floor count needs updating as the build progresses
-4. **Fairmont/Ohana unit types** — the homepage dropdown estimates were never verified against real inventory
+3. **Signature construction photos**, and the floor count needs updating as the build progresses (currently "53 floors built")
+4. **Ohana unit types** — the homepage dropdown estimate was never verified against real inventory. Fairmont's was corrected to 1/2/3 BHK on 3 Aug 2026
 5. The removed content in the table above, whenever Nasir has it
+6. **Two FAQ answers Nasir was never asked for** — typical booking amount, and what the base price includes
 
 ---
 
