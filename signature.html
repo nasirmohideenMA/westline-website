@@ -311,6 +311,12 @@ html{scroll-behavior:smooth;overflow-x:hidden}body{background:var(--surface2);co
   </div>
 </section>
 
+<!-- Request-a-callback rail. Markup, styles and the project/unit-type logic
+     all live in callback-rail.js so the ten project pages cannot drift apart.
+     Below 1280px this renders inline here, under the hero; above it, the card
+     fixes to the right once the hero has scrolled away. -->
+<div id="callback-rail"></div>
+
 <!-- SECTION NAV -->
 <div class="tabs-bar">
   <div class="tabs-inner">
@@ -1170,6 +1176,7 @@ Promise.all([
   }
 })();
 </script>
+<script src="callback-rail.js"></script>
 <script src="westline-forms.js"></script>
 </body>
 </html>

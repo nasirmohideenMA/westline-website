@@ -267,6 +267,12 @@ img{max-width:100%;display:block}
   </div>
 </section>
 
+<!-- Request-a-callback rail. Markup, styles and the project/unit-type logic
+     all live in callback-rail.js so the ten project pages cannot drift apart.
+     Below 1280px this renders inline here, under the hero; above it, the card
+     fixes to the right once the hero has scrolled away. -->
+<div id="callback-rail"></div>
+
 <div class="proof-strip">
   <div class="proof-stat"><div class="proof-stat-n">5</div><div class="proof-stat-l">Floors</div></div>
   <div class="proof-stat"><div class="proof-stat-n">100%</div><div class="proof-stat-l">Occupied</div></div>
@@ -480,6 +486,7 @@ Promise.all([
   document.getElementById('footer-placeholder').innerHTML = footerHtml;
 }).catch(err => console.error('Nav/footer failed to load — is this page being served over http(s)?', err));
 </script>
+<script src="callback-rail.js"></script>
 <script src="westline-forms.js"></script>
 </body>
 </html>
