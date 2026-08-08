@@ -290,11 +290,6 @@ img{max-width:100%;display:block}
   </div>
 </section>
 
-<!-- Request-a-callback rail. Markup, styles and the project/unit-type logic
-     all live in callback-rail.js so the ten project pages cannot drift apart.
-     Below 1280px this renders inline here, under the hero; above it, the card
-     fixes to the right once the hero has scrolled away. -->
-<div id="callback-rail"></div>
 
 <div class="tabs-bar">
   <div class="tabs-inner">
@@ -308,176 +303,188 @@ img{max-width:100%;display:block}
   </div>
 </div>
 
-<section class="panel" id="sec-overview" style="background:var(--surface2)">
-  <div class="ov-grid">
-    <div>
-      <div class="sec-tag">About The Opportunity</div>
-      <h2 class="sec-h">Karnataka's Hill<br>Country <em>Has A Yield</em></h2>
-      <div class="highlight-box"><p>"Chikmagalur draws visitors every month of the year — coffee tourism, trekking, weekend escapes from Bengaluru and Mangalore. Ohana turns that traffic into an income stream for its owners."</p></div>
-      <p class="body-text">Ohana Luxury Stays sits at Mullayanagiri — Karnataka's highest peak and one of its most visited hill destinations. Rather than selling holiday homes that sit empty most of the year, Ohana is structured as a professionally managed resort: you own the unit, we handle the guests, the bookings, the housekeeping and the marketing.</p>
-      <p class="body-text">This is built for buyers who see the appeal of hill-country real estate but don't want the operational headache of running a homestay themselves.</p>
-    </div>
-    <div>
-      <div class="specs-card">
-        <div class="specs-head">Project Specifications</div>
-        <div class="spec-row"><span class="spec-k">Type</span><span class="spec-v">Resort</span></div>
-        <div class="spec-row"><span class="spec-k">Configuration</span><span class="spec-v">2 Floors</span></div>
-        <div class="spec-row"><span class="spec-k">Location</span><span class="spec-v">Mullayanagiri, Chikmagalur, Karnataka</span></div>
-        <div class="spec-row"><span class="spec-k">Unit Types</span><span class="spec-v">Cottages and Suites</span></div>
-        <div class="spec-row"><span class="spec-k">Management</span><span class="spec-v">Fully Managed by Westline Hospitality</span></div>
-        <div class="spec-row"><span class="spec-k">Status</span><span class="spec-v">Upcoming</span></div>
-        <div class="spec-row"><span class="spec-k">RERA</span><span class="spec-v">Registration in progress</span></div>
-      </div>
-      <div class="price-card">
-        <div class="price-label">Investment</div>
-        <div class="price-val">Price on Request</div>
-        <p class="price-note">Unit pricing and a full investment deck with projected occupancy and returns available on request.</p>
-        <button class="btn-gold-full" onclick="document.getElementById('sec-enquiry').scrollIntoView({behavior:'smooth'})">Request Investment Deck →</button>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- Content and the callback rail share a two-column grid. The card uses
+     position:sticky inside its own column, so it travels with the reader and
+     stops where the column stops — at the footer. It was previously fixed,
+     which made it flicker at the bottom: hiding it removed the reserved
+     gutter, the reflow moved the footer, and it re-showed in a loop. -->
+<div class="wl-layout">
+  <div class="wl-main">
 
-<section class="panel why-sec">
-  <div class="sec-tag">Why This Is An Investment, Not Just A Holiday Home</div>
-  <h2 class="sec-h">A Property That<br>Works <em>While You Don't</em></h2>
-  <div class="why-grid">
-    <div class="why-card">
-      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 3 6 6 6 9a6 6 0 01-12 0c0-3 2-6 6-9z"/></svg>
-      <div class="why-t">Demand That Doesn't Depend On One Season</div>
-      <div class="why-d">Coffee tourism, trekking to Mullayanagiri peak, and weekend escapes from two major cities keep footfall spread across the year, not concentrated in a short window.</div>
-    </div>
-    <div class="why-card">
-      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-      <div class="why-t">Fully Managed, Genuinely Hands-Off</div>
-      <div class="why-d">Guest sourcing, bookings, housekeeping and on-ground operations are handled for you. You receive a return, not a task list.</div>
-    </div>
-    <div class="why-card">
-      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-      <div class="why-t">Personal Use Included</div>
-      <div class="why-d">Owner-use allowances mean the asset isn't purely financial — you and your family have your own hill retreat when you want it.</div>
-    </div>
-  </div>
-</section>
-
-<section class="panel roi-sec" id="sec-roi">
-  <div class="sec-tag">The Investment Case</div>
-  <h2 class="sec-h">What Ownership<br>Could <em>Return</em></h2>
-  <p class="sec-lede">A simple illustrative estimate based on average nightly rate and occupancy. Actual returns depend on unit type, season and management performance — our team will share a detailed projection.</p>
-  <div class="roi-wrap">
-    <div class="roi-calc">
-      <div class="roi-row"><label>Unit Price (₹)</label><input type="text" id="roi-price" value="6500000" oninput="calcROI()"></div>
-      <div class="roi-row"><label>Avg. Nightly Rate (₹)</label><input type="text" id="roi-rate" value="6000" oninput="calcROI()"></div>
-      <div class="roi-row"><label>Estimated Occupancy (%)</label><input type="text" id="roi-occ" value="45" oninput="calcROI()"></div>
-      <div class="roi-result">
-        <span class="roi-result-l">Estimated Annual Yield</span>
-        <span class="roi-result-v" id="roi-output">7.5%</span>
+  <section class="panel" id="sec-overview" style="background:var(--surface2)">
+    <div class="ov-grid">
+      <div>
+        <div class="sec-tag">About The Opportunity</div>
+        <h2 class="sec-h">Karnataka's Hill<br>Country <em>Has A Yield</em></h2>
+        <div class="highlight-box"><p>"Chikmagalur draws visitors every month of the year — coffee tourism, trekking, weekend escapes from Bengaluru and Mangalore. Ohana turns that traffic into an income stream for its owners."</p></div>
+        <p class="body-text">Ohana Luxury Stays sits at Mullayanagiri — Karnataka's highest peak and one of its most visited hill destinations. Rather than selling holiday homes that sit empty most of the year, Ohana is structured as a professionally managed resort: you own the unit, we handle the guests, the bookings, the housekeeping and the marketing.</p>
+        <p class="body-text">This is built for buyers who see the appeal of hill-country real estate but don't want the operational headache of running a homestay themselves.</p>
       </div>
-      <p style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:16px;line-height:1.7">Indicative only. Excludes management fees, maintenance, taxes and seasonal variation. Request the full investment deck for a detailed projection.</p>
-    </div>
-    <div>
-      <div class="sec-tag" style="color:var(--gold-dim)">What's Included In Management</div>
-      <div class="roi-tenants">
-        <div class="roi-tenant"><svg class="roi-tenant-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg><div><div class="roi-tenant-t">Bookings &amp; Guest Sourcing</div><div class="roi-tenant-d">Listed across booking platforms and marketed by our hospitality team.</div></div></div>
-        <div class="roi-tenant"><svg class="roi-tenant-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg><div><div class="roi-tenant-t">Housekeeping &amp; Maintenance</div><div class="roi-tenant-d">On-ground staff maintain the property to a consistent hospitality standard.</div></div></div>
-        <div class="roi-tenant"><svg class="roi-tenant-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/></svg><div><div class="roi-tenant-t">Owner Reporting</div><div class="roi-tenant-d">Periodic statements on occupancy, revenue and payouts.</div></div></div>
+      <div>
+        <div class="specs-card">
+          <div class="specs-head">Project Specifications</div>
+          <div class="spec-row"><span class="spec-k">Type</span><span class="spec-v">Resort</span></div>
+          <div class="spec-row"><span class="spec-k">Configuration</span><span class="spec-v">2 Floors</span></div>
+          <div class="spec-row"><span class="spec-k">Location</span><span class="spec-v">Mullayanagiri, Chikmagalur, Karnataka</span></div>
+          <div class="spec-row"><span class="spec-k">Unit Types</span><span class="spec-v">Cottages and Suites</span></div>
+          <div class="spec-row"><span class="spec-k">Management</span><span class="spec-v">Fully Managed by Westline Hospitality</span></div>
+          <div class="spec-row"><span class="spec-k">Status</span><span class="spec-v">Upcoming</span></div>
+          <div class="spec-row"><span class="spec-k">RERA</span><span class="spec-v">Registration in progress</span></div>
+        </div>
+        <div class="price-card">
+          <div class="price-label">Investment</div>
+          <div class="price-val">Price on Request</div>
+          <p class="price-note">Unit pricing and a full investment deck with projected occupancy and returns available on request.</p>
+          <button class="btn-gold-full" onclick="document.getElementById('sec-enquiry').scrollIntoView({behavior:'smooth'})">Request Investment Deck →</button>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="panel" id="sec-amenities" style="background:var(--surface)">
-  <div class="sec-tag">Amenities &amp; Facilities</div>
-  <h2 class="sec-h">A Genuine <em>Retreat</em></h2>
-  <div class="amen-list">
-    <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 3 6 6 6 9a6 6 0 01-12 0c0-3 2-6 6-9z"/></svg><span>Mountain &amp; Coffee Estate Views</span></div>
-    <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-9 4 5 3-4 5 8"/></svg><span>Trekking Trail Access</span></div>
-    <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg><span>In-House Dining</span></div>
-    <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 4-5 6.5-5 10a5 5 0 0010 0c0-3.5-2-6-5-10z"/><path d="M12 13v8"/></svg><span>Bonfire &amp; Outdoor Deck</span></div>
-    <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 22l3-9 4 3 4-3 3 9"/><circle cx="12" cy="5" r="2"/></svg><span>Curated Nature Walks</span></div>
-    <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M9 11V7a3 3 0 016 0v4"/></svg><span>On-Site Security &amp; Caretaking</span></div>
-  </div>
-</section>
-
-<section class="panel" id="sec-gallery" style="background:var(--surface2)">
-  <div class="sec-tag">Visual Gallery</div>
-  <h2 class="sec-h">Mullayanagiri, <em>Chikmagalur</em></h2>
-  <p class="sec-lede">Renders and site imagery. Filenames: ohana-gallery-1.jpg through ohana-gallery-8.jpg</p>
-  <div class="gal-grid">
-    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Exterior<br>Render</div></div></div>
-    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Mountain<br>View</div></div></div>
-    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Interior<br>Suite</div></div></div>
-    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Site<br>Location</div></div></div>
-  </div>
-</section>
-
-<section class="panel" id="sec-location" style="background:var(--surface)">
-  <div class="sec-tag">Location</div>
-  <h2 class="sec-h">Karnataka's <em>Highest Peak</em></h2>
-  <p class="sec-lede" style="margin-bottom:40px">Mullayanagiri, Chikmagalur — one of South India's most visited hill destinations, roughly a 3.5-hour drive from both Bengaluru and Mangalore.</p>
-  <div class="map-grid">
-    <div>
-      <div class="map-frame">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.0!2d75.7200!3d13.3900!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba9c0a1234567894%3A0xabc127!2sMullayanagiri%2C%20Chikmagaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000004" allowfullscreen loading="lazy"></iframe>
+  <section class="panel why-sec">
+    <div class="sec-tag">Why This Is An Investment, Not Just A Holiday Home</div>
+    <h2 class="sec-h">A Property That<br>Works <em>While You Don't</em></h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 3 6 6 6 9a6 6 0 01-12 0c0-3 2-6 6-9z"/></svg>
+        <div class="why-t">Demand That Doesn't Depend On One Season</div>
+        <div class="why-d">Coffee tourism, trekking to Mullayanagiri peak, and weekend escapes from two major cities keep footfall spread across the year, not concentrated in a short window.</div>
       </div>
-      <a class="map-cta" href="https://www.google.com/maps/search/Mullayanagiri+Chikmagalur" target="_blank">Open in Google Maps →</a>
-    </div>
-    <div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:300;margin-bottom:6px">Mullayanagiri</div>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:24px;letter-spacing:0.08em">Chikmagalur, Karnataka</div>
-      <div class="loc-cards">
-        <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-9 4 5 3-4 5 8"/></svg><span class="loc-name">Mullayanagiri Peak Trailhead</span></div></div>
-        <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 9h18M3 15h18"/></svg><span class="loc-name">Chikmagalur Town</span></div></div>
-        <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 8l-2 4 2 4M19 8l2 4-2 4"/></svg><span class="loc-name">Bengaluru</span></div><span class="loc-dist">~230 km · ~5 hrs</span></div>
-        <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 8l-2 4 2 4M19 8l2 4-2 4"/></svg><span class="loc-name">Mangalore</span></div><span class="loc-dist">~150 km · ~3.5 hrs</span></div>
+      <div class="why-card">
+        <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        <div class="why-t">Fully Managed, Genuinely Hands-Off</div>
+        <div class="why-d">Guest sourcing, bookings, housekeeping and on-ground operations are handled for you. You receive a return, not a task list.</div>
+      </div>
+      <div class="why-card">
+        <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        <div class="why-t">Personal Use Included</div>
+        <div class="why-d">Owner-use allowances mean the asset isn't purely financial — you and your family have your own hill retreat when you want it.</div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="panel" id="sec-faq" style="background:var(--surface2)">
-  <div class="sec-tag">Investor Questions</div>
-  <h2 class="sec-h">Before You <em>Enquire</em></h2>
-  <div class="faq-list">
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I need to manage the property myself?</button><div class="faq-a"><p>No. Ohana is designed as a fully managed investment — our hospitality team handles bookings, guest management, housekeeping and maintenance so you don't have to.</p></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I stay there myself?</button><div class="faq-a"><p>Yes, owner-use allowances are built into the management agreement. You can block dates for personal stays within agreed terms.</p></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How is my return paid out?</button><div class="faq-a"><p>Revenue share terms and payout frequency are detailed in the investment deck and management agreement, shared on request.</p></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is financing available for this purchase?</button><div class="faq-a"><p>Financing options depend on the unit structure and current bank policy for resort/hospitality assets. Our team will advise what's available at the time of booking.</p></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What happens during the off-season?</button><div class="faq-a"><p>Chikmagalur's tourism is relatively well spread across the year compared to purely seasonal hill destinations, though occupancy naturally varies. The investment deck includes month-by-month occupancy assumptions.</p></div></div>
-  </div>
-</section>
+  <section class="panel roi-sec" id="sec-roi">
+    <div class="sec-tag">The Investment Case</div>
+    <h2 class="sec-h">What Ownership<br>Could <em>Return</em></h2>
+    <p class="sec-lede">A simple illustrative estimate based on average nightly rate and occupancy. Actual returns depend on unit type, season and management performance — our team will share a detailed projection.</p>
+    <div class="roi-wrap">
+      <div class="roi-calc">
+        <div class="roi-row"><label>Unit Price (₹)</label><input type="text" id="roi-price" value="6500000" oninput="calcROI()"></div>
+        <div class="roi-row"><label>Avg. Nightly Rate (₹)</label><input type="text" id="roi-rate" value="6000" oninput="calcROI()"></div>
+        <div class="roi-row"><label>Estimated Occupancy (%)</label><input type="text" id="roi-occ" value="45" oninput="calcROI()"></div>
+        <div class="roi-result">
+          <span class="roi-result-l">Estimated Annual Yield</span>
+          <span class="roi-result-v" id="roi-output">7.5%</span>
+        </div>
+        <p style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:16px;line-height:1.7">Indicative only. Excludes management fees, maintenance, taxes and seasonal variation. Request the full investment deck for a detailed projection.</p>
+      </div>
+      <div>
+        <div class="sec-tag" style="color:var(--gold-dim)">What's Included In Management</div>
+        <div class="roi-tenants">
+          <div class="roi-tenant"><svg class="roi-tenant-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg><div><div class="roi-tenant-t">Bookings &amp; Guest Sourcing</div><div class="roi-tenant-d">Listed across booking platforms and marketed by our hospitality team.</div></div></div>
+          <div class="roi-tenant"><svg class="roi-tenant-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg><div><div class="roi-tenant-t">Housekeeping &amp; Maintenance</div><div class="roi-tenant-d">On-ground staff maintain the property to a consistent hospitality standard.</div></div></div>
+          <div class="roi-tenant"><svg class="roi-tenant-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/></svg><div><div class="roi-tenant-t">Owner Reporting</div><div class="roi-tenant-d">Periodic statements on occupancy, revenue and payouts.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section class="panel enq-sec" id="sec-enquiry">
-  <div class="enq-wrap">
-    <div>
-      <div class="sec-tag">Get In Touch</div>
-      <h2 class="sec-h">Request The<br><em>Investment Deck</em></h2>
-      <p class="enq-intro">Get unit pricing, projected occupancy, expected returns and management terms — sent directly to you.</p>
-      <div class="fc-item"><svg viewBox="0 0 24 24" class="fc-ico" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 010 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg><div><div class="fc-l">Investment Enquiries</div><div class="fc-v"><a href="tel:+919900033888">+91 99000 33888</a></div></div></div>
-      <div class="fc-item"><svg viewBox="0 0 24 24" class="fc-ico"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><div><div class="fc-l">WhatsApp</div><div class="fc-v"><a href="https://wa.me/919900033888" target="_blank">Chat With Us</a></div></div></div>
+  <section class="panel" id="sec-amenities" style="background:var(--surface)">
+    <div class="sec-tag">Amenities &amp; Facilities</div>
+    <h2 class="sec-h">A Genuine <em>Retreat</em></h2>
+    <div class="amen-list">
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 3 6 6 6 9a6 6 0 01-12 0c0-3 2-6 6-9z"/></svg><span>Mountain &amp; Coffee Estate Views</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-9 4 5 3-4 5 8"/></svg><span>Trekking Trail Access</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg><span>In-House Dining</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 4-5 6.5-5 10a5 5 0 0010 0c0-3.5-2-6-5-10z"/><path d="M12 13v8"/></svg><span>Bonfire &amp; Outdoor Deck</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 22l3-9 4 3 4-3 3 9"/><circle cx="12" cy="5" r="2"/></svg><span>Curated Nature Walks</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M9 11V7a3 3 0 016 0v4"/></svg><span>On-Site Security &amp; Caretaking</span></div>
     </div>
-    <div class="enq-form">
-      <div class="form-title">Investment Enquiry</div>
-      <div class="form-note">Response within 24 hours.</div>
-      <div class="form-row">
-        <div class="fg"><label class="fl">Full Name *</label><input class="fi" type="text" placeholder="Your name"></div>
-        <div class="fg"><label class="fl">Mobile Number *</label><input class="fi" type="tel" placeholder="+91 XXXXX XXXXX"></div>
-      </div>
-      <div class="fg"><label class="fl">Email Address *</label><input class="fi" type="email" placeholder="your@email.com"></div>
-      <div class="fg"><label class="fl">Investment Budget</label>
-        <select class="fsel">
-          <option value="">Select</option>
-          <option>Under ₹50 Lakh</option>
-          <option>₹50 Lakh – ₹1 Crore</option>
-          <option>Above ₹1 Crore</option>
-          <option>Exploring options</option>
-        </select>
-      </div>
-      <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="Any questions about returns, management, or the property itself..."></textarea></div>
-      <button class="fsub" data-orig="Request Investment Deck" onclick="submitForm(event)">Request Investment Deck</button>
+  </section>
+
+  <section class="panel" id="sec-gallery" style="background:var(--surface2)">
+    <div class="sec-tag">Visual Gallery</div>
+    <h2 class="sec-h">Mullayanagiri, <em>Chikmagalur</em></h2>
+    <p class="sec-lede">Renders and site imagery. Filenames: ohana-gallery-1.jpg through ohana-gallery-8.jpg</p>
+    <div class="gal-grid">
+      <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Exterior<br>Render</div></div></div>
+      <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Mountain<br>View</div></div></div>
+      <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Interior<br>Suite</div></div></div>
+      <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Site<br>Location</div></div></div>
     </div>
+  </section>
+
+  <section class="panel" id="sec-location" style="background:var(--surface)">
+    <div class="sec-tag">Location</div>
+    <h2 class="sec-h">Karnataka's <em>Highest Peak</em></h2>
+    <p class="sec-lede" style="margin-bottom:40px">Mullayanagiri, Chikmagalur — one of South India's most visited hill destinations, roughly a 3.5-hour drive from both Bengaluru and Mangalore.</p>
+    <div class="map-grid">
+      <div>
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.0!2d75.7200!3d13.3900!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba9c0a1234567894%3A0xabc127!2sMullayanagiri%2C%20Chikmagaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000004" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <a class="map-cta" href="https://www.google.com/maps/search/Mullayanagiri+Chikmagalur" target="_blank">Open in Google Maps →</a>
+      </div>
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:300;margin-bottom:6px">Mullayanagiri</div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:24px;letter-spacing:0.08em">Chikmagalur, Karnataka</div>
+        <div class="loc-cards">
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-9 4 5 3-4 5 8"/></svg><span class="loc-name">Mullayanagiri Peak Trailhead</span></div></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 9h18M3 15h18"/></svg><span class="loc-name">Chikmagalur Town</span></div></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 8l-2 4 2 4M19 8l2 4-2 4"/></svg><span class="loc-name">Bengaluru</span></div><span class="loc-dist">~230 km · ~5 hrs</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 8l-2 4 2 4M19 8l2 4-2 4"/></svg><span class="loc-name">Mangalore</span></div><span class="loc-dist">~150 km · ~3.5 hrs</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="sec-faq" style="background:var(--surface2)">
+    <div class="sec-tag">Investor Questions</div>
+    <h2 class="sec-h">Before You <em>Enquire</em></h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I need to manage the property myself?</button><div class="faq-a"><p>No. Ohana is designed as a fully managed investment — our hospitality team handles bookings, guest management, housekeeping and maintenance so you don't have to.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I stay there myself?</button><div class="faq-a"><p>Yes, owner-use allowances are built into the management agreement. You can block dates for personal stays within agreed terms.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How is my return paid out?</button><div class="faq-a"><p>Revenue share terms and payout frequency are detailed in the investment deck and management agreement, shared on request.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is financing available for this purchase?</button><div class="faq-a"><p>Financing options depend on the unit structure and current bank policy for resort/hospitality assets. Our team will advise what's available at the time of booking.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What happens during the off-season?</button><div class="faq-a"><p>Chikmagalur's tourism is relatively well spread across the year compared to purely seasonal hill destinations, though occupancy naturally varies. The investment deck includes month-by-month occupancy assumptions.</p></div></div>
+    </div>
+  </section>
+
+  <section class="panel enq-sec" id="sec-enquiry">
+    <div class="enq-wrap">
+      <div>
+        <div class="sec-tag">Get In Touch</div>
+        <h2 class="sec-h">Request The<br><em>Investment Deck</em></h2>
+        <p class="enq-intro">Get unit pricing, projected occupancy, expected returns and management terms — sent directly to you.</p>
+        <div class="fc-item"><svg viewBox="0 0 24 24" class="fc-ico" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 010 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg><div><div class="fc-l">Investment Enquiries</div><div class="fc-v"><a href="tel:+919900033888">+91 99000 33888</a></div></div></div>
+        <div class="fc-item"><svg viewBox="0 0 24 24" class="fc-ico"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><div><div class="fc-l">WhatsApp</div><div class="fc-v"><a href="https://wa.me/919900033888" target="_blank">Chat With Us</a></div></div></div>
+      </div>
+      <div class="enq-form">
+        <div class="form-title">Investment Enquiry</div>
+        <div class="form-note">Response within 24 hours.</div>
+        <div class="form-row">
+          <div class="fg"><label class="fl">Full Name *</label><input class="fi" type="text" placeholder="Your name"></div>
+          <div class="fg"><label class="fl">Mobile Number *</label><input class="fi" type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        </div>
+        <div class="fg"><label class="fl">Email Address *</label><input class="fi" type="email" placeholder="your@email.com"></div>
+        <div class="fg"><label class="fl">Investment Budget</label>
+          <select class="fsel">
+            <option value="">Select</option>
+            <option>Under ₹50 Lakh</option>
+            <option>₹50 Lakh – ₹1 Crore</option>
+            <option>Above ₹1 Crore</option>
+            <option>Exploring options</option>
+          </select>
+        </div>
+        <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="Any questions about returns, management, or the property itself..."></textarea></div>
+        <button class="fsub" data-orig="Request Investment Deck" onclick="submitForm(event)">Request Investment Deck</button>
+      </div>
+    </div>
+  </section>
+
   </div>
-</section>
+  <aside class="wl-rail"><div id="callback-rail"></div></aside>
+</div>
 
 <div id="footer-placeholder"></div>
 

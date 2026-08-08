@@ -293,11 +293,6 @@ img{max-width:100%;display:block}
   </div>
 </section>
 
-<!-- Request-a-callback rail. Markup, styles and the project/unit-type logic
-     all live in callback-rail.js so the ten project pages cannot drift apart.
-     Below 1280px this renders inline here, under the hero; above it, the card
-     fixes to the right once the hero has scrolled away. -->
-<div id="callback-rail"></div>
 
 <div class="tabs-bar">
   <div class="tabs-inner">
@@ -311,209 +306,221 @@ img{max-width:100%;display:block}
   </div>
 </div>
 
-<section class="panel" id="sec-overview" style="background:var(--surface2)">
-  <div class="ov-grid">
-    <div>
-      <div class="sec-tag">About The Project</div>
-      <h2 class="sec-h">Purpose-Built<br>For <em>Practitioners</em></h2>
-      <div class="highlight-box"><p>"Healthcare businesses don't need a generic commercial shell — they need power backup that never fails, waiting areas that reassure patients, and neighbours in the same field."</p></div>
-      <p class="body-text">Salubrity was conceived specifically around the needs of clinicians, diagnostic operators and wellness practitioners — a building where a dermatology clinic, a physiotherapy centre and a diagnostic lab can each operate professionally, supported by infrastructure built for exactly that use.</p>
-      <p class="body-text">Falnir sits within Mangalore's established medical corridor, close to major hospitals — meaning referral networks, patient familiarity with the area, and a built-in professional ecosystem from day one.</p>
+<!-- Content and the callback rail share a two-column grid. The card uses
+     position:sticky inside its own column, so it travels with the reader and
+     stops where the column stops — at the footer. It was previously fixed,
+     which made it flicker at the bottom: hiding it removed the reserved
+     gutter, the reflow moved the footer, and it re-showed in a loop. -->
+<div class="wl-layout">
+  <div class="wl-main">
 
-      <div class="spec-strip">
-        <div class="spec-strip-card">
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg>
-          <div class="ss-label">Purpose-Built</div>
-          <div class="ss-title">Designed For Clinical Use</div>
-          <div class="ss-desc">Layouts, power provisioning and access designed with clinics and diagnostics in mind</div>
+  <section class="panel" id="sec-overview" style="background:var(--surface2)">
+    <div class="ov-grid">
+      <div>
+        <div class="sec-tag">About The Project</div>
+        <h2 class="sec-h">Purpose-Built<br>For <em>Practitioners</em></h2>
+        <div class="highlight-box"><p>"Healthcare businesses don't need a generic commercial shell — they need power backup that never fails, waiting areas that reassure patients, and neighbours in the same field."</p></div>
+        <p class="body-text">Salubrity was conceived specifically around the needs of clinicians, diagnostic operators and wellness practitioners — a building where a dermatology clinic, a physiotherapy centre and a diagnostic lab can each operate professionally, supported by infrastructure built for exactly that use.</p>
+        <p class="body-text">Falnir sits within Mangalore's established medical corridor, close to major hospitals — meaning referral networks, patient familiarity with the area, and a built-in professional ecosystem from day one.</p>
+
+        <div class="spec-strip">
+          <div class="spec-strip-card">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg>
+            <div class="ss-label">Purpose-Built</div>
+            <div class="ss-title">Designed For Clinical Use</div>
+            <div class="ss-desc">Layouts, power provisioning and access designed with clinics and diagnostics in mind</div>
+          </div>
+          <div class="spec-strip-card">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+            <div class="ss-label">Reliability</div>
+            <div class="ss-title">Power Backup Provisioning</div>
+            <div class="ss-desc">Uninterrupted operation for equipment-dependent practices</div>
+          </div>
+          <div class="spec-strip-card">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 8l-2 4 2 4M19 8l2 4-2 4"/></svg>
+            <div class="ss-label">Position</div>
+            <div class="ss-title">Corner Frontage, Falnir</div>
+            <div class="ss-desc">Sturrock &amp; SL Mathias Road corner — within the established medical corridor</div>
+          </div>
         </div>
-        <div class="spec-strip-card">
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-          <div class="ss-label">Reliability</div>
-          <div class="ss-title">Power Backup Provisioning</div>
-          <div class="ss-desc">Uninterrupted operation for equipment-dependent practices</div>
+      </div>
+      <div>
+        <div class="specs-card">
+          <div class="specs-head">Project Specifications</div>
+          <div class="spec-row"><span class="spec-k">Type</span><span class="spec-v">Commercial &amp; Polyclinics</span></div>
+          <div class="spec-row"><span class="spec-k">Configuration</span><span class="spec-v">7 Floors (2B+G+4)</span></div>
+          <div class="spec-row"><span class="spec-k">Location</span><span class="spec-v">Corner Sturrock &amp; SL Mathias Road, Falnir, Mangalore</span></div>
+          <div class="spec-row"><span class="spec-k">Unit Types</span><span class="spec-v">Polyclinic Spaces</span></div>
+          <div class="spec-row"><span class="spec-k">Parking</span><span class="spec-v">2 Basement Levels</span></div>
+          <div class="spec-row"><span class="spec-k">Status</span><span class="spec-v">Ongoing</span></div>
+          <div class="spec-row"><span class="spec-k">RERA</span><span class="spec-v">Registration in progress</span></div>
         </div>
-        <div class="spec-strip-card">
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 8l-2 4 2 4M19 8l2 4-2 4"/></svg>
-          <div class="ss-label">Position</div>
-          <div class="ss-title">Corner Frontage, Falnir</div>
-          <div class="ss-desc">Sturrock &amp; SL Mathias Road corner — within the established medical corridor</div>
+        <div class="price-card">
+          <div class="price-label">Pricing</div>
+          <div class="price-val">From ₹39 Lakh*</div>
+          <p class="price-note">*Indicative starting price. Final pricing depends on floor, unit size and configuration — confirm with our sales team.</p>
+          <button class="btn-gold-full" onclick="document.getElementById('sec-enquiry').scrollIntoView({behavior:'smooth'})">Get Pricing Details →</button>
         </div>
       </div>
     </div>
-    <div>
-      <div class="specs-card">
-        <div class="specs-head">Project Specifications</div>
-        <div class="spec-row"><span class="spec-k">Type</span><span class="spec-v">Commercial &amp; Polyclinics</span></div>
-        <div class="spec-row"><span class="spec-k">Configuration</span><span class="spec-v">7 Floors (2B+G+4)</span></div>
-        <div class="spec-row"><span class="spec-k">Location</span><span class="spec-v">Corner Sturrock &amp; SL Mathias Road, Falnir, Mangalore</span></div>
-        <div class="spec-row"><span class="spec-k">Unit Types</span><span class="spec-v">Polyclinic Spaces</span></div>
-        <div class="spec-row"><span class="spec-k">Parking</span><span class="spec-v">2 Basement Levels</span></div>
-        <div class="spec-row"><span class="spec-k">Status</span><span class="spec-v">Ongoing</span></div>
-        <div class="spec-row"><span class="spec-k">RERA</span><span class="spec-v">Registration in progress</span></div>
-      </div>
-      <div class="price-card">
-        <div class="price-label">Pricing</div>
-        <div class="price-val">From ₹39 Lakh*</div>
-        <p class="price-note">*Indicative starting price. Final pricing depends on floor, unit size and configuration — confirm with our sales team.</p>
-        <button class="btn-gold-full" onclick="document.getElementById('sec-enquiry').scrollIntoView({behavior:'smooth'})">Get Pricing Details →</button>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="panel why-sec">
-  <div class="sec-tag">Why Salubrity</div>
-  <h2 class="sec-h">Built Around The<br>Way You <em>Practise</em></h2>
-  <div class="why-grid">
-    <div class="why-card">
-      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg>
-      <div class="why-t">A Ready-Made Ecosystem</div>
-      <div class="why-d">Sharing a building with other clinical practices means cross-referrals, shared patient trust, and a location patients already associate with healthcare.</div>
-    </div>
-    <div class="why-card">
-      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-7 9 7v11"/><path d="M9 21v-7h6v7"/></svg>
-      <div class="why-t">Established Medical Corridor</div>
-      <div class="why-d">Falnir sits close to Mangalore's major hospitals — an address patients already trust for healthcare needs.</div>
-    </div>
-    <div class="why-card">
-      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="1"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg>
-      <div class="why-t">Patient-Friendly Parking</div>
-      <div class="why-d">Dedicated basement parking removes one of the biggest friction points for patients visiting a clinic in a busy commercial pocket.</div>
-    </div>
-  </div>
-</section>
-
-<section class="panel roi-sec" id="sec-roi">
-  <div class="sec-tag">The Investment Case</div>
-  <h2 class="sec-h">Healthcare Real Estate<br>Holds Its <em>Value</em></h2>
-  <p class="sec-lede">Clinical tenants tend to sign longer leases and invest heavily in fit-out — both of which favour landlord stability. Use the estimate below as a starting point.</p>
-  <div class="roi-wrap">
-    <div class="roi-calc">
-      <div class="roi-row"><label>Unit Price (₹)</label><input type="text" id="roi-price" value="4500000" oninput="calcROI()"></div>
-      <div class="roi-row"><label>Expected Monthly Rent (₹)</label><input type="text" id="roi-rent" value="28000" oninput="calcROI()"></div>
-      <div class="roi-result">
-        <span class="roi-result-l">Estimated Annual Yield</span>
-        <span class="roi-result-v" id="roi-output">7.5%</span>
+  <section class="panel why-sec">
+    <div class="sec-tag">Why Salubrity</div>
+    <h2 class="sec-h">Built Around The<br>Way You <em>Practise</em></h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg>
+        <div class="why-t">A Ready-Made Ecosystem</div>
+        <div class="why-d">Sharing a building with other clinical practices means cross-referrals, shared patient trust, and a location patients already associate with healthcare.</div>
       </div>
-      <p style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:16px;line-height:1.7">Indicative only. Excludes maintenance, taxes, vacancy periods and financing costs.</p>
-    </div>
-    <div>
-      <div class="sec-tag" style="color:var(--gold-dim)">Ideal Tenant Profile</div>
-      <div class="roi-tenants">
-        <div class="roi-tenant"><svg class="roi-tenant-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg><div><div class="roi-tenant-t">Diagnostic Labs</div><div class="roi-tenant-d">Pathology and imaging centres seeking a recognisable medical-corridor address.</div></div></div>
-        <div class="roi-tenant"><svg class="roi-tenant-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg><div><div class="roi-tenant-t">Dental &amp; Specialist Clinics</div><div class="roi-tenant-d">Single-practitioner and small group clinics benefiting from shared building footfall.</div></div></div>
-        <div class="roi-tenant"><svg class="roi-tenant-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M5 22l3-9 4 3 4-3 3 9"/></svg><div><div class="roi-tenant-t">Physiotherapy &amp; Wellness</div><div class="roi-tenant-d">Rehabilitation and wellness practices needing dedicated floor space and patient parking.</div></div></div>
-        <div class="roi-tenant"><svg class="roi-tenant-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><div><div class="roi-tenant-t">Pharmacies</div><div class="roi-tenant-d">Ground-floor retail pharmacy serving the building's clinical tenants and passing footfall.</div></div></div>
+      <div class="why-card">
+        <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-7 9 7v11"/><path d="M9 21v-7h6v7"/></svg>
+        <div class="why-t">Established Medical Corridor</div>
+        <div class="why-d">Falnir sits close to Mangalore's major hospitals — an address patients already trust for healthcare needs.</div>
+      </div>
+      <div class="why-card">
+        <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="1"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg>
+        <div class="why-t">Patient-Friendly Parking</div>
+        <div class="why-d">Dedicated basement parking removes one of the biggest friction points for patients visiting a clinic in a busy commercial pocket.</div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="panel" id="sec-amenities" style="background:var(--surface)">
-  <div class="sec-tag">Amenities &amp; Facilities</div>
-  <h2 class="sec-h">Infrastructure For<br><em>Clinical Practice</em></h2>
-  <div class="amen-tabs-bar">
-    <button class="amen-tab active" onclick="switchAmenTab(0,this)">Building</button>
-    <button class="amen-tab" onclick="switchAmenTab(1,this)">Infrastructure</button>
-  </div>
-  <div class="amen-panel active" data-panel="0">
-    <div class="amen-list">
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg><span>Full Glass Façade</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 6h4M10 18h4"/></svg><span>Passenger Lift</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M9 11V7a3 3 0 016 0v4"/></svg><span>24×7 Security</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l8-5 8 5v13"/><path d="M4 12h16"/></svg><span>Shared Waiting Lounge</span></div>
-    </div>
-  </div>
-  <div class="amen-panel" data-panel="1">
-    <div class="amen-list">
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg><span>Power Backup Provisioning</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="1"/><path d="M9 7h6M9 11h6"/></svg><span>Centralised AC Provisioning</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="1"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><span>2 Basement Parking Levels</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 4-5 6.5-5 10a5 5 0 0010 0c0-3.5-2-6-5-10z"/></svg><span>Dedicated Water Supply Line</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="panel" id="sec-gallery" style="background:var(--surface2)">
-  <div class="sec-tag">Visual Gallery</div>
-  <h2 class="sec-h">See <em>Salubrity</em></h2>
-  <p class="sec-lede">Renders and site images. Filenames: salubrity-gallery-1.jpg through salubrity-gallery-8.jpg</p>
-  <div class="gal-grid">
-    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Corner<br>Exterior</div></div></div>
-    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Clinic<br>Interior</div></div></div>
-    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Lobby &amp;<br>Waiting Area</div></div></div>
-    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Site<br>Progress</div></div></div>
-  </div>
-</section>
-
-<section class="panel" id="sec-location" style="background:var(--surface)">
-  <div class="sec-tag">Location</div>
-  <h2 class="sec-h">Falnir's <em>Medical Corridor</em></h2>
-  <p class="sec-lede" style="margin-bottom:40px">Corner of Sturrock and SL Mathias Road — within Mangalore's established healthcare district.</p>
-  <div class="map-grid">
-    <div>
-      <div class="map-frame">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0!2d74.8420!3d12.8695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35a1234567891%3A0xabc124!2sFalnir%2C%20Mangaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000001" allowfullscreen loading="lazy"></iframe>
+  <section class="panel roi-sec" id="sec-roi">
+    <div class="sec-tag">The Investment Case</div>
+    <h2 class="sec-h">Healthcare Real Estate<br>Holds Its <em>Value</em></h2>
+    <p class="sec-lede">Clinical tenants tend to sign longer leases and invest heavily in fit-out — both of which favour landlord stability. Use the estimate below as a starting point.</p>
+    <div class="roi-wrap">
+      <div class="roi-calc">
+        <div class="roi-row"><label>Unit Price (₹)</label><input type="text" id="roi-price" value="4500000" oninput="calcROI()"></div>
+        <div class="roi-row"><label>Expected Monthly Rent (₹)</label><input type="text" id="roi-rent" value="28000" oninput="calcROI()"></div>
+        <div class="roi-result">
+          <span class="roi-result-l">Estimated Annual Yield</span>
+          <span class="roi-result-v" id="roi-output">7.5%</span>
+        </div>
+        <p style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:16px;line-height:1.7">Indicative only. Excludes maintenance, taxes, vacancy periods and financing costs.</p>
       </div>
-      <a class="map-cta" href="https://www.google.com/maps/search/Falnir+Mangalore" target="_blank">Open in Google Maps →</a>
-    </div>
-    <div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:300;margin-bottom:6px">Sturrock &amp; SL Mathias Road</div>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:24px;letter-spacing:0.08em">Falnir, Mangalore, Karnataka</div>
-      <div class="loc-cards">
-        <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg><span class="loc-name">KMC Hospital, Attavar</span></div></div>
-        <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg><span class="loc-name">A J Hospital &amp; Research Centre</span></div></div>
-        <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 8l-2 4 2 4M19 8l2 4-2 4"/></svg><span class="loc-name">Mangalore Central Railway</span></div></div>
-        <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 9h18M3 15h18"/></svg><span class="loc-name">Hampankatta / City Centre</span></div></div>
+      <div>
+        <div class="sec-tag" style="color:var(--gold-dim)">Ideal Tenant Profile</div>
+        <div class="roi-tenants">
+          <div class="roi-tenant"><svg class="roi-tenant-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg><div><div class="roi-tenant-t">Diagnostic Labs</div><div class="roi-tenant-d">Pathology and imaging centres seeking a recognisable medical-corridor address.</div></div></div>
+          <div class="roi-tenant"><svg class="roi-tenant-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg><div><div class="roi-tenant-t">Dental &amp; Specialist Clinics</div><div class="roi-tenant-d">Single-practitioner and small group clinics benefiting from shared building footfall.</div></div></div>
+          <div class="roi-tenant"><svg class="roi-tenant-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M5 22l3-9 4 3 4-3 3 9"/></svg><div><div class="roi-tenant-t">Physiotherapy &amp; Wellness</div><div class="roi-tenant-d">Rehabilitation and wellness practices needing dedicated floor space and patient parking.</div></div></div>
+          <div class="roi-tenant"><svg class="roi-tenant-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><div><div class="roi-tenant-t">Pharmacies</div><div class="roi-tenant-d">Ground-floor retail pharmacy serving the building's clinical tenants and passing footfall.</div></div></div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="panel" id="sec-faq" style="background:var(--surface2)">
-  <div class="sec-tag">Questions</div>
-  <h2 class="sec-h">Before You <em>Enquire</em></h2>
-  <div class="faq-list">
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I use my unit for a purpose other than a clinic?</button><div class="faq-a"><p>Yes — while the building is designed with clinical use in mind, units can be used for general commercial and professional office purposes as well, subject to standard zoning compliance.</p></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is the ₹39 Lakh starting price for all units?</button><div class="faq-a"><p>That is the indicative starting price for the smallest available unit. Larger units and higher floors are priced accordingly — our sales team will share the full price list on enquiry.</p></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is bank financing available?</button><div class="faq-a"><p>Yes, commercial property loans are available through our banking partners for eligible buyers.</p></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">When is possession?</button><div class="faq-a"><p>Salubrity is an ongoing project. Our sales team will confirm the current construction stage and expected possession timeline at enquiry.</p></div></div>
-  </div>
-</section>
+  <section class="panel" id="sec-amenities" style="background:var(--surface)">
+    <div class="sec-tag">Amenities &amp; Facilities</div>
+    <h2 class="sec-h">Infrastructure For<br><em>Clinical Practice</em></h2>
+    <div class="amen-tabs-bar">
+      <button class="amen-tab active" onclick="switchAmenTab(0,this)">Building</button>
+      <button class="amen-tab" onclick="switchAmenTab(1,this)">Infrastructure</button>
+    </div>
+    <div class="amen-panel active" data-panel="0">
+      <div class="amen-list">
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg><span>Full Glass Façade</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 6h4M10 18h4"/></svg><span>Passenger Lift</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M9 11V7a3 3 0 016 0v4"/></svg><span>24×7 Security</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l8-5 8 5v13"/><path d="M4 12h16"/></svg><span>Shared Waiting Lounge</span></div>
+      </div>
+    </div>
+    <div class="amen-panel" data-panel="1">
+      <div class="amen-list">
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg><span>Power Backup Provisioning</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="1"/><path d="M9 7h6M9 11h6"/></svg><span>Centralised AC Provisioning</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="1"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><span>2 Basement Parking Levels</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 4-5 6.5-5 10a5 5 0 0010 0c0-3.5-2-6-5-10z"/></svg><span>Dedicated Water Supply Line</span></div>
+      </div>
+    </div>
+  </section>
 
-<section class="panel enq-sec" id="sec-enquiry">
-  <div class="enq-wrap">
-    <div>
-      <div class="sec-tag">Get In Touch</div>
-      <h2 class="sec-h">Enquire About<br><em>Salubrity</em></h2>
-      <p class="enq-intro">Our sales team will share pricing, floor plans and availability within 24 hours.</p>
-      <div class="fc-item"><svg viewBox="0 0 24 24" class="fc-ico" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 010 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg><div><div class="fc-l">Sales Hotline</div><div class="fc-v"><a href="tel:+919900033888">+91 99000 33888</a></div></div></div>
-      <div class="fc-item"><svg viewBox="0 0 24 24" class="fc-ico"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><div><div class="fc-l">WhatsApp</div><div class="fc-v"><a href="https://wa.me/919900033888" target="_blank">Chat With Us</a></div></div></div>
+  <section class="panel" id="sec-gallery" style="background:var(--surface2)">
+    <div class="sec-tag">Visual Gallery</div>
+    <h2 class="sec-h">See <em>Salubrity</em></h2>
+    <p class="sec-lede">Renders and site images. Filenames: salubrity-gallery-1.jpg through salubrity-gallery-8.jpg</p>
+    <div class="gal-grid">
+      <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Corner<br>Exterior</div></div></div>
+      <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Clinic<br>Interior</div></div></div>
+      <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Lobby &amp;<br>Waiting Area</div></div></div>
+      <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Site<br>Progress</div></div></div>
     </div>
-    <div class="enq-form">
-      <div class="form-title">Request Details</div>
-      <div class="form-note">Response within 24 hours.</div>
-      <div class="form-row">
-        <div class="fg"><label class="fl">Full Name *</label><input class="fi" type="text" placeholder="Your name"></div>
-        <div class="fg"><label class="fl">Mobile Number *</label><input class="fi" type="tel" placeholder="+91 XXXXX XXXXX"></div>
+  </section>
+
+  <section class="panel" id="sec-location" style="background:var(--surface)">
+    <div class="sec-tag">Location</div>
+    <h2 class="sec-h">Falnir's <em>Medical Corridor</em></h2>
+    <p class="sec-lede" style="margin-bottom:40px">Corner of Sturrock and SL Mathias Road — within Mangalore's established healthcare district.</p>
+    <div class="map-grid">
+      <div>
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0!2d74.8420!3d12.8695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35a1234567891%3A0xabc124!2sFalnir%2C%20Mangaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000001" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <a class="map-cta" href="https://www.google.com/maps/search/Falnir+Mangalore" target="_blank">Open in Google Maps →</a>
       </div>
-      <div class="fg"><label class="fl">Email Address</label><input class="fi" type="email" placeholder="your@email.com"></div>
-      <div class="fg"><label class="fl">Practice / Business Type</label>
-        <select class="fsel">
-          <option value="">Select</option>
-          <option>Clinic / Practitioner</option>
-          <option>Diagnostic Lab</option>
-          <option>Pharmacy / Retail</option>
-          <option>General Office Use</option>
-          <option>Investment Enquiry</option>
-        </select>
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:300;margin-bottom:6px">Sturrock &amp; SL Mathias Road</div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:24px;letter-spacing:0.08em">Falnir, Mangalore, Karnataka</div>
+        <div class="loc-cards">
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg><span class="loc-name">KMC Hospital, Attavar</span></div></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg><span class="loc-name">A J Hospital &amp; Research Centre</span></div></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 8l-2 4 2 4M19 8l2 4-2 4"/></svg><span class="loc-name">Mangalore Central Railway</span></div></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 9h18M3 15h18"/></svg><span class="loc-name">Hampankatta / City Centre</span></div></div>
+        </div>
       </div>
-      <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="Your requirement, budget, or questions..."></textarea></div>
-      <button class="fsub" data-orig="Submit Enquiry" onclick="submitForm(event)">Submit Enquiry</button>
     </div>
+  </section>
+
+  <section class="panel" id="sec-faq" style="background:var(--surface2)">
+    <div class="sec-tag">Questions</div>
+    <h2 class="sec-h">Before You <em>Enquire</em></h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I use my unit for a purpose other than a clinic?</button><div class="faq-a"><p>Yes — while the building is designed with clinical use in mind, units can be used for general commercial and professional office purposes as well, subject to standard zoning compliance.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is the ₹39 Lakh starting price for all units?</button><div class="faq-a"><p>That is the indicative starting price for the smallest available unit. Larger units and higher floors are priced accordingly — our sales team will share the full price list on enquiry.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is bank financing available?</button><div class="faq-a"><p>Yes, commercial property loans are available through our banking partners for eligible buyers.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">When is possession?</button><div class="faq-a"><p>Salubrity is an ongoing project. Our sales team will confirm the current construction stage and expected possession timeline at enquiry.</p></div></div>
+    </div>
+  </section>
+
+  <section class="panel enq-sec" id="sec-enquiry">
+    <div class="enq-wrap">
+      <div>
+        <div class="sec-tag">Get In Touch</div>
+        <h2 class="sec-h">Enquire About<br><em>Salubrity</em></h2>
+        <p class="enq-intro">Our sales team will share pricing, floor plans and availability within 24 hours.</p>
+        <div class="fc-item"><svg viewBox="0 0 24 24" class="fc-ico" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 010 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg><div><div class="fc-l">Sales Hotline</div><div class="fc-v"><a href="tel:+919900033888">+91 99000 33888</a></div></div></div>
+        <div class="fc-item"><svg viewBox="0 0 24 24" class="fc-ico"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><div><div class="fc-l">WhatsApp</div><div class="fc-v"><a href="https://wa.me/919900033888" target="_blank">Chat With Us</a></div></div></div>
+      </div>
+      <div class="enq-form">
+        <div class="form-title">Request Details</div>
+        <div class="form-note">Response within 24 hours.</div>
+        <div class="form-row">
+          <div class="fg"><label class="fl">Full Name *</label><input class="fi" type="text" placeholder="Your name"></div>
+          <div class="fg"><label class="fl">Mobile Number *</label><input class="fi" type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        </div>
+        <div class="fg"><label class="fl">Email Address</label><input class="fi" type="email" placeholder="your@email.com"></div>
+        <div class="fg"><label class="fl">Practice / Business Type</label>
+          <select class="fsel">
+            <option value="">Select</option>
+            <option>Clinic / Practitioner</option>
+            <option>Diagnostic Lab</option>
+            <option>Pharmacy / Retail</option>
+            <option>General Office Use</option>
+            <option>Investment Enquiry</option>
+          </select>
+        </div>
+        <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="Your requirement, budget, or questions..."></textarea></div>
+        <button class="fsub" data-orig="Submit Enquiry" onclick="submitForm(event)">Submit Enquiry</button>
+      </div>
+    </div>
+  </section>
+
   </div>
-</section>
+  <aside class="wl-rail"><div id="callback-rail"></div></aside>
+</div>
 
 <div id="footer-placeholder"></div>
 

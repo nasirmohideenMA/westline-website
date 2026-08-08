@@ -290,11 +290,6 @@ img{max-width:100%;display:block}
   </div>
 </section>
 
-<!-- Request-a-callback rail. Markup, styles and the project/unit-type logic
-     all live in callback-rail.js so the ten project pages cannot drift apart.
-     Below 1280px this renders inline here, under the hero; above it, the card
-     fixes to the right once the hero has scrolled away. -->
-<div id="callback-rail"></div>
 
 <div class="proof-strip">
   <div class="proof-stat"><div class="proof-stat-n">6</div><div class="proof-stat-l">Floors</div></div>
@@ -315,134 +310,146 @@ img{max-width:100%;display:block}
   </div>
 </div>
 
-<section class="panel" id="sec-overview" style="background:var(--surface2)">
-  <div class="ov-grid">
-    <div>
-      <div class="sec-tag">About The Project</div>
-      <h2 class="sec-h">A Home Delivered.<br>A Family <em>Settled.</em></h2>
-      <div class="highlight-box"><p>"The truest test of a developer isn't the brochure — it's whether the families who bought years ago would buy again today."</p></div>
-      <p class="body-text">Bonita was completed and handed over to its residents, and stands today as a fully occupied residential community in NH66, Next to Transit Mall, Thokkottu, Mangalore. It represents the same construction discipline and handover standard that Westline applies across every project — proven here, not promised.</p>
-      <p class="body-text">While Bonita is sold out, we regularly hear from residents considering resale, and can put you in touch where genuine opportunities exist. If you're drawn to this locality specifically, speak to our team.</p>
-    </div>
-    <div>
-      <div class="specs-card">
-        <div class="specs-head">Project Specifications</div>
-        <div class="spec-row"><span class="spec-k">Type</span><span class="spec-v">Residential</span></div>
-        <div class="spec-row"><span class="spec-k">Configuration</span><span class="spec-v">6 Floors (B+G+4)</span></div>
-        <div class="spec-row"><span class="spec-k">Location</span><span class="spec-v">NH66, Next to Transit Mall, Thokkottu, Mangalore</span></div>
-        <div class="spec-row"><span class="spec-k">Status</span><span class="spec-v">Completed &amp; Fully Occupied</span></div>
-        <div class="spec-row"><span class="spec-k">Historical Starting Price</span><span class="spec-v">₹60 Lakh</span></div>
-        <div class="spec-row"><span class="spec-k">RERA</span><span class="spec-v">Completed project — not applicable</span></div>
+<!-- Content and the callback rail share a two-column grid. The card uses
+     position:sticky inside its own column, so it travels with the reader and
+     stops where the column stops — at the footer. It was previously fixed,
+     which made it flicker at the bottom: hiding it removed the reserved
+     gutter, the reflow moved the footer, and it re-showed in a loop. -->
+<div class="wl-layout">
+  <div class="wl-main">
+
+  <section class="panel" id="sec-overview" style="background:var(--surface2)">
+    <div class="ov-grid">
+      <div>
+        <div class="sec-tag">About The Project</div>
+        <h2 class="sec-h">A Home Delivered.<br>A Family <em>Settled.</em></h2>
+        <div class="highlight-box"><p>"The truest test of a developer isn't the brochure — it's whether the families who bought years ago would buy again today."</p></div>
+        <p class="body-text">Bonita was completed and handed over to its residents, and stands today as a fully occupied residential community in NH66, Next to Transit Mall, Thokkottu, Mangalore. It represents the same construction discipline and handover standard that Westline applies across every project — proven here, not promised.</p>
+        <p class="body-text">While Bonita is sold out, we regularly hear from residents considering resale, and can put you in touch where genuine opportunities exist. If you're drawn to this locality specifically, speak to our team.</p>
       </div>
-      <div class="price-card">
-        <div class="price-label">Availability</div>
-        <div class="price-val">Sold Out</div>
-        <p class="price-note">All units are sold and occupied. Contact us for resale referrals, or ask us about our ongoing projects in a similar category.</p>
-        <button class="btn-gold-full" onclick="document.getElementById('sec-enquiry').scrollIntoView({behavior:'smooth'})">Speak To Our Team →</button>
+      <div>
+        <div class="specs-card">
+          <div class="specs-head">Project Specifications</div>
+          <div class="spec-row"><span class="spec-k">Type</span><span class="spec-v">Residential</span></div>
+          <div class="spec-row"><span class="spec-k">Configuration</span><span class="spec-v">6 Floors (B+G+4)</span></div>
+          <div class="spec-row"><span class="spec-k">Location</span><span class="spec-v">NH66, Next to Transit Mall, Thokkottu, Mangalore</span></div>
+          <div class="spec-row"><span class="spec-k">Status</span><span class="spec-v">Completed &amp; Fully Occupied</span></div>
+          <div class="spec-row"><span class="spec-k">Historical Starting Price</span><span class="spec-v">₹60 Lakh</span></div>
+          <div class="spec-row"><span class="spec-k">RERA</span><span class="spec-v">Completed project — not applicable</span></div>
+        </div>
+        <div class="price-card">
+          <div class="price-label">Availability</div>
+          <div class="price-val">Sold Out</div>
+          <p class="price-note">All units are sold and occupied. Contact us for resale referrals, or ask us about our ongoing projects in a similar category.</p>
+          <button class="btn-gold-full" onclick="document.getElementById('sec-enquiry').scrollIntoView({behavior:'smooth'})">Speak To Our Team →</button>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="panel why-sec" id="sec-proof">
-  <div class="sec-tag">Judge Us On Record</div>
-  <h2 class="sec-h">This Is What<br>"Delivered" <em>Looks Like</em></h2>
-  <p class="sec-lede">Anyone can show a rendering of what's coming. This is proof of what already came.</p>
-  <!-- Resident testimonial removed 3 Aug 2026: the quote and the name were both still placeholders. Restore once a resident has agreed to be quoted and named. -->
-  <div class="why-grid" style="margin-top:36px">
-    <div class="why-card">
-      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-      <div class="why-t">Fully Handed Over</div>
-      <div class="why-d">Completed with occupancy certification, handed to families without the disputes that plague many residential developments.</div>
-    </div>
-    <div class="why-card">
-      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-      <div class="why-t">Standing The Test Of Time</div>
-      <div class="why-d">Years into occupation, the building continues to be a stable, well-maintained residential community.</div>
-    </div>
-    <div class="why-card">
-      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-7 9 7v11"/><path d="M9 21v-7h6v7"/></svg>
-      <div class="why-t">The Same Team Building Signature</div>
-      <div class="why-d">The construction team behind Bonita is the same team now delivering Westline Signature and our other ongoing projects.</div>
-    </div>
-  </div>
-</section>
-
-<section class="panel" id="sec-amenities" style="background:var(--surface)">
-  <div class="sec-tag">Amenities &amp; Facilities</div>
-  <h2 class="sec-h">What Residents <em>Enjoy</em></h2>
-  <div class="amen-list">
-    <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 6h4M10 18h4"/></svg><span>Passenger Lift</span></div>
-    <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M9 11V7a3 3 0 016 0v4"/></svg><span>24×7 Security</span></div>
-    <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg><span>Power Backup</span></div>
-    <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="1"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><span>Covered Parking</span></div>
-    <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-9 4 5 3-4 5 8"/><circle cx="8" cy="7" r="2"/></svg><span>Children's Play Area</span></div>
-    <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 3 6 6 6 9a6 6 0 01-12 0c0-3 2-6 6-9z"/></svg><span>Landscaped Common Areas</span></div>
-  </div>
-</section>
-
-<section class="panel" id="sec-gallery" style="background:var(--surface2)">
-  <div class="sec-tag">Visual Gallery</div>
-  <h2 class="sec-h">The Building <em>Today</em></h2>
-  <p class="sec-lede">Current photos of the completed, occupied building. Filenames: bonita-gallery-1.jpg through bonita-gallery-6.jpg</p>
-  <div class="gal-grid">
-    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Exterior<br>Today</div></div></div>
-    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Entrance</div></div></div>
-    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Common<br>Area</div></div></div>
-    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Street<br>View</div></div></div>
-  </div>
-</section>
-
-<section class="panel" id="sec-location" style="background:var(--surface)">
-  <div class="sec-tag">Location</div>
-  <h2 class="sec-h">NH66</h2>
-  <div class="map-grid">
-    <div>
-      <div class="map-frame">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0!2d74.85!3d12.88!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35a1234567895%3A0xabc128!2sMangaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000005" allowfullscreen loading="lazy"></iframe>
+  <section class="panel why-sec" id="sec-proof">
+    <div class="sec-tag">Judge Us On Record</div>
+    <h2 class="sec-h">This Is What<br>"Delivered" <em>Looks Like</em></h2>
+    <p class="sec-lede">Anyone can show a rendering of what's coming. This is proof of what already came.</p>
+    <!-- Resident testimonial removed 3 Aug 2026: the quote and the name were both still placeholders. Restore once a resident has agreed to be quoted and named. -->
+    <div class="why-grid" style="margin-top:36px">
+      <div class="why-card">
+        <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        <div class="why-t">Fully Handed Over</div>
+        <div class="why-d">Completed with occupancy certification, handed to families without the disputes that plague many residential developments.</div>
       </div>
-      <a class="map-cta" href="https://www.google.com/maps/search/NH66+Next+to+Transit+Mall+Thokkottu+Mangalore" target="_blank">Open in Google Maps →</a>
-    </div>
-    <div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:300;margin-bottom:6px">NH66</div>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:24px;letter-spacing:0.08em">NH66, Next to Transit Mall, Thokkottu, Mangalore</div>
-      <!-- Nearby-landmark cards removed 3 Aug 2026: name and distance were both placeholders. The map and address above still carry the location. -->
-    </div>
-  </div>
-</section>
-
-<section class="panel" id="sec-faq" style="background:var(--surface2)">
-  <div class="sec-tag">Questions</div>
-  <h2 class="sec-h">About <em>Bonita</em></h2>
-  <div class="faq-list">
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Are any units still available?</button><div class="faq-a"><p>Bonita is sold out and fully occupied. We occasionally hear of resale opportunities through existing residents — contact us and we'll let you know if anything comes up.</p></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Why show a sold-out project on your website?</button><div class="faq-a"><p>Because it's proof, not marketing. Anyone evaluating us for a new purchase deserves to see what we've already delivered — not just what we're promising next.</p></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do you have anything similar currently available?</button><div class="faq-a"><p>Yes — speak to our sales team about our ongoing residential projects, and we'll point you to the one that best matches what you liked about Bonita.</p></div></div>
-  </div>
-</section>
-
-<section class="panel enq-sec" id="sec-enquiry">
-  <div class="enq-wrap">
-    <div>
-      <div class="sec-tag">Get In Touch</div>
-      <h2 class="sec-h">Ask About<br><em>Bonita</em></h2>
-      <p class="enq-intro">Whether you're researching our track record or looking for a resale opportunity, our team is happy to talk.</p>
-      <div class="fc-item"><svg viewBox="0 0 24 24" class="fc-ico" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 010 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg><div><div class="fc-l">Sales Hotline</div><div class="fc-v"><a href="tel:+919900033888">+91 99000 33888</a></div></div></div>
-      <div class="fc-item"><svg viewBox="0 0 24 24" class="fc-ico"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><div><div class="fc-l">WhatsApp</div><div class="fc-v"><a href="https://wa.me/919900033888" target="_blank">Chat With Us</a></div></div></div>
-    </div>
-    <div class="enq-form">
-      <div class="form-title">Send an Enquiry</div>
-      <div class="form-note">Response within 24 hours.</div>
-      <div class="form-row">
-        <div class="fg"><label class="fl">Full Name *</label><input class="fi" type="text" placeholder="Your name"></div>
-        <div class="fg"><label class="fl">Mobile Number *</label><input class="fi" type="tel" placeholder="+91 XXXXX XXXXX"></div>
+      <div class="why-card">
+        <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <div class="why-t">Standing The Test Of Time</div>
+        <div class="why-d">Years into occupation, the building continues to be a stable, well-maintained residential community.</div>
       </div>
-      <div class="fg"><label class="fl">Email Address</label><input class="fi" type="email" placeholder="your@email.com"></div>
-      <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="Ask about resale availability, or tell us what you're looking for..."></textarea></div>
-      <button class="fsub" data-orig="Submit Enquiry" onclick="submitForm(event)">Submit Enquiry</button>
+      <div class="why-card">
+        <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-7 9 7v11"/><path d="M9 21v-7h6v7"/></svg>
+        <div class="why-t">The Same Team Building Signature</div>
+        <div class="why-d">The construction team behind Bonita is the same team now delivering Westline Signature and our other ongoing projects.</div>
+      </div>
     </div>
+  </section>
+
+  <section class="panel" id="sec-amenities" style="background:var(--surface)">
+    <div class="sec-tag">Amenities &amp; Facilities</div>
+    <h2 class="sec-h">What Residents <em>Enjoy</em></h2>
+    <div class="amen-list">
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 6h4M10 18h4"/></svg><span>Passenger Lift</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M9 11V7a3 3 0 016 0v4"/></svg><span>24×7 Security</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg><span>Power Backup</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="1"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><span>Covered Parking</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-9 4 5 3-4 5 8"/><circle cx="8" cy="7" r="2"/></svg><span>Children's Play Area</span></div>
+      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 3 6 6 6 9a6 6 0 01-12 0c0-3 2-6 6-9z"/></svg><span>Landscaped Common Areas</span></div>
+    </div>
+  </section>
+
+  <section class="panel" id="sec-gallery" style="background:var(--surface2)">
+    <div class="sec-tag">Visual Gallery</div>
+    <h2 class="sec-h">The Building <em>Today</em></h2>
+    <p class="sec-lede">Current photos of the completed, occupied building. Filenames: bonita-gallery-1.jpg through bonita-gallery-6.jpg</p>
+    <div class="gal-grid">
+      <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Exterior<br>Today</div></div></div>
+      <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Entrance</div></div></div>
+      <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Common<br>Area</div></div></div>
+      <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Street<br>View</div></div></div>
+    </div>
+  </section>
+
+  <section class="panel" id="sec-location" style="background:var(--surface)">
+    <div class="sec-tag">Location</div>
+    <h2 class="sec-h">NH66</h2>
+    <div class="map-grid">
+      <div>
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0!2d74.85!3d12.88!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35a1234567895%3A0xabc128!2sMangaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000005" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <a class="map-cta" href="https://www.google.com/maps/search/NH66+Next+to+Transit+Mall+Thokkottu+Mangalore" target="_blank">Open in Google Maps →</a>
+      </div>
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:300;margin-bottom:6px">NH66</div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:24px;letter-spacing:0.08em">NH66, Next to Transit Mall, Thokkottu, Mangalore</div>
+        <!-- Nearby-landmark cards removed 3 Aug 2026: name and distance were both placeholders. The map and address above still carry the location. -->
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="sec-faq" style="background:var(--surface2)">
+    <div class="sec-tag">Questions</div>
+    <h2 class="sec-h">About <em>Bonita</em></h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Are any units still available?</button><div class="faq-a"><p>Bonita is sold out and fully occupied. We occasionally hear of resale opportunities through existing residents — contact us and we'll let you know if anything comes up.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Why show a sold-out project on your website?</button><div class="faq-a"><p>Because it's proof, not marketing. Anyone evaluating us for a new purchase deserves to see what we've already delivered — not just what we're promising next.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do you have anything similar currently available?</button><div class="faq-a"><p>Yes — speak to our sales team about our ongoing residential projects, and we'll point you to the one that best matches what you liked about Bonita.</p></div></div>
+    </div>
+  </section>
+
+  <section class="panel enq-sec" id="sec-enquiry">
+    <div class="enq-wrap">
+      <div>
+        <div class="sec-tag">Get In Touch</div>
+        <h2 class="sec-h">Ask About<br><em>Bonita</em></h2>
+        <p class="enq-intro">Whether you're researching our track record or looking for a resale opportunity, our team is happy to talk.</p>
+        <div class="fc-item"><svg viewBox="0 0 24 24" class="fc-ico" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 010 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg><div><div class="fc-l">Sales Hotline</div><div class="fc-v"><a href="tel:+919900033888">+91 99000 33888</a></div></div></div>
+        <div class="fc-item"><svg viewBox="0 0 24 24" class="fc-ico"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><div><div class="fc-l">WhatsApp</div><div class="fc-v"><a href="https://wa.me/919900033888" target="_blank">Chat With Us</a></div></div></div>
+      </div>
+      <div class="enq-form">
+        <div class="form-title">Send an Enquiry</div>
+        <div class="form-note">Response within 24 hours.</div>
+        <div class="form-row">
+          <div class="fg"><label class="fl">Full Name *</label><input class="fi" type="text" placeholder="Your name"></div>
+          <div class="fg"><label class="fl">Mobile Number *</label><input class="fi" type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        </div>
+        <div class="fg"><label class="fl">Email Address</label><input class="fi" type="email" placeholder="your@email.com"></div>
+        <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="Ask about resale availability, or tell us what you're looking for..."></textarea></div>
+        <button class="fsub" data-orig="Submit Enquiry" onclick="submitForm(event)">Submit Enquiry</button>
+      </div>
+    </div>
+  </section>
+
   </div>
-</section>
+  <aside class="wl-rail"><div id="callback-rail"></div></aside>
+</div>
 
 <div id="footer-placeholder"></div>
 

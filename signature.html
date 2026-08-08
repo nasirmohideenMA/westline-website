@@ -349,11 +349,6 @@ html{scroll-behavior:smooth;overflow-x:hidden}body{background:var(--surface2);co
   </div>
 </section>
 
-<!-- Request-a-callback rail. Markup, styles and the project/unit-type logic
-     all live in callback-rail.js so the ten project pages cannot drift apart.
-     Below 1280px this renders inline here, under the hero; above it, the card
-     fixes to the right once the hero has scrolled away. -->
-<div id="callback-rail"></div>
 
 <!-- SECTION NAV -->
 <div class="tabs-bar">
@@ -368,634 +363,646 @@ html{scroll-behavior:smooth;overflow-x:hidden}body{background:var(--surface2);co
   </div>
 </div>
 
-<!-- OVERVIEW -->
-<section class="tab-panel" id="sec-overview" style="background:var(--surface2)">
-  <div class="overview-grid">
-    <div>
-      <div class="sec-tag">About the Project</div>
-      <h2 class="sec-h">Westline <em>Signature</em></h2>
-      <div class="highlight-box"><p>"Karnataka's tallest residential tower — where every sunrise is a panorama and every sunset a spectacle."</p></div>
-      <p class="body-text">Westline Signature stands as Karnataka's tallest residential tower — a 3 Basement + Ground + 51 floor monument to modern luxury on NH66, Nanthoor Hilltop, Mangalore, overlooking the Arabian Sea.</p>
-      <p class="body-text">With the first full glass façade residential project in South India, featuring Schuco German windows with Low-E double-glazed units (SHGC 0.335, U-value 1.521), Signature redefines what premium living means in coastal Karnataka. Every apartment is a vantage point — panoramic sea views, verdant Western Ghats, and the glittering city below.</p>
-      <p class="body-text">The project spans 36+ world-class amenities across dedicated floors — from an infinity pool and rooftop clubhouse to a business centre, home theatre, and sky lounge. This is not just a home. It is a legacy.</p>
-      <div class="sec-tag" style="margin-top:48px">Amenities</div>
+<!-- Content and the callback rail share a two-column grid. The card uses
+     position:sticky inside its own column, so it travels with the reader and
+     stops where the column stops — at the footer. It was previously fixed,
+     which made it flicker at the bottom: hiding it removed the reserved
+     gutter, the reflow moved the footer, and it re-showed in a loop. -->
+<div class="wl-layout">
+  <div class="wl-main">
 
-      <!-- HERO SPECIFICATIONS STRIP -->
-      <div class="hero-specs-strip" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:36px">
-        <div style="background:var(--ink);border-radius:6px;padding:22px">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dim)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
-          <div style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dim);margin:14px 0 6px">Façade & Windows</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;margin-bottom:6px;line-height:1.25;font-weight:500">Double Glazed Low-E Windows</div>
-          <div style="font-size:11px;color:rgba(255,255,255,0.5);line-height:1.6">Heat-Reducing · Argon Filled · First in Mangalore</div>
-        </div>
-        <div style="background:var(--ink);border-radius:6px;padding:22px">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dim)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4v-4h4v-4h4v-4h4"/><path d="M4 20V4"/></svg>
-          <div style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dim);margin:14px 0 6px">Staircases</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;margin-bottom:6px;line-height:1.25;font-weight:500">Steel Internal Staircases</div>
-          <div style="font-size:11px;color:rgba(255,255,255,0.5);line-height:1.6">Premium wood cladding — a signature architectural detail</div>
-        </div>
-        <div style="background:var(--ink);border-radius:6px;padding:22px">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dim)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5c-.29 1.75-1.14 2.84-2.29 3.92S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></svg>
-          <div style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dim);margin:14px 0 6px">Bathroom Fittings</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;margin-bottom:6px;line-height:1.25;font-weight:500">Kohler · Grohe · Toto</div>
-          <div style="font-size:11px;color:rgba(255,255,255,0.5);line-height:1.6">World's leading sanitary brands</div>
-        </div>
-      </div>
-
-      <!-- AMENITIES TABS -->
-      <div class="amen-tabs-bar">
-        <button class="amen-tab active" onclick="switchAmenTab(0,this)">Roof-Top</button>
-        <button class="amen-tab" onclick="switchAmenTab(1,this)">Ground</button>
-        <button class="amen-tab" onclick="switchAmenTab(2,this)">Other</button>
-        <button class="amen-tab" onclick="switchAmenTab(3,this)">Green Efficiency</button>
-      </div>
-
-      <div class="amen-panel active" data-panel="0">
-        <div class="amen-list">
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M4 12v6a1 1 0 001 1h14a1 1 0 001-1v-6M8 19v2M16 19v2"/><path d="M6 12V7a2 2 0 012-2h8a2 2 0 012 2v5"/></svg><span>Roof-Top Lap Pool</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M4 12v6a1 1 0 001 1h14a1 1 0 001-1v-6"/><circle cx="12" cy="7" r="2"/></svg><span>Wade Pool for Children</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="1"/><path d="M3 10h18M9 6v12"/></svg><span>Open Pool Theatre</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 4-5 6.5-5 10a5 5 0 0010 0c0-3.5-2-6-5-10z"/></svg><span>Hot Water Jacuzzi</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M5 22l3-9 4 3 4-3 3 9M9 13l-2-4h10l-2 4"/></svg><span>Sophisticated Gymnasium</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-7 9 7v11"/><path d="M9 21v-6h6v6"/></svg><span>Large Club House</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l8-5 8 5v13"/><path d="M4 12h16M9 21v-5h6v5"/></svg><span>Party Hall</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Yoga / Meditation Room</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19v-7a8 8 0 0116 0v7"/><path d="M2 19h20M6 19v2M18 19v2"/></svg><span>Massage Room</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 4-5 6.5-5 10a5 5 0 0010 0c0-3.5-2-6-5-10z"/><path d="M12 13v8"/></svg><span>Sauna / Spa</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M3 12c2-4 6-6 9-6s7 2 9 6c-2 4-6 6-9 6s-7-2-9-6z"/></svg><span>Observatory Deck</span></div>
-        </div>
-      </div>
-
-      <div class="amen-panel" data-panel="1">
-        <div class="amen-list">
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-9 4 5 3-4 5 8"/><circle cx="8" cy="7" r="2"/></svg><span>Large Children Play Area</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 9h18M9 5v4"/></svg><span>Movie Theatre</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><circle cx="12" cy="12" r="4"/></svg><span>Indoor Games</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4v16M19 4v16M5 4h14M5 20h14M5 9h14M5 14h14"/></svg><span>Library</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="11" rx="1"/><path d="M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/></svg><span>Meeting / Board Room</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-7 9 7v11"/><path d="M9 21v-6h6v6"/></svg><span>Grand Lobby / Visitor's Lounge</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 9h8M8 15h5"/></svg><span>Basket Ball Court</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 3 6 6 6 9a6 6 0 01-12 0c0-3 2-6 6-9z"/></svg><span>Landscaped Garden</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Jogging Track</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l8-5 8 5v13"/><path d="M4 12h16M9 21v-5h6v5"/></svg><span>Amphitheatre</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 4-5 6.5-5 10a5 5 0 0010 0c0-3.5-2-6-5-10z"/></svg><span>Water Bodies</span></div>
-        </div>
-      </div>
-
-      <div class="amen-panel" data-panel="2">
-        <div class="amen-list">
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 9h8M8 15h5"/></svg><span>Badminton Court</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="12" cy="12" r="3"/></svg><span>Squash Court</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M9 11V7a3 3 0 016 0v4"/><circle cx="12" cy="15" r="1"/></svg><span>Multiple Security Kiosks</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="1"/><path d="M9 7h6M9 11h6M9 15h2"/></svg><span>Centralised AC Provisioning (VRF)</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg><span>Solar Energy</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg><span>Large Panoramic Windows</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 6h4M10 18h4"/></svg><span>High-Speed Glass Elevators</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 6h6M9 18h6"/></svg><span>Super Large Service Elevator</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg><span>Professional Building Illumination</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-7 9 7v11"/><path d="M3 21h18M9 21v-7h6v7"/></svg><span>Grand Double Height Porch</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9h16M9 4v16"/></svg><span>Built on Aluminium Form Work</span></div>
-        </div>
-      </div>
-
-      <div class="amen-panel" data-panel="3">
-        <div class="amen-list">
-          <div class="amen-sub-label">Water Efficiency</div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 4-5 6.5-5 10a5 5 0 0010 0c0-3.5-2-6-5-10z"/></svg><span>Fresh Water Conservation by Water-Efficient Plumbing Fixtures</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/></svg><span>Maximum Waste Water Treatment and Reuse</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 3 6 6 6 9a6 6 0 01-12 0c0-3 2-6 6-9z"/></svg><span>Management of Irrigation Systems</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l1 6M12 3l1 6M19 3l1 6"/><path d="M4 9h18l-2 4H6l-2-4z"/><path d="M8 13v6M16 13v6"/></svg><span>Rainwater Harvesting</span></div>
-          <div class="amen-sub-label" style="margin-top:18px">Energy Efficiency</div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg><span>On-site Renewable Energy</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg><span>Energy-Efficient Fixtures</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 4-5 6.5-5 10a5 5 0 0010 0c0-3.5-2-6-5-10z"/><path d="M12 13v8"/></svg><span>Proposed Centralised Hot Water System</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg><span>Solar Garden and Roof Top Lights</span></div>
-          <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 18h6M10 21h4"/></svg><span>LED Common Area Lighting</span></div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="specs-card">
-        <div class="specs-head">Project Specifications</div>
-        <div class="spec-row"><span class="spec-k">Type</span><span class="spec-v">Luxury Residential</span></div>
-        <div class="spec-row"><span class="spec-k">Configuration</span><span class="spec-v">3B + G + 51 Floors</span></div>
-        <div class="spec-row"><span class="spec-k">Location</span><span class="spec-v">NH66, Nanthoor Hilltop, Near Nanthoor Circle, Mangalore 575005</span></div>
-        <div class="spec-row"><span class="spec-k">Units</span><span class="spec-v">2, 3 & 4 BHK Apartments</span></div>
-        <div class="spec-row"><span class="spec-k">Façade</span><span class="spec-v">Full Glass — Double Glazed Low-E</span></div>
-        <div class="spec-row"><span class="spec-k">Windows</span><span class="spec-v">Heat-Reducing Low-E DGU, Argon Filled · First in Mangalore</span></div>
-        <div class="spec-row"><span class="spec-k">Flooring</span><span class="spec-v">Extra-Large Premium Vitrified Tiles</span></div>
-        <div class="spec-row"><span class="spec-k">Common Areas & Staircase</span><span class="spec-v">Granite</span></div>
-        <div class="spec-row"><span class="spec-k">Master Bedroom</span><span class="spec-v">Wooden Finished Tiles</span></div>
-        <div class="spec-row"><span class="spec-k">Paint</span><span class="spec-v">Berger Premium</span></div>
-        <div class="spec-row"><span class="spec-k">Amenities</span><span class="spec-v">36+ World-Class</span></div>
-        <div class="spec-row"><span class="spec-k">Lifts</span><span class="spec-v">Custom-Made High-Speed Glass Passenger Lifts by Mitsubishi</span></div>
-        <div class="spec-row"><span class="spec-k">Status</span><span class="spec-v">Ongoing — RERA Completion September 2027</span></div>
-        <div class="spec-row"><span class="spec-k">RERA</span><span class="spec-v">PRM/KA/RERA/1257/334/PR/171021/000845</span></div>
-      </div>
-      <div class="price-card">
-        <div class="price-label">Pricing</div>
-        <div class="price-val">Price on Request</div>
-        <div class="price-note">Contact sales for current pricing & availability</div>
-        <button class="btn-gold-full" onclick="document.getElementById('sec-enquiry').scrollIntoView({behavior:'smooth'})">Get Price Details →</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONSTRUCTION STATUS -->
-<section class="tab-panel" id="sec-construction-status" style="background:var(--surface)">
-  <div class="sec-tag">Where Things Stand</div>
-  <h2 class="sec-h">Construction Status,<br><em>Told Straight</em></h2>
-  <p style="color:var(--text2);font-size:15px;line-height:1.9;max-width:680px;margin-bottom:36px">Westline Signature is Karnataka's tallest residential tower, and a project of this scale carries genuine construction complexity. We would rather tell you exactly where things stand than let a rendering speak for us.</p>
-
-  <div style="background:var(--ink);padding:36px 40px;margin-bottom:40px;border-left:3px solid var(--gold-dim)">
-    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;margin-bottom:24px">
+  <!-- OVERVIEW -->
+  <section class="tab-panel" id="sec-overview" style="background:var(--surface2)">
+    <div class="overview-grid">
       <div>
-        <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px">RERA Completion Date</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:#fff;font-weight:300">September 2027</div>
+        <div class="sec-tag">About the Project</div>
+        <h2 class="sec-h">Westline <em>Signature</em></h2>
+        <div class="highlight-box"><p>"Karnataka's tallest residential tower — where every sunrise is a panorama and every sunset a spectacle."</p></div>
+        <p class="body-text">Westline Signature stands as Karnataka's tallest residential tower — a 3 Basement + Ground + 51 floor monument to modern luxury on NH66, Nanthoor Hilltop, Mangalore, overlooking the Arabian Sea.</p>
+        <p class="body-text">With the first full glass façade residential project in South India, featuring Schuco German windows with Low-E double-glazed units (SHGC 0.335, U-value 1.521), Signature redefines what premium living means in coastal Karnataka. Every apartment is a vantage point — panoramic sea views, verdant Western Ghats, and the glittering city below.</p>
+        <p class="body-text">The project spans 36+ world-class amenities across dedicated floors — from an infinity pool and rooftop clubhouse to a business centre, home theatre, and sky lounge. This is not just a home. It is a legacy.</p>
+        <div class="sec-tag" style="margin-top:48px">Amenities</div>
+
+        <!-- HERO SPECIFICATIONS STRIP -->
+        <div class="hero-specs-strip" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:36px">
+          <div style="background:var(--ink);border-radius:6px;padding:22px">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dim)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+            <div style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dim);margin:14px 0 6px">Façade & Windows</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;margin-bottom:6px;line-height:1.25;font-weight:500">Double Glazed Low-E Windows</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.5);line-height:1.6">Heat-Reducing · Argon Filled · First in Mangalore</div>
+          </div>
+          <div style="background:var(--ink);border-radius:6px;padding:22px">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dim)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4v-4h4v-4h4v-4h4"/><path d="M4 20V4"/></svg>
+            <div style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dim);margin:14px 0 6px">Staircases</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;margin-bottom:6px;line-height:1.25;font-weight:500">Steel Internal Staircases</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.5);line-height:1.6">Premium wood cladding — a signature architectural detail</div>
+          </div>
+          <div style="background:var(--ink);border-radius:6px;padding:22px">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dim)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5c-.29 1.75-1.14 2.84-2.29 3.92S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></svg>
+            <div style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dim);margin:14px 0 6px">Bathroom Fittings</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;margin-bottom:6px;line-height:1.25;font-weight:500">Kohler · Grohe · Toto</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.5);line-height:1.6">World's leading sanitary brands</div>
+          </div>
+        </div>
+
+        <!-- AMENITIES TABS -->
+        <div class="amen-tabs-bar">
+          <button class="amen-tab active" onclick="switchAmenTab(0,this)">Roof-Top</button>
+          <button class="amen-tab" onclick="switchAmenTab(1,this)">Ground</button>
+          <button class="amen-tab" onclick="switchAmenTab(2,this)">Other</button>
+          <button class="amen-tab" onclick="switchAmenTab(3,this)">Green Efficiency</button>
+        </div>
+
+        <div class="amen-panel active" data-panel="0">
+          <div class="amen-list">
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M4 12v6a1 1 0 001 1h14a1 1 0 001-1v-6M8 19v2M16 19v2"/><path d="M6 12V7a2 2 0 012-2h8a2 2 0 012 2v5"/></svg><span>Roof-Top Lap Pool</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M4 12v6a1 1 0 001 1h14a1 1 0 001-1v-6"/><circle cx="12" cy="7" r="2"/></svg><span>Wade Pool for Children</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="1"/><path d="M3 10h18M9 6v12"/></svg><span>Open Pool Theatre</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 4-5 6.5-5 10a5 5 0 0010 0c0-3.5-2-6-5-10z"/></svg><span>Hot Water Jacuzzi</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M5 22l3-9 4 3 4-3 3 9M9 13l-2-4h10l-2 4"/></svg><span>Sophisticated Gymnasium</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-7 9 7v11"/><path d="M9 21v-6h6v6"/></svg><span>Large Club House</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l8-5 8 5v13"/><path d="M4 12h16M9 21v-5h6v5"/></svg><span>Party Hall</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Yoga / Meditation Room</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19v-7a8 8 0 0116 0v7"/><path d="M2 19h20M6 19v2M18 19v2"/></svg><span>Massage Room</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 4-5 6.5-5 10a5 5 0 0010 0c0-3.5-2-6-5-10z"/><path d="M12 13v8"/></svg><span>Sauna / Spa</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M3 12c2-4 6-6 9-6s7 2 9 6c-2 4-6 6-9 6s-7-2-9-6z"/></svg><span>Observatory Deck</span></div>
+          </div>
+        </div>
+
+        <div class="amen-panel" data-panel="1">
+          <div class="amen-list">
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-9 4 5 3-4 5 8"/><circle cx="8" cy="7" r="2"/></svg><span>Large Children Play Area</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 9h18M9 5v4"/></svg><span>Movie Theatre</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><circle cx="12" cy="12" r="4"/></svg><span>Indoor Games</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4v16M19 4v16M5 4h14M5 20h14M5 9h14M5 14h14"/></svg><span>Library</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="11" rx="1"/><path d="M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/></svg><span>Meeting / Board Room</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-7 9 7v11"/><path d="M9 21v-6h6v6"/></svg><span>Grand Lobby / Visitor's Lounge</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 9h8M8 15h5"/></svg><span>Basket Ball Court</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 3 6 6 6 9a6 6 0 01-12 0c0-3 2-6 6-9z"/></svg><span>Landscaped Garden</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Jogging Track</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l8-5 8 5v13"/><path d="M4 12h16M9 21v-5h6v5"/></svg><span>Amphitheatre</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 4-5 6.5-5 10a5 5 0 0010 0c0-3.5-2-6-5-10z"/></svg><span>Water Bodies</span></div>
+          </div>
+        </div>
+
+        <div class="amen-panel" data-panel="2">
+          <div class="amen-list">
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 9h8M8 15h5"/></svg><span>Badminton Court</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="12" cy="12" r="3"/></svg><span>Squash Court</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M9 11V7a3 3 0 016 0v4"/><circle cx="12" cy="15" r="1"/></svg><span>Multiple Security Kiosks</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="1"/><path d="M9 7h6M9 11h6M9 15h2"/></svg><span>Centralised AC Provisioning (VRF)</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg><span>Solar Energy</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg><span>Large Panoramic Windows</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 6h4M10 18h4"/></svg><span>High-Speed Glass Elevators</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 6h6M9 18h6"/></svg><span>Super Large Service Elevator</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg><span>Professional Building Illumination</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-7 9 7v11"/><path d="M3 21h18M9 21v-7h6v7"/></svg><span>Grand Double Height Porch</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9h16M9 4v16"/></svg><span>Built on Aluminium Form Work</span></div>
+          </div>
+        </div>
+
+        <div class="amen-panel" data-panel="3">
+          <div class="amen-list">
+            <div class="amen-sub-label">Water Efficiency</div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 4-5 6.5-5 10a5 5 0 0010 0c0-3.5-2-6-5-10z"/></svg><span>Fresh Water Conservation by Water-Efficient Plumbing Fixtures</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/></svg><span>Maximum Waste Water Treatment and Reuse</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 3 6 6 6 9a6 6 0 01-12 0c0-3 2-6 6-9z"/></svg><span>Management of Irrigation Systems</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l1 6M12 3l1 6M19 3l1 6"/><path d="M4 9h18l-2 4H6l-2-4z"/><path d="M8 13v6M16 13v6"/></svg><span>Rainwater Harvesting</span></div>
+            <div class="amen-sub-label" style="margin-top:18px">Energy Efficiency</div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg><span>On-site Renewable Energy</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg><span>Energy-Efficient Fixtures</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 4-5 6.5-5 10a5 5 0 0010 0c0-3.5-2-6-5-10z"/><path d="M12 13v8"/></svg><span>Proposed Centralised Hot Water System</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg><span>Solar Garden and Roof Top Lights</span></div>
+            <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 18h6M10 21h4"/></svg><span>LED Common Area Lighting</span></div>
+          </div>
+        </div>
       </div>
-      <div style="text-align:right">
-        <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px">Current Stage</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:#fff;font-weight:300">53 floors built</div>
+      <div>
+        <div class="specs-card">
+          <div class="specs-head">Project Specifications</div>
+          <div class="spec-row"><span class="spec-k">Type</span><span class="spec-v">Luxury Residential</span></div>
+          <div class="spec-row"><span class="spec-k">Configuration</span><span class="spec-v">3B + G + 51 Floors</span></div>
+          <div class="spec-row"><span class="spec-k">Location</span><span class="spec-v">NH66, Nanthoor Hilltop, Near Nanthoor Circle, Mangalore 575005</span></div>
+          <div class="spec-row"><span class="spec-k">Units</span><span class="spec-v">2, 3 & 4 BHK Apartments</span></div>
+          <div class="spec-row"><span class="spec-k">Façade</span><span class="spec-v">Full Glass — Double Glazed Low-E</span></div>
+          <div class="spec-row"><span class="spec-k">Windows</span><span class="spec-v">Heat-Reducing Low-E DGU, Argon Filled · First in Mangalore</span></div>
+          <div class="spec-row"><span class="spec-k">Flooring</span><span class="spec-v">Extra-Large Premium Vitrified Tiles</span></div>
+          <div class="spec-row"><span class="spec-k">Common Areas & Staircase</span><span class="spec-v">Granite</span></div>
+          <div class="spec-row"><span class="spec-k">Master Bedroom</span><span class="spec-v">Wooden Finished Tiles</span></div>
+          <div class="spec-row"><span class="spec-k">Paint</span><span class="spec-v">Berger Premium</span></div>
+          <div class="spec-row"><span class="spec-k">Amenities</span><span class="spec-v">36+ World-Class</span></div>
+          <div class="spec-row"><span class="spec-k">Lifts</span><span class="spec-v">Custom-Made High-Speed Glass Passenger Lifts by Mitsubishi</span></div>
+          <div class="spec-row"><span class="spec-k">Status</span><span class="spec-v">Ongoing — RERA Completion September 2027</span></div>
+          <div class="spec-row"><span class="spec-k">RERA</span><span class="spec-v">PRM/KA/RERA/1257/334/PR/171021/000845</span></div>
+        </div>
+        <div class="price-card">
+          <div class="price-label">Pricing</div>
+          <div class="price-val">Price on Request</div>
+          <div class="price-note">Contact sales for current pricing & availability</div>
+          <button class="btn-gold-full" onclick="document.getElementById('sec-enquiry').scrollIntoView({behavior:'smooth'})">Get Price Details →</button>
+        </div>
       </div>
     </div>
-    <p style="font-size:13.5px;color:rgba(255,255,255,0.6);line-height:1.85">This project's timeline has moved from its original schedule. We're publishing the current RERA completion date here rather than an earlier promise we can no longer stand behind. If you'd like the full picture — what caused the delay and what we've changed as a result — ask our sales team directly. We'd rather you heard it from us than wondered about it.</p>
+  </section>
+
+  <!-- CONSTRUCTION STATUS -->
+  <section class="tab-panel" id="sec-construction-status" style="background:var(--surface)">
+    <div class="sec-tag">Where Things Stand</div>
+    <h2 class="sec-h">Construction Status,<br><em>Told Straight</em></h2>
+    <p style="color:var(--text2);font-size:15px;line-height:1.9;max-width:680px;margin-bottom:36px">Westline Signature is Karnataka's tallest residential tower, and a project of this scale carries genuine construction complexity. We would rather tell you exactly where things stand than let a rendering speak for us.</p>
+
+    <div style="background:var(--ink);padding:36px 40px;margin-bottom:40px;border-left:3px solid var(--gold-dim)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;margin-bottom:24px">
+        <div>
+          <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px">RERA Completion Date</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:#fff;font-weight:300">September 2027</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px">Current Stage</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:#fff;font-weight:300">53 floors built</div>
+        </div>
+      </div>
+      <p style="font-size:13.5px;color:rgba(255,255,255,0.6);line-height:1.85">This project's timeline has moved from its original schedule. We're publishing the current RERA completion date here rather than an earlier promise we can no longer stand behind. If you'd like the full picture — what caused the delay and what we've changed as a result — ask our sales team directly. We'd rather you heard it from us than wondered about it.</p>
+    </div>
+
+    <!-- Album cover card. Replaced four empty placeholder tiles that had been
+         waiting on photographs since launch. The photographs exist — they are in
+         a shared Google Photos album that is already kept current — so the card
+         points at that rather than asking anyone to re-upload them here. Three
+         real site shots rotate as the cover. -->
+    <a class="album-card" href="https://photos.app.goo.gl/5eUcXku62UuLpbt77" target="_blank" rel="noopener">
+      <div class="album-thumb" id="album-thumb">
+        <img class="is-on" src="images/progress/signature-progress-1.jpg" alt="Westline Signature under construction at dusk" width="1600" height="900" loading="lazy">
+        <img src="images/progress/signature-progress-2.jpg" alt="The tower rising above morning cloud" width="1600" height="1067" loading="lazy">
+        <img src="images/progress/signature-progress-3.jpg" alt="Aerial view of Westline Signature over Mangalore" width="1600" height="900" loading="lazy">
+        <span class="album-scrim"></span>
+      </div>
+      <div class="album-body">
+        <div class="album-eyebrow">Photo album</div>
+        <div class="album-title">Signature construction updates</div>
+        <div class="album-meta">January 2018 — January 2026 · added to as work progresses</div>
+        <span class="album-cta">Open album <span>→</span></span>
+      </div>
+      <div class="album-dots" id="album-dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+    </a>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="tab-panel" id="sec-gallery" style="background:var(--surface)">
+    <div class="sec-tag">Visual Gallery</div>
+    <h2 class="sec-h" style="margin-bottom:14px">Gallery &amp; <em>Visuals</em></h2>
+    <p style="color:var(--text2);font-size:14px;line-height:1.8;max-width:580px;margin-bottom:30px">Architectural renders of Westline Signature. The full set lives in our shared album.</p>
+    <!-- Filmstrip: four photographs, the last carrying the link through to the
+         rest. No count on it — the album does not expose a reliable total, and a
+         made-up number on a public page is not worth the polish. -->
+    <div class="film-strip">
+        <a class="film-cell" href="https://photos.google.com/share/AF1QipMrKYPnhYAwcC3jYEOVtlYmKHiBBCPUrJB_hhLSpFboJwp83iIP1HV90WH6aJ_Z2Q?key=OHkxWU5qZ3o2bmNlbzBjYkRqaTlBSS1iZ0ZONWZR" target="_blank" rel="noopener"><img src="images/gallery/signature-concept-1.jpg" alt="Aerial view of the Westline Signature rooftop pool and amenity deck" width="1400" height="788" loading="lazy"></a>
+        <a class="film-cell" href="https://photos.google.com/share/AF1QipMrKYPnhYAwcC3jYEOVtlYmKHiBBCPUrJB_hhLSpFboJwp83iIP1HV90WH6aJ_Z2Q?key=OHkxWU5qZ3o2bmNlbzBjYkRqaTlBSS1iZ0ZONWZR" target="_blank" rel="noopener"><img src="images/gallery/signature-concept-2.jpg" alt="Westline Signature tower elevation" width="1400" height="788" loading="lazy"></a>
+        <a class="film-cell" href="https://photos.google.com/share/AF1QipMrKYPnhYAwcC3jYEOVtlYmKHiBBCPUrJB_hhLSpFboJwp83iIP1HV90WH6aJ_Z2Q?key=OHkxWU5qZ3o2bmNlbzBjYkRqaTlBSS1iZ0ZONWZR" target="_blank" rel="noopener"><img src="images/gallery/signature-concept-3.jpg" alt="Landscaped approach to Westline Signature" width="1400" height="788" loading="lazy"></a>
+        <a class="film-cell" href="https://photos.google.com/share/AF1QipMrKYPnhYAwcC3jYEOVtlYmKHiBBCPUrJB_hhLSpFboJwp83iIP1HV90WH6aJ_Z2Q?key=OHkxWU5qZ3o2bmNlbzBjYkRqaTlBSS1iZ0ZONWZR" target="_blank" rel="noopener"><img src="images/gallery/signature-concept-4.jpg" alt="Water features and landscaping in the Signature podium gardens" width="1400" height="788" loading="lazy"><span class="film-more"><span class="film-more-t">View all</span><span class="film-more-s">Concept gallery</span></span></a>
+    </div>
+  </section>
+
+  <!-- FLOOR PLANS -->
+  <section class="tab-panel" id="sec-floorplans" style="background:var(--surface2)">
+    <div class="sec-tag">Floor Plans</div>
+    <h2 class="sec-h" style="margin-bottom:16px">Unit <em>Configurations</em></h2>
+    <p style="color:var(--text2);font-size:14px;line-height:1.8;max-width:580px;margin-bottom:28px">Ten configurations across standard and sky residences. Filter by bedroom count to find your ideal home.</p>
+
+    <!-- FILTERS -->
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:32px">
+      <div style="display:flex;align-items:center;gap:6px;color:var(--gold);flex-shrink:0">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16l-6 8v6l-4 2v-8L4 4z"/></svg>
+        <span style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500">Filter by</span>
+      </div>
+      <button class="fp-filter active" onclick="filterFP('all',this)" style="font-size:10px;letter-spacing:0.06em;text-transform:uppercase;padding:7px 14px;border-radius:4px;border:none;color:#fff;background:var(--gold);cursor:pointer;font-family:'Jost',sans-serif;font-weight:500;white-space:nowrap;transition:all 0.3s">All Units</button>
+      <button class="fp-filter" onclick="filterFP('2bhk',this)" style="font-size:10px;letter-spacing:0.06em;text-transform:uppercase;padding:7px 14px;border-radius:4px;border:1px solid var(--border);color:var(--text2);background:transparent;cursor:pointer;font-family:'Jost',sans-serif;white-space:nowrap;transition:all 0.3s">2 BHK</button>
+      <button class="fp-filter" onclick="filterFP('3bhk',this)" style="font-size:10px;letter-spacing:0.06em;text-transform:uppercase;padding:7px 14px;border-radius:4px;border:1px solid var(--border);color:var(--text2);background:transparent;cursor:pointer;font-family:'Jost',sans-serif;white-space:nowrap;transition:all 0.3s">3 BHK</button>
+      <button class="fp-filter" onclick="filterFP('4bhk',this)" style="font-size:10px;letter-spacing:0.06em;text-transform:uppercase;padding:7px 14px;border-radius:4px;border:1px solid var(--border);color:var(--text2);background:transparent;cursor:pointer;font-family:'Jost',sans-serif;white-space:nowrap;transition:all 0.3s">4 BHK</button>
+      <button class="fp-filter" onclick="filterFP('penthouse',this)" style="font-size:10px;letter-spacing:0.06em;text-transform:uppercase;padding:7px 14px;border-radius:4px;border:1px solid var(--border);color:var(--text2);background:transparent;cursor:pointer;font-family:'Jost',sans-serif;white-space:nowrap;transition:all 0.3s">Penthouse</button>
+      <button class="fp-filter" onclick="filterFP('sky',this)" style="font-size:10px;letter-spacing:0.06em;text-transform:uppercase;padding:7px 14px;border-radius:4px;border:1px solid var(--border);color:var(--text2);background:transparent;cursor:pointer;font-family:'Jost',sans-serif;white-space:nowrap;transition:all 0.3s">Sky Residences</button>
+    </div>
+
+    <div class="fp-grid" id="fp-grid">
+
+
+      <!-- 2 BHK Type 1 -->
+      <div class="fp-card" data-fp="2bhk" onclick="openLightbox(0)">
+        <div class="fp-photo">
+          <img src="images/units/2bhk-type-1.jpg" alt="2 BHK Type 1 interior at Westline Signature" loading="lazy" width="1200" height="750">
+          <span class="fp-badge">Available</span>
+        </div>
+        <div class="fp-body">
+          <div class="fp-name">2 BHK Type 1</div>
+          <div class="fp-area">1,590 <span>Sq Ft</span></div>
+          <div class="fp-meta">
+            <div><span class="fp-k">Available on Floors</span><span class="fp-v">1 – 29</span></div>
+            <div class="fp-bb">
+              <div><span class="fp-k">Bed</span><span class="fp-v">2</span></div>
+              <div><span class="fp-k">Bath</span><span class="fp-v">2</span></div>
+            </div>
+          </div>
+          <button class="fp-plan" type="button">View Floor Plan</button>
+        </div>
+      </div>
+
+      <!-- 2 BHK Type 2 -->
+      <div class="fp-card" data-fp="2bhk" onclick="openLightbox(1)">
+        <div class="fp-photo">
+          <img src="images/units/2bhk-type-2.jpg" alt="2 BHK Type 2 interior at Westline Signature" loading="lazy" width="1200" height="750">
+          <span class="fp-badge">Available</span>
+        </div>
+        <div class="fp-body">
+          <div class="fp-name">2 BHK Type 2</div>
+          <div class="fp-area">1,695 <span>Sq Ft</span></div>
+          <div class="fp-meta">
+            <div><span class="fp-k">Available on Floors</span><span class="fp-v">1 – 29</span></div>
+            <div class="fp-bb">
+              <div><span class="fp-k">Bed</span><span class="fp-v">2</span></div>
+              <div><span class="fp-k">Bath</span><span class="fp-v">2</span></div>
+            </div>
+          </div>
+          <button class="fp-plan" type="button">View Floor Plan</button>
+        </div>
+      </div>
+
+      <!-- 3 BHK -->
+      <div class="fp-card" data-fp="3bhk" onclick="openLightbox(2)">
+        <div class="fp-photo">
+          <img src="images/units/3bhk.jpg" alt="3 BHK interior at Westline Signature" loading="lazy" width="1200" height="750">
+          <span class="fp-badge">Available</span>
+        </div>
+        <div class="fp-body">
+          <div class="fp-name">3 BHK</div>
+          <div class="fp-area">2,070 <span>Sq Ft</span></div>
+          <div class="fp-meta">
+            <div><span class="fp-k">Available on Floors</span><span class="fp-v">1 – 29</span></div>
+            <div class="fp-bb">
+              <div><span class="fp-k">Bed</span><span class="fp-v">3</span></div>
+              <div><span class="fp-k">Bath</span><span class="fp-v">3</span></div>
+            </div>
+          </div>
+          <button class="fp-plan" type="button">View Floor Plan</button>
+        </div>
+      </div>
+
+      <!-- 4 BHK Simplex -->
+      <div class="fp-card" data-fp="4bhk" onclick="openLightbox(3)">
+        <div class="fp-photo">
+          <img src="images/units/4bhk-simplex.jpg" alt="4 BHK Simplex interior at Westline Signature" loading="lazy" width="1200" height="750">
+          <span class="fp-badge">Available</span>
+        </div>
+        <div class="fp-body">
+          <div class="fp-name">4 BHK Simplex</div>
+          <div class="fp-area">3,285 <span>Sq Ft</span></div>
+          <div class="fp-meta">
+            <div><span class="fp-k">Available on Floors</span><span class="fp-v">16 – 28</span></div>
+            <div class="fp-bb">
+              <div><span class="fp-k">Bed</span><span class="fp-v">4</span></div>
+              <div><span class="fp-k">Bath</span><span class="fp-v">4</span></div>
+            </div>
+          </div>
+          <button class="fp-plan" type="button">View Floor Plan</button>
+        </div>
+      </div>
+
+      <!-- 3 BHK Duplex + Media T1 -->
+      <div class="fp-card" data-fp="3bhk sky" onclick="openLightbox(4)">
+        <div class="fp-photo">
+          <img src="images/units/3bhk-duplex-media-t1.jpg" alt="3 BHK Duplex + Media T1 interior at Westline Signature" loading="lazy" width="1200" height="750">
+          <span class="fp-badge">Sky Residence</span>
+        </div>
+        <div class="fp-body">
+          <div class="fp-name">3 BHK Duplex + Media T1</div>
+          <div class="fp-area">3,180 <span>Sq Ft</span></div>
+          <div class="fp-meta">
+            <div><span class="fp-k">Available on Floors</span><span class="fp-v">30 – 45</span></div>
+            <div class="fp-bb">
+              <div><span class="fp-k">Bed</span><span class="fp-v">3</span></div>
+              <div><span class="fp-k">Bath</span><span class="fp-v">4</span></div>
+            </div>
+          </div>
+          <button class="fp-plan" type="button">View Floor Plan</button>
+        </div>
+      </div>
+
+      <!-- 3 BHK Duplex + Media T2 -->
+      <div class="fp-card" data-fp="3bhk sky" onclick="openLightbox(5)">
+        <div class="fp-photo">
+          <img src="images/units/3bhk-duplex-media-t2.jpg" alt="3 BHK Duplex + Media T2 interior at Westline Signature" loading="lazy" width="1200" height="750">
+          <span class="fp-badge">Sky Residence</span>
+        </div>
+        <div class="fp-body">
+          <div class="fp-name">3 BHK Duplex + Media T2</div>
+          <div class="fp-area">3,390 <span>Sq Ft</span></div>
+          <div class="fp-meta">
+            <div><span class="fp-k">Available on Floors</span><span class="fp-v">30 – 45</span></div>
+            <div class="fp-bb">
+              <div><span class="fp-k">Bed</span><span class="fp-v">3</span></div>
+              <div><span class="fp-k">Bath</span><span class="fp-v">3</span></div>
+            </div>
+          </div>
+          <button class="fp-plan" type="button">View Floor Plan</button>
+        </div>
+      </div>
+
+      <!-- 4 BHK Duplex + Media T1 -->
+      <div class="fp-card" data-fp="4bhk sky" onclick="openLightbox(6)">
+        <div class="fp-photo">
+          <img src="images/units/4bhk-duplex-media-t1.jpg" alt="4 BHK Duplex + Media T1 interior at Westline Signature" loading="lazy" width="1200" height="750">
+          <span class="fp-badge">Sky Residence</span>
+        </div>
+        <div class="fp-body">
+          <div class="fp-name">4 BHK Duplex + Media T1</div>
+          <div class="fp-area">3,770 <span>Sq Ft</span></div>
+          <div class="fp-meta">
+            <div><span class="fp-k">Available on Floors</span><span class="fp-v">30 – 45</span></div>
+            <div class="fp-bb">
+              <div><span class="fp-k">Bed</span><span class="fp-v">4</span></div>
+              <div><span class="fp-k">Bath</span><span class="fp-v">4</span></div>
+            </div>
+          </div>
+          <button class="fp-plan" type="button">View Floor Plan</button>
+        </div>
+      </div>
+
+      <!-- 4 BHK Duplex Type 2 -->
+      <div class="fp-card" data-fp="4bhk sky" onclick="openLightbox(7)">
+        <div class="fp-photo">
+          <img src="images/units/4bhk-duplex-t2.jpg" alt="4 BHK Duplex Type 2 interior at Westline Signature" loading="lazy" width="1200" height="750">
+          <span class="fp-badge">Sky Residence</span>
+        </div>
+        <div class="fp-body">
+          <div class="fp-name">4 BHK Duplex Type 2</div>
+          <div class="fp-area">4,140 <span>Sq Ft</span></div>
+          <div class="fp-meta">
+            <div><span class="fp-k">Available on Floors</span><span class="fp-v">30 – 45</span></div>
+            <div class="fp-bb">
+              <div><span class="fp-k">Bed</span><span class="fp-v">4</span></div>
+              <div><span class="fp-k">Bath</span><span class="fp-v">4</span></div>
+            </div>
+          </div>
+          <button class="fp-plan" type="button">View Floor Plan</button>
+        </div>
+      </div>
+
+      <!-- 4 BHK Duplex Type 3 -->
+      <div class="fp-card" data-fp="4bhk sky" onclick="openLightbox(8)">
+        <div class="fp-photo">
+          <img src="images/units/4bhk-duplex-t3.jpg" alt="4 BHK Duplex Type 3 interior at Westline Signature" loading="lazy" width="1200" height="750">
+          <span class="fp-badge">Sky Residence</span>
+        </div>
+        <div class="fp-body">
+          <div class="fp-name">4 BHK Duplex Type 3</div>
+          <div class="fp-area">4,360 <span>Sq Ft</span></div>
+          <div class="fp-meta">
+            <div><span class="fp-k">Available on Floors</span><span class="fp-v">30 – 45</span></div>
+            <div class="fp-bb">
+              <div><span class="fp-k">Bed</span><span class="fp-v">4</span></div>
+              <div><span class="fp-k">Bath</span><span class="fp-v">4</span></div>
+            </div>
+          </div>
+          <button class="fp-plan" type="button">View Floor Plan</button>
+        </div>
+      </div>
+
+      <!-- Sky Villa Penthouse -->
+      <div class="fp-card" data-fp="penthouse sky" onclick="openLightbox(9)">
+        <div class="fp-photo">
+          <img src="images/units/sky-villa-penthouse.jpg" alt="Sky Villa Penthouse interior at Westline Signature" loading="lazy" width="1200" height="750">
+          <span class="fp-badge">The Pinnacle</span>
+        </div>
+        <div class="fp-body">
+          <div class="fp-name">Sky Villa Penthouse</div>
+          <div class="fp-area">7,920 <span>Sq Ft</span></div>
+          <div class="fp-meta">
+            <div><span class="fp-k">Available on Floors</span><span class="fp-v">46 – 48</span></div>
+            <div class="fp-bb">
+              <div><span class="fp-k">Bed</span><span class="fp-v">5</span></div>
+              <div><span class="fp-k">Bath</span><span class="fp-v">7</span></div>
+            </div>
+          </div>
+          <button class="fp-plan" type="button">View Floor Plan</button>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section class="tab-panel" id="sec-videos" style="background:var(--surface);padding-left:0;padding-right:0">
+    <div style="padding:0 60px 36px">
+      <div class="sec-tag">Video Gallery</div>
+      <h2 class="sec-h" style="margin-bottom:8px">Watch & <em>Experience</em></h2>
+      <p style="color:var(--text2);font-size:14px;line-height:1.8">Every angle of Westline Signature — films, construction progress, creator walkthroughs and more.</p>
+    </div>
+
+    <!-- ── FEATURED FILMS ── -->
+    <div style="padding:0 60px;margin-bottom:48px">
+      <div class="vg-label">Featured Films</div>
+      <div class="vg-wide-grid">
+        <div class="video-card">
+          <div class="video-thumb" onclick="playVideo(this,'6sjsNnztPlI')">
+            <img src="https://img.youtube.com/vi/6sjsNnztPlI/maxresdefault.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+            <div class="play-btn"></div>
+          </div>
+          <div class="video-info"><h4>Official Concept Film</h4><p>Westline Signature — The Full Vision</p></div>
+        </div>
+        <div class="video-card">
+          <div class="video-thumb" onclick="playVideo(this,'O6lOpxp_Rw0')">
+            <img src="https://img.youtube.com/vi/O6lOpxp_Rw0/maxresdefault.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+            <div class="play-btn"></div>
+          </div>
+          <div class="video-info"><h4>Construction Progress Film</h4><p>On-site — floor by floor, milestone by milestone</p></div>
+        </div>
+        <div class="video-card">
+          <div class="video-thumb" onclick="window.open('https://www.youtube.com/watch?v=BDss_3vSrKM','_blank')">
+            <img src="https://img.youtube.com/vi/BDss_3vSrKM/maxresdefault.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+            <div class="play-btn"></div>
+          </div>
+          <div class="video-info"><h4>Creator Walkthrough</h4><p>Independent review — Westline Signature</p></div>
+        </div>
+        <div class="video-card">
+          <div class="video-thumb" onclick="window.open('https://www.youtube.com/watch?v=csuaEX1xeak','_blank')">
+            <img src="https://img.youtube.com/vi/csuaEX1xeak/maxresdefault.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+            <div class="play-btn"></div>
+          </div>
+          <div class="video-info"><h4>Creator Review</h4><p>Site visit & analysis — Westline Signature</p></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <style>
+  /* VIDEO GALLERY */
+  .vg-label{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+  .vg-label::before{content:'';display:block;width:20px;height:1px;background:var(--gold)}
+  .vg-wide-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .video-card{background:var(--surface);border:1px solid var(--border);overflow:hidden}
+  .video-thumb{aspect-ratio:16/9;background:var(--surface3);display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;overflow:hidden}
+  .video-thumb img{transition:transform 0.5s ease}
+  .video-thumb:hover img{transform:scale(1.04)}
+  .play-btn{width:56px;height:56px;border:2px solid rgba(201,169,110,0.7);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all 0.3s;position:relative;z-index:2;background:rgba(0,0,0,0.35);flex-shrink:0}
+  .play-btn::after{content:'';border-style:solid;border-width:8px 0 8px 15px;border-color:transparent transparent transparent #C9A96E;margin-left:4px}
+  .video-thumb:hover .play-btn{border-color:#C9A96E;background:rgba(166,124,61,0.3);transform:scale(1.08)}
+  .video-info{padding:14px 18px}
+  .video-info h4{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:var(--ink);margin-bottom:3px}
+  .video-info p{font-size:11px;color:var(--text2)}
+
+  @media(max-width:900px){
+    .vg-wide-grid{grid-template-columns:1fr 1fr !important}
+    #sec-videos > div[style*="padding:0 60px"]{padding:0 20px !important}
+    #sec-videos > div[style*="padding:0 60px;margin-bottom:48px"]{padding:0 20px !important}
+  }
+  @media(max-width:500px){
+    .vg-wide-grid{grid-template-columns:1fr !important}
+  }
+  </style>
+
+
+  <!-- LOCATION -->
+  <section class="tab-panel" id="sec-location" style="background:var(--surface2)">
+    <div class="sec-tag">Location</div>
+    <h2 class="sec-h" style="margin-bottom:44px">Where to <em>Find Us</em></h2>
+    <div class="map-grid">
+      <div>
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.96!2d74.8460!3d12.9141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba359bf4c2a9f8d%3A0x9fa8bc5d7c4a91c8!2sNanthoor%2C%20Mangaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <a class="map-cta-link" href="https://goo.gl/maps/L2pL8BKwokE1R6hY9" target="_blank">Open in Google Maps →</a>
+      </div>
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;margin-bottom:6px">NH66, Nanthoor Hilltop</div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:24px;letter-spacing:0.08em">Mangalore, Karnataka 575005</div>
+
+        <div class="loc-tabs-bar">
+          <button class="loc-tab active" onclick="switchLocTab(0,this)">Commute</button>
+          <button class="loc-tab" onclick="switchLocTab(1,this)">Health</button>
+          <button class="loc-tab" onclick="switchLocTab(2,this)">Education</button>
+          <button class="loc-tab" onclick="switchLocTab(3,this)">Shopping</button>
+          <button class="loc-tab" onclick="switchLocTab(4,this)">Holy Places</button>
+          <button class="loc-tab" onclick="switchLocTab(5,this)">Leisure</button>
+        </div>
+
+        <div class="loc-panel active" data-locpanel="0">
+          <div class="loc-cards">
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 8l-2 4 2 4M19 8l2 4-2 4"/></svg><span class="loc-name">NH66 — National Highway</span></div><span class="loc-dist">Direct frontage</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 9.5l5.5 1.5-1 2-6.5-1-3.5 3-2-.5 1.5-3-4-1 1-1.5 4 .5 3-3.5-1-2 2-.5z"/></svg><span class="loc-name">Mangalore International Airport</span></div><span class="loc-dist">12 km · ~22 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="1"/><path d="M3 9l2-5h14l2 5"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><span class="loc-name">Mangalore Central Railway</span></div><span class="loc-dist">8 km · ~18 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 9h18M3 15h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg><span class="loc-name">Pumpwell Circle / NH66 Junction</span></div><span class="loc-dist">3 km · ~8 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="1"/><path d="M3 9l2-5h14l2 5"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><span class="loc-name">Mangalore Central Bus Stand, Bejai</span></div><span class="loc-dist">6 km · ~14 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 8l-2 4 2 4M19 8l2 4-2 4"/></svg><span class="loc-name">Kankanady Junction</span></div><span class="loc-dist">2.5 km · ~7 min</span></div>
+          </div>
+        </div>
+
+        <div class="loc-panel" data-locpanel="1">
+          <div class="loc-cards">
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg><span class="loc-name">KMC Hospital, Attavar</span></div><span class="loc-dist">4 km · ~10 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg><span class="loc-name">Father Muller Medical College Hospital</span></div><span class="loc-dist">3 km · ~8 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg><span class="loc-name">A J Hospital & Research Centre</span></div><span class="loc-dist">5 km · ~12 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg><span class="loc-name">Yenepoya Medical College Hospital</span></div><span class="loc-dist">6 km · ~14 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg><span class="loc-name">Unity Hospital, Falnir</span></div><span class="loc-dist">4 km · ~10 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg><span class="loc-name">Indiana Hospital &amp; Heart Institute</span></div><span class="loc-dist">5 km · ~12 min</span></div>
+          </div>
+        </div>
+
+        <div class="loc-panel" data-locpanel="2">
+          <div class="loc-cards">
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M3 9v7l9 5 9-5V9"/></svg><span class="loc-name">Dr. NSAM First Grade College, Nanthoor</span></div><span class="loc-dist">1 km · ~3 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M3 9v7l9 5 9-5V9"/></svg><span class="loc-name">Shree Bharathi College, Nanthoor</span></div><span class="loc-dist">1.5 km · ~4 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M9 4v16"/></svg><span class="loc-name">Mount Carmel Central School</span></div><span class="loc-dist">4 km · ~10 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M9 4v16"/></svg><span class="loc-name">St Aloysius Gonzaga School</span></div><span class="loc-dist">5 km · ~12 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M3 9v7l9 5 9-5V9"/></svg><span class="loc-name">St Agnes College, Bendore</span></div><span class="loc-dist">4 km · ~10 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M3 9v7l9 5 9-5V9"/></svg><span class="loc-name">Canara High School, Urva</span></div><span class="loc-dist">7 km · ~16 min</span></div>
+          </div>
+        </div>
+
+        <div class="loc-panel" data-locpanel="3">
+          <div class="loc-cards">
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span class="loc-name">City Centre Mall, K S Rao Road</span></div><span class="loc-dist">7 km · ~16 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span class="loc-name">Forum Fiza Mall, Pandeshwar</span></div><span class="loc-dist">8 km · ~18 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span class="loc-name">Empire Mall, MG Road</span></div><span class="loc-dist">6 km · ~14 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M3 4h2l2.5 12h11l2-8H6"/></svg><span class="loc-name">More Supermarket, Kadri</span></div><span class="loc-dist">3.5 km · ~9 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span class="loc-name">Bharath Mall, Bejai</span></div><span class="loc-dist">5 km · ~12 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span class="loc-name">Central Market, Hampankatta</span></div><span class="loc-dist">6 km · ~14 min</span></div>
+          </div>
+        </div>
+
+        <div class="loc-panel" data-locpanel="4">
+          <div class="loc-cards">
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M9 5l3 3 3-3M5 21h14M6 21V11l6-4 6 4v10"/></svg><span class="loc-name">Kadri Manjunatha Temple</span></div><span class="loc-dist">4 km · ~10 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V11M8 21V9l4-6 4 6v12M5 21h14"/></svg><span class="loc-name">Rosario Cathedral</span></div><span class="loc-dist">7 km · ~16 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V11M8 21V9l4-6 4 6v12M5 21h14"/></svg><span class="loc-name">Milagres Church</span></div><span class="loc-dist">6 km · ~14 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg><span class="loc-name">Kudroli Gokarnath Temple</span></div><span class="loc-dist">5 km · ~12 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M9 5l3 3 3-3M5 21h14M6 21V11l6-4 6 4v10"/></svg><span class="loc-name">Mangaladevi Temple</span></div><span class="loc-dist">7 km · ~16 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M9 5l3 3 3-3M5 21h14M6 21V11l6-4 6 4v10"/></svg><span class="loc-name">Zeenath Baksh Jumma Masjid, Bunder</span></div><span class="loc-dist">7.5 km · ~17 min</span></div>
+          </div>
+        </div>
+
+        <div class="loc-panel" data-locpanel="5">
+          <div class="loc-cards">
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M3 12c2-4 6-6 9-6s7 2 9 6c-2 4-6 6-9 6s-7-2-9-6z"/></svg><span class="loc-name">Pilikula Golf Club</span></div><span class="loc-dist">7 km · ~16 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18c1-4 3-8 5-8s2 3 3 3 1.5-5 3-5 2 5 3 5 2-3 3-3 4 4 5 8"/><path d="M2 20h20"/></svg><span class="loc-name">Tannirbhavi Beach</span></div><span class="loc-dist">9 km · ~20 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18c1-4 3-8 5-8s2 3 3 3 1.5-5 3-5 2 5 3 5 2-3 3-3 4 4 5 8"/><path d="M2 20h20"/></svg><span class="loc-name">Panambur Beach</span></div><span class="loc-dist">14 km · ~28 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 3 6 6 6 9a6 6 0 01-12 0c0-3 2-6 6-9z"/></svg><span class="loc-name">Pilikula Nisarga Dhama</span></div><span class="loc-dist">8 km · ~18 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-9 4 5 3-4 5 8"/></svg><span class="loc-name">Kadri Park</span></div><span class="loc-dist">4 km · ~10 min</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-9 4 5 3-4 5 8"/></svg><span class="loc-name">Sultan Battery Watchtower</span></div><span class="loc-dist">8 km · ~18 min</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENQUIRY -->
+  <section class="tab-panel" id="sec-enquiry" style="background:var(--surface)">
+    <div class="enq-grid">
+      <div>
+        <div class="sec-tag">Get In Touch</div>
+        <div class="enq-title"><em>Enquire About</em><br>Westline Signature</div>
+        <p class="enq-body">Our sales team responds within 24 hours with detailed pricing, availability, and a personalised consultation at your convenience.</p>
+        <div class="contact-item"><div class="contact-item-label">Sales Hotline</div><div class="contact-item-val"><a href="tel:+919900033888" style="color:var(--gold)">+91 99000 33888</a></div></div>
+        <div class="contact-item"><div class="contact-item-label">Location</div><div class="contact-item-val">NH66, Nanthoor Hilltop, Mangalore 575005</div></div>
+        <a class="wa-btn" href="https://wa.me/919900033888?text=I'm interested in Westline Signature. Please share pricing and availability." target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Enquiry
+        </a>
+      </div>
+      <div class="enq-form-box">
+        <div class="form-title">Request Details</div>
+        <div class="form-row">
+          <div class="fg"><label class="fl">Full Name</label><input class="fi" type="text" placeholder="Your name"></div>
+          <div class="fg"><label class="fl">Mobile Number</label><input class="fi" type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        </div>
+        <div class="fg"><label class="fl">Email Address</label><input class="fi" type="email" placeholder="your@email.com"></div>
+        <div class="fg"><label class="fl">Unit Type</label>
+          <select class="fsel">
+            <option value="">Select unit type</option>
+            <option>2 BHK Type 1 — 1,590 Sq Ft</option>
+            <option>2 BHK Type 2 — 1,695 Sq Ft</option>
+            <option>3 BHK — 2,180 Sq Ft</option>
+            <option>4 BHK Simplex — 3,285 Sq Ft</option>
+            <option>3 BHK Duplex + Media Room T1 — 3,180 Sq Ft</option>
+            <option>3 BHK Duplex + Media Room T2 — 3,390 Sq Ft</option>
+            <option>4 BHK Duplex + Media Room T1 — 3,770 Sq Ft</option>
+            <option>4 BHK Duplex Type 2 — 4,360 Sq Ft</option>
+            <option>5 BHK Penthouse — 8,350 Sq Ft</option>
+            <option>Not Sure — Show Me All Options</option>
+            <option>Investment Enquiry</option>
+            <option>NRI Property Enquiry</option>
+            <option>Site Visit Request</option>
+          </select>
+        </div>
+        <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="Any specific requirements or questions..."></textarea></div>
+        <button class="fsub">Send Enquiry</button>
+      </div>
+    </div>
+  </section>
+
   </div>
-
-  <!-- Album cover card. Replaced four empty placeholder tiles that had been
-       waiting on photographs since launch. The photographs exist — they are in
-       a shared Google Photos album that is already kept current — so the card
-       points at that rather than asking anyone to re-upload them here. Three
-       real site shots rotate as the cover. -->
-  <a class="album-card" href="https://photos.app.goo.gl/5eUcXku62UuLpbt77" target="_blank" rel="noopener">
-    <div class="album-thumb" id="album-thumb">
-      <img class="is-on" src="images/progress/signature-progress-1.jpg" alt="Westline Signature under construction at dusk" width="1600" height="900" loading="lazy">
-      <img src="images/progress/signature-progress-2.jpg" alt="The tower rising above morning cloud" width="1600" height="1067" loading="lazy">
-      <img src="images/progress/signature-progress-3.jpg" alt="Aerial view of Westline Signature over Mangalore" width="1600" height="900" loading="lazy">
-      <span class="album-scrim"></span>
-    </div>
-    <div class="album-body">
-      <div class="album-eyebrow">Photo album</div>
-      <div class="album-title">Signature construction updates</div>
-      <div class="album-meta">January 2018 — January 2026 · added to as work progresses</div>
-      <span class="album-cta">Open album <span>→</span></span>
-    </div>
-    <div class="album-dots" id="album-dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
-  </a>
-</section>
-
-<!-- GALLERY -->
-<section class="tab-panel" id="sec-gallery" style="background:var(--surface)">
-  <div class="sec-tag">Visual Gallery</div>
-  <h2 class="sec-h" style="margin-bottom:14px">Gallery &amp; <em>Visuals</em></h2>
-  <p style="color:var(--text2);font-size:14px;line-height:1.8;max-width:580px;margin-bottom:30px">Architectural renders of Westline Signature. The full set lives in our shared album.</p>
-  <!-- Filmstrip: four photographs, the last carrying the link through to the
-       rest. No count on it — the album does not expose a reliable total, and a
-       made-up number on a public page is not worth the polish. -->
-  <div class="film-strip">
-      <a class="film-cell" href="https://photos.google.com/share/AF1QipMrKYPnhYAwcC3jYEOVtlYmKHiBBCPUrJB_hhLSpFboJwp83iIP1HV90WH6aJ_Z2Q?key=OHkxWU5qZ3o2bmNlbzBjYkRqaTlBSS1iZ0ZONWZR" target="_blank" rel="noopener"><img src="images/gallery/signature-concept-1.jpg" alt="Aerial view of the Westline Signature rooftop pool and amenity deck" width="1400" height="788" loading="lazy"></a>
-      <a class="film-cell" href="https://photos.google.com/share/AF1QipMrKYPnhYAwcC3jYEOVtlYmKHiBBCPUrJB_hhLSpFboJwp83iIP1HV90WH6aJ_Z2Q?key=OHkxWU5qZ3o2bmNlbzBjYkRqaTlBSS1iZ0ZONWZR" target="_blank" rel="noopener"><img src="images/gallery/signature-concept-2.jpg" alt="Westline Signature tower elevation" width="1400" height="788" loading="lazy"></a>
-      <a class="film-cell" href="https://photos.google.com/share/AF1QipMrKYPnhYAwcC3jYEOVtlYmKHiBBCPUrJB_hhLSpFboJwp83iIP1HV90WH6aJ_Z2Q?key=OHkxWU5qZ3o2bmNlbzBjYkRqaTlBSS1iZ0ZONWZR" target="_blank" rel="noopener"><img src="images/gallery/signature-concept-3.jpg" alt="Landscaped approach to Westline Signature" width="1400" height="788" loading="lazy"></a>
-      <a class="film-cell" href="https://photos.google.com/share/AF1QipMrKYPnhYAwcC3jYEOVtlYmKHiBBCPUrJB_hhLSpFboJwp83iIP1HV90WH6aJ_Z2Q?key=OHkxWU5qZ3o2bmNlbzBjYkRqaTlBSS1iZ0ZONWZR" target="_blank" rel="noopener"><img src="images/gallery/signature-concept-4.jpg" alt="Water features and landscaping in the Signature podium gardens" width="1400" height="788" loading="lazy"><span class="film-more"><span class="film-more-t">View all</span><span class="film-more-s">Concept gallery</span></span></a>
-  </div>
-</section>
-
-<!-- FLOOR PLANS -->
-<section class="tab-panel" id="sec-floorplans" style="background:var(--surface2)">
-  <div class="sec-tag">Floor Plans</div>
-  <h2 class="sec-h" style="margin-bottom:16px">Unit <em>Configurations</em></h2>
-  <p style="color:var(--text2);font-size:14px;line-height:1.8;max-width:580px;margin-bottom:28px">Ten configurations across standard and sky residences. Filter by bedroom count to find your ideal home.</p>
-
-  <!-- FILTERS -->
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:32px">
-    <div style="display:flex;align-items:center;gap:6px;color:var(--gold);flex-shrink:0">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16l-6 8v6l-4 2v-8L4 4z"/></svg>
-      <span style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500">Filter by</span>
-    </div>
-    <button class="fp-filter active" onclick="filterFP('all',this)" style="font-size:10px;letter-spacing:0.06em;text-transform:uppercase;padding:7px 14px;border-radius:4px;border:none;color:#fff;background:var(--gold);cursor:pointer;font-family:'Jost',sans-serif;font-weight:500;white-space:nowrap;transition:all 0.3s">All Units</button>
-    <button class="fp-filter" onclick="filterFP('2bhk',this)" style="font-size:10px;letter-spacing:0.06em;text-transform:uppercase;padding:7px 14px;border-radius:4px;border:1px solid var(--border);color:var(--text2);background:transparent;cursor:pointer;font-family:'Jost',sans-serif;white-space:nowrap;transition:all 0.3s">2 BHK</button>
-    <button class="fp-filter" onclick="filterFP('3bhk',this)" style="font-size:10px;letter-spacing:0.06em;text-transform:uppercase;padding:7px 14px;border-radius:4px;border:1px solid var(--border);color:var(--text2);background:transparent;cursor:pointer;font-family:'Jost',sans-serif;white-space:nowrap;transition:all 0.3s">3 BHK</button>
-    <button class="fp-filter" onclick="filterFP('4bhk',this)" style="font-size:10px;letter-spacing:0.06em;text-transform:uppercase;padding:7px 14px;border-radius:4px;border:1px solid var(--border);color:var(--text2);background:transparent;cursor:pointer;font-family:'Jost',sans-serif;white-space:nowrap;transition:all 0.3s">4 BHK</button>
-    <button class="fp-filter" onclick="filterFP('penthouse',this)" style="font-size:10px;letter-spacing:0.06em;text-transform:uppercase;padding:7px 14px;border-radius:4px;border:1px solid var(--border);color:var(--text2);background:transparent;cursor:pointer;font-family:'Jost',sans-serif;white-space:nowrap;transition:all 0.3s">Penthouse</button>
-    <button class="fp-filter" onclick="filterFP('sky',this)" style="font-size:10px;letter-spacing:0.06em;text-transform:uppercase;padding:7px 14px;border-radius:4px;border:1px solid var(--border);color:var(--text2);background:transparent;cursor:pointer;font-family:'Jost',sans-serif;white-space:nowrap;transition:all 0.3s">Sky Residences</button>
-  </div>
-
-  <div class="fp-grid" id="fp-grid">
-
-
-    <!-- 2 BHK Type 1 -->
-    <div class="fp-card" data-fp="2bhk" onclick="openLightbox(0)">
-      <div class="fp-photo">
-        <img src="images/units/2bhk-type-1.jpg" alt="2 BHK Type 1 interior at Westline Signature" loading="lazy" width="1200" height="750">
-        <span class="fp-badge">Available</span>
-      </div>
-      <div class="fp-body">
-        <div class="fp-name">2 BHK Type 1</div>
-        <div class="fp-area">1,590 <span>Sq Ft</span></div>
-        <div class="fp-meta">
-          <div><span class="fp-k">Available on Floors</span><span class="fp-v">1 – 29</span></div>
-          <div class="fp-bb">
-            <div><span class="fp-k">Bed</span><span class="fp-v">2</span></div>
-            <div><span class="fp-k">Bath</span><span class="fp-v">2</span></div>
-          </div>
-        </div>
-        <button class="fp-plan" type="button">View Floor Plan</button>
-      </div>
-    </div>
-
-    <!-- 2 BHK Type 2 -->
-    <div class="fp-card" data-fp="2bhk" onclick="openLightbox(1)">
-      <div class="fp-photo">
-        <img src="images/units/2bhk-type-2.jpg" alt="2 BHK Type 2 interior at Westline Signature" loading="lazy" width="1200" height="750">
-        <span class="fp-badge">Available</span>
-      </div>
-      <div class="fp-body">
-        <div class="fp-name">2 BHK Type 2</div>
-        <div class="fp-area">1,695 <span>Sq Ft</span></div>
-        <div class="fp-meta">
-          <div><span class="fp-k">Available on Floors</span><span class="fp-v">1 – 29</span></div>
-          <div class="fp-bb">
-            <div><span class="fp-k">Bed</span><span class="fp-v">2</span></div>
-            <div><span class="fp-k">Bath</span><span class="fp-v">2</span></div>
-          </div>
-        </div>
-        <button class="fp-plan" type="button">View Floor Plan</button>
-      </div>
-    </div>
-
-    <!-- 3 BHK -->
-    <div class="fp-card" data-fp="3bhk" onclick="openLightbox(2)">
-      <div class="fp-photo">
-        <img src="images/units/3bhk.jpg" alt="3 BHK interior at Westline Signature" loading="lazy" width="1200" height="750">
-        <span class="fp-badge">Available</span>
-      </div>
-      <div class="fp-body">
-        <div class="fp-name">3 BHK</div>
-        <div class="fp-area">2,070 <span>Sq Ft</span></div>
-        <div class="fp-meta">
-          <div><span class="fp-k">Available on Floors</span><span class="fp-v">1 – 29</span></div>
-          <div class="fp-bb">
-            <div><span class="fp-k">Bed</span><span class="fp-v">3</span></div>
-            <div><span class="fp-k">Bath</span><span class="fp-v">3</span></div>
-          </div>
-        </div>
-        <button class="fp-plan" type="button">View Floor Plan</button>
-      </div>
-    </div>
-
-    <!-- 4 BHK Simplex -->
-    <div class="fp-card" data-fp="4bhk" onclick="openLightbox(3)">
-      <div class="fp-photo">
-        <img src="images/units/4bhk-simplex.jpg" alt="4 BHK Simplex interior at Westline Signature" loading="lazy" width="1200" height="750">
-        <span class="fp-badge">Available</span>
-      </div>
-      <div class="fp-body">
-        <div class="fp-name">4 BHK Simplex</div>
-        <div class="fp-area">3,285 <span>Sq Ft</span></div>
-        <div class="fp-meta">
-          <div><span class="fp-k">Available on Floors</span><span class="fp-v">16 – 28</span></div>
-          <div class="fp-bb">
-            <div><span class="fp-k">Bed</span><span class="fp-v">4</span></div>
-            <div><span class="fp-k">Bath</span><span class="fp-v">4</span></div>
-          </div>
-        </div>
-        <button class="fp-plan" type="button">View Floor Plan</button>
-      </div>
-    </div>
-
-    <!-- 3 BHK Duplex + Media T1 -->
-    <div class="fp-card" data-fp="3bhk sky" onclick="openLightbox(4)">
-      <div class="fp-photo">
-        <img src="images/units/3bhk-duplex-media-t1.jpg" alt="3 BHK Duplex + Media T1 interior at Westline Signature" loading="lazy" width="1200" height="750">
-        <span class="fp-badge">Sky Residence</span>
-      </div>
-      <div class="fp-body">
-        <div class="fp-name">3 BHK Duplex + Media T1</div>
-        <div class="fp-area">3,180 <span>Sq Ft</span></div>
-        <div class="fp-meta">
-          <div><span class="fp-k">Available on Floors</span><span class="fp-v">30 – 45</span></div>
-          <div class="fp-bb">
-            <div><span class="fp-k">Bed</span><span class="fp-v">3</span></div>
-            <div><span class="fp-k">Bath</span><span class="fp-v">4</span></div>
-          </div>
-        </div>
-        <button class="fp-plan" type="button">View Floor Plan</button>
-      </div>
-    </div>
-
-    <!-- 3 BHK Duplex + Media T2 -->
-    <div class="fp-card" data-fp="3bhk sky" onclick="openLightbox(5)">
-      <div class="fp-photo">
-        <img src="images/units/3bhk-duplex-media-t2.jpg" alt="3 BHK Duplex + Media T2 interior at Westline Signature" loading="lazy" width="1200" height="750">
-        <span class="fp-badge">Sky Residence</span>
-      </div>
-      <div class="fp-body">
-        <div class="fp-name">3 BHK Duplex + Media T2</div>
-        <div class="fp-area">3,390 <span>Sq Ft</span></div>
-        <div class="fp-meta">
-          <div><span class="fp-k">Available on Floors</span><span class="fp-v">30 – 45</span></div>
-          <div class="fp-bb">
-            <div><span class="fp-k">Bed</span><span class="fp-v">3</span></div>
-            <div><span class="fp-k">Bath</span><span class="fp-v">3</span></div>
-          </div>
-        </div>
-        <button class="fp-plan" type="button">View Floor Plan</button>
-      </div>
-    </div>
-
-    <!-- 4 BHK Duplex + Media T1 -->
-    <div class="fp-card" data-fp="4bhk sky" onclick="openLightbox(6)">
-      <div class="fp-photo">
-        <img src="images/units/4bhk-duplex-media-t1.jpg" alt="4 BHK Duplex + Media T1 interior at Westline Signature" loading="lazy" width="1200" height="750">
-        <span class="fp-badge">Sky Residence</span>
-      </div>
-      <div class="fp-body">
-        <div class="fp-name">4 BHK Duplex + Media T1</div>
-        <div class="fp-area">3,770 <span>Sq Ft</span></div>
-        <div class="fp-meta">
-          <div><span class="fp-k">Available on Floors</span><span class="fp-v">30 – 45</span></div>
-          <div class="fp-bb">
-            <div><span class="fp-k">Bed</span><span class="fp-v">4</span></div>
-            <div><span class="fp-k">Bath</span><span class="fp-v">4</span></div>
-          </div>
-        </div>
-        <button class="fp-plan" type="button">View Floor Plan</button>
-      </div>
-    </div>
-
-    <!-- 4 BHK Duplex Type 2 -->
-    <div class="fp-card" data-fp="4bhk sky" onclick="openLightbox(7)">
-      <div class="fp-photo">
-        <img src="images/units/4bhk-duplex-t2.jpg" alt="4 BHK Duplex Type 2 interior at Westline Signature" loading="lazy" width="1200" height="750">
-        <span class="fp-badge">Sky Residence</span>
-      </div>
-      <div class="fp-body">
-        <div class="fp-name">4 BHK Duplex Type 2</div>
-        <div class="fp-area">4,140 <span>Sq Ft</span></div>
-        <div class="fp-meta">
-          <div><span class="fp-k">Available on Floors</span><span class="fp-v">30 – 45</span></div>
-          <div class="fp-bb">
-            <div><span class="fp-k">Bed</span><span class="fp-v">4</span></div>
-            <div><span class="fp-k">Bath</span><span class="fp-v">4</span></div>
-          </div>
-        </div>
-        <button class="fp-plan" type="button">View Floor Plan</button>
-      </div>
-    </div>
-
-    <!-- 4 BHK Duplex Type 3 -->
-    <div class="fp-card" data-fp="4bhk sky" onclick="openLightbox(8)">
-      <div class="fp-photo">
-        <img src="images/units/4bhk-duplex-t3.jpg" alt="4 BHK Duplex Type 3 interior at Westline Signature" loading="lazy" width="1200" height="750">
-        <span class="fp-badge">Sky Residence</span>
-      </div>
-      <div class="fp-body">
-        <div class="fp-name">4 BHK Duplex Type 3</div>
-        <div class="fp-area">4,360 <span>Sq Ft</span></div>
-        <div class="fp-meta">
-          <div><span class="fp-k">Available on Floors</span><span class="fp-v">30 – 45</span></div>
-          <div class="fp-bb">
-            <div><span class="fp-k">Bed</span><span class="fp-v">4</span></div>
-            <div><span class="fp-k">Bath</span><span class="fp-v">4</span></div>
-          </div>
-        </div>
-        <button class="fp-plan" type="button">View Floor Plan</button>
-      </div>
-    </div>
-
-    <!-- Sky Villa Penthouse -->
-    <div class="fp-card" data-fp="penthouse sky" onclick="openLightbox(9)">
-      <div class="fp-photo">
-        <img src="images/units/sky-villa-penthouse.jpg" alt="Sky Villa Penthouse interior at Westline Signature" loading="lazy" width="1200" height="750">
-        <span class="fp-badge">The Pinnacle</span>
-      </div>
-      <div class="fp-body">
-        <div class="fp-name">Sky Villa Penthouse</div>
-        <div class="fp-area">7,920 <span>Sq Ft</span></div>
-        <div class="fp-meta">
-          <div><span class="fp-k">Available on Floors</span><span class="fp-v">46 – 48</span></div>
-          <div class="fp-bb">
-            <div><span class="fp-k">Bed</span><span class="fp-v">5</span></div>
-            <div><span class="fp-k">Bath</span><span class="fp-v">7</span></div>
-          </div>
-        </div>
-        <button class="fp-plan" type="button">View Floor Plan</button>
-      </div>
-    </div>
-
-
-  </div>
-</section>
-
-<!-- VIDEOS -->
-<section class="tab-panel" id="sec-videos" style="background:var(--surface);padding-left:0;padding-right:0">
-  <div style="padding:0 60px 36px">
-    <div class="sec-tag">Video Gallery</div>
-    <h2 class="sec-h" style="margin-bottom:8px">Watch & <em>Experience</em></h2>
-    <p style="color:var(--text2);font-size:14px;line-height:1.8">Every angle of Westline Signature — films, construction progress, creator walkthroughs and more.</p>
-  </div>
-
-  <!-- ── FEATURED FILMS ── -->
-  <div style="padding:0 60px;margin-bottom:48px">
-    <div class="vg-label">Featured Films</div>
-    <div class="vg-wide-grid">
-      <div class="video-card">
-        <div class="video-thumb" onclick="playVideo(this,'6sjsNnztPlI')">
-          <img src="https://img.youtube.com/vi/6sjsNnztPlI/maxresdefault.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-          <div class="play-btn"></div>
-        </div>
-        <div class="video-info"><h4>Official Concept Film</h4><p>Westline Signature — The Full Vision</p></div>
-      </div>
-      <div class="video-card">
-        <div class="video-thumb" onclick="playVideo(this,'O6lOpxp_Rw0')">
-          <img src="https://img.youtube.com/vi/O6lOpxp_Rw0/maxresdefault.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-          <div class="play-btn"></div>
-        </div>
-        <div class="video-info"><h4>Construction Progress Film</h4><p>On-site — floor by floor, milestone by milestone</p></div>
-      </div>
-      <div class="video-card">
-        <div class="video-thumb" onclick="window.open('https://www.youtube.com/watch?v=BDss_3vSrKM','_blank')">
-          <img src="https://img.youtube.com/vi/BDss_3vSrKM/maxresdefault.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-          <div class="play-btn"></div>
-        </div>
-        <div class="video-info"><h4>Creator Walkthrough</h4><p>Independent review — Westline Signature</p></div>
-      </div>
-      <div class="video-card">
-        <div class="video-thumb" onclick="window.open('https://www.youtube.com/watch?v=csuaEX1xeak','_blank')">
-          <img src="https://img.youtube.com/vi/csuaEX1xeak/maxresdefault.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-          <div class="play-btn"></div>
-        </div>
-        <div class="video-info"><h4>Creator Review</h4><p>Site visit & analysis — Westline Signature</p></div>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<style>
-/* VIDEO GALLERY */
-.vg-label{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px}
-.vg-label::before{content:'';display:block;width:20px;height:1px;background:var(--gold)}
-.vg-wide-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.video-card{background:var(--surface);border:1px solid var(--border);overflow:hidden}
-.video-thumb{aspect-ratio:16/9;background:var(--surface3);display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;overflow:hidden}
-.video-thumb img{transition:transform 0.5s ease}
-.video-thumb:hover img{transform:scale(1.04)}
-.play-btn{width:56px;height:56px;border:2px solid rgba(201,169,110,0.7);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all 0.3s;position:relative;z-index:2;background:rgba(0,0,0,0.35);flex-shrink:0}
-.play-btn::after{content:'';border-style:solid;border-width:8px 0 8px 15px;border-color:transparent transparent transparent #C9A96E;margin-left:4px}
-.video-thumb:hover .play-btn{border-color:#C9A96E;background:rgba(166,124,61,0.3);transform:scale(1.08)}
-.video-info{padding:14px 18px}
-.video-info h4{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:var(--ink);margin-bottom:3px}
-.video-info p{font-size:11px;color:var(--text2)}
-
-@media(max-width:900px){
-  .vg-wide-grid{grid-template-columns:1fr 1fr !important}
-  #sec-videos > div[style*="padding:0 60px"]{padding:0 20px !important}
-  #sec-videos > div[style*="padding:0 60px;margin-bottom:48px"]{padding:0 20px !important}
-}
-@media(max-width:500px){
-  .vg-wide-grid{grid-template-columns:1fr !important}
-}
-</style>
-
-
-<!-- LOCATION -->
-<section class="tab-panel" id="sec-location" style="background:var(--surface2)">
-  <div class="sec-tag">Location</div>
-  <h2 class="sec-h" style="margin-bottom:44px">Where to <em>Find Us</em></h2>
-  <div class="map-grid">
-    <div>
-      <div class="map-frame">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.96!2d74.8460!3d12.9141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba359bf4c2a9f8d%3A0x9fa8bc5d7c4a91c8!2sNanthoor%2C%20Mangaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000" allowfullscreen loading="lazy"></iframe>
-      </div>
-      <a class="map-cta-link" href="https://goo.gl/maps/L2pL8BKwokE1R6hY9" target="_blank">Open in Google Maps →</a>
-    </div>
-    <div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;margin-bottom:6px">NH66, Nanthoor Hilltop</div>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:24px;letter-spacing:0.08em">Mangalore, Karnataka 575005</div>
-
-      <div class="loc-tabs-bar">
-        <button class="loc-tab active" onclick="switchLocTab(0,this)">Commute</button>
-        <button class="loc-tab" onclick="switchLocTab(1,this)">Health</button>
-        <button class="loc-tab" onclick="switchLocTab(2,this)">Education</button>
-        <button class="loc-tab" onclick="switchLocTab(3,this)">Shopping</button>
-        <button class="loc-tab" onclick="switchLocTab(4,this)">Holy Places</button>
-        <button class="loc-tab" onclick="switchLocTab(5,this)">Leisure</button>
-      </div>
-
-      <div class="loc-panel active" data-locpanel="0">
-        <div class="loc-cards">
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 8l-2 4 2 4M19 8l2 4-2 4"/></svg><span class="loc-name">NH66 — National Highway</span></div><span class="loc-dist">Direct frontage</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 9.5l5.5 1.5-1 2-6.5-1-3.5 3-2-.5 1.5-3-4-1 1-1.5 4 .5 3-3.5-1-2 2-.5z"/></svg><span class="loc-name">Mangalore International Airport</span></div><span class="loc-dist">12 km · ~22 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="1"/><path d="M3 9l2-5h14l2 5"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><span class="loc-name">Mangalore Central Railway</span></div><span class="loc-dist">8 km · ~18 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 9h18M3 15h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg><span class="loc-name">Pumpwell Circle / NH66 Junction</span></div><span class="loc-dist">3 km · ~8 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="1"/><path d="M3 9l2-5h14l2 5"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><span class="loc-name">Mangalore Central Bus Stand, Bejai</span></div><span class="loc-dist">6 km · ~14 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 8l-2 4 2 4M19 8l2 4-2 4"/></svg><span class="loc-name">Kankanady Junction</span></div><span class="loc-dist">2.5 km · ~7 min</span></div>
-        </div>
-      </div>
-
-      <div class="loc-panel" data-locpanel="1">
-        <div class="loc-cards">
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg><span class="loc-name">KMC Hospital, Attavar</span></div><span class="loc-dist">4 km · ~10 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg><span class="loc-name">Father Muller Medical College Hospital</span></div><span class="loc-dist">3 km · ~8 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg><span class="loc-name">A J Hospital & Research Centre</span></div><span class="loc-dist">5 km · ~12 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg><span class="loc-name">Yenepoya Medical College Hospital</span></div><span class="loc-dist">6 km · ~14 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg><span class="loc-name">Unity Hospital, Falnir</span></div><span class="loc-dist">4 km · ~10 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg><span class="loc-name">Indiana Hospital &amp; Heart Institute</span></div><span class="loc-dist">5 km · ~12 min</span></div>
-        </div>
-      </div>
-
-      <div class="loc-panel" data-locpanel="2">
-        <div class="loc-cards">
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M3 9v7l9 5 9-5V9"/></svg><span class="loc-name">Dr. NSAM First Grade College, Nanthoor</span></div><span class="loc-dist">1 km · ~3 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M3 9v7l9 5 9-5V9"/></svg><span class="loc-name">Shree Bharathi College, Nanthoor</span></div><span class="loc-dist">1.5 km · ~4 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M9 4v16"/></svg><span class="loc-name">Mount Carmel Central School</span></div><span class="loc-dist">4 km · ~10 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M9 4v16"/></svg><span class="loc-name">St Aloysius Gonzaga School</span></div><span class="loc-dist">5 km · ~12 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M3 9v7l9 5 9-5V9"/></svg><span class="loc-name">St Agnes College, Bendore</span></div><span class="loc-dist">4 km · ~10 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M3 9v7l9 5 9-5V9"/></svg><span class="loc-name">Canara High School, Urva</span></div><span class="loc-dist">7 km · ~16 min</span></div>
-        </div>
-      </div>
-
-      <div class="loc-panel" data-locpanel="3">
-        <div class="loc-cards">
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span class="loc-name">City Centre Mall, K S Rao Road</span></div><span class="loc-dist">7 km · ~16 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span class="loc-name">Forum Fiza Mall, Pandeshwar</span></div><span class="loc-dist">8 km · ~18 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span class="loc-name">Empire Mall, MG Road</span></div><span class="loc-dist">6 km · ~14 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M3 4h2l2.5 12h11l2-8H6"/></svg><span class="loc-name">More Supermarket, Kadri</span></div><span class="loc-dist">3.5 km · ~9 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span class="loc-name">Bharath Mall, Bejai</span></div><span class="loc-dist">5 km · ~12 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span class="loc-name">Central Market, Hampankatta</span></div><span class="loc-dist">6 km · ~14 min</span></div>
-        </div>
-      </div>
-
-      <div class="loc-panel" data-locpanel="4">
-        <div class="loc-cards">
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M9 5l3 3 3-3M5 21h14M6 21V11l6-4 6 4v10"/></svg><span class="loc-name">Kadri Manjunatha Temple</span></div><span class="loc-dist">4 km · ~10 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V11M8 21V9l4-6 4 6v12M5 21h14"/></svg><span class="loc-name">Rosario Cathedral</span></div><span class="loc-dist">7 km · ~16 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V11M8 21V9l4-6 4 6v12M5 21h14"/></svg><span class="loc-name">Milagres Church</span></div><span class="loc-dist">6 km · ~14 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg><span class="loc-name">Kudroli Gokarnath Temple</span></div><span class="loc-dist">5 km · ~12 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M9 5l3 3 3-3M5 21h14M6 21V11l6-4 6 4v10"/></svg><span class="loc-name">Mangaladevi Temple</span></div><span class="loc-dist">7 km · ~16 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M9 5l3 3 3-3M5 21h14M6 21V11l6-4 6 4v10"/></svg><span class="loc-name">Zeenath Baksh Jumma Masjid, Bunder</span></div><span class="loc-dist">7.5 km · ~17 min</span></div>
-        </div>
-      </div>
-
-      <div class="loc-panel" data-locpanel="5">
-        <div class="loc-cards">
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M3 12c2-4 6-6 9-6s7 2 9 6c-2 4-6 6-9 6s-7-2-9-6z"/></svg><span class="loc-name">Pilikula Golf Club</span></div><span class="loc-dist">7 km · ~16 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18c1-4 3-8 5-8s2 3 3 3 1.5-5 3-5 2 5 3 5 2-3 3-3 4 4 5 8"/><path d="M2 20h20"/></svg><span class="loc-name">Tannirbhavi Beach</span></div><span class="loc-dist">9 km · ~20 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18c1-4 3-8 5-8s2 3 3 3 1.5-5 3-5 2 5 3 5 2-3 3-3 4 4 5 8"/><path d="M2 20h20"/></svg><span class="loc-name">Panambur Beach</span></div><span class="loc-dist">14 km · ~28 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 3 6 6 6 9a6 6 0 01-12 0c0-3 2-6 6-9z"/></svg><span class="loc-name">Pilikula Nisarga Dhama</span></div><span class="loc-dist">8 km · ~18 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-9 4 5 3-4 5 8"/></svg><span class="loc-name">Kadri Park</span></div><span class="loc-dist">4 km · ~10 min</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-9 4 5 3-4 5 8"/></svg><span class="loc-name">Sultan Battery Watchtower</span></div><span class="loc-dist">8 km · ~18 min</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ENQUIRY -->
-<section class="tab-panel" id="sec-enquiry" style="background:var(--surface)">
-  <div class="enq-grid">
-    <div>
-      <div class="sec-tag">Get In Touch</div>
-      <div class="enq-title"><em>Enquire About</em><br>Westline Signature</div>
-      <p class="enq-body">Our sales team responds within 24 hours with detailed pricing, availability, and a personalised consultation at your convenience.</p>
-      <div class="contact-item"><div class="contact-item-label">Sales Hotline</div><div class="contact-item-val"><a href="tel:+919900033888" style="color:var(--gold)">+91 99000 33888</a></div></div>
-      <div class="contact-item"><div class="contact-item-label">Location</div><div class="contact-item-val">NH66, Nanthoor Hilltop, Mangalore 575005</div></div>
-      <a class="wa-btn" href="https://wa.me/919900033888?text=I'm interested in Westline Signature. Please share pricing and availability." target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp Enquiry
-      </a>
-    </div>
-    <div class="enq-form-box">
-      <div class="form-title">Request Details</div>
-      <div class="form-row">
-        <div class="fg"><label class="fl">Full Name</label><input class="fi" type="text" placeholder="Your name"></div>
-        <div class="fg"><label class="fl">Mobile Number</label><input class="fi" type="tel" placeholder="+91 XXXXX XXXXX"></div>
-      </div>
-      <div class="fg"><label class="fl">Email Address</label><input class="fi" type="email" placeholder="your@email.com"></div>
-      <div class="fg"><label class="fl">Unit Type</label>
-        <select class="fsel">
-          <option value="">Select unit type</option>
-          <option>2 BHK Type 1 — 1,590 Sq Ft</option>
-          <option>2 BHK Type 2 — 1,695 Sq Ft</option>
-          <option>3 BHK — 2,180 Sq Ft</option>
-          <option>4 BHK Simplex — 3,285 Sq Ft</option>
-          <option>3 BHK Duplex + Media Room T1 — 3,180 Sq Ft</option>
-          <option>3 BHK Duplex + Media Room T2 — 3,390 Sq Ft</option>
-          <option>4 BHK Duplex + Media Room T1 — 3,770 Sq Ft</option>
-          <option>4 BHK Duplex Type 2 — 4,360 Sq Ft</option>
-          <option>5 BHK Penthouse — 8,350 Sq Ft</option>
-          <option>Not Sure — Show Me All Options</option>
-          <option>Investment Enquiry</option>
-          <option>NRI Property Enquiry</option>
-          <option>Site Visit Request</option>
-        </select>
-      </div>
-      <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="Any specific requirements or questions..."></textarea></div>
-      <button class="fsub">Send Enquiry</button>
-    </div>
-  </div>
-</section>
+  <aside class="wl-rail"><div id="callback-rail"></div></aside>
+</div>
 
 <div id="footer-placeholder"></div>
 

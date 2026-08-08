@@ -299,11 +299,6 @@ img{max-width:100%;display:block}
   </div>
 </section>
 
-<!-- Request-a-callback rail. Markup, styles and the project/unit-type logic
-     all live in callback-rail.js so the ten project pages cannot drift apart.
-     Below 1280px this renders inline here, under the hero; above it, the card
-     fixes to the right once the hero has scrolled away. -->
-<div id="callback-rail"></div>
 
 <!-- TAB NAV -->
 <div class="tabs-bar">
@@ -318,417 +313,429 @@ img{max-width:100%;display:block}
   </div>
 </div>
 
-<!-- OVERVIEW -->
-<section class="panel" id="sec-overview" style="background:var(--surface2)">
-  <div class="ov-grid">
-    <div>
-      <div class="sec-tag">About The Project</div>
-      <h2 class="sec-h">A Business Address<br>That <em>Means Something</em></h2>
-      <div class="highlight-box"><p>"The proposed tallest commercial tower in South India — and the first address in Mangalore built to match the ambition of the companies inside it."</p></div>
+<!-- Content and the callback rail share a two-column grid. The card uses
+     position:sticky inside its own column, so it travels with the reader and
+     stops where the column stops — at the footer. It was previously fixed,
+     which made it flicker at the bottom: hiding it removed the reserved
+     gutter, the reflow moved the footer, and it re-showed in a loop. -->
+<div class="wl-layout">
+  <div class="wl-main">
 
-      <p class="body-text">Mangalore's economy has outgrown its commercial real estate. The city has the talent, the connectivity and the appetite — but businesses looking for genuine Grade-A space have had to compromise on floor plates, power reliability, parking or simply prestige.</p>
-      <p class="body-text">Cubix exists to end that compromise. Fifty-three floors on NH66 at Kadri, combining curated retail at the base, large-format office floors through the tower, and a hotel with serviced residences above — so that a company can host a client, run an operation and put up a visiting team without anyone leaving the building.</p>
-      <p class="body-text">For an occupier, that means an address that does part of the selling for you. For an investor, it means a mixed-use asset in a market with very little comparable supply.</p>
-
-      <div class="spec-strip">
-        <div class="spec-strip-card">
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
-          <div class="ss-label">Floor Plates</div>
-          <div class="ss-title">Large, Column-Efficient Spans</div>
-          <div class="ss-desc">Open layouts that adapt as your headcount changes — not fixed cabins you have to work around</div>
-        </div>
-        <div class="spec-strip-card">
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-          <div class="ss-label">Infrastructure</div>
-          <div class="ss-title">Centralised VRF &amp; Power Backup</div>
-          <div class="ss-desc">Building-wide air conditioning and backup provisioning, so your operation doesn't stop</div>
-        </div>
-        <div class="spec-strip-card">
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 6h4M10 18h4"/></svg>
-          <div class="ss-label">Vertical Transport</div>
-          <div class="ss-title">High-Speed Passenger &amp; Service Lifts</div>
-          <div class="ss-desc">Dedicated service cores so goods movement never competes with people movement</div>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <div class="specs-card">
-        <div class="specs-head">Project Specifications</div>
-        <div class="spec-row"><span class="spec-k">Type</span><span class="spec-v">IT Park, Retail &amp; Hotel</span></div>
-        <div class="spec-row"><span class="spec-k">Configuration</span><span class="spec-v">53 Floors (6B+G+46)</span></div>
-        <div class="spec-row"><span class="spec-k">Location</span><span class="spec-v">NH66, Next to Planet SKS, Kadri, Mangalore</span></div>
-        <div class="spec-row"><span class="spec-k">Offering</span><span class="spec-v">Lease Only</span></div>
-        <div class="spec-row"><span class="spec-k">Space Types</span><span class="spec-v">Retail · Office · Hotel &amp; Serviced Residences</span></div>
-        <div class="spec-row"><span class="spec-k">Parking</span><span class="spec-v">6 Basement Levels</span></div>
-        <div class="spec-row"><span class="spec-k">Air Conditioning</span><span class="spec-v">Centralised VRF Provisioning</span></div>
-        <div class="spec-row"><span class="spec-k">Security</span><span class="spec-v">24×7 with On-Site Management</span></div>
-        <div class="spec-row"><span class="spec-k">Completion</span><span class="spec-v">31 December 2028</span></div>
-        <div class="spec-row"><span class="spec-k">RERA</span><span class="spec-v">Not applicable — lease only</span></div>
-      </div>
-
-      <div class="lease-card">
-        <div class="lease-label">Availability</div>
-        <div class="lease-val">Lease Only</div>
-        <p class="lease-note">Cubix is offered on lease, not for sale. Floor plates, rental terms and fit-out options are shared with qualified occupiers on enquiry. Early registrations receive first choice of floor and orientation.</p>
-        <button class="btn-gold-full" onclick="document.getElementById('sec-enquiry').scrollIntoView({behavior:'smooth'})">Request Leasing Details →</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY -->
-<section class="panel why-sec">
-  <div class="sec-tag">The Commercial Case</div>
-  <h2 class="sec-h">Why Businesses Will<br><em>Choose This Building</em></h2>
-  <p class="sec-lede">An office is a recruitment tool, a client impression and an operational asset all at once. Cubix was planned around all three.</p>
-
-  <div class="why-grid">
-    <div class="why-card">
-      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 8l-2 4 2 4M19 8l2 4-2 4"/></svg>
-      <div class="why-t">On The Highway, Not Behind It</div>
-      <div class="why-d">Direct NH66 frontage at Kadri. Your staff commute is simpler, your clients find you first time, and your signage is seen by the volume of traffic that passes daily.</div>
-    </div>
-    <div class="why-card">
-      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h18"/></svg>
-      <div class="why-t">Space That Grows With You</div>
-      <div class="why-d">Large, efficient floor plates that can be taken whole or subdivided. Expand within the same building instead of relocating every time you hire.</div>
-    </div>
-    <div class="why-card">
-      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-7 9 7v11"/><path d="M9 21v-7h6v7"/></svg>
-      <div class="why-t">Everything Under One Roof</div>
-      <div class="why-d">Cafés, restaurants, conference rooms, a banquet hall, a fitness centre and serviced residences. Host a board meeting and accommodate the attendees without leaving the building.</div>
-    </div>
-    <div class="why-card">
-      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      <div class="why-t">Secure And Professionally Run</div>
-      <div class="why-d">Round-the-clock security with on-site building management. Multiple security kiosks, controlled access and a team accountable for the building's day-to-day operation.</div>
-    </div>
-    <div class="why-card">
-      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-      <div class="why-t">Built To Retain Talent</div>
-      <div class="why-d">Good people compare offices. Natural light, quality air conditioning, proper amenities and a landmark address make a measurable difference to who accepts your offer — and who stays.</div>
-    </div>
-    <div class="why-card">
-      <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
-      <div class="why-t">Scarce Supply, Strong Position</div>
-      <div class="why-d">Mangalore has very little genuine Grade-A commercial stock. Taking space in the city's landmark tower positions your business ahead of a supply gap, not behind it.</div>
-    </div>
-  </div>
-</section>
-
-<!-- SPACES -->
-<section class="panel space-sec" id="sec-spaces">
-  <div class="sec-tag">Three Worlds, One Tower</div>
-  <h2 class="sec-h">Retail. Office.<br><em>Hospitality.</em></h2>
-  <p class="sec-lede">Cubix is zoned vertically so that each use supports the others — footfall at the base, enterprise through the middle, hospitality above.</p>
-
-  <div class="space-grid">
-    <div class="space-card">
-      <div class="space-img">
-        <span class="space-floors">Lower Levels</span>
-        <!-- PLACEHOLDER IMAGE: cubix-retail.jpg — render of the retail atrium or storefront level.
-             Landscape 16:10, min 1200px wide. -->
-        <div class="space-ph">
-          <svg viewBox="0 0 24 24"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg>
-          <div class="space-ph-t">Retail Level Render</div>
-        </div>
-      </div>
-      <div class="space-body">
-        <div class="space-t">Retail</div>
-        <p class="space-d">Curated storefronts and food and beverage at the base of the tower, drawing footfall from NH66 and serving the working population above.</p>
-        <ul class="space-list">
-          <li>High-visibility highway frontage</li>
-          <li>Captive daily footfall from office floors</li>
-          <li>Multiple cafeterias and restaurants</li>
-          <li>Dedicated visitor parking access</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="space-card">
-      <div class="space-img">
-        <span class="space-floors">Mid &amp; Upper Levels</span>
-        <!-- PLACEHOLDER IMAGE: cubix-office.jpg — render of an open-plan office floor,
-             ideally showing the window line and city view. Landscape 16:10. -->
-        <div class="space-ph">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
-          <div class="space-ph-t">Office Floor Render</div>
-        </div>
-      </div>
-      <div class="space-body">
-        <div class="space-t">Office &amp; IT Park</div>
-        <p class="space-d">Large-format, column-efficient floor plates designed for scale — from a growing local firm to a national company opening a Mangalore operation.</p>
-        <ul class="space-list">
-          <li>Open layouts, flexible subdivision</li>
-          <li>Advanced IT infrastructure provisioning</li>
-          <li>Conference rooms and auditoriums on site</li>
-          <li>Large panoramic windows, natural light</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="space-card">
-      <div class="space-img">
-        <span class="space-floors">Upper Levels</span>
-        <!-- PLACEHOLDER IMAGE: cubix-hotel.jpg — render of the hotel lobby, a suite,
-             or the rooftop hospitality level. Landscape 16:10. -->
-        <div class="space-ph">
-          <svg viewBox="0 0 24 24"><path d="M4 20v-7a8 8 0 0116 0v7"/><path d="M2 20h20M6 20v2M18 20v2"/></svg>
-          <div class="space-ph-t">Hotel &amp; Residences Render</div>
-        </div>
-      </div>
-      <div class="space-body">
-        <div class="space-t">Hotel &amp; Serviced Residences</div>
-        <p class="space-d">Accommodation for visiting teams, clients and executives on extended assignment — in the same building as the meeting they came for.</p>
-        <ul class="space-list">
-          <li>Serviced residences for long stays</li>
-          <li>Banquet hall for corporate events</li>
-          <li>Fitness centre and wellness facilities</li>
-          <li>Panoramic city and coastline views</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- AMENITIES -->
-<section class="panel" id="sec-amenities" style="background:var(--surface)">
-  <div class="sec-tag">Amenities &amp; Facilities</div>
-  <h2 class="sec-h">Everything A Business<br><em>Actually Needs</em></h2>
-  <p class="sec-lede" style="margin-bottom:36px">Planned around how companies really operate — client meetings, team events, late shifts, visiting staff and everything in between.</p>
-
-  <div class="amen-tabs-bar">
-    <button class="amen-tab active" onclick="switchAmenTab(0,this)">Business</button>
-    <button class="amen-tab" onclick="switchAmenTab(1,this)">Hospitality</button>
-    <button class="amen-tab" onclick="switchAmenTab(2,this)">Building Infrastructure</button>
-    <button class="amen-tab" onclick="switchAmenTab(3,this)">Green Efficiency</button>
-  </div>
-
-  <div class="amen-panel active" data-panel="0">
-    <div class="amen-list">
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="11" rx="1"/><path d="M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/></svg><span>Conference Rooms</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 9h18"/></svg><span>Auditoriums</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l8-5 8 5v13"/><path d="M4 12h16"/></svg><span>Banquet Hall</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 3v18M3 9h18"/></svg><span>Advanced IT Infrastructure</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-7 9 7v11"/><path d="M9 21v-7h6v7"/></svg><span>Grand Double Height Lobby</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>On-Site Building Management</span></div>
-    </div>
-  </div>
-
-  <div class="amen-panel" data-panel="1">
-    <div class="amen-list">
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20v-7a8 8 0 0116 0v7"/><path d="M2 20h20"/></svg><span>Hotel</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="12" rx="1"/><path d="M7 9V6a2 2 0 012-2h6a2 2 0 012 2v3"/></svg><span>Serviced Residences</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg><span>Multiple Cafeterias</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h1v11M7 2v9M11 2v9M18 2v20"/></svg><span>Restaurants</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M5 22l3-9 4 3 4-3 3 9"/></svg><span>Fitness Centre</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span>Retail &amp; Convenience</span></div>
-    </div>
-  </div>
-
-  <div class="amen-panel" data-panel="2">
-    <div class="amen-list">
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="1"/><path d="M9 7h6M9 11h6"/></svg><span>Centralised AC Provisioning (VRF)</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 6h4M10 18h4"/></svg><span>High-Speed Glass Elevators</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 6h6M9 18h6"/></svg><span>Super Large Service Elevator</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M9 11V7a3 3 0 016 0v4"/></svg><span>24×7 Security &amp; Multiple Kiosks</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg><span>Large Panoramic Windows</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="1"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><span>Six Basement Parking Levels</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2"/></svg><span>Professional Building Illumination</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9h16M9 4v16"/></svg><span>Built on Aluminium Form Work</span></div>
-    </div>
-  </div>
-
-  <div class="amen-panel" data-panel="3">
-    <div class="amen-list">
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2"/></svg><span>Solar Energy</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg><span>Energy-Efficient Fixtures</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 18h6M10 21h4"/></svg><span>LED Common Area Lighting</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 4-5 6.5-5 10a5 5 0 0010 0c0-3.5-2-6-5-10z"/></svg><span>Water-Efficient Plumbing Fixtures</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4"/><path d="M3 7v10l9 4 9-4V7"/></svg><span>Waste Water Treatment &amp; Reuse</span></div>
-      <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l1 6M12 3l1 6M19 3l1 6"/><path d="M4 9h18l-2 4H6l-2-4z"/></svg><span>Rainwater Harvesting</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section class="panel" id="sec-gallery" style="background:var(--surface2)">
-  <div class="sec-tag">Visual Gallery</div>
-  <h2 class="sec-h">See It <em>Before It Rises</em></h2>
-  <p class="sec-lede">Architectural renders and design studies. Site progress imagery will be added as construction advances.</p>
-
-  <!-- PLACEHOLDER: replace each .gal-item's inner placeholder with an <img> once uploaded.
-       Filenames: cubix-gallery-1.jpg through cubix-gallery-8.jpg
-       Suggested mix: 2 exterior wide shots, 1 worm's-eye, 1 night render,
-       1 lobby, 1 office interior, 1 retail level, 1 aerial context shot. -->
-  <div class="gal-grid">
-    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Exterior<br>Wide Shot</div></div></div>
-    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Worm's Eye<br>View</div></div></div>
-    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Night<br>Render</div></div></div>
-    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Aerial<br>Context</div></div></div>
-    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Entrance<br>Lobby</div></div></div>
-    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Office<br>Interior</div></div></div>
-    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Retail<br>Level</div></div></div>
-    <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Hotel<br>Level</div></div></div>
-  </div>
-</section>
-
-<!-- LOCATION -->
-<section class="panel" id="sec-location" style="background:var(--surface)">
-  <div class="sec-tag">Location</div>
-  <h2 class="sec-h">Kadri. On <em>NH66.</em></h2>
-  <p class="sec-lede" style="margin-bottom:40px">Positioned on Mangalore's primary arterial highway, next to Planet SKS — one of the most recognised landmarks in the city.</p>
-
-  <div class="map-grid">
-    <div>
-      <div class="map-frame">
-        <!-- Map centred on Kadri, Mangalore. Replace the embed URL with an exact
-             pin once the site coordinates are finalised. -->
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5!2d74.8560!3d12.8850!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35a2b5c8f0e1d%3A0x1234567890abcdef!2sKadri%2C%20Mangaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000" allowfullscreen loading="lazy"></iframe>
-      </div>
-      <a class="map-cta" href="https://www.google.com/maps/search/Kadri+Mangalore" target="_blank">Open in Google Maps →</a>
-    </div>
-    <div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:300;margin-bottom:6px">NH66, Next to Planet SKS</div>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:24px;letter-spacing:0.08em">Kadri, Mangalore, Karnataka</div>
-
-      <div class="loc-tabs-bar">
-        <button class="loc-tab active" onclick="switchLocTab(0,this)">Connectivity</button>
-        <button class="loc-tab" onclick="switchLocTab(1,this)">Business</button>
-        <button class="loc-tab" onclick="switchLocTab(2,this)">Hospitality</button>
-        <button class="loc-tab" onclick="switchLocTab(3,this)">Civic</button>
-      </div>
-
-      <div class="loc-panel active" data-locpanel="0">
-        <div class="loc-cards">
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 8l-2 4 2 4M19 8l2 4-2 4"/></svg><span class="loc-name">NH66 — National Highway</span></div><span class="loc-dist">Direct frontage</span></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 9.5l5.5 1.5-1 2-6.5-1-3.5 3-2-.5 1.5-3-4-1 1-1.5 4 .5 3-3.5-1-2 2-.5z"/></svg><span class="loc-name">Mangalore International Airport</span></div></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="1"/><path d="M3 9l2-5h14l2 5"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><span class="loc-name">Mangalore Central Railway</span></div></div>
-        </div>
-      </div>
-
-      <div class="loc-panel" data-locpanel="2">
-        <div class="loc-cards">
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span class="loc-name">Forum Fiza Mall</span></div></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span class="loc-name">City Centre Mall</span></div></div>
-        </div>
-      </div>
-
-      <div class="loc-panel" data-locpanel="3">
-        <div class="loc-cards">
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg><span class="loc-name">Father Muller Medical College</span></div></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg><span class="loc-name">KMC Hospital</span></div></div>
-          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M9 5l3 3 3-3M5 21h14M6 21V11l6-4 6 4v10"/></svg><span class="loc-name">Kadri Manjunatha Temple</span></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="panel" id="sec-faq" style="background:var(--surface2)">
-  <div class="sec-tag">Leasing Questions</div>
-  <h2 class="sec-h">Before You <em>Enquire</em></h2>
-
-  <div class="faq-list">
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Is any part of Cubix available to buy?</button>
-      <div class="faq-a"><p>No. Cubix is a lease-only asset across all three uses — retail, office and hospitality. Holding the building in single ownership lets us maintain a consistent tenant mix, service standard and building management, which protects the value of the address for everyone in it.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">What size spaces are available?</button>
-      <div class="faq-a"><p>Floor plates can be taken whole or subdivided depending on your requirement, from smaller suites through to full floors. Share your approximate headcount and preferred use in the enquiry form and we will come back with the configurations that fit.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">What are the rental rates?</button>
-      <div class="faq-a"><p>Rates vary by floor, use and lease term, and are shared directly with qualified occupiers rather than published. Register your interest and our commercial leasing team will discuss terms with you.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">When can we move in?</button>
-      <div class="faq-a"><p>The scheduled completion date is 31 December 2028. Fit-out access for committed occupiers is coordinated ahead of that, with the exact window depending on your floor and the state of works at that stage.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Why register interest this early?</button>
-      <div class="faq-a"><p>Two reasons that matter commercially. First, floor and orientation are allocated in the order commitments are received — the higher floors and better aspects go first. Second, early occupiers have the opportunity to influence fit-out and layout while the design still allows it, which is far cheaper than changing it later.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Can we customise our floor?</button>
-      <div class="faq-a"><p>Within structural limits, yes. Larger occupiers committing early have meaningful scope to shape layout, services and finishes. Our in-house interiors team can also deliver the fit-out, so the space is handed over ready to occupy rather than as a shell.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">How much parking is available?</button>
-      <div class="faq-a"><p>Six basement levels serve the building, with allocation to occupiers based on the space taken. Precise ratios are confirmed as part of your leasing proposal.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Westline's residential flagship is running late. Should that concern us?</button>
-      <div class="faq-a"><p>It's a fair question and we would rather you asked it now than wondered about it later. Westline Signature is behind its original schedule, with a RERA completion date of September 2027, and we publish that openly on its project page. We are happy to talk you through what caused it, what we changed as a result, and how that experience is being applied to Cubix's programme. A leasing decision of this size should be made on evidence, not assurances.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ENQUIRY -->
-<section class="panel enq-sec" id="sec-enquiry">
-  <div class="enq-wrap">
-    <div>
-      <div class="sec-tag">Leasing</div>
-      <h2 class="sec-h">Register Your<br><em>Interest</em></h2>
-      <p class="enq-intro">Tell us what your business needs and our commercial leasing team will come back with the floor options, indicative terms and a walkthrough of the plans. Early registrations receive first choice of floor and orientation.</p>
+  <!-- OVERVIEW -->
+  <section class="panel" id="sec-overview" style="background:var(--surface2)">
+    <div class="ov-grid">
       <div>
-        <div class="fc-item">
-          <svg class="fc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 010 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
-          <div><div class="fc-l">Commercial Leasing</div><div class="fc-v"><a href="tel:+919900033888">+91 99000 33888</a></div></div>
+        <div class="sec-tag">About The Project</div>
+        <h2 class="sec-h">A Business Address<br>That <em>Means Something</em></h2>
+        <div class="highlight-box"><p>"The proposed tallest commercial tower in South India — and the first address in Mangalore built to match the ambition of the companies inside it."</p></div>
+
+        <p class="body-text">Mangalore's economy has outgrown its commercial real estate. The city has the talent, the connectivity and the appetite — but businesses looking for genuine Grade-A space have had to compromise on floor plates, power reliability, parking or simply prestige.</p>
+        <p class="body-text">Cubix exists to end that compromise. Fifty-three floors on NH66 at Kadri, combining curated retail at the base, large-format office floors through the tower, and a hotel with serviced residences above — so that a company can host a client, run an operation and put up a visiting team without anyone leaving the building.</p>
+        <p class="body-text">For an occupier, that means an address that does part of the selling for you. For an investor, it means a mixed-use asset in a market with very little comparable supply.</p>
+
+        <div class="spec-strip">
+          <div class="spec-strip-card">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+            <div class="ss-label">Floor Plates</div>
+            <div class="ss-title">Large, Column-Efficient Spans</div>
+            <div class="ss-desc">Open layouts that adapt as your headcount changes — not fixed cabins you have to work around</div>
+          </div>
+          <div class="spec-strip-card">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+            <div class="ss-label">Infrastructure</div>
+            <div class="ss-title">Centralised VRF &amp; Power Backup</div>
+            <div class="ss-desc">Building-wide air conditioning and backup provisioning, so your operation doesn't stop</div>
+          </div>
+          <div class="spec-strip-card">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 6h4M10 18h4"/></svg>
+            <div class="ss-label">Vertical Transport</div>
+            <div class="ss-title">High-Speed Passenger &amp; Service Lifts</div>
+            <div class="ss-desc">Dedicated service cores so goods movement never competes with people movement</div>
+          </div>
         </div>
-        <div class="fc-item">
-          <svg class="fc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <div><div class="fc-l">Site</div><div class="fc-v">NH66, Next to Planet SKS<br>Kadri, Mangalore</div></div>
+      </div>
+
+      <div>
+        <div class="specs-card">
+          <div class="specs-head">Project Specifications</div>
+          <div class="spec-row"><span class="spec-k">Type</span><span class="spec-v">IT Park, Retail &amp; Hotel</span></div>
+          <div class="spec-row"><span class="spec-k">Configuration</span><span class="spec-v">53 Floors (6B+G+46)</span></div>
+          <div class="spec-row"><span class="spec-k">Location</span><span class="spec-v">NH66, Next to Planet SKS, Kadri, Mangalore</span></div>
+          <div class="spec-row"><span class="spec-k">Offering</span><span class="spec-v">Lease Only</span></div>
+          <div class="spec-row"><span class="spec-k">Space Types</span><span class="spec-v">Retail · Office · Hotel &amp; Serviced Residences</span></div>
+          <div class="spec-row"><span class="spec-k">Parking</span><span class="spec-v">6 Basement Levels</span></div>
+          <div class="spec-row"><span class="spec-k">Air Conditioning</span><span class="spec-v">Centralised VRF Provisioning</span></div>
+          <div class="spec-row"><span class="spec-k">Security</span><span class="spec-v">24×7 with On-Site Management</span></div>
+          <div class="spec-row"><span class="spec-k">Completion</span><span class="spec-v">31 December 2028</span></div>
+          <div class="spec-row"><span class="spec-k">RERA</span><span class="spec-v">Not applicable — lease only</span></div>
         </div>
-        <div class="fc-item">
-          <svg class="fc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
-          <div><div class="fc-l">Email</div><div class="fc-v">properties@westlinebuilders.com</div></div>
+
+        <div class="lease-card">
+          <div class="lease-label">Availability</div>
+          <div class="lease-val">Lease Only</div>
+          <p class="lease-note">Cubix is offered on lease, not for sale. Floor plates, rental terms and fit-out options are shared with qualified occupiers on enquiry. Early registrations receive first choice of floor and orientation.</p>
+          <button class="btn-gold-full" onclick="document.getElementById('sec-enquiry').scrollIntoView({behavior:'smooth'})">Request Leasing Details →</button>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="panel why-sec">
+    <div class="sec-tag">The Commercial Case</div>
+    <h2 class="sec-h">Why Businesses Will<br><em>Choose This Building</em></h2>
+    <p class="sec-lede">An office is a recruitment tool, a client impression and an operational asset all at once. Cubix was planned around all three.</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 8l-2 4 2 4M19 8l2 4-2 4"/></svg>
+        <div class="why-t">On The Highway, Not Behind It</div>
+        <div class="why-d">Direct NH66 frontage at Kadri. Your staff commute is simpler, your clients find you first time, and your signage is seen by the volume of traffic that passes daily.</div>
+      </div>
+      <div class="why-card">
+        <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h18"/></svg>
+        <div class="why-t">Space That Grows With You</div>
+        <div class="why-d">Large, efficient floor plates that can be taken whole or subdivided. Expand within the same building instead of relocating every time you hire.</div>
+      </div>
+      <div class="why-card">
+        <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-7 9 7v11"/><path d="M9 21v-7h6v7"/></svg>
+        <div class="why-t">Everything Under One Roof</div>
+        <div class="why-d">Cafés, restaurants, conference rooms, a banquet hall, a fitness centre and serviced residences. Host a board meeting and accommodate the attendees without leaving the building.</div>
+      </div>
+      <div class="why-card">
+        <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div class="why-t">Secure And Professionally Run</div>
+        <div class="why-d">Round-the-clock security with on-site building management. Multiple security kiosks, controlled access and a team accountable for the building's day-to-day operation.</div>
+      </div>
+      <div class="why-card">
+        <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <div class="why-t">Built To Retain Talent</div>
+        <div class="why-d">Good people compare offices. Natural light, quality air conditioning, proper amenities and a landmark address make a measurable difference to who accepts your offer — and who stays.</div>
+      </div>
+      <div class="why-card">
+        <svg class="why-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+        <div class="why-t">Scarce Supply, Strong Position</div>
+        <div class="why-d">Mangalore has very little genuine Grade-A commercial stock. Taking space in the city's landmark tower positions your business ahead of a supply gap, not behind it.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPACES -->
+  <section class="panel space-sec" id="sec-spaces">
+    <div class="sec-tag">Three Worlds, One Tower</div>
+    <h2 class="sec-h">Retail. Office.<br><em>Hospitality.</em></h2>
+    <p class="sec-lede">Cubix is zoned vertically so that each use supports the others — footfall at the base, enterprise through the middle, hospitality above.</p>
+
+    <div class="space-grid">
+      <div class="space-card">
+        <div class="space-img">
+          <span class="space-floors">Lower Levels</span>
+          <!-- PLACEHOLDER IMAGE: cubix-retail.jpg — render of the retail atrium or storefront level.
+               Landscape 16:10, min 1200px wide. -->
+          <div class="space-ph">
+            <svg viewBox="0 0 24 24"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg>
+            <div class="space-ph-t">Retail Level Render</div>
+          </div>
+        </div>
+        <div class="space-body">
+          <div class="space-t">Retail</div>
+          <p class="space-d">Curated storefronts and food and beverage at the base of the tower, drawing footfall from NH66 and serving the working population above.</p>
+          <ul class="space-list">
+            <li>High-visibility highway frontage</li>
+            <li>Captive daily footfall from office floors</li>
+            <li>Multiple cafeterias and restaurants</li>
+            <li>Dedicated visitor parking access</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="space-card">
+        <div class="space-img">
+          <span class="space-floors">Mid &amp; Upper Levels</span>
+          <!-- PLACEHOLDER IMAGE: cubix-office.jpg — render of an open-plan office floor,
+               ideally showing the window line and city view. Landscape 16:10. -->
+          <div class="space-ph">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+            <div class="space-ph-t">Office Floor Render</div>
+          </div>
+        </div>
+        <div class="space-body">
+          <div class="space-t">Office &amp; IT Park</div>
+          <p class="space-d">Large-format, column-efficient floor plates designed for scale — from a growing local firm to a national company opening a Mangalore operation.</p>
+          <ul class="space-list">
+            <li>Open layouts, flexible subdivision</li>
+            <li>Advanced IT infrastructure provisioning</li>
+            <li>Conference rooms and auditoriums on site</li>
+            <li>Large panoramic windows, natural light</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="space-card">
+        <div class="space-img">
+          <span class="space-floors">Upper Levels</span>
+          <!-- PLACEHOLDER IMAGE: cubix-hotel.jpg — render of the hotel lobby, a suite,
+               or the rooftop hospitality level. Landscape 16:10. -->
+          <div class="space-ph">
+            <svg viewBox="0 0 24 24"><path d="M4 20v-7a8 8 0 0116 0v7"/><path d="M2 20h20M6 20v2M18 20v2"/></svg>
+            <div class="space-ph-t">Hotel &amp; Residences Render</div>
+          </div>
+        </div>
+        <div class="space-body">
+          <div class="space-t">Hotel &amp; Serviced Residences</div>
+          <p class="space-d">Accommodation for visiting teams, clients and executives on extended assignment — in the same building as the meeting they came for.</p>
+          <ul class="space-list">
+            <li>Serviced residences for long stays</li>
+            <li>Banquet hall for corporate events</li>
+            <li>Fitness centre and wellness facilities</li>
+            <li>Panoramic city and coastline views</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMENITIES -->
+  <section class="panel" id="sec-amenities" style="background:var(--surface)">
+    <div class="sec-tag">Amenities &amp; Facilities</div>
+    <h2 class="sec-h">Everything A Business<br><em>Actually Needs</em></h2>
+    <p class="sec-lede" style="margin-bottom:36px">Planned around how companies really operate — client meetings, team events, late shifts, visiting staff and everything in between.</p>
+
+    <div class="amen-tabs-bar">
+      <button class="amen-tab active" onclick="switchAmenTab(0,this)">Business</button>
+      <button class="amen-tab" onclick="switchAmenTab(1,this)">Hospitality</button>
+      <button class="amen-tab" onclick="switchAmenTab(2,this)">Building Infrastructure</button>
+      <button class="amen-tab" onclick="switchAmenTab(3,this)">Green Efficiency</button>
+    </div>
+
+    <div class="amen-panel active" data-panel="0">
+      <div class="amen-list">
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="11" rx="1"/><path d="M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/></svg><span>Conference Rooms</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 9h18"/></svg><span>Auditoriums</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l8-5 8 5v13"/><path d="M4 12h16"/></svg><span>Banquet Hall</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 3v18M3 9h18"/></svg><span>Advanced IT Infrastructure</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-7 9 7v11"/><path d="M9 21v-7h6v7"/></svg><span>Grand Double Height Lobby</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>On-Site Building Management</span></div>
       </div>
     </div>
 
-    <div class="enq-form">
-      <div class="form-title">Leasing Enquiry</div>
-      <div class="form-note">Our leasing team responds within two working days.</div>
-      <div class="form-row">
-        <div class="fg"><label class="fl">Contact Name *</label><input class="fi" type="text" placeholder="Your name"></div>
-        <div class="fg"><label class="fl">Company Name *</label><input class="fi" type="text" placeholder="Organisation"></div>
+    <div class="amen-panel" data-panel="1">
+      <div class="amen-list">
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20v-7a8 8 0 0116 0v7"/><path d="M2 20h20"/></svg><span>Hotel</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="12" rx="1"/><path d="M7 9V6a2 2 0 012-2h6a2 2 0 012 2v3"/></svg><span>Serviced Residences</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg><span>Multiple Cafeterias</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h1v11M7 2v9M11 2v9M18 2v20"/></svg><span>Restaurants</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M5 22l3-9 4 3 4-3 3 9"/></svg><span>Fitness Centre</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span>Retail &amp; Convenience</span></div>
       </div>
-      <div class="form-row">
-        <div class="fg"><label class="fl">Mobile Number *</label><input class="fi" type="tel" placeholder="+91 XXXXX XXXXX"></div>
-        <div class="fg"><label class="fl">Email Address *</label><input class="fi" type="email" placeholder="your@company.com"></div>
-      </div>
-      <div class="fg"><label class="fl">Space Type Required</label>
-        <select class="fsel">
-          <option value="">Select</option>
-          <option>Office / IT Park</option>
-          <option>Retail</option>
-          <option>Hotel / Serviced Residences</option>
-          <option>Multiple / Not sure yet</option>
-        </select>
-      </div>
-      <div class="form-row">
-        <div class="fg"><label class="fl">Approx. Area Needed</label><input class="fi" type="text" placeholder="e.g. 5,000 sq ft"></div>
-        <div class="fg"><label class="fl">Team Size</label><input class="fi" type="text" placeholder="e.g. 60 people"></div>
-      </div>
-      <div class="fg"><label class="fl">When Do You Need It?</label>
-        <select class="fsel">
-          <option value="">Select</option>
-          <option>As soon as available</option>
-          <option>2027</option>
-          <option>2028 — on completion</option>
-          <option>2029 or later</option>
-          <option>Exploring options</option>
-        </select>
-      </div>
-      <div class="fg"><label class="fl">Requirements or Questions</label><textarea class="fta" placeholder="Current location, reason for moving, must-have requirements, fit-out expectations..."></textarea></div>
-      <button class="fsub" onclick="submitForm(event)">Submit Leasing Enquiry</button>
     </div>
+
+    <div class="amen-panel" data-panel="2">
+      <div class="amen-list">
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="1"/><path d="M9 7h6M9 11h6"/></svg><span>Centralised AC Provisioning (VRF)</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 6h4M10 18h4"/></svg><span>High-Speed Glass Elevators</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 6h6M9 18h6"/></svg><span>Super Large Service Elevator</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M9 11V7a3 3 0 016 0v4"/></svg><span>24×7 Security &amp; Multiple Kiosks</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg><span>Large Panoramic Windows</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="1"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><span>Six Basement Parking Levels</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2"/></svg><span>Professional Building Illumination</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9h16M9 4v16"/></svg><span>Built on Aluminium Form Work</span></div>
+      </div>
+    </div>
+
+    <div class="amen-panel" data-panel="3">
+      <div class="amen-list">
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2"/></svg><span>Solar Energy</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg><span>Energy-Efficient Fixtures</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 18h6M10 21h4"/></svg><span>LED Common Area Lighting</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 4-5 6.5-5 10a5 5 0 0010 0c0-3.5-2-6-5-10z"/></svg><span>Water-Efficient Plumbing Fixtures</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4"/><path d="M3 7v10l9 4 9-4V7"/></svg><span>Waste Water Treatment &amp; Reuse</span></div>
+        <div class="amen-row"><svg class="amen-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l1 6M12 3l1 6M19 3l1 6"/><path d="M4 9h18l-2 4H6l-2-4z"/></svg><span>Rainwater Harvesting</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="panel" id="sec-gallery" style="background:var(--surface2)">
+    <div class="sec-tag">Visual Gallery</div>
+    <h2 class="sec-h">See It <em>Before It Rises</em></h2>
+    <p class="sec-lede">Architectural renders and design studies. Site progress imagery will be added as construction advances.</p>
+
+    <!-- PLACEHOLDER: replace each .gal-item's inner placeholder with an <img> once uploaded.
+         Filenames: cubix-gallery-1.jpg through cubix-gallery-8.jpg
+         Suggested mix: 2 exterior wide shots, 1 worm's-eye, 1 night render,
+         1 lobby, 1 office interior, 1 retail level, 1 aerial context shot. -->
+    <div class="gal-grid">
+      <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Exterior<br>Wide Shot</div></div></div>
+      <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Worm's Eye<br>View</div></div></div>
+      <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Night<br>Render</div></div></div>
+      <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Aerial<br>Context</div></div></div>
+      <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Entrance<br>Lobby</div></div></div>
+      <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Office<br>Interior</div></div></div>
+      <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Retail<br>Level</div></div></div>
+      <div class="gal-item"><div class="gal-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div class="gal-ph-t">Hotel<br>Level</div></div></div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="panel" id="sec-location" style="background:var(--surface)">
+    <div class="sec-tag">Location</div>
+    <h2 class="sec-h">Kadri. On <em>NH66.</em></h2>
+    <p class="sec-lede" style="margin-bottom:40px">Positioned on Mangalore's primary arterial highway, next to Planet SKS — one of the most recognised landmarks in the city.</p>
+
+    <div class="map-grid">
+      <div>
+        <div class="map-frame">
+          <!-- Map centred on Kadri, Mangalore. Replace the embed URL with an exact
+               pin once the site coordinates are finalised. -->
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5!2d74.8560!3d12.8850!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35a2b5c8f0e1d%3A0x1234567890abcdef!2sKadri%2C%20Mangaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <a class="map-cta" href="https://www.google.com/maps/search/Kadri+Mangalore" target="_blank">Open in Google Maps →</a>
+      </div>
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:300;margin-bottom:6px">NH66, Next to Planet SKS</div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:24px;letter-spacing:0.08em">Kadri, Mangalore, Karnataka</div>
+
+        <div class="loc-tabs-bar">
+          <button class="loc-tab active" onclick="switchLocTab(0,this)">Connectivity</button>
+          <button class="loc-tab" onclick="switchLocTab(1,this)">Business</button>
+          <button class="loc-tab" onclick="switchLocTab(2,this)">Hospitality</button>
+          <button class="loc-tab" onclick="switchLocTab(3,this)">Civic</button>
+        </div>
+
+        <div class="loc-panel active" data-locpanel="0">
+          <div class="loc-cards">
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 8l-2 4 2 4M19 8l2 4-2 4"/></svg><span class="loc-name">NH66 — National Highway</span></div><span class="loc-dist">Direct frontage</span></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 9.5l5.5 1.5-1 2-6.5-1-3.5 3-2-.5 1.5-3-4-1 1-1.5 4 .5 3-3.5-1-2 2-.5z"/></svg><span class="loc-name">Mangalore International Airport</span></div></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="1"/><path d="M3 9l2-5h14l2 5"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><span class="loc-name">Mangalore Central Railway</span></div></div>
+          </div>
+        </div>
+
+        <div class="loc-panel" data-locpanel="2">
+          <div class="loc-cards">
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span class="loc-name">Forum Fiza Mall</span></div></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span class="loc-name">City Centre Mall</span></div></div>
+          </div>
+        </div>
+
+        <div class="loc-panel" data-locpanel="3">
+          <div class="loc-cards">
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg><span class="loc-name">Father Muller Medical College</span></div></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg><span class="loc-name">KMC Hospital</span></div></div>
+            <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M9 5l3 3 3-3M5 21h14M6 21V11l6-4 6 4v10"/></svg><span class="loc-name">Kadri Manjunatha Temple</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="panel" id="sec-faq" style="background:var(--surface2)">
+    <div class="sec-tag">Leasing Questions</div>
+    <h2 class="sec-h">Before You <em>Enquire</em></h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is any part of Cubix available to buy?</button>
+        <div class="faq-a"><p>No. Cubix is a lease-only asset across all three uses — retail, office and hospitality. Holding the building in single ownership lets us maintain a consistent tenant mix, service standard and building management, which protects the value of the address for everyone in it.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What size spaces are available?</button>
+        <div class="faq-a"><p>Floor plates can be taken whole or subdivided depending on your requirement, from smaller suites through to full floors. Share your approximate headcount and preferred use in the enquiry form and we will come back with the configurations that fit.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What are the rental rates?</button>
+        <div class="faq-a"><p>Rates vary by floor, use and lease term, and are shared directly with qualified occupiers rather than published. Register your interest and our commercial leasing team will discuss terms with you.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">When can we move in?</button>
+        <div class="faq-a"><p>The scheduled completion date is 31 December 2028. Fit-out access for committed occupiers is coordinated ahead of that, with the exact window depending on your floor and the state of works at that stage.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Why register interest this early?</button>
+        <div class="faq-a"><p>Two reasons that matter commercially. First, floor and orientation are allocated in the order commitments are received — the higher floors and better aspects go first. Second, early occupiers have the opportunity to influence fit-out and layout while the design still allows it, which is far cheaper than changing it later.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Can we customise our floor?</button>
+        <div class="faq-a"><p>Within structural limits, yes. Larger occupiers committing early have meaningful scope to shape layout, services and finishes. Our in-house interiors team can also deliver the fit-out, so the space is handed over ready to occupy rather than as a shell.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How much parking is available?</button>
+        <div class="faq-a"><p>Six basement levels serve the building, with allocation to occupiers based on the space taken. Precise ratios are confirmed as part of your leasing proposal.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Westline's residential flagship is running late. Should that concern us?</button>
+        <div class="faq-a"><p>It's a fair question and we would rather you asked it now than wondered about it later. Westline Signature is behind its original schedule, with a RERA completion date of September 2027, and we publish that openly on its project page. We are happy to talk you through what caused it, what we changed as a result, and how that experience is being applied to Cubix's programme. A leasing decision of this size should be made on evidence, not assurances.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENQUIRY -->
+  <section class="panel enq-sec" id="sec-enquiry">
+    <div class="enq-wrap">
+      <div>
+        <div class="sec-tag">Leasing</div>
+        <h2 class="sec-h">Register Your<br><em>Interest</em></h2>
+        <p class="enq-intro">Tell us what your business needs and our commercial leasing team will come back with the floor options, indicative terms and a walkthrough of the plans. Early registrations receive first choice of floor and orientation.</p>
+        <div>
+          <div class="fc-item">
+            <svg class="fc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 010 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+            <div><div class="fc-l">Commercial Leasing</div><div class="fc-v"><a href="tel:+919900033888">+91 99000 33888</a></div></div>
+          </div>
+          <div class="fc-item">
+            <svg class="fc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div><div class="fc-l">Site</div><div class="fc-v">NH66, Next to Planet SKS<br>Kadri, Mangalore</div></div>
+          </div>
+          <div class="fc-item">
+            <svg class="fc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+            <div><div class="fc-l">Email</div><div class="fc-v">properties@westlinebuilders.com</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="enq-form">
+        <div class="form-title">Leasing Enquiry</div>
+        <div class="form-note">Our leasing team responds within two working days.</div>
+        <div class="form-row">
+          <div class="fg"><label class="fl">Contact Name *</label><input class="fi" type="text" placeholder="Your name"></div>
+          <div class="fg"><label class="fl">Company Name *</label><input class="fi" type="text" placeholder="Organisation"></div>
+        </div>
+        <div class="form-row">
+          <div class="fg"><label class="fl">Mobile Number *</label><input class="fi" type="tel" placeholder="+91 XXXXX XXXXX"></div>
+          <div class="fg"><label class="fl">Email Address *</label><input class="fi" type="email" placeholder="your@company.com"></div>
+        </div>
+        <div class="fg"><label class="fl">Space Type Required</label>
+          <select class="fsel">
+            <option value="">Select</option>
+            <option>Office / IT Park</option>
+            <option>Retail</option>
+            <option>Hotel / Serviced Residences</option>
+            <option>Multiple / Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="fg"><label class="fl">Approx. Area Needed</label><input class="fi" type="text" placeholder="e.g. 5,000 sq ft"></div>
+          <div class="fg"><label class="fl">Team Size</label><input class="fi" type="text" placeholder="e.g. 60 people"></div>
+        </div>
+        <div class="fg"><label class="fl">When Do You Need It?</label>
+          <select class="fsel">
+            <option value="">Select</option>
+            <option>As soon as available</option>
+            <option>2027</option>
+            <option>2028 — on completion</option>
+            <option>2029 or later</option>
+            <option>Exploring options</option>
+          </select>
+        </div>
+        <div class="fg"><label class="fl">Requirements or Questions</label><textarea class="fta" placeholder="Current location, reason for moving, must-have requirements, fit-out expectations..."></textarea></div>
+        <button class="fsub" onclick="submitForm(event)">Submit Leasing Enquiry</button>
+      </div>
+    </div>
+  </section>
+
   </div>
-</section>
+  <aside class="wl-rail"><div id="callback-rail"></div></aside>
+</div>
 
 <div id="footer-placeholder"></div>
 

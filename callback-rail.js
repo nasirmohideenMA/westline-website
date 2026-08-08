@@ -75,13 +75,33 @@
 
   /* ── styles ───────────────────────────────────────────────────────────── */
   var css = [
-    // Reserve the gutter so page content never slides under the fixed rail.
-    "@media(min-width:1280px){body.cb-on .panel,body.cb-on .tab-panel,body.cb-on .sec{padding-right:352px}}",
-    // The video gallery zeroes its section padding and sets it on the children
-    // instead, inline — which is why the rail was sitting on top of it. Inline
-    // styles need !important to be reached at all.
-    "@media(min-width:1280px){body.cb-on #sec-videos > div{padding-right:352px !important}",
-    "  body.cb-on .vg-wide-grid{grid-template-columns:repeat(2,1fr)}}",
+    // Two real columns. The card is sticky inside its own column, so it travels
+    // with the reader and stops where the column stops — at the footer.
+    //
+    // This replaced a fixed rail that flickered at the bottom of the page. The
+    // cause was structural: hiding it removed the reserved gutter, the content
+    // reflowed wider, the page got shorter, the footer moved back out of view
+    // and it re-showed — a loop. Laying it out in flow removes the loop rather
+    // than damping it, and deletes the scroll handler, the body class and the
+    // gutter overrides along with it.
+    "@media(min-width:1280px){",
+    "  .wl-layout{display:grid;grid-template-columns:minmax(0,1fr) 340px}",
+    // The content sections alternate their own backgrounds, so those bands now
+    // stop at the column edge. A hairline makes that read as a deliberate
+    // column rather than a seam where a background ran out.
+    "  .wl-rail{padding:0 28px 0 26px;background:var(--surface2);border-left:1px solid var(--border2)}",
+    "  .wl-rail .cb-card{position:sticky;top:var(--cb-top, 130px);margin-top:34px}",
+    "  .vg-wide-grid{grid-template-columns:repeat(2,1fr)}",
+    "}",
+    // Stacked below the breakpoint. The rail is last in the markup so the
+    // desktop grid can place it on the right, but on a phone that would bury
+    // the form under the whole page — order:-1 lifts it back to just under the
+    // hero, where it was before this became a column.
+    "@media(max-width:1279px){",
+    "  .wl-layout{display:flex;flex-direction:column}",
+    "  .wl-rail{order:-1;padding:0 20px;margin:30px 0 6px;border-left:none;background:transparent}",
+    "  .wl-rail .cb-card{max-width:440px;margin:0 auto}",
+    "}",
     "#callback-rail{width:100%}",
     // Sized to fit a laptop screen without the card scrolling inside itself:
     // at 774px it overflowed a 742px slot on a 900px-tall viewport, and the
@@ -106,23 +126,15 @@
     ".cb-consent a{color:var(--gold);font-weight:500}",
     ".cb-btn{width:100%;background:var(--gold);color:#fff;border:none;padding:11px 0;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;cursor:pointer;margin-top:6px;transition:background .3s;border-radius:4px}",
     ".cb-btn:hover{background:var(--ink)}",
-    // Desktop: fixed to the right, revealed once the hero is behind us.
-    "@media(min-width:1280px){",
-    // --cb-top is measured at runtime from whatever is pinned above the page —
-    // project pages have a sticky tab bar under the nav, and using nav height
-    // alone put the top of the card behind it.
-    "  #callback-rail{position:fixed;top:var(--cb-top, 110px);right:28px;width:300px;max-height:calc(100vh - var(--cb-top, 110px) - 24px);overflow-y:auto;z-index:60;",
-    "    opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .45s ease,transform .45s ease,visibility .45s;scrollbar-width:thin}",
-    "  #callback-rail.cb-visible{opacity:1;visibility:visible;transform:none}",
-    "}",
-    // Below that, it simply sits in the page under the hero.
-    "@media(max-width:1279px){#callback-rail{padding:0 20px;margin:36px 0 8px}.cb-card{max-width:440px;margin:0 auto}}",
-    "@media(prefers-reduced-motion:reduce){#callback-rail{transition:none}}",
   ].join("\n");
 
   var style = document.createElement("style");
   style.textContent = css;
-  document.head.appendChild(style);
+  // Appended to <body>, not <head>. These pages carry <style> blocks partway
+  // down the body, and a head-injected sheet loses to them at equal
+  // specificity — which is why the video grid stayed four across. This script
+  // tag sits below those blocks, so appending here lands after them.
+  (document.body || document.head).appendChild(style);
 
   /* ── markup ───────────────────────────────────────────────────────────── */
   var buying = LEASE_ONLY[project] ? "I'm Looking to Lease" : "I'm Looking to Purchase";
@@ -182,19 +194,21 @@
     else console.error("[callback-rail] westline-forms.js has not loaded — submission would be lost.");
   });
 
-  /* ── reveal once the hero is behind us (desktop only) ─────────────────── */
-  var desktop = window.matchMedia("(min-width:1280px)");
-  var hero = document.querySelector(".proj-hero");
+  /* ── where the sticky card can start ──────────────────────────────────────
+     The only measurement still needed. Everything above the content that is
+     pinned — the nav, and the sticky section tab bar on project pages — has to
+     be cleared, or the top of the card sits behind it. Measured rather than
+     hardcoded: the tab bar is 56px on Signature, differs elsewhere, and each
+     page sets its own sticky offset in CSS.
+
+     There is deliberately no scroll listener any more. The card's position is
+     the browser's job now, which is what stopped the flickering. */
   var tabsBar = document.querySelector(".tabs-bar");
 
-  // Whatever is sticky above the content decides where the card can start.
-  // Measured rather than hardcoded: the tab bar is 56px on Signature but the
-  // other pages differ, and its own sticky offset is set in each page's CSS.
   function measureTop() {
-    var top = 18;
+    var top;
     if (tabsBar) {
-      var stickyTop = parseFloat(getComputedStyle(tabsBar).top) || 0;
-      top = stickyTop + tabsBar.getBoundingClientRect().height + 18;
+      top = (parseFloat(getComputedStyle(tabsBar).top) || 0) + tabsBar.getBoundingClientRect().height + 18;
     } else {
       var navEl = document.getElementById("nav");
       top = (navEl ? navEl.getBoundingClientRect().height : 68) + 18;
@@ -202,43 +216,8 @@
     document.documentElement.style.setProperty("--cb-top", Math.round(top) + "px");
   }
 
-  function sync() {
-    if (!desktop.matches) {
-      document.body.classList.remove("cb-on");
-      mount.classList.remove("cb-visible");
-      return;
-    }
-    var past = hero ? hero.getBoundingClientRect().bottom <= 90 : window.scrollY > 400;
-
-    // Let go before the footer. A fixed rail that runs to the bottom of the
-    // document ends up floating over the footer and the last content section,
-    // which is what it was doing over the video gallery. The footer arrives via
-    // fetch into #footer-placeholder, so it is looked up per call rather than
-    // cached at startup.
-    var tail = document.querySelector("footer") || document.getElementById("footer-placeholder");
-    var reachedEnd = tail ? tail.getBoundingClientRect().top <= window.innerHeight : false;
-
-    var show = past && !reachedEnd;
-    mount.classList.toggle("cb-visible", show);
-    document.body.classList.toggle("cb-on", show);
-  }
-
-  // Throttled on a timestamp rather than requestAnimationFrame. sync() only
-  // reads one bounding box and toggles two classes, so it does not need to be
-  // frame-aligned, and rAF does not fire at all while a tab is hidden — which
-  // would leave a "waiting for the next frame" latch stuck shut.
-  var lastRun = 0;
-  function onScroll() {
-    var now = Date.now();
-    if (now - lastRun < 80) return;
-    lastRun = now;
-    sync();
-  }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", function () { measureTop(); sync(); });
-  if (desktop.addEventListener) desktop.addEventListener("change", sync);
   measureTop();
-  sync();
+  window.addEventListener("resize", measureTop);
   // The tab bar's height depends on webfonts, so re-measure once they land.
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureTop);
 })();
