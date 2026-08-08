@@ -237,6 +237,20 @@ img{max-width:100%;display:block}
 
 /* ── NAV DROPDOWNS ── */
 /* mobile menu groups */
+/* ── TWO COLUMNS + ROUNDED CORNERS (8 Aug 2026) ─────────────────────────────
+   Appended last so these win the cascade over the rules they adjust. The
+   thin spec/proof stat strips keep their own column count — the complaint
+   was about cramped content cards, and small stats read fine at 3-4. */
+:root{--radius:8px;--radius-sm:5px}
+@media(min-width:900px){
+  .why-grid,.space-grid,.gal-grid{grid-template-columns:repeat(2,1fr)}
+}
+.why-card,.space-card,.gal-item,.amen-card,.loc-card,.faq-item,.enq-form-box,
+.map-frame,.spec-box,.proof-stat,.testi-box,.roi-calc,.price-card,.case-card,
+.video-card,.cp-card,.tier-card{border-radius:var(--radius)}
+.fsub,.btn-gold-full,.map-cta,.wa-btn,.btn-primary,.tab-btn{border-radius:var(--radius-sm)}
+/* White on WhatsApp's light green measures 2:1; their darker brand green is 7.7:1. */
+.wa-btn{background:#075E54}
 </style>
 </head>
 <body>
