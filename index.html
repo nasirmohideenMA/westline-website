@@ -69,17 +69,17 @@
 <style>
 /* ── THEME SYSTEM ── */
 :root {
-  --gold:#A67C3D;--gold-l:#C9A96E;--gold-d:#D4B483;--gold-p:#F0E4CC;--gold-dim:#C9A96E;
+  --gold:#8C6520;--gold-l:#C9A96E;--gold-d:#D4B483;--gold-p:#F0E4CC;--gold-dim:#C9A96E;
   --bg:#FAF7F2;--bg2:#F5F0E8;--bg3:#EDE5D8;--surface:#FFFDF9;--ivory:#FFFDF9;--surface2:#F5F0E8;--surface3:#EDE5D8;
-  --ink:#1A1410;--ink2:#2C2218;--text:#3D3228;--text2:#7A6B58;--muted:#A89880;
-  --border:rgba(166,124,61,0.15);--border2:rgba(166,124,61,0.08);
+  --ink:#1A1410;--ink2:#2C2218;--text:#2C2018;--text2:#5A4A38;--muted:#6B5B48;
+  --border:rgba(140,101,32,0.2);--border2:rgba(140,101,32,0.1);
   --nav-bg:rgba(8,7,5,0.64);--nav-h:68px;
   --nav-shadow:0 2px 6px rgba(45,45,45,0.65),0 1px 2px rgba(0,0,0,0.55);
   --hero-bar-grad:linear-gradient(to top,rgba(6,4,2,0.97) 0%,rgba(6,4,2,0.6) 45%,transparent 100%);
   --hero-overlay:radial-gradient(ellipse 70% 80% at 62% 50%,transparent 20%,rgba(250,247,242,0.45) 55%,rgba(250,247,242,0.88) 100%),linear-gradient(to top,rgba(250,247,242,0.85) 0%,transparent 35%),linear-gradient(to right,rgba(250,247,242,0.65) 0%,transparent 30%);
   --hero-overlay-mob:radial-gradient(ellipse 90% 70% at 50% 40%,transparent 15%,rgba(250,247,242,0.5) 55%,rgba(250,247,242,0.92) 100%),linear-gradient(to top,rgba(250,247,242,0.97) 0%,rgba(250,247,242,0.4) 40%,transparent 65%);
-  --card-bg:var(--surface);--stat-bg:#1A1410;--stat-text:rgba(255,255,255,0.35);
-  --footer-bg:#2C2218;--shadow:rgba(166,124,61,0.12);
+  --card-bg:var(--surface);--stat-bg:#1A1410;--stat-text:rgba(255,255,255,0.6);
+  --footer-bg:#2C2218;--shadow:rgba(140,101,32,0.12);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -217,7 +217,7 @@ img{max-width:100%;display:block}
   .filter-scroll{flex-wrap:wrap;overflow-x:visible}
   .fbtn{flex-shrink:1}
 }
-.fbtn.active,.fbtn:active{border-color:var(--gold);color:var(--gold);background:var(--gold-p)}
+.fbtn.active,.fbtn:active{border-color:var(--gold);color:#6F5117;background:var(--gold-p)}
 
 /* ── PROJECT GRID ── */
 .proj-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -257,7 +257,7 @@ img{max-width:100%;display:block}
 /* ── ABOUT ── */
 .about-sec{background:var(--surface)}
 .about-badge-row{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap}
-.badge{background:var(--gold-p);border:1px solid var(--gold-d);padding:8px 14px;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold)}
+.badge{background:var(--gold-p);border:1px solid var(--gold-d);padding:8px 14px;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:#6F5117}
 .about-quote{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--gold);line-height:1.5;border-left:3px solid var(--gold);padding-left:16px;margin:24px 0}
 .values-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
 .val{border-top:1px solid var(--border);padding-top:14px}
@@ -276,7 +276,7 @@ img{max-width:100%;display:block}
 .pioneer-stats{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:28px}
 .p-stat{text-align:center}
 .p-stat-n{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--gold-l);line-height:1}
-.p-stat-l{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:4px}
+.p-stat-l{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:4px}
 
 /* ── PROCESS ── */
 .process-sec{background:var(--bg2)}
@@ -295,7 +295,7 @@ img{max-width:100%;display:block}
 @keyframes testiFadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .testi-q{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,5vw,34px);font-style:italic;font-weight:300;line-height:1.45;margin-bottom:20px;color:#E8E4DC}
 .testi-q em{color:var(--gold-l)}
-.testi-attr{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.35);display:flex;align-items:center;justify-content:center;gap:12px}
+.testi-attr{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:center;gap:12px}
 .testi-attr::before,.testi-attr::after{content:'';display:block;width:20px;height:1px;background:var(--gold-d)}
 .testi-dots{display:flex;justify-content:center;gap:8px;margin-top:24px}
 .testi-dot{width:24px;height:2px;background:rgba(201,169,110,0.25);border-radius:2px;cursor:pointer;transition:all 0.3s;border:none}
@@ -307,7 +307,7 @@ img{max-width:100%;display:block}
 .contact-blocks{display:flex;flex-direction:column;gap:14px;margin-bottom:20px}
 .c-label{font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;display:block}
 .c-val{font-size:14px;color:var(--text)}
-.wa-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#fff;padding:15px;font-size:13px;font-weight:500;font-family:'Jost',sans-serif;margin-bottom:10px;border-radius:2px}
+.wa-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:#075E54;color:#fff;padding:15px;font-size:13px;font-weight:500;font-family:'Jost',sans-serif;margin-bottom:10px;border-radius:2px}
 .wa-btn svg{width:18px;height:18px;fill:#fff}
 .call-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:#fff;padding:15px;font-size:13px;font-weight:600;font-family:'Jost',sans-serif}
 .enq-form{background:var(--bg2);border:1px solid var(--border);padding:24px;margin-top:28px}
@@ -387,6 +387,17 @@ img{max-width:100%;display:block}
 
 /* ── NAV DROPDOWNS ── */
 /* mobile menu groups */
+
+/* ── DROPDOWN LISTS (8 Aug 2026) ───────────────────────────────────────────
+   Targets every <select> rather than each form class, so no dropdown is left
+   on the browser default blue. The open list is drawn by the OS/browser, so
+   only some of it is reachable: the linear-gradient is what makes Chrome
+   honour a background on the highlighted row, where background-color alone is
+   ignored. Row padding lands in Firefox and is partially honoured elsewhere. */
+select{accent-color:var(--gold)}
+select option{background:var(--surface);color:var(--text);padding:9px 12px;line-height:2}
+select option:checked,select option:hover,select option:focus{
+  background:linear-gradient(var(--gold),var(--gold));color:#fff;font-weight:500}
 </style>
 </head>
 <body>

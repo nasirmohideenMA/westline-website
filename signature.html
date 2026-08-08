@@ -85,7 +85,7 @@ html{scroll-behavior:smooth;overflow-x:clip}body{background:var(--surface2);colo
 .spec-row{display:flex;justify-content:space-between;align-items:baseline;gap:30px;padding:16px 2px;border-bottom:1px solid var(--border2)}
 .spec-row:last-child{border-bottom:none}
 .spec-k{font-size:9.5px;color:var(--muted);letter-spacing:0.17em;text-transform:uppercase;font-weight:400;flex-shrink:0;line-height:1.6}
-.spec-v{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--text);text-align:right;max-width:64%;font-weight:400;word-break:normal;white-space:normal;line-height:1.45}
+.spec-v{font-family:'Jost',sans-serif;font-size:13px;color:var(--text);text-align:right;max-width:64%;font-weight:400;word-break:normal;white-space:normal;line-height:1.6}
 .price-card{background:var(--surface);border:1px solid var(--border);padding:28px}
 .price-card .price-label{font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
 .price-card .price-val{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;margin-bottom:6px}
@@ -213,7 +213,9 @@ html{scroll-behavior:smooth;overflow-x:clip}body{background:var(--surface2);colo
 .album-eyebrow,.album-cta,.album-cta span{color:var(--gold-dim)}
 .album-dots i.on{background:var(--gold-dim)}
 /* Small gold labels sitting on the light --surface3 panels were 4.2:1. */
-.specs-head,.fp-badge{color:#6F5117}
+.specs-head{color:#6F5117}
+/* Dark chip over the render — needs the LIGHT gold, not the dark one. */
+.fp-badge{color:var(--gold-dim)}
 /* White on WhatsApp's light green is 2:1; their darker brand green clears AA. */
 .fp-vis{aspect-ratio:3/4;background:var(--surface3);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .fp-bg{position:absolute;inset:0;background:repeating-linear-gradient(rgba(201,169,110,0.04) 1px,transparent 1px),repeating-linear-gradient(90deg,rgba(201,169,110,0.04) 1px,transparent 1px);background-size:18px 18px}
@@ -1089,6 +1091,17 @@ if(window.location.hash==='#sec-enquiry'){document.getElementById('sec-enquiry')
 <style>
 #fp-lightbox.open{display:flex !important}
 .fp-card{cursor:pointer}
+
+/* ── DROPDOWN LISTS (8 Aug 2026) ───────────────────────────────────────────
+   Targets every <select> rather than each form class, so no dropdown is left
+   on the browser default blue. The open list is drawn by the OS/browser, so
+   only some of it is reachable: the linear-gradient is what makes Chrome
+   honour a background on the highlighted row, where background-color alone is
+   ignored. Row padding lands in Firefox and is partially honoured elsewhere. */
+select{accent-color:var(--gold)}
+select option{background:var(--surface);color:var(--text);padding:9px 12px;line-height:2}
+select option:checked,select option:hover,select option:focus{
+  background:linear-gradient(var(--gold),var(--gold));color:#fff;font-weight:500}
 </style>
 
 <script>

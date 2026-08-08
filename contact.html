@@ -55,7 +55,7 @@ img{max-width:100%;display:block}
 
 .form-box{background:var(--ink);padding:38px}
 .form-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:#fff;margin-bottom:6px}
-.form-note{font-size:12px;color:rgba(255,255,255,0.42);margin-bottom:28px}
+.form-note{font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:28px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .fg{margin-bottom:22px}
 .fl{font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:8px}
@@ -102,6 +102,17 @@ img{max-width:100%;display:block}
 
 /* ── NAV DROPDOWNS ── */
 /* mobile menu groups */
+
+/* ── DROPDOWN LISTS (8 Aug 2026) ───────────────────────────────────────────
+   Targets every <select> rather than each form class, so no dropdown is left
+   on the browser default blue. The open list is drawn by the OS/browser, so
+   only some of it is reachable: the linear-gradient is what makes Chrome
+   honour a background on the highlighted row, where background-color alone is
+   ignored. Row padding lands in Firefox and is partially honoured elsewhere. */
+select{accent-color:var(--gold)}
+select option{background:var(--surface);color:var(--text);padding:9px 12px;line-height:2}
+select option:checked,select option:hover,select option:focus{
+  background:linear-gradient(var(--gold),var(--gold));color:#fff;font-weight:500}
 </style>
 </head>
 <body>

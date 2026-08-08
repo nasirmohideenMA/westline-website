@@ -129,7 +129,14 @@
     ".cb-input::placeholder{color:var(--muted)}",
     ".cb-input:focus,.cb-select:focus{border-bottom-color:var(--gold)}",
     ".cb-select{cursor:pointer;background-image:url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"%23A67C3D\" stroke-width=\"2\"><polyline points=\"6 9 12 15 18 9\"/></svg>');background-repeat:no-repeat;background-position:right center;background-size:13px}",
-    ".cb-select option{color:var(--text);background:var(--surface)}",
+    // The open dropdown is drawn by the browser, so only some of it is
+    // reachable from CSS. accent-color and the option background are; the
+    // linear-gradient is the trick that makes Chrome honour a background on the
+    // highlighted row, where a plain background-color is ignored.
+    ".cb-select{accent-color:var(--gold)}",
+    ".cb-select option{color:var(--text);background:var(--surface);padding:9px 12px;line-height:2}",
+    ".cb-select option:checked,.cb-select option:hover,.cb-select option:focus{",
+    "  background:linear-gradient(var(--gold),var(--gold));color:#fff;font-weight:500}",
     ".cb-phone{display:flex;align-items:center;gap:7px;border-bottom:1.5px solid var(--border)}",
     ".cb-phone:focus-within{border-bottom-color:var(--gold)}",
     ".cb-phone-pre{font-size:13px;color:var(--text2);padding:7px 0;flex-shrink:0}",

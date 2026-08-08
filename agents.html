@@ -48,7 +48,7 @@ img{max-width:100%;display:block}
 .ag-stat{padding:30px 24px;text-align:center;border-right:1px solid rgba(255,255,255,0.07)}
 .ag-stat:last-child{border-right:none}
 .ag-stat-n{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:var(--gold-dim);line-height:1}
-.ag-stat-l{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:8px}
+.ag-stat-l{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:8px}
 
 /* SECTIONS */
 .sec{padding:88px 60px}
@@ -80,14 +80,14 @@ img{max-width:100%;display:block}
 .tier-card.featured{border-color:var(--gold-dim);background:rgba(201,169,110,0.08)}
 .tier-flag{position:absolute;top:-1px;right:-1px;background:var(--gold);color:#fff;font-size:8px;letter-spacing:0.18em;text-transform:uppercase;padding:5px 12px;font-weight:600}
 .tier-name{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:400;color:var(--gold-dim);margin-bottom:5px}
-.tier-qual{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.42);margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid rgba(201,169,110,0.16);min-height:52px}
+.tier-qual{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid rgba(201,169,110,0.16);min-height:52px}
 .tier-rate{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:#fff;line-height:1;margin-bottom:3px}
 .tier-rate span{font-size:17px;color:var(--gold-dim)}
-.tier-rate-l{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:22px}
+.tier-rate-l{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:22px}
 .tier-perks{list-style:none;display:flex;flex-direction:column;gap:11px;flex:1}
 .tier-perks li{font-size:12px;color:rgba(255,255,255,0.72);line-height:1.55;display:flex;gap:9px;align-items:flex-start}
 .tier-perks li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold-dim);flex-shrink:0;margin-top:6px}
-.tier-note{font-size:10px;color:rgba(255,255,255,0.3);margin-top:26px;font-style:italic;line-height:1.6}
+.tier-note{font-size:10px;color:rgba(255,255,255,0.6);margin-top:26px;font-style:italic;line-height:1.6}
 
 /* PROCESS */
 .proc-sec{background:var(--surface2)}
@@ -159,18 +159,18 @@ img{max-width:100%;display:block}
 .fc-v{font-size:14px;color:rgba(255,255,255,0.85)}
 .reg-form{background:rgba(255,255,255,0.04);border:1px solid rgba(201,169,110,0.18);padding:38px}
 .form-title{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:300;color:#fff;margin-bottom:6px}
-.form-note{font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:30px}
+.form-note{font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:30px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .fg{margin-bottom:22px}
 .fl{font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:8px}
 .fi,.fsel,.fta{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(201,169,110,0.3);padding:11px 0;color:#fff;font-family:'Jost',sans-serif;font-size:14px;font-weight:300;outline:none;transition:border-color 0.3s;border-radius:0}
 .fi:focus,.fsel:focus,.fta:focus{border-bottom-color:var(--gold-dim)}
-.fi::placeholder,.fta::placeholder{color:rgba(255,255,255,0.3)}
+.fi::placeholder,.fta::placeholder{color:rgba(255,255,255,0.6)}
 .fsel option{background:var(--ink);color:#fff}
 .fta{resize:none;height:78px}
 .fsub{background:var(--gold);color:#fff;border:none;padding:16px 0;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;cursor:pointer;width:100%;margin-top:8px;transition:background 0.3s}
 .fsub:hover{background:var(--gold-light)}
-.form-privacy{font-size:11px;color:rgba(255,255,255,0.32);margin-top:16px;line-height:1.7}
+.form-privacy{font-size:11px;color:rgba(255,255,255,0.6);margin-top:16px;line-height:1.7}
 
 /* FOOTER */
 
@@ -206,6 +206,17 @@ img{max-width:100%;display:block}
 
 /* ── NAV DROPDOWNS ── */
 /* mobile menu groups */
+
+/* ── DROPDOWN LISTS (8 Aug 2026) ───────────────────────────────────────────
+   Targets every <select> rather than each form class, so no dropdown is left
+   on the browser default blue. The open list is drawn by the OS/browser, so
+   only some of it is reachable: the linear-gradient is what makes Chrome
+   honour a background on the highlighted row, where background-color alone is
+   ignored. Row padding lands in Firefox and is partially honoured elsewhere. */
+select{accent-color:var(--gold)}
+select option{background:var(--surface);color:var(--text);padding:9px 12px;line-height:2}
+select option:checked,select option:hover,select option:focus{
+  background:linear-gradient(var(--gold),var(--gold));color:#fff;font-weight:500}
 </style>
 </head>
 <body>

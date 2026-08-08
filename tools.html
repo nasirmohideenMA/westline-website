@@ -272,6 +272,17 @@ img{max-width:100%;display:block}
 
 /* ── NAV DROPDOWNS ── */
 /* mobile menu groups */
+
+/* ── DROPDOWN LISTS (8 Aug 2026) ───────────────────────────────────────────
+   Targets every <select> rather than each form class, so no dropdown is left
+   on the browser default blue. The open list is drawn by the OS/browser, so
+   only some of it is reachable: the linear-gradient is what makes Chrome
+   honour a background on the highlighted row, where background-color alone is
+   ignored. Row padding lands in Firefox and is partially honoured elsewhere. */
+select{accent-color:var(--gold)}
+select option{background:var(--surface);color:var(--text);padding:9px 12px;line-height:2}
+select option:checked,select option:hover,select option:focus{
+  background:linear-gradient(var(--gold),var(--gold));color:#fff;font-weight:500}
 </style>
 </head>
 <body>
