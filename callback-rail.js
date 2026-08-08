@@ -90,7 +90,10 @@
     // stop at the column edge. A hairline makes that read as a deliberate
     // column rather than a seam where a background ran out.
     "  .wl-rail{padding:0 28px 0 26px;background:var(--surface2);border-left:1px solid var(--border2)}",
-    "  .wl-rail .cb-card{position:sticky;top:var(--cb-top, 130px);margin-top:34px}",
+    // Scrolls with the page rather than pinning. It sat sticky at the top of
+    // its column, which meant it held still while everything around it moved.
+    // Flip position back to sticky here if it should follow the reader again.
+    "  .wl-rail .cb-card{position:static;margin-top:34px}",
     "  .vg-wide-grid{grid-template-columns:repeat(2,1fr)}",
     "}",
     // Stacked below the breakpoint. The rail is last in the markup so the
