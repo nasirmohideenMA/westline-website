@@ -78,13 +78,15 @@
     // Reserve the gutter so page content never slides under the fixed rail.
     "@media(min-width:1280px){body.cb-on .panel,body.cb-on .tab-panel,body.cb-on .sec{padding-right:352px}}",
     "#callback-rail{width:100%}",
-    ".cb-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:24px;box-shadow:0 12px 40px rgba(166,124,61,0.10)}",
-    ".cb-title{font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:0.06em;color:var(--gold);margin-bottom:6px;font-weight:500;text-transform:uppercase}",
-    ".cb-sub{font-size:11px;color:var(--muted);margin-bottom:18px;line-height:1.6}",
-    ".cb-row{margin-bottom:16px}",
-    ".cb-label{font-size:11px;color:var(--text);margin-bottom:7px;display:block}",
+    // Sized to fit a laptop screen without the card scrolling inside itself:
+    // at 774px it overflowed a 742px slot on a 900px-tall viewport, and the
+    // seven field rows were 399px of that on their own.
+    ".cb-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:18px 20px;box-shadow:0 12px 40px rgba(166,124,61,0.10)}",
+    ".cb-title{font-family:'Cormorant Garamond',serif;font-size:18px;letter-spacing:0.06em;color:var(--gold);margin-bottom:14px;font-weight:500;text-transform:uppercase}",
+    ".cb-row{margin-bottom:10px}",
+    ".cb-label{font-size:10.5px;color:var(--text);margin-bottom:4px;display:block;line-height:1.3}",
     ".cb-label .req{color:var(--gold)}",
-    ".cb-input,.cb-select{width:100%;background:transparent;border:none;border-bottom:1.5px solid var(--border);padding:7px 0;color:var(--text);font-family:'Jost',sans-serif;font-size:13px;outline:none;transition:border-color .3s;border-radius:0;appearance:none}",
+    ".cb-input,.cb-select{width:100%;background:transparent;border:none;border-bottom:1.5px solid var(--border);padding:6px 0;color:var(--text);font-family:'Jost',sans-serif;font-size:13px;outline:none;transition:border-color .3s;border-radius:0;appearance:none}",
     ".cb-input::placeholder{color:var(--muted)}",
     ".cb-input:focus,.cb-select:focus{border-bottom-color:var(--gold)}",
     ".cb-select{cursor:pointer;background-image:url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"%23A67C3D\" stroke-width=\"2\"><polyline points=\"6 9 12 15 18 9\"/></svg>');background-repeat:no-repeat;background-position:right center;background-size:13px}",
@@ -93,11 +95,11 @@
     ".cb-phone:focus-within{border-bottom-color:var(--gold)}",
     ".cb-phone-pre{font-size:13px;color:var(--text2);padding:7px 0;flex-shrink:0}",
     ".cb-phone .cb-input{border-bottom:none}",
-    ".cb-consent{display:flex;gap:8px;align-items:flex-start;margin-bottom:12px}",
-    ".cb-consent input{margin-top:3px;accent-color:var(--gold);flex-shrink:0;cursor:pointer}",
-    ".cb-consent label{font-size:10.5px;color:var(--text2);line-height:1.55}",
+    ".cb-consent{display:flex;gap:7px;align-items:flex-start;margin-bottom:7px}",
+    ".cb-consent input{margin-top:2px;accent-color:var(--gold);flex-shrink:0;cursor:pointer}",
+    ".cb-consent label{font-size:10px;color:var(--text2);line-height:1.45}",
     ".cb-consent a{color:var(--gold);font-weight:500}",
-    ".cb-btn{width:100%;background:var(--gold);color:#fff;border:none;padding:12px 0;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;cursor:pointer;margin-top:4px;transition:background .3s;border-radius:2px}",
+    ".cb-btn{width:100%;background:var(--gold);color:#fff;border:none;padding:11px 0;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;cursor:pointer;margin-top:6px;transition:background .3s;border-radius:5px}",
     ".cb-btn:hover{background:var(--ink)}",
     // Desktop: fixed to the right, revealed once the hero is behind us.
     "@media(min-width:1280px){",
@@ -126,7 +128,6 @@
   mount.innerHTML =
     '<div class="cb-card">' +
       '<div class="cb-title">Request a Callback</div>' +
-      '<div class="cb-sub">Tell us how to reach you and our team will call back.</div>' +
       '<div class="cb-row"><label class="cb-label">Your Name<span class="req">*</span></label>' +
         '<input type="text" class="cb-input" data-field="name" placeholder="Enter Your Name" autocomplete="name"></div>' +
       '<div class="cb-row"><label class="cb-label">Mobile<span class="req">*</span></label>' +
@@ -145,10 +146,12 @@
           '<option value="">Select</option><option>Immediately</option><option>In the Next 3 Months</option>' +
           "<option>In the Next 6 Months</option><option>In the Next 12 Months</option><option>Just Curious</option>" +
         "</select></div>" +
+      // Shortened, but the substance is unchanged: age confirmation, agreement
+      // to both documents, and explicit consent to processing — which DPDP
+      // requires be asked for, not buried.
       '<div class="cb-consent"><input type="checkbox" id="cb-terms" data-field="terms_accepted">' +
-        '<label for="cb-terms">I confirm that I am 18 years of age or older and agree to the ' +
-        '<a href="terms.html">Terms and Conditions</a> and <a href="privacy.html">Privacy Policy</a>, ' +
-        "including the collection and processing of my personal data.</label></div>" +
+        '<label for="cb-terms">I\'m 18 or older and accept the <a href="terms.html">Terms</a> and ' +
+        '<a href="privacy.html">Privacy Policy</a>, including processing of my data.</label></div>' +
       '<div class="cb-consent"><input type="checkbox" id="cb-marketing" data-field="marketing_opt_in">' +
         '<label for="cb-marketing">Inform me about upcoming projects and offers.</label></div>' +
       '<button class="cb-btn" type="button" data-orig="Request a Callback">Request a Callback</button>' +
