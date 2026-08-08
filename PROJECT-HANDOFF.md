@@ -51,6 +51,7 @@ The site uses a **shared-file pattern** to avoid duplicating nav/footer across 2
 | `footer.html` | The entire `<footer>` markup. Single source of truth. |
 | `nav-footer.css` | **All** CSS for nav + footer + mobile menu + dropdowns. Single source of truth. |
 | `westline-forms.js` | Shared form submission handler (see §5). |
+| `callback-rail.js` | The Request-a-Callback card on all ten project pages — markup, CSS and per-project logic in one file. Single source of truth. |
 
 **How it works:** every page has `<div id="nav-placeholder"></div>` and `<div id="footer-placeholder"></div>` in its body, plus a small inline script that does:
 
@@ -215,6 +216,14 @@ One inbox rather than four destinations: routing these into Channel Partners, La
 ⚠️ **`careers.html` still does not send the resume**, only its filename. The form insists on an attachment, so the success panel asks the applicant to email it to `officeadmin@westlinebuilders.com`, and the payload records `resume_attached: "No — ..."` so HR isn't left wondering. Sending the file properly needs an upload step (Cloudinary, or a Supabase Storage bucket via the intake function) — still a decision, see §8.
 
 **Known limitation — the receiver picks the wrong company.** `website-lead-intake` resolves the company by taking the oldest row in `company_groups`. Correct today (only Westline exists) but wrong the moment OriginOne has a second customer. It also hardcodes Westline project names for page→project matching. Tracked on the OriginOne side.
+
+**The callback rail (`callback-rail.js`, added 8 Aug 2026)** puts a Request-a-Callback card on all ten project pages. A page opts in with two lines — `<div id="callback-rail"></div>` after its hero, and the script tag *before* `westline-forms.js`. Everything else is in the one file, deliberately: before `nav-footer.css` existed, this site's "shared" nav had drifted into three different sets of values across pages.
+
+- **≥1280px** — fixed to the right, hidden until the hero scrolls away. `body.cb-on` adds a 352px right gutter to `.panel` / `.tab-panel` / `.sec` so content never runs underneath (300px card + 28px edge gap).
+- **<1280px** — renders inline under the hero, 440px max, not fixed.
+- Project is derived from the filename, pre-selected, and drives the unit-type list — but stays editable. Cubix says "I'm Looking to **Lease**"; the four completed projects offer **Resale Enquiry** only.
+
+⚠️ **Do not throttle its scroll handler with `requestAnimationFrame`.** It was written that way first: rAF never fires while a tab is hidden, so the "waiting for a frame" latch stayed shut and the reveal could not be exercised outside a visible window. It uses an 80ms timestamp throttle instead. Same family as the other testing traps in this doc — the agent browser pane does not composite, so **scrolling, rAF and CSS transitions all silently do nothing there.** Verify scroll-triggered behaviour by dispatching a `scroll` event after forcing the trigger condition (e.g. `hero.style.display='none'`), or use a real browser.
 
 **`careers.html` keeps its own submit handler** — it validates its own required fields and swaps the whole card for a success panel rather than changing button text. It borrows only the transport, via `window.westlineSubmitFields(fields, handlerName)` exported from `westline-forms.js`, so the endpoint URL stays in one place.
 
