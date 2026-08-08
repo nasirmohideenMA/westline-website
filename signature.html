@@ -237,14 +237,14 @@ html{scroll-behavior:smooth;overflow-x:clip}body{background:var(--surface2);colo
 .video-info h4{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;margin-bottom:4px}
 .video-info p{font-size:11px;color:var(--text2)}
 /* MAP */
-.map-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:start}
+.map-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:start}
 .map-frame{aspect-ratio:4/3;border:1px solid var(--border);overflow:hidden;position:relative}
 .map-frame iframe{width:100%;height:100%;border:none}
 .map-cta-link{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#fff;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;padding:14px 26px;font-weight:600;transition:all 0.3s;margin-top:20px}
 .map-cta-link:hover{background:var(--gold-light)}
-.loc-tabs-bar{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:20px;overflow-x:auto;scrollbar-width:none;flex-wrap:wrap}
+.loc-tabs-bar{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:20px;overflow-x:auto;scrollbar-width:none;flex-wrap:nowrap}
 .loc-tabs-bar::-webkit-scrollbar{display:none}
-.loc-tab{padding:9px 16px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:'Jost',sans-serif;white-space:nowrap;transition:all 0.3s}
+.loc-tab{padding:8px 10px;font-size:10px;letter-spacing:0.04em;flex:0 0 auto;text-transform:uppercase;color:var(--muted);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:'Jost',sans-serif;white-space:nowrap;transition:all 0.3s}
 .loc-tab:hover{color:var(--gold)}
 .loc-tab.active{color:var(--gold);border-bottom-color:var(--gold);font-weight:500}
 .loc-panel{display:none}
@@ -315,7 +315,7 @@ html{scroll-behavior:smooth;overflow-x:clip}body{background:var(--surface2);colo
   .enq-form-box{padding:24px 18px}
   footer{grid-template-columns:1fr}
   .amen-tabs-bar,.loc-tabs-bar{overflow-x:visible;flex-wrap:wrap;border-bottom:none;gap:6px}
-  .amen-tab,.loc-tab{border:1px solid var(--border);border-bottom:1px solid var(--border);border-radius:3px;padding:7px 12px}
+  .amen-tab,.loc-tab{border:1px solid var(--border);border-bottom:1px solid var(--border);border-radius:4px;padding:7px 12px;font-size:10px;letter-spacing:0.06em}
   .amen-tab.active,.loc-tab.active{border-color:var(--gold);background:var(--gold-bg)}
   .tabs-inner{flex-wrap:wrap;overflow-x:visible}
 }
@@ -876,9 +876,9 @@ html{scroll-behavior:smooth;overflow-x:clip}body{background:var(--surface2);colo
     <div class="map-grid">
       <div>
         <div class="map-frame">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.96!2d74.8460!3d12.9141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba359bf4c2a9f8d%3A0x9fa8bc5d7c4a91c8!2sNanthoor%2C%20Mangaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000" allowfullscreen loading="lazy"></iframe>
+          <iframe src="https://maps.google.com/maps?q=12.8798583,74.8638097&amp;z=17&amp;hl=en&amp;output=embed" allowfullscreen loading="lazy" title="Map showing Signature, Nanthoor, Mangalore"></iframe>
         </div>
-        <a class="map-cta-link" href="https://goo.gl/maps/L2pL8BKwokE1R6hY9" target="_blank">Open in Google Maps →</a>
+        <a class="map-cta-link" href="https://www.google.com/maps/place/Westline+Signature/@12.8798583,74.8638097,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba35a251801118b:0xd3c2d52f9bfc974!8m2!3d12.8798583!4d74.8638097" target="_blank">Open in Google Maps →</a>
       </div>
       <div>
         <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;margin-bottom:6px">NH66, Nanthoor Hilltop</div>

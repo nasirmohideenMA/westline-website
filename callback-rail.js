@@ -105,7 +105,7 @@
     "  .wl-rail #callback-rail{position:sticky;top:var(--cb-top, 130px);margin-top:34px;",
     "    max-height:calc(100vh - var(--cb-top, 130px) - 24px);overflow-y:auto;scrollbar-width:thin}",
     "  .wl-rail .cb-card{position:static;margin-top:0}",
-    "  .vg-wide-grid{grid-template-columns:repeat(2,1fr)}",
+    "  .vg-wide-grid{grid-template-columns:repeat(4,1fr);gap:12px}",
     "}",
     // Stacked below the breakpoint. The rail is last in the markup so the
     // desktop grid can place it on the right, but on a phone that would bury
