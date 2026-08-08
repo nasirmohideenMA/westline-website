@@ -9,7 +9,12 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--gold:#8C6520;--gold-light:#A67C3D;--gold-dim:#B8914F;--gold-bg:rgba(140,101,32,0.1);--ink:#1A1410;--ink2:#F5F0E8;--surface:#FFFDF9;--surface2:#FAF7F2;--surface3:#EDE5D8;--muted:#6B5B48;--text:#2C2018;--text2:#5A4A38;--border:rgba(140,101,32,0.2);--border2:rgba(140,101,32,0.1);--nav-bg:rgba(8,7,5,0.64);--nav-h:68px;--nav-shadow:0 2px 6px rgba(45,45,45,0.65),0 1px 2px rgba(0,0,0,0.55)}
-html{scroll-behavior:smooth;overflow-x:hidden}body{background:var(--surface2);color:var(--text);font-family:'Jost',sans-serif;font-weight:300}a{text-decoration:none;color:inherit}
+/* overflow-x:clip, not hidden. `hidden` turns <html> into a scroll container,
+   and a sticky element resolves against its nearest scrolling ancestor — so the
+   callback card silently refused to stick and scrolled away instead. `clip`
+   suppresses sideways scrolling exactly the same way without creating that
+   container, which leaves sticky working. */
+html{scroll-behavior:smooth;overflow-x:clip}body{background:var(--surface2);color:var(--text);font-family:'Jost',sans-serif;font-weight:300}a{text-decoration:none;color:inherit}
 .nav-wa{display:flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;padding:8px 16px;font-weight:500;border-radius:2px}
 .nav-wa svg{width:15px;height:15px;fill:#fff}
 .nav-phone{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dim);border:1px solid rgba(201,169,110,0.5);padding:8px 18px;font-family:'Jost',sans-serif;font-weight:500;transition:all 0.3s}

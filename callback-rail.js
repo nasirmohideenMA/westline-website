@@ -90,16 +90,21 @@
     // stop at the column edge. A hairline makes that read as a deliberate
     // column rather than a seam where a background ran out.
     "  .wl-rail{padding:0 28px 0 26px;background:var(--surface2);border-left:1px solid var(--border2)}",
-    // Sticky: the card travels with the reader and stops where its column
-    // stops, at the footer. --cb-top clears the nav and the sticky tab bar.
+    // Sticky goes on #callback-rail, NOT on .cb-card.
     //
-    // max-height matters. The card is ~594px; on a 700px-tall laptop screen
-    // 134 + 594 overflows the viewport and the submit button ends up below the
-    // fold with no way to reach it, because a sticky element does not scroll
-    // with the page once pinned. Capping it lets the card scroll internally on
-    // short screens and changes nothing on tall ones.
-    "  .wl-rail .cb-card{position:sticky;top:var(--cb-top, 130px);margin-top:34px;",
+    // A sticky element travels within its own parent's box. .cb-card's parent
+    // is #callback-rail, which shrink-wraps to the card — 594px for a 594px
+    // card, i.e. no room to move, so it scrolled away as if sticky were not
+    // set at all. #callback-rail's parent is the .wl-rail aside, which is
+    // stretched to the full height of the content column, so sticking there
+    // gives it the whole column to travel and it stops at the footer.
+    //
+    // max-height caps it to the viewport: the card is ~594px, and on a 700px
+    // screen 134 + 594 would push the submit button below the fold with no way
+    // to reach it, since a pinned element no longer scrolls with the page.
+    "  .wl-rail #callback-rail{position:sticky;top:var(--cb-top, 130px);margin-top:34px;",
     "    max-height:calc(100vh - var(--cb-top, 130px) - 24px);overflow-y:auto;scrollbar-width:thin}",
+    "  .wl-rail .cb-card{position:static;margin-top:0}",
     "  .vg-wide-grid{grid-template-columns:repeat(2,1fr)}",
     "}",
     // Stacked below the breakpoint. The rail is last in the markup so the
