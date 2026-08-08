@@ -101,7 +101,10 @@
     ".cb-btn:hover{background:var(--ink)}",
     // Desktop: fixed to the right, revealed once the hero is behind us.
     "@media(min-width:1280px){",
-    "  #callback-rail{position:fixed;top:calc(var(--nav-h, 72px) + 18px);right:28px;width:300px;max-height:calc(100vh - var(--nav-h, 72px) - 40px);overflow-y:auto;z-index:60;",
+    // --cb-top is measured at runtime from whatever is pinned above the page —
+    // project pages have a sticky tab bar under the nav, and using nav height
+    // alone put the top of the card behind it.
+    "  #callback-rail{position:fixed;top:var(--cb-top, 110px);right:28px;width:300px;max-height:calc(100vh - var(--cb-top, 110px) - 24px);overflow-y:auto;z-index:60;",
     "    opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .45s ease,transform .45s ease,visibility .45s;scrollbar-width:thin}",
     "  #callback-rail.cb-visible{opacity:1;visibility:visible;transform:none}",
     "}",
@@ -174,6 +177,22 @@
   /* ── reveal once the hero is behind us (desktop only) ─────────────────── */
   var desktop = window.matchMedia("(min-width:1280px)");
   var hero = document.querySelector(".proj-hero");
+  var tabsBar = document.querySelector(".tabs-bar");
+
+  // Whatever is sticky above the content decides where the card can start.
+  // Measured rather than hardcoded: the tab bar is 56px on Signature but the
+  // other pages differ, and its own sticky offset is set in each page's CSS.
+  function measureTop() {
+    var top = 18;
+    if (tabsBar) {
+      var stickyTop = parseFloat(getComputedStyle(tabsBar).top) || 0;
+      top = stickyTop + tabsBar.getBoundingClientRect().height + 18;
+    } else {
+      var navEl = document.getElementById("nav");
+      top = (navEl ? navEl.getBoundingClientRect().height : 68) + 18;
+    }
+    document.documentElement.style.setProperty("--cb-top", Math.round(top) + "px");
+  }
 
   function sync() {
     if (!desktop.matches) {
@@ -198,7 +217,10 @@
     sync();
   }
   window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", sync);
+  window.addEventListener("resize", function () { measureTop(); sync(); });
   if (desktop.addEventListener) desktop.addEventListener("change", sync);
+  measureTop();
   sync();
+  // The tab bar's height depends on webfonts, so re-measure once they land.
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureTop);
 })();
