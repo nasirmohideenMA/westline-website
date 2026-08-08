@@ -29,7 +29,7 @@
   };
 
   var PROJECT_LABELS = [
-    ["signature", "Westline Signature — Nanthoor"],
+    ["signature", "Signature — Nanthoor"],
     ["cubix", "Cubix — Kadri"],
     ["vantage", "Vantage — Kankanady"],
     ["salubrity", "Salubrity — Falnir"],
