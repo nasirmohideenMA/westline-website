@@ -75,12 +75,12 @@ html{scroll-behavior:smooth;overflow-x:hidden}body{background:var(--surface2);co
 .body-text{color:var(--text2);font-size:15px;line-height:1.95;margin-bottom:24px}
 .highlight-box{background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--gold);padding:28px 32px;margin-bottom:32px}
 .highlight-box p{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--ink);line-height:1.5}
-.specs-card{background:var(--surface);border:1px solid var(--border);margin-bottom:20px}
-.specs-head{padding:20px 26px;border-bottom:1px solid var(--border);font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);background:var(--surface3)}
-.spec-row{display:flex;justify-content:space-between;align-items:center;padding:13px 26px;border-bottom:1px solid var(--border)}
+.specs-card{background:transparent;border:none;margin-bottom:24px}
+.specs-head{padding:0 0 15px;border-bottom:1px solid var(--border);font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:#6F5117;background:transparent}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;gap:30px;padding:16px 2px;border-bottom:1px solid var(--border2)}
 .spec-row:last-child{border-bottom:none}
-.spec-k{font-size:11px;color:var(--text2);letter-spacing:0.08em;font-weight:500}
-.spec-v{font-size:12px;color:var(--ink);text-align:right;max-width:55%;font-weight:500;word-break:break-word;white-space:normal}
+.spec-k{font-size:9.5px;color:var(--muted);letter-spacing:0.17em;text-transform:uppercase;font-weight:400;flex-shrink:0;line-height:1.6}
+.spec-v{font-size:13px;color:var(--text);text-align:right;max-width:64%;font-weight:400;word-break:normal;white-space:normal;line-height:1.55}
 .price-card{background:var(--surface);border:1px solid var(--border);padding:28px}
 .price-card .price-label{font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
 .price-card .price-val{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;margin-bottom:6px}
@@ -178,7 +178,22 @@ html{scroll-behavior:smooth;overflow-x:hidden}body{background:var(--surface2);co
 
 /* ── ROUNDED CORNERS ────────────────────────────────────────────────────────
    One radius token so boxes match instead of each section picking its own. */
-:root{--radius:8px;--radius-sm:5px}
+:root{--radius:4px;--radius-sm:4px}
+
+/* ── GALLERY FILMSTRIP ──────────────────────────────────────────────────────
+   Four photographs in a row, the last one carrying the way through to the
+   album. Square-ish cells so portrait and landscape renders sit together
+   without one dominating. */
+.film-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.film-cell{position:relative;display:block;aspect-ratio:1/1;overflow:hidden;border-radius:var(--radius);background:var(--surface3)}
+.film-cell img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.film-cell:hover img{transform:scale(1.04)}
+.film-more{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:rgba(10,12,16,0.55);transition:background .3s}
+.film-cell:hover .film-more{background:rgba(10,12,16,0.42)}
+.film-more-t{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:#fff;line-height:1}
+.film-more-s{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.82)}
+@media(max-width:900px){.film-strip{grid-template-columns:repeat(2,1fr);gap:10px}}
+@media(max-width:420px){.film-more-t{font-size:21px}}
 .fp-card,.album-card,.video-card,.map-frame,.enq-form-box,.why-card,.amen-card,
 .loc-card,.faq-item,.spec-box,.rates-table-wrap,.testi-box,.proof-stat{border-radius:var(--radius)}
 .fp-photo img,.video-thumb,.map-frame iframe{border-radius:0}
@@ -228,12 +243,12 @@ html{scroll-behavior:smooth;overflow-x:hidden}body{background:var(--surface2);co
 .loc-panel{display:none}
 .loc-panel.active{display:block}
 .loc-cards{display:flex;flex-direction:column;gap:0}
-.loc-card{background:transparent;border:none;border-bottom:1px solid var(--border2);padding:13px 2px;transition:opacity 0.3s;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.loc-card{background:transparent;border:none;border-bottom:1px solid var(--border2);padding:12px 2px;align-items:flex-start;transition:opacity 0.3s;display:flex;align-items:center;justify-content:space-between;gap:14px}
 .loc-card:last-child{border-bottom:none}
 .loc-card:hover{opacity:0.75}
 .loc-card-main{display:flex;align-items:center;gap:12px;min-width:0}
 .loc-ico{width:17px;height:17px;color:var(--gold);flex-shrink:0}
-.loc-name{font-size:13px;font-weight:400;color:var(--ink);white-space:nowrap}
+.loc-name{font-size:13px;font-weight:400;color:var(--text);white-space:normal;line-height:1.45}
 .loc-dist{font-size:11px;color:var(--gold);font-weight:500;white-space:nowrap;flex-shrink:0}
 /* ENQUIRY */
 .enq-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:72px;align-items:start}
@@ -532,29 +547,16 @@ html{scroll-behavior:smooth;overflow-x:hidden}body{background:var(--surface2);co
 <!-- GALLERY -->
 <section class="tab-panel" id="sec-gallery" style="background:var(--surface)">
   <div class="sec-tag">Visual Gallery</div>
-  <h2 class="sec-h" style="margin-bottom:16px">Gallery & <em>Visuals</em></h2>
-  <p style="color:var(--text2);font-size:14px;line-height:1.8;max-width:580px;margin-bottom:44px">Upload your project photographs, 3D renders, and aerial drone views. Replace the placeholders below with real images once uploaded to GitHub.</p>
-  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:32px">
-    <a href="https://photos.app.goo.gl/5eUcXku62UuLpbt77" target="_blank" class="gallery-item" style="display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:24px 20px;aspect-ratio:1/1;text-decoration:none;background:linear-gradient(160deg,#1a1408,#241e0c);border:1px solid var(--border);transition:border-color 0.3s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
-      <div style="font-size:24px;margin-bottom:8px">🏗</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:var(--text);margin-bottom:4px">Construction Progress</div>
-      <div style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)">Live site photos →</div>
-    </a>
-    <a href="https://photos.app.goo.gl/Vsc88Ges6Ur6o3bSA" target="_blank" class="gallery-item" style="display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:24px 20px;aspect-ratio:1/1;text-decoration:none;background:linear-gradient(160deg,#0c1420,#14203a);border:1px solid var(--border);transition:border-color 0.3s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
-      <div style="font-size:24px;margin-bottom:8px">🏛</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:var(--text);margin-bottom:4px">Concept Pictures</div>
-      <div style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)">Architectural renders →</div>
-    </a>
-    <a href="https://photos.app.goo.gl/MYN2eK8QMM8qiqYH7" target="_blank" class="gallery-item" style="display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:24px 20px;aspect-ratio:1/1;text-decoration:none;background:linear-gradient(160deg,#1a0e0a,#241610);border:1px solid var(--border);transition:border-color 0.3s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
-      <div style="font-size:24px;margin-bottom:8px">📐</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:var(--text);margin-bottom:4px">Floor Plans Gallery</div>
-      <div style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)">All unit layouts →</div>
-    </a>
-    <a href="https://photos.app.goo.gl/J6p18d33gYjk1H6U7" target="_blank" class="gallery-item" style="display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:24px 20px;aspect-ratio:1/1;text-decoration:none;background:linear-gradient(160deg,#0a0e1c,#14182a);border:1px solid var(--border);transition:border-color 0.3s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
-      <div style="font-size:24px;margin-bottom:8px">🛋</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:var(--text);margin-bottom:4px">Interior Concepts</div>
-      <div style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)">Design inspiration →</div>
-    </a>
+  <h2 class="sec-h" style="margin-bottom:14px">Gallery &amp; <em>Visuals</em></h2>
+  <p style="color:var(--text2);font-size:14px;line-height:1.8;max-width:580px;margin-bottom:30px">Architectural renders of Westline Signature. The full set lives in our shared album.</p>
+  <!-- Filmstrip: four photographs, the last carrying the link through to the
+       rest. No count on it — the album does not expose a reliable total, and a
+       made-up number on a public page is not worth the polish. -->
+  <div class="film-strip">
+      <a class="film-cell" href="https://photos.google.com/share/AF1QipMrKYPnhYAwcC3jYEOVtlYmKHiBBCPUrJB_hhLSpFboJwp83iIP1HV90WH6aJ_Z2Q?key=OHkxWU5qZ3o2bmNlbzBjYkRqaTlBSS1iZ0ZONWZR" target="_blank" rel="noopener"><img src="images/gallery/signature-concept-1.jpg" alt="Aerial view of the Westline Signature rooftop pool and amenity deck" width="1400" height="788" loading="lazy"></a>
+      <a class="film-cell" href="https://photos.google.com/share/AF1QipMrKYPnhYAwcC3jYEOVtlYmKHiBBCPUrJB_hhLSpFboJwp83iIP1HV90WH6aJ_Z2Q?key=OHkxWU5qZ3o2bmNlbzBjYkRqaTlBSS1iZ0ZONWZR" target="_blank" rel="noopener"><img src="images/gallery/signature-concept-2.jpg" alt="Westline Signature tower elevation" width="1400" height="788" loading="lazy"></a>
+      <a class="film-cell" href="https://photos.google.com/share/AF1QipMrKYPnhYAwcC3jYEOVtlYmKHiBBCPUrJB_hhLSpFboJwp83iIP1HV90WH6aJ_Z2Q?key=OHkxWU5qZ3o2bmNlbzBjYkRqaTlBSS1iZ0ZONWZR" target="_blank" rel="noopener"><img src="images/gallery/signature-concept-3.jpg" alt="Landscaped approach to Westline Signature" width="1400" height="788" loading="lazy"></a>
+      <a class="film-cell" href="https://photos.google.com/share/AF1QipMrKYPnhYAwcC3jYEOVtlYmKHiBBCPUrJB_hhLSpFboJwp83iIP1HV90WH6aJ_Z2Q?key=OHkxWU5qZ3o2bmNlbzBjYkRqaTlBSS1iZ0ZONWZR" target="_blank" rel="noopener"><img src="images/gallery/signature-concept-4.jpg" alt="Water features and landscaping in the Signature podium gardens" width="1400" height="788" loading="lazy"><span class="film-more"><span class="film-more-t">View all</span><span class="film-more-s">Concept gallery</span></span></a>
   </div>
 </section>
 
@@ -887,6 +889,8 @@ html{scroll-behavior:smooth;overflow-x:hidden}body{background:var(--surface2);co
           <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 9.5l5.5 1.5-1 2-6.5-1-3.5 3-2-.5 1.5-3-4-1 1-1.5 4 .5 3-3.5-1-2 2-.5z"/></svg><span class="loc-name">Mangalore International Airport</span></div><span class="loc-dist">12 km · ~22 min</span></div>
           <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="1"/><path d="M3 9l2-5h14l2 5"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><span class="loc-name">Mangalore Central Railway</span></div><span class="loc-dist">8 km · ~18 min</span></div>
           <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 9h18M3 15h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg><span class="loc-name">Pumpwell Circle / NH66 Junction</span></div><span class="loc-dist">3 km · ~8 min</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="1"/><path d="M3 9l2-5h14l2 5"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><span class="loc-name">Mangalore Central Bus Stand, Bejai</span></div><span class="loc-dist">6 km · ~14 min</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 8l-2 4 2 4M19 8l2 4-2 4"/></svg><span class="loc-name">Kankanady Junction</span></div><span class="loc-dist">2.5 km · ~7 min</span></div>
         </div>
       </div>
 
@@ -896,6 +900,8 @@ html{scroll-behavior:smooth;overflow-x:hidden}body{background:var(--surface2);co
           <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg><span class="loc-name">Father Muller Medical College Hospital</span></div><span class="loc-dist">3 km · ~8 min</span></div>
           <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg><span class="loc-name">A J Hospital & Research Centre</span></div><span class="loc-dist">5 km · ~12 min</span></div>
           <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg><span class="loc-name">Yenepoya Medical College Hospital</span></div><span class="loc-dist">6 km · ~14 min</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg><span class="loc-name">Unity Hospital, Falnir</span></div><span class="loc-dist">4 km · ~10 min</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A4.5 4.5 0 0016.5 5c-1.7 0-3.2.9-4 2.2L12 8l-.5-.8C10.7 5.9 9.2 5 7.5 5A4.5 4.5 0 003 9.5c0 1.5.5 3 2 4.5l7 7 7-7z"/></svg><span class="loc-name">Indiana Hospital &amp; Heart Institute</span></div><span class="loc-dist">5 km · ~12 min</span></div>
         </div>
       </div>
 
@@ -905,6 +911,8 @@ html{scroll-behavior:smooth;overflow-x:hidden}body{background:var(--surface2);co
           <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M3 9v7l9 5 9-5V9"/></svg><span class="loc-name">Shree Bharathi College, Nanthoor</span></div><span class="loc-dist">1.5 km · ~4 min</span></div>
           <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M9 4v16"/></svg><span class="loc-name">Mount Carmel Central School</span></div><span class="loc-dist">4 km · ~10 min</span></div>
           <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M9 4v16"/></svg><span class="loc-name">St Aloysius Gonzaga School</span></div><span class="loc-dist">5 km · ~12 min</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M3 9v7l9 5 9-5V9"/></svg><span class="loc-name">St Agnes College, Bendore</span></div><span class="loc-dist">4 km · ~10 min</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M3 9v7l9 5 9-5V9"/></svg><span class="loc-name">Canara High School, Urva</span></div><span class="loc-dist">7 km · ~16 min</span></div>
         </div>
       </div>
 
@@ -914,6 +922,8 @@ html{scroll-behavior:smooth;overflow-x:hidden}body{background:var(--surface2);co
           <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span class="loc-name">Forum Fiza Mall, Pandeshwar</span></div><span class="loc-dist">8 km · ~18 min</span></div>
           <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span class="loc-name">Empire Mall, MG Road</span></div><span class="loc-dist">6 km · ~14 min</span></div>
           <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M3 4h2l2.5 12h11l2-8H6"/></svg><span class="loc-name">More Supermarket, Kadri</span></div><span class="loc-dist">3.5 km · ~9 min</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span class="loc-name">Bharath Mall, Bejai</span></div><span class="loc-dist">5 km · ~12 min</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V6a4 4 0 118 0v2M3 8h18l-1.5 12a2 2 0 01-2 2H6.5a2 2 0 01-2-2L3 8z"/></svg><span class="loc-name">Central Market, Hampankatta</span></div><span class="loc-dist">6 km · ~14 min</span></div>
         </div>
       </div>
 
@@ -923,6 +933,8 @@ html{scroll-behavior:smooth;overflow-x:hidden}body{background:var(--surface2);co
           <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V11M8 21V9l4-6 4 6v12M5 21h14"/></svg><span class="loc-name">Rosario Cathedral</span></div><span class="loc-dist">7 km · ~16 min</span></div>
           <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V11M8 21V9l4-6 4 6v12M5 21h14"/></svg><span class="loc-name">Milagres Church</span></div><span class="loc-dist">6 km · ~14 min</span></div>
           <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg><span class="loc-name">Kudroli Gokarnath Temple</span></div><span class="loc-dist">5 km · ~12 min</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M9 5l3 3 3-3M5 21h14M6 21V11l6-4 6 4v10"/></svg><span class="loc-name">Mangaladevi Temple</span></div><span class="loc-dist">7 km · ~16 min</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M9 5l3 3 3-3M5 21h14M6 21V11l6-4 6 4v10"/></svg><span class="loc-name">Zeenath Baksh Jumma Masjid, Bunder</span></div><span class="loc-dist">7.5 km · ~17 min</span></div>
         </div>
       </div>
 
@@ -932,6 +944,8 @@ html{scroll-behavior:smooth;overflow-x:hidden}body{background:var(--surface2);co
           <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18c1-4 3-8 5-8s2 3 3 3 1.5-5 3-5 2 5 3 5 2-3 3-3 4 4 5 8"/><path d="M2 20h20"/></svg><span class="loc-name">Tannirbhavi Beach</span></div><span class="loc-dist">9 km · ~20 min</span></div>
           <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18c1-4 3-8 5-8s2 3 3 3 1.5-5 3-5 2 5 3 5 2-3 3-3 4 4 5 8"/><path d="M2 20h20"/></svg><span class="loc-name">Panambur Beach</span></div><span class="loc-dist">14 km · ~28 min</span></div>
           <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 3 6 6 6 9a6 6 0 01-12 0c0-3 2-6 6-9z"/></svg><span class="loc-name">Pilikula Nisarga Dhama</span></div><span class="loc-dist">8 km · ~18 min</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-9 4 5 3-4 5 8"/></svg><span class="loc-name">Kadri Park</span></div><span class="loc-dist">4 km · ~10 min</span></div>
+          <div class="loc-card"><div class="loc-card-main"><svg class="loc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-9 4 5 3-4 5 8"/></svg><span class="loc-name">Sultan Battery Watchtower</span></div><span class="loc-dist">8 km · ~18 min</span></div>
         </div>
       </div>
     </div>

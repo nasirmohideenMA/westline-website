@@ -241,7 +241,7 @@ img{max-width:100%;display:block}
    Appended last so these win the cascade over the rules they adjust. The
    thin spec/proof stat strips keep their own column count — the complaint
    was about cramped content cards, and small stats read fine at 3-4. */
-:root{--radius:8px;--radius-sm:5px}
+:root{--radius:4px;--radius-sm:4px}
 @media(min-width:900px){
   .why-grid,.space-grid,.gal-grid{grid-template-columns:repeat(2,1fr)}
 }
@@ -251,6 +251,15 @@ img{max-width:100%;display:block}
 .fsub,.btn-gold-full,.map-cta,.wa-btn,.btn-primary,.tab-btn{border-radius:var(--radius-sm)}
 /* White on WhatsApp's light green measures 2:1; their darker brand green is 7.7:1. */
 .wa-btn{background:#075E54}
+
+/* ── SPECIFICATIONS AS A QUIET LEDGER (8 Aug 2026) ─────────────────────────
+   No boxed panel, no filled header bar: small-caps label left, value right,
+   hairline rule between rows. Appended last so it beats the page rules. */
+.specs-card{background:transparent;border:none;margin-bottom:24px}
+.specs-head{padding:0 0 15px;border-bottom:1px solid var(--border);background:transparent;color:#6F5117}
+.spec-row{align-items:baseline;gap:30px;padding:16px 2px;border-bottom:1px solid var(--border2)}
+.spec-k{font-size:9.5px;color:var(--muted);letter-spacing:0.17em;text-transform:uppercase;font-weight:400;flex-shrink:0;line-height:1.6}
+.spec-v{font-size:13px;color:var(--text);text-align:right;max-width:64%;font-weight:400;word-break:normal;line-height:1.55}
 </style>
 </head>
 <body>

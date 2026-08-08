@@ -77,11 +77,16 @@
   var css = [
     // Reserve the gutter so page content never slides under the fixed rail.
     "@media(min-width:1280px){body.cb-on .panel,body.cb-on .tab-panel,body.cb-on .sec{padding-right:352px}}",
+    // The video gallery zeroes its section padding and sets it on the children
+    // instead, inline — which is why the rail was sitting on top of it. Inline
+    // styles need !important to be reached at all.
+    "@media(min-width:1280px){body.cb-on #sec-videos > div{padding-right:352px !important}",
+    "  body.cb-on .vg-wide-grid{grid-template-columns:repeat(2,1fr)}}",
     "#callback-rail{width:100%}",
     // Sized to fit a laptop screen without the card scrolling inside itself:
     // at 774px it overflowed a 742px slot on a 900px-tall viewport, and the
     // seven field rows were 399px of that on their own.
-    ".cb-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:18px 20px;box-shadow:0 12px 40px rgba(166,124,61,0.10)}",
+    ".cb-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:18px 20px;box-shadow:0 12px 40px rgba(166,124,61,0.10)}",
     ".cb-title{font-family:'Cormorant Garamond',serif;font-size:18px;letter-spacing:0.06em;color:var(--gold);margin-bottom:14px;font-weight:500;text-transform:uppercase}",
     ".cb-row{margin-bottom:10px}",
     ".cb-label{font-size:10.5px;color:var(--text);margin-bottom:4px;display:block;line-height:1.3}",
@@ -99,7 +104,7 @@
     ".cb-consent input{margin-top:2px;accent-color:var(--gold);flex-shrink:0;cursor:pointer}",
     ".cb-consent label{font-size:10px;color:var(--text2);line-height:1.45}",
     ".cb-consent a{color:var(--gold);font-weight:500}",
-    ".cb-btn{width:100%;background:var(--gold);color:#fff;border:none;padding:11px 0;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;cursor:pointer;margin-top:6px;transition:background .3s;border-radius:5px}",
+    ".cb-btn{width:100%;background:var(--gold);color:#fff;border:none;padding:11px 0;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;cursor:pointer;margin-top:6px;transition:background .3s;border-radius:4px}",
     ".cb-btn:hover{background:var(--ink)}",
     // Desktop: fixed to the right, revealed once the hero is behind us.
     "@media(min-width:1280px){",
@@ -204,8 +209,18 @@
       return;
     }
     var past = hero ? hero.getBoundingClientRect().bottom <= 90 : window.scrollY > 400;
-    mount.classList.toggle("cb-visible", past);
-    document.body.classList.toggle("cb-on", past);
+
+    // Let go before the footer. A fixed rail that runs to the bottom of the
+    // document ends up floating over the footer and the last content section,
+    // which is what it was doing over the video gallery. The footer arrives via
+    // fetch into #footer-placeholder, so it is looked up per call rather than
+    // cached at startup.
+    var tail = document.querySelector("footer") || document.getElementById("footer-placeholder");
+    var reachedEnd = tail ? tail.getBoundingClientRect().top <= window.innerHeight : false;
+
+    var show = past && !reachedEnd;
+    mount.classList.toggle("cb-visible", show);
+    document.body.classList.toggle("cb-on", show);
   }
 
   // Throttled on a timestamp rather than requestAnimationFrame. sync() only
