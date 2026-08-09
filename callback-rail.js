@@ -147,6 +147,13 @@
     ".cb-consent a{color:var(--gold);font-weight:500}",
     ".cb-btn{width:100%;background:var(--gold);color:#fff;border:none;padding:11px 0;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;cursor:pointer;margin-top:6px;transition:background .3s;border-radius:4px}",
     ".cb-btn:hover{background:var(--ink)}",
+    // .cb-select was ~32px tall, .cb-btn ~37px — both under the 44px tap
+    // target minimum. min-height only, mobile-only: desktop keeps the
+    // original compact padding-driven height.
+    "@media(max-width:600px){",
+    "  .cb-select{min-height:44px}",
+    "  .cb-btn{min-height:44px}",
+    "}",
   ].join("\n");
 
   var style = document.createElement("style");

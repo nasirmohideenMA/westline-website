@@ -323,6 +323,10 @@ html{scroll-behavior:smooth;overflow-x:clip}body{background:var(--surface2);colo
   /* Overview tab's RERA number ("PRM/KA/RERA/...") doesn't wrap at mobile
      widths, forcing the tab panel 43-67px wider than the viewport. */
   .spec-v{overflow-wrap:anywhere}
+  /* signature.html names this .map-cta-link, not .map-cta like the other
+     nine project pages, but it's the same component and had the same
+     sub-44px tap target. */
+  .map-cta-link{min-height:44px}
 }
 
 /* ── NAV DROPDOWNS ── */
