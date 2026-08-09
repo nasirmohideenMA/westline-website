@@ -154,6 +154,10 @@
     "  .cb-select{min-height:44px}",
     "  .cb-btn{min-height:44px}",
     "}",
+    // Mobile text floor: nothing under 11px. Size only.
+    "@media(max-width:767px){",
+    "  .cb-label,.cb-consent label,.cb-btn{font-size:11px}",
+    "}",
   ].join("\n");
 
   var style = document.createElement("style");

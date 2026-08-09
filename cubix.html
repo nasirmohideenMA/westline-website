@@ -272,6 +272,14 @@ select{accent-color:var(--gold)}
 select option{background:var(--surface);color:var(--text);padding:9px 12px;line-height:2}
 select option:checked,select option:hover,select option:focus{
   background:linear-gradient(var(--gold),var(--gold));color:#fff;font-weight:500}
+
+/* Mobile text floor: nothing under 11px. Size only — letter-spacing and
+   everything else about these micro-labels stays as designed. */
+@media(max-width:767px){
+  .breadcrumb,.status-badge,.meta-label,.tab-btn,.sec-tag,.specs-head,
+  .lease-label,.btn-gold-full,.ss-label,.space-ph-t,.space-floors,
+  .gal-ph-t,.map-cta,.fc-l,.fl,.spec-k,.nav-phone{font-size:11px}
+}
 </style>
 </head>
 <body>

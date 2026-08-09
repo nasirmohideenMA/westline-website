@@ -1118,6 +1118,24 @@ select option:checked,select option:hover,select option:focus{
 .fp-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.55);border:none;padding:0;cursor:pointer;transition:background .25s,width .25s}
 .fp-dot.is-on{background:#fff;width:14px;border-radius:2.5px}
 
+/* Mobile text floor: nothing under 11px. Size only — letter-spacing and
+   everything else about these micro-labels stays as designed. Placed in
+   this last <style> block so it cascades after all three blocks above. */
+@media(max-width:767px){
+  .nav-wa,.nav-phone,.breadcrumb,.status-badge,.meta-label,.btn-enq,
+  .tab-btn,.spec-k,.price-card .price-label,.btn-gold-full,
+  .amen-sub-label,.gallery-ph span,.fp-badge,.fp-k,.fp-plan,
+  .album-eyebrow,.album-meta,.album-cta,.film-more-s,.fp-size,.fp-tag,
+  .map-cta-link,.loc-tab,.contact-item-label,.wa-btn,.fl,.fsub,
+  .amen-tab,.vg-label,.sec-tag{font-size:11px}
+  /* These twelve are inline-styled (font-size:10px in the style="" attribute
+     on unclassed divs/buttons/spans: the spec-strip labels, the RERA-date
+     mini-labels, the "Filter by" tag, and the unit filter buttons) — a
+     class-based rule can't win against an inline style, so !important is
+     needed here specifically. Still mobile-only, still not touching
+     anything desktop-facing. */
+  [style*="font-size:10px"]{font-size:11px!important}
+}
 </style>
 
 <script>

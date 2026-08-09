@@ -280,6 +280,14 @@ select option:checked,select option:hover,select option:focus{
 @media(max-width:900px){
   .spec-v{overflow-wrap:anywhere}
 }
+
+/* Mobile text floor: nothing under 11px. Size only — letter-spacing and
+   everything else about these micro-labels stays as designed. */
+@media(max-width:767px){
+  .nav-phone,.breadcrumb,.status-badge,.meta-label,.tab-btn,.sec-tag,
+  .specs-head,.price-label,.btn-gold-full,.ss-label,.gal-ph-t,.map-cta,
+  .fc-l,.fl,.proof-stat-l,.spec-k{font-size:11px}
+}
 </style>
 </head>
 <body>

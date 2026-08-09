@@ -399,6 +399,17 @@ select{accent-color:var(--gold)}
 select option{background:var(--surface);color:var(--text);padding:9px 12px;line-height:2}
 select option:checked,select option:hover,select option:focus{
   background:linear-gradient(var(--gold),var(--gold));color:#fff;font-weight:500}
+
+/* Mobile text floor: nothing under 11px. Size only — letter-spacing and
+   everything else about these micro-labels stays as designed. */
+@media(max-width:767px){
+  .slide-eyebrow-text,.scroll-label,.slide-tag,.btn-primary,.btn-secondary,
+  .trust-item,.trust-item::before,.stat-l,.sec-tag,.callback-consent label,
+  .callback-btn,.fbtn,.proj-status,.proj-type-badge,.proj-loc,
+  .proj-loc::before,.spec-key,.proj-cta-link,.proj-enq-btn,.badge,
+  .val-name,.p-stat-l,.testi-attr,.c-label,.fl,.sticky-btn,
+  .ft-rera p{font-size:11px}
+}
 </style>
 </head>
 <body>

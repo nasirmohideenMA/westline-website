@@ -124,3 +124,10 @@ footer{background:var(--surface3);padding:56px 60px 0}
   .ft-brand{font-size:34px}
   .ft-tag{max-width:none}
 }
+@media(max-width:767px){
+  /* Mobile text floor: nothing under 11px. Size only. .dd-label is left
+     alone — its dropdown parent is display:none below 768px, so it's
+     never visible on mobile and has nothing to fix. */
+  .mob-label,.ft-office-t,.ft-col-t,.ft-social a,.ft-rera-t,
+  .ft-copy,.ft-disclaimer{font-size:11px}
+}
