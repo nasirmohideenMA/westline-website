@@ -270,6 +270,15 @@ select{accent-color:var(--gold)}
 select option{background:var(--surface);color:var(--text);padding:9px 12px;line-height:2}
 select option:checked,select option:hover,select option:focus{
   background:linear-gradient(var(--gold),var(--gold));color:#fff;font-weight:500}
+
+/* Overview tab's RERA number ("PRM/KA/RERA/...") doesn't wrap at mobile
+   widths, forcing the whole tab panel 43-67px wider than the viewport.
+   overflow-wrap alone (not word-break, which the "quiet ledger" rule above
+   deliberately sets back to normal) lets it break without touching that
+   rule or anything desktop-facing. */
+@media(max-width:900px){
+  .spec-v{overflow-wrap:anywhere}
+}
 </style>
 </head>
 <body>

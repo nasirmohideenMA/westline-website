@@ -319,6 +319,11 @@ html{scroll-behavior:smooth;overflow-x:clip}body{background:var(--surface2);colo
   .amen-tab.active,.loc-tab.active{border-color:var(--gold);background:var(--gold-bg)}
   .tabs-inner{flex-wrap:wrap;overflow-x:visible}
 }
+@media(max-width:900px){
+  /* Overview tab's RERA number ("PRM/KA/RERA/...") doesn't wrap at mobile
+     widths, forcing the tab panel 43-67px wider than the viewport. */
+  .spec-v{overflow-wrap:anywhere}
+}
 
 /* ── NAV DROPDOWNS ── */
 /* mobile menu groups */
