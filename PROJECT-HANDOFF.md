@@ -4,7 +4,7 @@
 **Repo:** `nasirmohideenMA/westline-website` on GitHub
 **Live site:** `westline-website.pages.dev` (Cloudflare Pages, auto-deploys from GitHub `main`)
 **Domain:** westline.co.in (currently on Wix — migration to this new site not yet cut over; verify DNS before going live)
-**Last updated:** 3 August 2026
+**Last updated:** 9 August 2026
 
 ---
 
@@ -159,6 +159,22 @@ The grid now leads with an interior render per unit, the size set large, and the
 
 Everything else — every other size, and all ten floors/bed/bath figures — already agreed between the two sites. `westline.co.in` also lists the 4,360 unit as "Type 2" where this site calls it "Type 3", and gives the 4 BHK Duplex + Media T1 floors as "G to 44th", which looks like a data-entry slip against its siblings' "30–45".
 
+### Unit photo carousel (9 Aug 2026)
+
+Each unit-configuration card's photo (`.fp-photo[data-unit]`) can now hold multiple images that cross-fade, either via arrow clicks or a 3-second autoplay timer that pauses on hover. Driven by one `UNIT_IMAGES` map near the bottom of `signature.html` — unit key → ordered array of `{src, alt}`. A unit with a single image renders exactly as before (no arrows, no dots, no timer); the carousel only activates once an array has 2+ entries.
+
+**86 real interior photos are live for 8 of the 10 units**, pulled from Google Drive (`Westline Website May 2026/Westline Website Finalising/Signature Unit Interiors`), deduped by content hash (several source zips had the same photo saved twice under different names), resized to 1600px/quality 80 with `sharp`, and saved to `images/units/<unit-key>/1.jpg, 2.jpg, ...`.
+
+📌 **Two units still have no new photos — Nasir will send these later:**
+- `4bhk-simplex` (3,285 sq ft)
+- `4bhk-duplex-t2` (4,140 sq ft)
+
+Both still show their single legacy fallback image (`images/units/4bhk-simplex.jpg`, `images/units/4bhk-duplex-t2.jpg`) with no carousel. Once photos arrive: process the same way as the other 8 (dedupe → resize/compress with sharp → number sequentially) and add the array to `UNIT_IMAGES` in `signature.html`.
+
+📌 **Photo order within each of the 8 carousel units is a best-effort default, not confirmed — Nasir will review and reorder later.** None of the source zips used a `1.jpg`/`2.jpg` naming convention; files were auto-ordered (numbered filenames first, by number; unnumbered filenames after, alphabetically). If he wants a specific lead photo per unit, re-sequence the numbered files in `images/units/<unit-key>/` and update the corresponding array order in `UNIT_IMAGES`.
+
+⚠️ **Zip extraction pitfall, worth knowing if repeating this process:** `unzip -o` silently overwrites files that share an exact filename, which several of these zips did (different photos, same name). Extract each entry individually into a uniquely-prefixed staging name instead, then dedupe by content hash — never by filename.
+
 ### Construction progress gallery → album cover card (8 Aug 2026)
 
 The Progress Gallery on the Construction Status tab was four grey placeholder tiles plus a line naming files that were never uploaded (`sig-progress-1.jpg` … `sig-progress-8.jpg`). It is now a single **album cover card** linking to the shared Google Photos album that was already kept current — the same album the Gallery section further down has always pointed to (`https://photos.app.goo.gl/5eUcXku62UuLpbt77`, which resolves to the `Signature Construction Updates` share).
@@ -185,7 +201,9 @@ The rotation script sits at the bottom of `signature.html`. It respects `prefers
 5. The removed content in the table above, whenever Nasir has it
 6. **Two FAQ answers Nasir was never asked for** — typical booking amount, and what the base price includes
 7. 📌 **Build a custom dropdown in JavaScript.** Nasir asked for this explicitly on 8 Aug 2026, to be done later. Every `<select>` on the site now carries `accent-color`, gold `option:checked` (via the `linear-gradient` trick Chrome needs) and row padding — but the open list is painted by the browser, so that is the ceiling for CSS: Chrome and Edge honour the gold highlight, Firefox honours the padding better, Safari largely ignores both. Only a JS listbox gives identical rendering everywhere. Replace the `.cb-select` markup in `callback-rail.js` first (that is the one he was looking at), then the `.fsel` selects on the enquiry forms. Keep the underlying `<select>` in the DOM and drive it from the custom UI, so `westline-forms.js` keeps reading values through `data-field` unchanged.
-8. ⚠️ **The shared nav overflows horizontally on mobile, on every page.** At a 390px viewport `<nav id="nav">` renders 675px wide, so the whole page scrolls sideways. The desktop `.nav-actions` block (WhatsApp / Call buttons) stays visible at mobile widths instead of giving way to the mobile menu. Pre-existing — found while rebuilding the unit cards, not caused by it. Fix belongs in `nav-footer.css`; verify `document.body.scrollWidth <= documentElement.clientWidth` at 390/520/768px afterwards
+8. 📌 **Unit interior photos for `4bhk-simplex` and `4bhk-duplex-t2`** — Nasir to send later, see §4's unit-photo-carousel section for how to process and wire them in once they arrive.
+9. 📌 **Review/reorder unit carousel photo sequence** — auto-picked order, not confirmed. See §4's unit-photo-carousel section.
+10. ⚠️ **The shared nav overflows horizontally on mobile, on every page.** At a 390px viewport `<nav id="nav">` renders 675px wide, so the whole page scrolls sideways. The desktop `.nav-actions` block (WhatsApp / Call buttons) stays visible at mobile widths instead of giving way to the mobile menu. Pre-existing — found while rebuilding the unit cards, not caused by it. Fix belongs in `nav-footer.css`; verify `document.body.scrollWidth <= documentElement.clientWidth` at 390/520/768px afterwards
 
 ---
 
@@ -265,3 +283,18 @@ All removed in commit `454c5e4`: `admin/` (Decap CMS), `netlify.toml`, `neighbou
 4. Verify at `westline-website.pages.dev`
 
 Nasir uses **GitHub Desktop** for git operations, not the command line — worth keeping instructions GUI-friendly if walking him through anything git-related directly, though this won't be necessary once Claude Code is working directly in the repo.
+
+**Local-only workflow (current, as of 8 Aug 2026):** by Nasir's request, changes are made and committed locally but NOT pushed until he explicitly says he's finished reviewing. Check `git status -sb` for how many commits are ahead of `origin/main` before assuming anything is live.
+
+### Local preview server — do not stop it via the browser preview tool
+
+Nasir reviews work by pointing his **own real Chrome** at `http://localhost:4173`, not by looking at the agent's testing pane. This caused a recurring `ERR_CONNECTION_REFUSED` bug: the agent's own verification tool (`mcp__Claude_Browser__preview_start` / `preview_stop`) was being used to start/stop the *same* port 4173 server for its own checks, and every `preview_stop` killed Nasir's connection too.
+
+**Fixed 9 Aug 2026** by running the server as a standalone background process via the Bash tool (`run_in_background: true`), fully decoupled from the browser-preview tool:
+```
+npx --yes serve --listen 4173 westline-website
+```
+Rules for future sessions:
+- Start it once per session this way, then leave it running — never call `preview_stop` on it.
+- For the agent's own visual checks, point `mcp__Claude_Browser__preview_start` at the URL (`http://localhost:4173/...`) rather than launching the `westline-static` launch.json config, so there's only ever one server process and it isn't tied to the testing tool's lifecycle.
+- If the port really does go down (e.g. the whole session restarted), restart it the same way — as a detached background Bash process, not via `preview_start`.
