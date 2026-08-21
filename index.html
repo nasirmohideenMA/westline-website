@@ -216,6 +216,22 @@ img{max-width:100%;display:block}
 .callback-consent a:hover{text-decoration:underline}
 .callback-btn{width:100%;background:var(--gold);color:#fff;border:none;padding:12px 0;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;cursor:pointer;margin-top:4px;transition:background .3s;border-radius:2px}
 .callback-btn:hover{background:var(--ink2)}
+/* Sticky travel range for the rail (side-by-side layout only).
+   A sticky element moves inside its own parent's box, so it needs the parent
+   to be taller than itself or it has nowhere to go. On short filters the row
+   is sized by the rail itself (2-card Hospitality: grid 391px, rail 790px),
+   which left travel at exactly 0 and meant the rail never actually pinned —
+   true before the align-items fix as well as after. min-height gives it one
+   screen to travel through.
+   The max-height cap is the same pattern the project-page rail already uses
+   (callback-rail.js): a 790px card needs ~880px of viewport to be fully
+   visible below the nav, so on anything shorter it could never pin no matter
+   how tall its parent is. Capping it to the viewport and letting it scroll
+   internally is what makes pinning work on laptop-height screens. */
+@media(min-width:1101px){
+  .callback-wrap{min-height:100vh}
+  .callback-card{max-height:calc(100vh - var(--nav-h) - 44px);overflow-y:auto;scrollbar-width:thin}
+}
 @media(max-width:1100px){.proj-body-wrap{grid-template-columns:1fr}.callback-card{position:static;max-width:420px}}
 @media(max-width:480px){.callback-card{padding:22px 20px;max-width:100%}}
 .filter-scroll{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;margin-bottom:24px;-webkit-overflow-scrolling:touch}
