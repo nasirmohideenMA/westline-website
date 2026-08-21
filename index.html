@@ -185,8 +185,16 @@ img{max-width:100%;display:block}
 
 /* ── PROJECTS ── */
 .proj-sec{background:var(--bg2)}
-.proj-body-wrap{display:grid;grid-template-columns:1fr 270px;gap:24px}
-.callback-wrap{height:100%}
+/* align-items:start stops .proj-grid being stretched to the callback rail's
+   height. It was, and because .proj-grid is itself a grid with auto rows, the
+   surplus was redistributed into its own rows — every card grew, and since
+   .proj-body is flex:1 with .proj-footer on margin-top:auto, the growth showed
+   up as ~300-420px of dead space between the specs row and the footer. Worst
+   on single-row filters, where the surplus is spread over one row instead of
+   three. align-self:stretch puts the rail back to filling the row, so its
+   sticky travel range is unchanged by this rule. */
+.proj-body-wrap{display:grid;grid-template-columns:1fr 270px;gap:24px;align-items:start}
+.callback-wrap{height:100%;align-self:stretch}
 .callback-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:24px 24px;box-shadow:0 12px 40px rgba(166,124,61,0.08);width:100%;position:sticky;top:calc(var(--nav-h) + 20px)}
 .callback-title{font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:0.06em;color:var(--gold);margin-bottom:18px;font-weight:500;text-transform:uppercase}
 .callback-row{margin-bottom:16px}
