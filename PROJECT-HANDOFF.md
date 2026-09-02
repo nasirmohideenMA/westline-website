@@ -4,7 +4,11 @@
 **Repo:** `nasirmohideenMA/westline-website` on GitHub
 **Live site:** `westline-website.pages.dev` (Cloudflare Pages, auto-deploys from GitHub `main`)
 **Domain:** westline.co.in (currently on Wix — migration to this new site not yet cut over; verify DNS before going live)
-**Last updated:** 9 August 2026
+**Last updated:** 2 September 2026
+
+> **Working across more than one PC? Read §10 first.** Nasir works from three
+> machines. GitHub is the only thing that moves work between them — pull before
+> you start, push when he says so.
 
 ---
 
@@ -25,6 +29,17 @@ The site is **built and functional**. All 21 pages are live, the shared nav/foot
 ~~~60 placeholders across 15 pages~~ — **cleared 3 Aug 2026. Every one of the 19 linked pages is now free of visible `[placeholder]` text.** See §4 for what was filled in versus removed.
 
 **Nothing is broken.** No known bugs are outstanding. If a session has nothing else to go on, working through §4's placeholder list is the useful default — but most of it is blocked on Nasir, so **ask what data he has before planning work**.
+
+**Fixed 2 September 2026** (all verified against the live DOM, not screenshots):
+
+- ~~Shared nav overflows horizontally on mobile~~ — the `.nav-actions` block showed WhatsApp + Call + Callback + hamburger together below 768px, putting the hamburger's right edge at 417-421px against a 390px viewport. Because the nav is `position:fixed` it never expanded `document.scrollWidth`, so there was no scrollbar to reveal it — roughly 90% of the hamburger was simply clipped off-screen and untappable. Callback moved into the mobile menu; the other three are now 44×44px.
+- ~~Overview tab overflow on signature/jeppu~~ — the unbroken RERA number would not wrap, forcing the layout viewport to expand (390→413, 360→407). `overflow-wrap:anywhere` on `.spec-v`, mobile-only.
+- Mobile tap targets on the 10 project pages raised to a 44px minimum (`.cb-select` was 32px, `.cb-btn` 37px, `.map-cta` 43px).
+- Mobile text floor: every font-size under 11px across all 20 pages raised to 11px, size only. Note `signature.html` has 12 of these set via inline `style="font-size:10px"`, which needs `!important` to override.
+- ~~Project cards had 300-420px of dead space between the specs row and the footer~~ — `.proj-body-wrap` had no `align-items`, so `.proj-grid` was stretched to the callback rail's height and the surplus was redistributed into the cards. Worst on single-card-row filters. Fixed with `align-items:start`.
+- The callback rail never actually pinned on short filters (travel was exactly 0 whenever the grid was shorter than the rail). Given `min-height:100vh` plus a viewport `max-height` cap, matching the pattern already in `callback-rail.js`.
+
+⚠️ **One thing to re-check in a real browser:** that the callback rail visually pins while scrolling. Programmatic scrolling is a no-op in the agent browser pane (`scrollY` stays 0 for `window.scrollTo`, `documentElement.scrollTop` and `body.scrollTop` alike), so only the geometry could be confirmed, not the behaviour. See §6.
 
 ⚠️ **Sections below marked with a strikethrough or a ⚠️ were wrong in earlier versions of this doc and have been corrected against the actual repo.** Trust the code over any claim here; verify before relying on a statement.
 
@@ -203,7 +218,8 @@ The rotation script sits at the bottom of `signature.html`. It respects `prefers
 7. 📌 **Build a custom dropdown in JavaScript.** Nasir asked for this explicitly on 8 Aug 2026, to be done later. Every `<select>` on the site now carries `accent-color`, gold `option:checked` (via the `linear-gradient` trick Chrome needs) and row padding — but the open list is painted by the browser, so that is the ceiling for CSS: Chrome and Edge honour the gold highlight, Firefox honours the padding better, Safari largely ignores both. Only a JS listbox gives identical rendering everywhere. Replace the `.cb-select` markup in `callback-rail.js` first (that is the one he was looking at), then the `.fsel` selects on the enquiry forms. Keep the underlying `<select>` in the DOM and drive it from the custom UI, so `westline-forms.js` keeps reading values through `data-field` unchanged.
 8. 📌 **Unit interior photos for `4bhk-simplex` and `4bhk-duplex-t2`** — Nasir to send later, see §4's unit-photo-carousel section for how to process and wire them in once they arrive.
 9. 📌 **Review/reorder unit carousel photo sequence** — auto-picked order, not confirmed. See §4's unit-photo-carousel section.
-10. ⚠️ **The shared nav overflows horizontally on mobile, on every page.** At a 390px viewport `<nav id="nav">` renders 675px wide, so the whole page scrolls sideways. The desktop `.nav-actions` block (WhatsApp / Call buttons) stays visible at mobile widths instead of giving way to the mobile menu. Pre-existing — found while rebuilding the unit cards, not caused by it. Fix belongs in `nav-footer.css`; verify `document.body.scrollWidth <= documentElement.clientWidth` at 390/520/768px afterwards
+10. ~~⚠️ The shared nav overflows horizontally on mobile, on every page.~~ **Fixed 2 September 2026** — see §0. The measurement in the original note (675px at a 390px viewport) was wrong: the real figure was a 417-421px right edge, and because the nav is `position:fixed` the page never scrolled sideways at all, the hamburger was just clipped off-screen. Corrected here so nobody goes looking for a horizontal scrollbar that was never there.
+11. 📌 **`site-aug-2026/` is a parallel rebuild, not the live site.** A complete alternative build of the site (3D skyline, 51-floor inventory matrix, NRI / investors / insights pages) committed 2 September 2026. It had been sitting untracked on one PC. Nothing under it is served — the live site is still the repo root — and its own README explains how to promote it if that's ever wanted. Ask Nasir before assuming which of the two is "the site".
 
 ---
 
@@ -298,3 +314,63 @@ Rules for future sessions:
 - Start it once per session this way, then leave it running — never call `preview_stop` on it.
 - For the agent's own visual checks, point `mcp__Claude_Browser__preview_start` at the URL (`http://localhost:4173/...`) rather than launching the `westline-static` launch.json config, so there's only ever one server process and it isn't tied to the testing tool's lifecycle.
 - If the port really does go down (e.g. the whole session restarted), restart it the same way — as a detached background Bash process, not via `preview_start`.
+
+---
+
+## 10. Working Across Three PCs (added 2 September 2026)
+
+Nasir works from **three machines**. GitHub is the *only* thing that carries
+work between them. Nothing else is shared — see the "what does not travel"
+list below before assuming context exists on the machine you're on.
+
+### The rule
+
+**Pull before you start. Push when Nasir says so.**
+
+```bash
+git pull            # first thing, every session, on every machine
+git status -sb      # confirms how far ahead/behind origin/main you are
+```
+
+If `git status -sb` says `behind`, you are looking at stale files — pull before
+reading anything, or you will "fix" problems that were already fixed elsewhere.
+
+### ⚠️ Do not put this repo inside OneDrive
+
+The repo used to live at `C:\Users\<name>\OneDrive\Documents\GitHub\westline-website`,
+which meant OneDrive was syncing the `.git` folder (15MB, thousands of small
+files) at the same time git was writing to it. With one machine that is merely
+untidy. With three it reliably corrupts the repo: `index.lock` files sync
+between machines and block git, `.git/index` gets copied mid-write giving
+"index file corrupt", and OneDrive drops conflict-copies *inside* `.git` with
+names like `HEAD (nasir's conflicted copy).txt`.
+
+**One sync system per folder.** For this repo that system is git. Keep the
+working copy somewhere OneDrive does not touch, e.g. `C:\dev\westline-website`
+or a Documents folder outside the OneDrive root.
+
+### What does *not* travel between machines
+
+| Thing | Travels? | Notes |
+|---|---|---|
+| Everything committed and pushed | ✅ | Including `CLAUDE.md`, `.claude/launch.json`, `.claude/skills/local-preview/` — deliberately tracked so a fresh clone is configured |
+| Uncommitted / untracked files | ❌ | This is exactly how `site-aug-2026/` ended up stranded on one PC for a week |
+| Claude Code's memory files | ❌ | They live in the user profile (`~/.claude/projects/.../memory/`), not the repo. **This file and `CLAUDE.md` are the cross-machine memory** — if something matters on the next machine, write it here |
+| Local server / node install | ❌ | Per-machine, see below |
+
+### Per-machine setup
+
+1. Git + GitHub Desktop, signed in to the account with **write access to `nasirmohideenMA/westline-website`**.
+2. Clone the repo to a path outside OneDrive.
+3. Node.js, for the local preview server.
+
+⚠️ **Two gotchas seen on the current machine:**
+
+- **Push permission.** A `git push` from the CLI failed with `Permission to
+  nasirmohideenMA/westline-website.git denied to nasirm-lab` — git was
+  authenticated as a different GitHub account than the one owning the repo.
+  Pushing via GitHub Desktop worked. If the CLI can't push on a machine, that's
+  why: check which account git is signed in as before debugging anything else.
+- **Node not on PATH.** `npx` was not resolvable from Git Bash even though Node
+  was installed at `C:\Program Files\nodejs`. If `npx: command not found`, call
+  it by full path: `"/c/Program Files/nodejs/npx.cmd" --yes serve --listen 4173 .`

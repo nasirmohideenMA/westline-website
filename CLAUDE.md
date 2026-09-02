@@ -8,10 +8,13 @@ Non-technical Managing Director of Westline Builders. Plain language, no jargon.
 
 ## Workflow rules
 
+- **`git pull` first, every session.** Nasir works from **three PCs** and GitHub is the only thing that moves work between them. If `git status -sb` says `behind`, you're reading stale files — pull before you read or plan anything. See §10 of PROJECT-HANDOFF.md.
 - **Local-commit-only.** Make changes and commit locally as you go, but do **not** `git push` until Nasir explicitly says he's finished reviewing and wants it live. Check `git status -sb` to see how far ahead of `origin/main` the branch is.
 - Once he says push, push straight to `main` — no PR review process, he doesn't use branches.
 - Cloudflare Pages auto-deploys `main` in 1-2 minutes after a push.
 - Nasir uses **GitHub Desktop**, not git CLI, if he ever needs to touch git himself — keep any instructions to him GUI-friendly.
+- **Don't leave work uncommitted at the end of a session.** Uncommitted files exist on one machine only. A whole parallel site (`site-aug-2026/`) sat untracked and unbacked-up for a week exactly this way. Committing locally is enough — that still isn't a push.
+- **Never let this repo sit inside OneDrive.** OneDrive syncing `.git` while git writes to it corrupts the repo once more than one machine is involved. One sync system per folder; here that's git.
 
 ## Local preview
 
