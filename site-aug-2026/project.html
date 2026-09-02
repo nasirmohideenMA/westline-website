@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="description" content="Westline Builders project detail — Cubix, Vantage, Salubrity, Fairmont, Ohana, Jeppu Medicity, Skydale, Splendid Homes and Bonita. Floors, location, status and K-RERA position." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#0B0907;--bg2:#100D0A;--surface:#16110C;--text:#F7F1E6;--text2:#a8a096;--text3:#7d746a;--gold:#C9A96E;--gold-d:#A67C3D;--gold-pale:#F0E4CC;--line:rgba(166,124,61,0.28);--line2:rgba(247,241,230,0.09);--scrim:rgba(11,9,7,0.72)}
+:root[data-theme="light"]{--bg:#FAF7F2;--bg2:#F2EBE0;--surface:#FFFFFF;--text:#1A1410;--text2:#5c5348;--text3:#8a8175;--gold:#A67C3D;--gold-d:#8a6631;--gold-pale:#6b5533;--line:rgba(26,20,16,0.16);--line2:rgba(26,20,16,0.08);--scrim:rgba(250,247,242,0.72)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-pale)}
+::selection{background:var(--gold);color:#0B0907}
+@keyframes wl-rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#0B0907"/><rect x="150" y="88" width="100" height="130" fill="none" stroke="#C9A96E" stroke-width="3"/><path d="M150 118h100M150 148h100M150 178h100" stroke="#C9A96E" stroke-width="2"/><text x="200" y="262" font-family="Georgia,serif" font-size="30" fill="#C9A96E" text-anchor="middle">PROJECT</text></svg></template>
+
+<div style="font-family:Jost,system-ui,sans-serif;background:var(--bg)">
+<dc-import name="SiteNav" hint-size="100%,72px"></dc-import>
+
+<div style="border-bottom:1px solid var(--line);background:var(--bg2);position:sticky;top:72px;z-index:400">
+<div style="max-width:1440px;margin:0 auto;padding:10px clamp(16px,3vw,40px);display:flex;gap:8px;overflow-x:auto;scrollbar-width:none">
+<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="9">
+<button type="button" data-k="{{ t.key }}" onClick="{{ pick }}" style="flex:0 0 auto;min-height:44px;padding:0 16px;background:{{ t.bg }};border:1px solid {{ t.border }};color:{{ t.color }};font-family:Jost,sans-serif;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;white-space:nowrap">{{ t.label }}</button>
+</sc-for>
+</div>
+</div>
+
+<header style="position:relative;border-bottom:1px solid var(--line);background:var(--bg);overflow:hidden">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,6vw,84px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,4vw,64px);align-items:end">
+<div style="display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;align-items:center;gap:12px">
+<span style="width:clamp(24px,5vw,52px);height:1px;background:var(--gold)"></span>
+<span style="font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-d)">{{ status }} · {{ type }}</span>
+</div>
+<h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,7vw,96px);line-height:0.96;letter-spacing:-0.02em;margin:0;color:var(--text);text-wrap:balance">{{ name }}</h1>
+<p style="margin:0;max-width:52ch;font-size:clamp(15px,1.7vw,19px);line-height:1.6;color:var(--text2);text-wrap:pretty">{{ copy }}</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px">
+<a href="{{ wa }}" rel="noopener" target="_blank" style="min-height:52px;display:flex;align-items:center;padding:0 26px;background:var(--gold);color:#0B0907;font-size:13px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase">{{ primaryCta }}</a>
+<a href="tel:+919900033888" style="min-height:52px;display:flex;align-items:center;padding:0 26px;border:1px solid var(--line);color:var(--text);font-size:13px;letter-spacing:0.16em;text-transform:uppercase" style-hover="border-color:var(--gold)">+91 99000 33888</a>
+<a href="projects.html" style="min-height:52px;display:flex;align-items:center;padding:0 20px;color:var(--text3);font-size:13px;letter-spacing:0.16em;text-transform:uppercase" style-hover="color:var(--gold)">All projects</a>
+</div>
+</div>
+<div style="position:relative;aspect-ratio:4/3;border:1px solid var(--line);background:var(--surface);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<span style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold-d)">Photography slot</span>
+<span style="font-size:14px;line-height:1.55;color:var(--text2);max-width:32ch">{{ imgTodo }}</span>
+</div>
+</div>
+</div>
+</header>
+
+<section aria-label="Key facts" style="border-bottom:1px solid var(--line);background:var(--bg2)">
+<div style="max-width:1440px;margin:0 auto;padding:0">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)">
+<sc-for list="{{ facts }}" as="f" hint-placeholder-count="4">
+<div style="background:var(--bg2);padding:clamp(20px,3vw,32px) clamp(16px,2vw,26px);border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px">
+<span style="font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.2vw,40px);line-height:1;color:var(--gold)">{{ f.v }}</span>
+<span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text3)">{{ f.k }}</span>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<sc-if value="{{ hasStack }}" hint-placeholder-val="{{ true }}">
+<section aria-label="Floor stack" style="border-bottom:1px solid var(--line);background:var(--bg)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(40px,6vw,88px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(28px,4vw,60px);align-items:center">
+<div style="display:flex;flex-direction:column;gap:16px">
+<span style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold-d)">The stack</span>
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,4.2vw,56px);line-height:1.03;margin:0;color:var(--text)">Pick a floor.</h2>
+<p style="margin:0;max-width:46ch;font-size:15px;line-height:1.62;color:var(--text2);text-wrap:pretty">Hover or tap a level to see what sits there. Use it to work out where your floor plate would land.</p>
+<div style="border:1px solid var(--line);background:var(--bg2);padding:clamp(18px,2.4vw,26px);display:flex;flex-direction:column;gap:8px;min-height:150px">
+<span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-d)">{{ activeLabel }}</span>
+<span style="font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,34px);line-height:1.1;color:var(--text)">{{ activeTitle }}</span>
+<span style="font-size:14px;line-height:1.6;color:var(--text2);text-wrap:pretty">{{ activeCopy }}</span>
+</div>
+<a href="{{ activeWa }}" rel="noopener" target="_blank" style="min-height:50px;display:inline-flex;align-items:center;padding:0 24px;border:1px solid var(--gold);color:var(--gold);font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;align-self:flex-start" style-hover="background:var(--gold);color:#0B0907">Ask about this level</a>
+</div>
+<div style="display:flex;flex-direction:column-reverse;gap:3px">
+<sc-for list="{{ stack }}" as="s" hint-placeholder-count="10">
+<button type="button" data-i="{{ s.i }}" onClick="{{ setLevel }}" onMouseEnter="{{ setLevel }}" style="width:100%;min-height:44px;padding:0 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:{{ s.bg }};border:1px solid {{ s.border }};color:{{ s.color }};font-family:Jost,sans-serif;font-size:12.5px;letter-spacing:0.1em;cursor:pointer;transition:background 160ms ease,border-color 160ms ease" style-hover="border-color:var(--gold)">
+<span style="letter-spacing:0.16em;text-transform:uppercase">{{ s.label }}</span>
+<span style="color:{{ s.subColor }};font-size:11.5px">{{ s.use }}</span>
+</button>
+</sc-for>
+</div>
+</div>
+</section>
+</sc-if>
+
+<section aria-label="Position and compliance" style="border-bottom:1px solid var(--line);background:var(--bg)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(40px,6vw,88px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,4vw,60px)">
+<div style="display:flex;flex-direction:column;gap:16px">
+<span style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold-d)">Where it sits</span>
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,3.6vw,44px);line-height:1.05;margin:0;color:var(--text)">{{ location }}</h2>
+<p style="margin:0;max-width:48ch;font-size:15px;line-height:1.62;color:var(--text2);text-wrap:pretty">{{ locationCopy }}</p>
+<a href="{{ mapHref }}" rel="noopener" target="_blank" style="min-height:50px;display:inline-flex;align-items:center;padding:0 24px;border:1px solid var(--line);color:var(--text);font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;align-self:flex-start" style-hover="border-color:var(--gold);color:var(--gold)">Open in Maps</a>
+</div>
+<div style="border:1px solid var(--line);background:var(--bg2);padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;gap:14px">
+<span style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold-d)">Compliance</span>
+<div style="display:flex;flex-direction:column;gap:4px">
+<span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text3)">K-RERA</span>
+<span style="font-size:14.5px;line-height:1.6;color:var(--text);word-break:break-word">{{ rera }}</span>
+</div>
+<div style="height:1px;background:var(--line2)"></div>
+<p style="margin:0;font-size:12.5px;line-height:1.65;color:var(--text3);text-wrap:pretty">{{ reraNote }}</p>
+<a href="https://rera.karnataka.gov.in" rel="noopener" target="_blank" style="font-size:12.5px;letter-spacing:0.1em">Verify on the K-RERA portal →</a>
+</div>
+</div>
+</section>
+
+<section aria-label="Enquire" style="background:var(--bg2)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(40px,6vw,88px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,4vw,60px);align-items:center">
+<div style="display:flex;flex-direction:column;gap:16px">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,4.2vw,54px);line-height:1.03;margin:0;color:var(--text);text-wrap:balance">{{ ctaHeading }}</h2>
+<p style="margin:0;max-width:44ch;font-size:15px;line-height:1.6;color:var(--text2)">{{ ctaCopy }}</p>
+</div>
+<form onSubmit="{{ submitAsk }}" style="border:1px solid var(--line);background:var(--bg);padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;gap:12px">
+<input type="text" required="{{ true }}" placeholder="Your name" data-field="name" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:15px" />
+<input type="tel" required="{{ true }}" pattern="[0-9+ ]{8,16}" placeholder="Phone with country code" data-field="phone" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:15px" />
+<input type="text" placeholder="{{ askPlaceholder }}" data-field="requirement" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:15px" />
+<label style="display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.5;color:var(--text3);cursor:pointer"><input type="checkbox" required="{{ true }}" style="margin-top:3px;min-width:18px;min-height:18px;accent-color:#C9A96E" />I agree to be contacted on phone and WhatsApp about this project.</label>
+<button type="submit" style="min-height:52px;background:var(--gold);border:none;color:#0B0907;font-family:Jost,sans-serif;font-size:13px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer">{{ askBtn }}</button>
+<p style="margin:0;font-size:13px;line-height:1.6;color:{{ askColor }}">{{ askMsg }}</p>
+</form>
+</div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+const ENDPOINT = "https://tercgsdwswtnyrrrjeab.supabase.co/functions/v1/website-lead-intake";
+const WA = "https://wa.me/919900033888?text=";
+
+/* One page serves the nine non-Signature projects. ?p=<key> selects one; the chip row
+   switches without a reload. Nothing here is invented — anything unpublished reads as a
+   named TODO so it is obvious what Westline still owes the page. */
+const P = {
+  cubix: {
+    name: "Cubix", type: "IT park, retail, office & hotel", status: "Upcoming", floors: 53,
+    location: "NH66, Kadri, Mangalore",
+    locationCopy: "On the national highway at Kadri, the commercial spine of the city. Same corridor as Westline Signature, four kilometres north.",
+    copy: "Fifty-three floors of mixed use on NH66 — IT floors, retail podium, offices and a hotel in a single structure. Lease only: there is no sale component, so there is no RERA registration to quote.",
+    rera: "Not applicable — lease only, no sale component",
+    reraNote: "K-RERA registration applies to projects with units for sale. Cubix is a lease-only development, so no registration number exists. Ask us for the lease deed structure and the fit-out terms instead.",
+    primaryCta: "Leasing enquiry", ctaHeading: "Take a floor before the plates are drawn down.", ctaCopy: "Early tenants set the floor split. Tell us the area you need and the use, and we'll come back with what is still uncommitted.",
+    askPlaceholder: "Area needed and use", imgTodo: "Cubix render or massing study — supply and it drops in here.",
+    stack: [
+      { label: "Floors 40–53", use: "Hotel", title: "Hotel levels", copy: "The hotel occupies the top band, with the arrival and lobby separated from the office core." },
+      { label: "Floors 12–39", use: "IT & offices", title: "IT and office floors", copy: "The deep floor plates. Sized for IT tenancy, divisible per floor. Plate area per floor is pending drawings — ask us for the current split." },
+      { label: "Floors 4–11", use: "Offices", title: "Small-format offices", copy: "Smaller suites for professional services, divisible down to single-tenant units." },
+      { label: "Ground–3", use: "Retail", title: "Retail podium", copy: "Street-facing retail on the NH66 frontage, with the highway footfall the corridor already carries." },
+      { label: "Basements", use: "Parking", title: "Parking", copy: "Basement parking under the full footprint. Bay counts per tenancy are pending final drawings." }
+    ]
+  },
+  vantage: {
+    name: "Vantage", type: "Premium corner commercial", status: "Upcoming", floors: 10,
+    location: "Fr. Muller Road × Balikashram Road, Kankanady",
+    locationCopy: "A corner plot with two road frontages, inside Mangalore's hospital belt. Father Muller campus is the anchor of the neighbourhood.",
+    copy: "Ten floors on the corner of Fr. Muller Road and Balikashram Road. Two frontages, hospital-belt footfall, and plates sized for clinics, diagnostics and professional offices.",
+    rera: "Registration in progress",
+    reraNote: "Registration is in progress. We will publish the number here the day it is issued, and we do not take booking amounts against an unregistered project.",
+    primaryCta: "Enquire about a plate", ctaHeading: "A corner plot in the hospital belt does not come up twice.", ctaCopy: "Tell us the practice or the use and we'll tell you which floor suits it.",
+    askPlaceholder: "Practice type and area needed", imgTodo: "Vantage corner elevation — supply and it drops in here.",
+    stack: [
+      { label: "Floors 8–10", use: "Offices", title: "Upper offices", copy: "The quietest floors, furthest from the junction noise, with the longest views over Kankanady." },
+      { label: "Floors 3–7", use: "Polyclinics", title: "Clinical floors", copy: "Sized for consulting suites and diagnostics. Plumbing and power provisions for clinical fit-out are being finalised." },
+      { label: "Floors 1–2", use: "Diagnostics", title: "Diagnostics and pharmacy", copy: "Heavy-equipment levels, close to the entrance for patient movement." },
+      { label: "Ground", use: "Retail", title: "Street retail", copy: "Two frontages on Fr. Muller Road and Balikashram Road. The highest-value plate in the building." },
+      { label: "Basements", use: "Parking", title: "Parking", copy: "Basement parking, ratio per unit pending final drawings." }
+    ]
+  },
+  salubrity: {
+    name: "Salubrity", type: "Commercial / polyclinics", status: "Ongoing", floors: 7,
+    location: "Sturrock Road × SL Mathias Road, Falnir",
+    locationCopy: "Falnir, at the Sturrock and SL Mathias junction — the middle of the medical district, walking distance from the major hospitals.",
+    copy: "Seven floors built around polyclinic and medical tenancy, at the Sturrock and SL Mathias Road junction in Falnir. Under construction now.",
+    rera: "Registration in progress",
+    reraNote: "Registration is in progress. The number appears here on issue. Construction status and handover dates are available on request with photographs.",
+    primaryCta: "Enquire about a plate", ctaHeading: "Under construction, and the good floors go early.", ctaCopy: "Tell us the area and the use; we'll send the current availability and the construction stage.",
+    askPlaceholder: "Practice type and area needed", imgTodo: "Salubrity construction photograph or elevation — supply and it drops in here.",
+    stack: [
+      { label: "Floors 5–7", use: "Offices", title: "Upper offices", copy: "Above the tree line, away from junction noise. Suited to consulting and administrative use." },
+      { label: "Floors 2–4", use: "Polyclinics", title: "Polyclinic floors", copy: "The core of the building's brief — consulting suites with clinical service provisions." },
+      { label: "Floor 1", use: "Diagnostics", title: "Diagnostics", copy: "Equipment-heavy level with direct lift access from the entrance." },
+      { label: "Ground", use: "Pharmacy & retail", title: "Pharmacy and retail", copy: "Junction frontage on two roads, with hospital footfall passing all day." },
+      { label: "Basement", use: "Parking", title: "Parking", copy: "Basement parking. Bay allocation per unit is confirmed at agreement stage." }
+    ]
+  },
+  fairmont: {
+    name: "Fairmont", type: "Serviced apartments", status: "Ongoing", floors: 6,
+    location: "Karavali Lane, Kadri, Mangalore",
+    locationCopy: "Karavali Lane, off the Kadri artery — quiet street, minutes from the hospitals and the NH66 corridor.",
+    copy: "Six floors of serviced apartments on Karavali Lane, Kadri. Built for the medical and business traffic that fills Kadri all year, with management in place rather than bolted on.",
+    rera: "Registration in progress",
+    reraNote: "Registration is in progress. Unit sizes, the management agreement and the operating split are all available on request — ask before you model a yield.",
+    primaryCta: "Ask for the yield sheet", ctaHeading: "A serviced unit is a business, not just a flat.", ctaCopy: "Ask for the operating terms and the management split before you compare it to a plain rental.",
+    askPlaceholder: "Investment size in mind", imgTodo: "Fairmont interior or elevation photography — supply and it drops in here.",
+    stack: [
+      { label: "Floors 4–6", use: "Suites", title: "Upper suites", copy: "The quietest units, with the longest views over Kadri." },
+      { label: "Floors 2–3", use: "Serviced units", title: "Serviced apartments", copy: "The core inventory. Unit sizes are pending final drawings — ask for the current sheet." },
+      { label: "Floor 1", use: "Serviced units", title: "Lower units", copy: "Closest to reception and the service core, easiest for short stays." },
+      { label: "Ground", use: "Reception", title: "Reception and arrival", copy: "Managed reception with guest arrival off Karavali Lane." },
+      { label: "Basement", use: "Parking", title: "Parking", copy: "Basement parking for residents and guests." }
+    ]
+  },
+  ohana: {
+    name: "Ohana Luxury Stays", type: "Resort", status: "Upcoming", floors: null,
+    location: "Mullayanagiri, Chikmagalur",
+    locationCopy: "Mullayanagiri, the highest peak in Karnataka. Coffee country, three hundred kilometres from the Mangalore office and the one Westline project outside the city.",
+    copy: "A low-rise luxury stay at Mullayanagiri, Chikmagalur. The one Westline project that is not a tower, and the one that is not in Mangalore.",
+    rera: "Registration in progress",
+    reraNote: "Registration is in progress. Key counts, villa sizes and the operating model are not published yet — we will not put numbers on this page before they are final.",
+    primaryCta: "Ask about Ohana", ctaHeading: "Ask us what Ohana actually is before the brochure exists.", ctaCopy: "Villa count, sizes and the operating model are still being finalised. A phone call gets you the current position.",
+    askPlaceholder: "What you'd like to know", imgTodo: "Ohana site or Mullayanagiri location photography — supply and it drops in here.",
+    stack: null
+  },
+  jeppu: {
+    name: "Jeppu Medicity", type: "Commercial", status: "Completed", floors: 6,
+    location: "Jeppu Market Road, Mangalore",
+    locationCopy: "Jeppu Market Road, south of the centre. Dense, established, and busy from early morning.",
+    copy: "Six floors on Jeppu Market Road, complete and occupied. Medical and commercial tenancy, RERA registered and closed out.",
+    rera: "PRM/KA/RERA/1257/334/PR/200211/003258",
+    reraNote: "Registered and completed. The registration number above is verifiable on the K-RERA portal — worth doing, on any project, from any builder.",
+    primaryCta: "Ask about resale or lease", ctaHeading: "Complete, occupied, and occasionally available.", ctaCopy: "Units come up for resale and lease. Tell us what you're after and we'll tell you if anything is free.",
+    askPlaceholder: "Resale or lease, area needed", imgTodo: "Jeppu Medicity completed-building photograph — supply and it drops in here.",
+    stack: null
+  },
+  skydale: {
+    name: "Skydale", type: "Residential", status: "Completed", floors: 7,
+    location: "Bikkarnakatte, Mangalore",
+    locationCopy: "Bikkarnakatte, on the eastern side of the city — residential, settled, well connected to the ring road.",
+    copy: "Seven floors of residence at Bikkarnakatte, delivered and lived in. Part of the record that makes the Signature underwriting credible.",
+    rera: "Completed project — registration not applicable",
+    reraNote: "Completed before the project fell within the current registration requirement. Handover documentation is available on request.",
+    primaryCta: "Ask about resale", ctaHeading: "Delivered in full. Occasionally a unit comes back to market.", ctaCopy: "We keep track of resale in our own buildings. Ask and we'll tell you what is available.",
+    askPlaceholder: "Configuration you're looking for", imgTodo: "Skydale completed-building photograph — supply and it drops in here.",
+    stack: null
+  },
+  splendid: {
+    name: "Splendid Homes", type: "Residential", status: "Completed", floors: 5,
+    location: "Kulashekar, Mangalore",
+    locationCopy: "Kulashekar, north-east of the centre. One of the earlier Westline residential addresses and still fully occupied.",
+    copy: "Five floors at Kulashekar, complete. An early Westline residential block, still fully occupied.",
+    rera: "Completed project — registration not applicable",
+    reraNote: "Completed project. Handover and association documentation is available on request.",
+    primaryCta: "Ask about resale", ctaHeading: "An early building that still holds up.", ctaCopy: "Ask us about resale here, or about what we learned in it that went into Signature.",
+    askPlaceholder: "Configuration you're looking for", imgTodo: "Splendid Homes completed-building photograph — supply and it drops in here.",
+    stack: null
+  },
+  bonita: {
+    name: "Bonita", type: "Residential", status: "Completed", floors: 6,
+    location: "Thokkottu, Mangalore",
+    locationCopy: "Thokkottu, on the southern approach to the city and close to the coast road.",
+    copy: "Six floors at Thokkottu, complete and handed over. Coastal-side residence on the southern approach to the city.",
+    rera: "Completed project — registration not applicable",
+    reraNote: "Completed project. Handover and association documentation is available on request.",
+    primaryCta: "Ask about resale", ctaHeading: "Handed over, and close to the coast road.", ctaCopy: "Resale comes up here from time to time. Tell us what you want and we'll watch for it.",
+    askPlaceholder: "Configuration you're looking for", imgTodo: "Bonita completed-building photograph — supply and it drops in here.",
+    stack: null
+  }
+};
+
+const ORDER = ["cubix", "vantage", "salubrity", "fairmont", "ohana", "jeppu", "skydale", "splendid", "bonita"];
+
+class Component extends DCLogic {
+  state = { key: "cubix", level: 0, ask: { busy: false, msg: "" } };
+  t0 = Date.now();
+
+  componentDidMount() {
+    let k = null;
+    try { k = new URLSearchParams(window.location.search).get("p"); } catch (e) {}
+    if (k && P[k]) this.setState({ key: k });
+    this.onHash = () => {
+      const h = (window.location.hash || "").replace("#", "");
+      if (P[h]) this.setState({ key: h, level: 0 });
+    };
+    window.addEventListener("hashchange", this.onHash);
+    this.onHash();
+  }
+
+  componentWillUnmount() { window.removeEventListener("hashchange", this.onHash); }
+
+  async post(handler, fields, onState) {
+    onState({ busy: true, msg: "" });
+    const payload = { page: "project.html", project: this.state.key, handler: handler, fields: fields, elapsed_ms: Date.now() - this.t0 };
+    try {
+      const r = await fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      onState({ busy: false, msg: "ok" });
+    } catch (e) { onState({ busy: false, msg: "fail" }); }
+  }
+
+  collect(form) {
+    const out = {};
+    form.querySelectorAll("[data-field]").forEach(el => { out[el.dataset.field] = el.value; });
+    return out;
+  }
+
+  renderVals() {
+    const s = this.state;
+    const d = P[s.key] || P.cubix;
+    const stack = d.stack;
+    const lvl = stack ? (stack[Math.min(s.level, stack.length - 1)] || stack[0]) : null;
+
+    const facts = [
+      { k: d.floors ? "Floors, structural" : "Format", v: d.floors ? String(d.floors) : "Low-rise" },
+      { k: "Status", v: d.status },
+      { k: "Use", v: d.type.split(" ")[0] },
+      { k: "Height, approx", v: d.floors ? Math.round(d.floors * 3.0) + " m" : "—" }
+    ];
+
+    const askOk = s.ask.msg === "ok", askFail = s.ask.msg === "fail";
+
+    return {
+      tabs: ORDER.map(k => {
+        const on = k === s.key;
+        return { key: k, label: P[k].name, bg: on ? "var(--gold)" : "none", border: on ? "var(--gold)" : "var(--line)", color: on ? "#0B0907" : "var(--text2)" };
+      }),
+      pick: e => this.setState({ key: e.currentTarget.dataset.k, level: 0 }),
+
+      name: d.name, type: d.type, status: d.status, copy: d.copy,
+      location: d.location, locationCopy: d.locationCopy,
+      rera: d.rera, reraNote: d.reraNote,
+      imgTodo: d.imgTodo,
+      primaryCta: d.primaryCta, ctaHeading: d.ctaHeading, ctaCopy: d.ctaCopy,
+      askPlaceholder: d.askPlaceholder,
+      facts: facts,
+      wa: WA + encodeURIComponent("Hello Westline, I'd like details on " + d.name + "."),
+      mapHref: "https://www.google.com/maps/search/" + encodeURIComponent(d.name + ", " + d.location),
+
+      hasStack: !!stack,
+      stack: (stack || []).map((x, i) => {
+        const on = i === Math.min(s.level, (stack || []).length - 1);
+        return { i: i, label: x.label, use: x.use, bg: on ? "var(--surface)" : "none", border: on ? "var(--gold)" : "var(--line2)", color: on ? "var(--text)" : "var(--text2)", subColor: on ? "var(--gold)" : "var(--text3)" };
+      }),
+      setLevel: e => { const i = Number(e.currentTarget.dataset.i); if (i !== this.state.level) this.setState({ level: i }); },
+      activeLabel: lvl ? lvl.label : "",
+      activeTitle: lvl ? lvl.title : "",
+      activeCopy: lvl ? lvl.copy : "",
+      activeWa: WA + encodeURIComponent("Hello Westline, what is available at " + (lvl ? lvl.label : "") + " in " + d.name + "?"),
+
+      askBtn: s.ask.busy ? "Sending…" : "Send",
+      askMsg: askOk ? "Got it. We'll come back with the current position on " + d.name + "." : askFail ? "That didn't send. Tap WhatsApp above and send the same details — nothing was lost." : "",
+      askColor: askOk ? "var(--gold)" : askFail ? "#d98b6a" : "var(--text3)",
+      submitAsk: async e => {
+        e.preventDefault();
+        const f = this.collect(e.target);
+        await this.post("project_enquiry", f, st => this.setState({ ask: st }));
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

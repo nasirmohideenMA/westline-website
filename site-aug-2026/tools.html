@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="description" content="Buyer tools for Mangalore property — EMI and amortisation, affordability, Karnataka stamp duty and registration estimate, and rent versus buy. Westline Builders." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#0B0907;--bg2:#100D0A;--surface:#16110C;--text:#F7F1E6;--text2:#a8a096;--text3:#7d746a;--gold:#C9A96E;--gold-d:#A67C3D;--gold-pale:#F0E4CC;--line:rgba(166,124,61,0.28);--line2:rgba(247,241,230,0.09)}
+:root[data-theme="light"]{--bg:#FAF7F2;--bg2:#F2EBE0;--surface:#FFFFFF;--text:#1A1410;--text2:#5c5348;--text3:#8a8175;--gold:#A67C3D;--gold-d:#8a6631;--gold-pale:#6b5533;--line:rgba(26,20,16,0.16);--line2:rgba(26,20,16,0.08)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-pale)}
+::selection{background:var(--gold);color:#0B0907}
+input[type="range"]{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;cursor:pointer}
+input[type="range"]::-webkit-slider-runnable-track{height:2px;background:rgba(166,124,61,0.4)}
+input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#C9A96E;margin-top:-10px;border:none}
+input[type="range"]::-moz-range-track{height:2px;background:rgba(166,124,61,0.4)}
+input[type="range"]::-moz-range-thumb{width:22px;height:22px;border:none;border-radius:50%;background:#C9A96E}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#0B0907"/><path d="M70 220 C150 220 200 150 330 90" fill="none" stroke="#C9A96E" stroke-width="6"/><path d="M70 90v130h260" fill="none" stroke="#A67C3D" stroke-width="3"/><text x="200" y="268" font-family="Georgia,serif" font-size="30" fill="#C9A96E" text-anchor="middle">TOOLS</text></svg></template>
+
+<div style="font-family:Jost,system-ui,sans-serif;background:var(--bg)">
+<dc-import name="SiteNav" hint-size="100%,72px"></dc-import>
+
+<header style="border-bottom:1px solid var(--line);background:var(--bg)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,6vw,80px) clamp(16px,3vw,40px) clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;align-items:center;gap:12px">
+<span style="width:clamp(28px,6vw,64px);height:1px;background:var(--gold)"></span>
+<span style="font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:var(--gold-d)">Buyer tools</span>
+</div>
+<h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,7.5vw,100px);line-height:0.96;letter-spacing:-0.02em;margin:0;color:var(--text);text-wrap:balance">Run the numbers before you call us.</h1>
+<p style="margin:0;max-width:58ch;font-size:clamp(15px,1.8vw,20px);line-height:1.55;color:var(--text2);text-wrap:pretty">Four calculators, no email gate. Move a slider and everything below it moves. Nothing is stored and nothing is sent unless you press send.</p>
+</div>
+</header>
+
+<section aria-label="EMI and amortisation" style="border-bottom:1px solid var(--line);background:var(--bg2)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,5vw,76px) clamp(16px,3vw,40px);display:flex;flex-direction:column;gap:clamp(24px,3vw,40px)">
+<div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,4.2vw,54px);line-height:1.03;margin:0;color:var(--text)">EMI, and where the money actually goes</h2>
+<span style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3)">Hover the chart to scrub year by year</span>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,3vw,48px);align-items:start">
+<div style="display:flex;flex-direction:column;gap:26px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><label for="wl-amt" style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3)">Loan amount</label><span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold)">{{ amountLabel }}</span></div>
+<input id="wl-amt" type="range" min="1000000" max="150000000" step="500000" value="{{ amount }}" onInput="{{ setAmount }}" />
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><label for="wl-rate" style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3)">Interest rate</label><span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold)">{{ rateLabel }}</span></div>
+<input id="wl-rate" type="range" min="6" max="14" step="0.05" value="{{ rate }}" onInput="{{ setRate }}" />
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><label for="wl-yrs" style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3)">Tenure</label><span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold)">{{ yearsLabel }}</span></div>
+<input id="wl-yrs" type="range" min="5" max="30" step="1" value="{{ years }}" onInput="{{ setYears }}" />
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)">
+<div style="background:var(--bg);padding:18px 16px;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--gold)">{{ emiLabel }}</span><span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3)">Monthly EMI</span></div>
+<div style="background:var(--bg);padding:18px 16px;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--text)">{{ interestLabel }}</span><span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3)">Total interest</span></div>
+<div style="background:var(--bg);padding:18px 16px;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--text)">{{ totalLabel }}</span><span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3)">Total repaid</span></div>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:12px">
+<div ref="{{ chartRef }}" onMouseMove="{{ scrub }}" onMouseLeave="{{ unscrub }}" onTouchMove="{{ scrubTouch }}" style="position:relative;border:1px solid var(--line);background:var(--bg);padding:16px;cursor:crosshair">
+<svg viewBox="0 0 400 220" preserveAspectRatio="none" style="width:100%;height:clamp(200px,30vh,280px);display:block">
+<polyline points="{{ balancePts }}" fill="none" stroke="#C9A96E" stroke-width="2.5" vector-effect="non-scaling-stroke"></polyline>
+<polyline points="{{ interestPts }}" fill="none" stroke="#7f93a8" stroke-width="2" stroke-dasharray="4 4" vector-effect="non-scaling-stroke"></polyline>
+<line x1="{{ cursorX }}" y1="0" x2="{{ cursorX }}" y2="220" stroke="rgba(240,228,204,0.4)" stroke-width="1" vector-effect="non-scaling-stroke"></line>
+</svg>
+<div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:12px">
+<span style="display:inline-flex;align-items:center;gap:7px;font-size:11.5px;color:var(--text2)"><span style="width:14px;height:2px;background:#C9A96E"></span>Balance outstanding</span>
+<span style="display:inline-flex;align-items:center;gap:7px;font-size:11.5px;color:var(--text2)"><span style="width:14px;height:2px;background:#7f93a8"></span>Interest paid, cumulative</span>
+</div>
+</div>
+<div style="border:1px solid var(--line);background:var(--bg);padding:18px;display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:baseline">
+<div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-d)">{{ scrubYearLabel }}</span><span style="font-size:13px;color:var(--text3)">{{ scrubHint }}</span></div>
+<div style="display:flex;gap:22px;flex-wrap:wrap">
+<div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--gold)">{{ scrubBalance }}</span><span style="font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3)">Still owed</span></div>
+<div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--text)">{{ scrubInterest }}</span><span style="font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3)">Interest so far</span></div>
+<div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--text)">{{ scrubPrincipal }}</span><span style="font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3)">Principal cleared</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section aria-label="Stamp duty and registration" style="border-bottom:1px solid var(--line);background:var(--bg)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,5vw,76px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,3vw,48px);align-items:start">
+<div style="display:flex;flex-direction:column;gap:18px">
+<span style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold-d)">Registration cost</span>
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,3.8vw,48px);line-height:1.04;margin:0;color:var(--text);text-wrap:balance">What the government takes, on top of the price</h2>
+<p style="margin:0;max-width:48ch;font-size:15px;line-height:1.62;color:var(--text2);text-wrap:pretty">Karnataka charges stamp duty on a slab, plus cess and surcharge on the duty, plus a registration fee on the value. It is computed on the higher of your agreement value and the government guidance value.</p>
+<div style="display:flex flex-direction:column;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><label for="wl-val" style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3)">Chargeable value</label><span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold)">{{ dutyValueLabel }}</span></div>
+<input id="wl-val" type="range" min="2000000" max="200000000" step="500000" value="{{ dutyValue }}" onInput="{{ setDutyValue }}" />
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<button type="button" data-z="urban" onClick="{{ setZone }}" style="min-height:44px;padding:0 18px;background:{{ urbanBg }};border:1px solid {{ urbanBorder }};color:{{ urbanColor }};font-family:Jost,sans-serif;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer">Urban</button>
+<button type="button" data-z="rural" onClick="{{ setZone }}" style="min-height:44px;padding:0 18px;background:{{ ruralBg }};border:1px solid {{ ruralBorder }};color:{{ ruralColor }};font-family:Jost,sans-serif;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer">Rural</button>
+</div>
+</div>
+<div style="border:1px solid var(--line);background:var(--bg2)">
+<sc-for list="{{ dutyRows }}" as="r" hint-placeholder-count="5">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px clamp(18px,2.4vw,26px);border-bottom:1px solid var(--line2)">
+<div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;color:{{ r.color }}">{{ r.label }}</span><span style="font-size:11.5px;color:var(--text3)">{{ r.note }}</span></div>
+<span style="font-family:'Cormorant Garamond',serif;font-size:{{ r.size }};color:{{ r.color }};white-space:nowrap">{{ r.value }}</span>
+</div>
+</sc-for>
+<p style="margin:0;padding:16px clamp(18px,2.4vw,26px);font-size:12px;line-height:1.65;color:var(--text3);text-wrap:pretty">Indicative only. Slabs, cess and surcharge are set by the Karnataka Department of Stamps and Registration and change without notice — confirm on the Kaveri portal or with your advocate before you budget. Westline does not collect these charges.</p>
+</div>
+</div>
+</section>
+
+<section aria-label="Affordability and rent versus buy" style="border-bottom:1px solid var(--line);background:var(--bg2)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,5vw,76px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(28px,4vw,56px);align-items:start">
+
+<div style="display:flex;flex-direction:column;gap:20px">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,3.4vw,42px);line-height:1.05;margin:0;color:var(--text)">What can I actually borrow?</h2>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><label for="wl-inc" style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3)">Monthly income, net</label><span style="font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--gold)">{{ incomeLabel }}</span></div>
+<input id="wl-inc" type="range" min="50000" max="2000000" step="10000" value="{{ income }}" onInput="{{ setIncome }}" />
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><label for="wl-obl" style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3)">Existing EMIs</label><span style="font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--gold)">{{ obligLabel }}</span></div>
+<input id="wl-obl" type="range" min="0" max="500000" step="5000" value="{{ oblig }}" onInput="{{ setOblig }}" />
+</div>
+<div style="border:1px solid var(--line);background:var(--bg);padding:clamp(18px,2.4vw,26px);display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3)">Serviceable EMI</span><span style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--text)">{{ maxEmi }}</span></div>
+<div style="height:1px;background:var(--line2)"></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-d)">Indicative loan</span><span style="font-family:'Cormorant Garamond',serif;font-size:34px;color:var(--gold)">{{ maxLoan }}</span></div>
+<p style="margin:0;font-size:12px;line-height:1.6;color:var(--text3)">At {{ rateLabel }} over {{ yearsLabel }}, on a 50% income-to-EMI ceiling. Lenders differ; this is a planning number, not a sanction.</p>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:20px">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,3.4vw,42px);line-height:1.05;margin:0;color:var(--text)">Rent, or buy?</h2>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><label for="wl-rent" style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3)">Rent you pay now</label><span style="font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--gold)">{{ rentLabel }}</span></div>
+<input id="wl-rent" type="range" min="10000" max="500000" step="2500" value="{{ rent }}" onInput="{{ setRent }}" />
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><label for="wl-appr" style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3)">Appreciation assumed</label><span style="font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--gold)">{{ apprLabel }}</span></div>
+<input id="wl-appr" type="range" min="0" max="12" step="0.5" value="{{ appr }}" onInput="{{ setAppr }}" />
+</div>
+<div style="border:1px solid var(--line);background:var(--bg);padding:clamp(18px,2.4vw,26px);display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3)">Rent paid over {{ yearsLabel }}</span><span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--text)">{{ rentTotal }}</span></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3)">Owned asset, then</span><span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--text)">{{ assetValue }}</span></div>
+<div style="height:1px;background:var(--line2)"></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-d)">Difference</span><span style="font-family:'Cormorant Garamond',serif;font-size:34px;color:{{ diffColor }}">{{ diffLabel }}</span></div>
+<p style="margin:0;font-size:12px;line-height:1.6;color:var(--text3);text-wrap:pretty">Rent assumes 7% annual escalation. Ownership compares the asset value against total repayment plus registration. Appreciation is your assumption, not a Westline projection — we do not publish a forecast.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section aria-label="Talk to us" style="background:var(--bg)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,5vw,76px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,4vw,56px);align-items:center">
+<div style="display:flex;flex-direction:column;gap:14px">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,3.8vw,50px);line-height:1.03;margin:0;color:var(--text);text-wrap:balance">Send yourself these numbers, or send them to us.</h2>
+<p style="margin:0;max-width:44ch;font-size:15px;line-height:1.6;color:var(--text2)">We'll come back with the unit that fits the EMI you just set, and an honest view of what the bank will sanction.</p>
+</div>
+<form onSubmit="{{ submitAsk }}" style="border:1px solid var(--line);background:var(--bg2);padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;gap:12px">
+<input type="text" required="{{ true }}" placeholder="Your name" data-field="name" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:15px" />
+<input type="tel" required="{{ true }}" pattern="[0-9+ ]{8,16}" placeholder="Phone with country code" data-field="phone" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:15px" />
+<div style="border:1px solid var(--line2);padding:14px;display:flex;flex-direction:column;gap:4px">
+<span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text3)">Attached to your enquiry</span>
+<span style="font-size:13.5px;line-height:1.5;color:var(--text2)">{{ summary }}</span>
+</div>
+<label style="display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.5;color:var(--text3);cursor:pointer"><input type="checkbox" required="{{ true }}" style="margin-top:3px;min-width:18px;min-height:18px;accent-color:#C9A96E" />I agree to be contacted on phone and WhatsApp.</label>
+<button type="submit" style="min-height:52px;background:var(--gold);border:none;color:#0B0907;font-family:Jost,sans-serif;font-size:13px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer">{{ askBtn }}</button>
+<p style="margin:0;font-size:13px;line-height:1.6;color:{{ askColor }}">{{ askMsg }}</p>
+</form>
+</div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+const ENDPOINT = "https://tercgsdwswtnyrrrjeab.supabase.co/functions/v1/website-lead-intake";
+
+/* Karnataka stamp duty, as published by the Department of Stamps and Registration.
+   Slabs on chargeable value; cess and surcharge computed on the duty; registration
+   fee on value (doubled from 1% to 2% with effect from 31 August 2025).
+   These are the levers to edit when the state revises them. */
+const DUTY = {
+  slabs: [{ upto: 2000000, rate: 0.02 }, { upto: 4500000, rate: 0.03 }, { upto: Infinity, rate: 0.05 }],
+  cessOnDuty: 0.10,
+  surchargeOnDuty: { urban: 0.02, rural: 0.03 },
+  registrationOnValue: 0.02
+};
+
+class Component extends DCLogic {
+  state = {
+    amount: 25000000, rate: 8.5, years: 20,
+    scrub: null,
+    dutyValue: 25000000, zone: "urban",
+    income: 300000, oblig: 0,
+    rent: 45000, appr: 6,
+    ask: { busy: false, msg: "" }
+  };
+  t0 = Date.now();
+
+  money(n) {
+    if (!isFinite(n)) return "—";
+    const a = Math.abs(n), sign = n < 0 ? "−" : "";
+    if (a >= 10000000) return sign + "₹" + (a / 10000000).toFixed(2).replace(/\.00$/, "") + " Cr";
+    if (a >= 100000) return sign + "₹" + (a / 100000).toFixed(1).replace(/\.0$/, "") + " L";
+    return sign + "₹" + Math.round(a).toLocaleString("en-IN");
+  }
+
+  emi(P, annualRate, years) {
+    const r = annualRate / 1200, n = years * 12;
+    if (r <= 0) return P / n;
+    return (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+  }
+
+  // Year-end balance and cumulative interest, computed month by month.
+  schedule(P, annualRate, years) {
+    const r = annualRate / 1200, m = this.emi(P, annualRate, years);
+    let bal = P, cumInt = 0;
+    const rows = [{ year: 0, balance: P, interest: 0, principal: 0 }];
+    for (let y = 1; y <= years; y++) {
+      for (let k = 0; k < 12; k++) {
+        const i = bal * r;
+        cumInt += i;
+        bal = Math.max(0, bal - (m - i));
+      }
+      rows.push({ year: y, balance: bal, interest: cumInt, principal: P - bal });
+    }
+    return rows;
+  }
+
+  dutyBreakdown(value, zone) {
+    let duty = 0, rem = value, prev = 0;
+    for (const s of DUTY.slabs) {
+      const band = Math.min(rem, s.upto - prev);
+      if (band > 0) { duty += band * s.rate; rem -= band; }
+      prev = s.upto;
+      if (rem <= 0) break;
+    }
+    const cess = duty * DUTY.cessOnDuty;
+    const sur = duty * DUTY.surchargeOnDuty[zone];
+    const reg = value * DUTY.registrationOnValue;
+    return { duty: duty, cess: cess, sur: sur, reg: reg, total: duty + cess + sur + reg };
+  }
+
+  async post(handler, fields, onState) {
+    onState({ busy: true, msg: "" });
+    const payload = { page: "tools.html", handler: handler, fields: fields, elapsed_ms: Date.now() - this.t0 };
+    try {
+      const r = await fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      onState({ busy: false, msg: "ok" });
+    } catch (e) { onState({ busy: false, msg: "fail" }); }
+  }
+
+  collect(form) {
+    const out = {};
+    form.querySelectorAll("[data-field]").forEach(el => { out[el.dataset.field] = el.value; });
+    return out;
+  }
+
+  scrubTo(clientX) {
+    const el = this.chart;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, (clientX - r.left) / Math.max(1, r.width)));
+    this.setState({ scrub: p });
+  }
+
+  renderVals() {
+    const s = this.state;
+    const emi = this.emi(s.amount, s.rate, s.years);
+    const total = emi * s.years * 12;
+    const interest = total - s.amount;
+    const rows = this.schedule(s.amount, s.rate, s.years);
+
+    // Chart geometry: 400×220 viewBox, both series scaled to the loan amount.
+    const maxY = Math.max(s.amount, interest, 1);
+    const pts = (key) => rows.map((r, i) => {
+      const x = (i / (rows.length - 1)) * 400;
+      const y = 220 - (r[key] / maxY) * 210;
+      return x.toFixed(1) + "," + y.toFixed(1);
+    }).join(" ");
+
+    const idx = s.scrub == null ? rows.length - 1 : Math.round(s.scrub * (rows.length - 1));
+    const row = rows[Math.min(rows.length - 1, Math.max(0, idx))];
+
+    const d = this.dutyBreakdown(s.dutyValue, s.zone);
+    const dutyRows = [
+      { label: "Stamp duty", note: "Slab: 2% to ₹20 L, 3% to ₹45 L, 5% above", value: this.money(d.duty), color: "var(--text)", size: "22px" },
+      { label: "Cess", note: "10% of the stamp duty", value: this.money(d.cess), color: "var(--text)", size: "22px" },
+      { label: "Surcharge", note: (s.zone === "urban" ? "2%" : "3%") + " of the stamp duty, " + s.zone, value: this.money(d.sur), color: "var(--text)", size: "22px" },
+      { label: "Registration fee", note: "2% of value, revised 31 August 2025", value: this.money(d.reg), color: "var(--text)", size: "22px" },
+      { label: "Total to government", note: ((d.total / s.dutyValue) * 100).toFixed(2) + "% of the chargeable value", value: this.money(d.total), color: "var(--gold)", size: "30px" }
+    ];
+
+    const maxEmi = Math.max(0, s.income * 0.5 - s.oblig);
+    const rMonthly = s.rate / 1200, n = s.years * 12;
+    const maxLoan = rMonthly > 0 ? maxEmi * (Math.pow(1 + rMonthly, n) - 1) / (rMonthly * Math.pow(1 + rMonthly, n)) : maxEmi * n;
+
+    // Rent-vs-buy: rent escalates 7% a year; ownership is asset value less all-in cost.
+    let rentTotal = 0, r0 = s.rent * 12;
+    for (let y = 0; y < s.years; y++) { rentTotal += r0; r0 *= 1.07; }
+    const assetValue = s.amount * Math.pow(1 + s.appr / 100, s.years);
+    const ownCost = total + d.total;
+    const diff = (assetValue - ownCost) + rentTotal;
+
+    const askOk = s.ask.msg === "ok", askFail = s.ask.msg === "fail";
+
+    return {
+      chartRef: el => { this.chart = el; },
+
+      amount: s.amount, rate: s.rate, years: s.years,
+      amountLabel: this.money(s.amount),
+      rateLabel: s.rate.toFixed(2).replace(/\.00$/, "") + "%",
+      yearsLabel: s.years + " years",
+      setAmount: e => this.setState({ amount: Number(e.target.value) }),
+      setRate: e => this.setState({ rate: Number(e.target.value) }),
+      setYears: e => this.setState({ years: Number(e.target.value) }),
+
+      emiLabel: this.money(emi),
+      interestLabel: this.money(interest),
+      totalLabel: this.money(total),
+
+      balancePts: pts("balance"),
+      interestPts: pts("interest"),
+      cursorX: ((row.year / s.years) * 400).toFixed(1),
+      scrub: e => this.scrubTo(e.clientX),
+      scrubTouch: e => { if (e.touches && e.touches[0]) this.scrubTo(e.touches[0].clientX); },
+      unscrub: () => this.setState({ scrub: null }),
+      scrubYearLabel: row.year === 0 ? "At drawdown" : "End of year " + row.year,
+      scrubHint: s.scrub == null ? "Hover or drag across the chart" : "Year " + row.year + " of " + s.years,
+      scrubBalance: this.money(row.balance),
+      scrubInterest: this.money(row.interest),
+      scrubPrincipal: this.money(row.principal),
+
+      dutyValue: s.dutyValue,
+      dutyValueLabel: this.money(s.dutyValue),
+      setDutyValue: e => this.setState({ dutyValue: Number(e.target.value) }),
+      setZone: e => this.setState({ zone: e.currentTarget.dataset.z }),
+      urbanBg: s.zone === "urban" ? "var(--gold)" : "none",
+      urbanBorder: s.zone === "urban" ? "var(--gold)" : "var(--line)",
+      urbanColor: s.zone === "urban" ? "#0B0907" : "var(--text2)",
+      ruralBg: s.zone === "rural" ? "var(--gold)" : "none",
+      ruralBorder: s.zone === "rural" ? "var(--gold)" : "var(--line)",
+      ruralColor: s.zone === "rural" ? "#0B0907" : "var(--text2)",
+      dutyRows: dutyRows,
+
+      income: s.income, oblig: s.oblig,
+      incomeLabel: this.money(s.income),
+      obligLabel: s.oblig === 0 ? "None" : this.money(s.oblig),
+      setIncome: e => this.setState({ income: Number(e.target.value) }),
+      setOblig: e => this.setState({ oblig: Number(e.target.value) }),
+      maxEmi: this.money(maxEmi),
+      maxLoan: this.money(maxLoan),
+
+      rent: s.rent, appr: s.appr,
+      rentLabel: this.money(s.rent) + "/mo",
+      apprLabel: s.appr.toFixed(1).replace(/\.0$/, "") + "% a year",
+      setRent: e => this.setState({ rent: Number(e.target.value) }),
+      setAppr: e => this.setState({ appr: Number(e.target.value) }),
+      rentTotal: this.money(rentTotal),
+      assetValue: this.money(assetValue),
+      diffLabel: (diff >= 0 ? "+" : "") + this.money(diff),
+      diffColor: diff >= 0 ? "var(--gold)" : "#d98b6a",
+
+      summary: this.money(s.amount) + " loan · " + s.rate.toFixed(2).replace(/\.00$/, "") + "% · " + s.years + " years · EMI " + this.money(emi) + " · registration " + this.money(d.total),
+      askBtn: s.ask.busy ? "Sending…" : "Send my numbers",
+      askMsg: askOk ? "Sent. We'll come back with the unit that fits it." : askFail ? "That didn't send. WhatsApp us on +91 99000 33888 with the same numbers." : "",
+      askColor: askOk ? "var(--gold)" : askFail ? "#d98b6a" : "var(--text3)",
+      submitAsk: async e => {
+        e.preventDefault();
+        const f = this.collect(e.target);
+        f.calculator = this.money(s.amount) + " / " + s.rate + "% / " + s.years + "y / EMI " + Math.round(emi);
+        await this.post("tools_enquiry", f, st => this.setState({ ask: st }));
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

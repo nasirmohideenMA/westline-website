@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="description" content="Buyer's due diligence for Mangalore property — how to verify a K-RERA registration, what to read in a title chain, and what a glass façade actually costs to run." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#0B0907;--bg2:#100D0A;--surface:#16110C;--text:#F7F1E6;--text2:#a8a096;--text3:#7d746a;--gold:#C9A96E;--gold-d:#A67C3D;--gold-pale:#F0E4CC;--line:rgba(166,124,61,0.28);--line2:rgba(247,241,230,0.09)}
+:root[data-theme="light"]{--bg:#FAF7F2;--bg2:#F2EBE0;--surface:#FFFFFF;--text:#1A1410;--text2:#5c5348;--text3:#8a8175;--gold:#A67C3D;--gold-d:#8a6631;--gold-pale:#6b5533;--line:rgba(26,20,16,0.16);--line2:rgba(26,20,16,0.08)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-pale)}
+::selection{background:var(--gold);color:#0B0907}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#0B0907"/><rect x="120" y="70" width="160" height="150" fill="none" stroke="#C9A96E" stroke-width="4"/><path d="M144 110h112M144 140h112M144 170h72" stroke="#A67C3D" stroke-width="4"/><text x="200" y="266" font-family="Georgia,serif" font-size="28" fill="#C9A96E" text-anchor="middle">INSIGHTS</text></svg></template>
+
+<div style="font-family:Jost,system-ui,sans-serif;background:var(--bg)">
+<dc-import name="SiteNav" hint-size="100%,72px"></dc-import>
+
+<header style="border-bottom:1px solid var(--line);background:var(--bg)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,6vw,80px) clamp(16px,3vw,40px) clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;align-items:center;gap:12px">
+<span style="width:clamp(28px,6vw,64px);height:1px;background:var(--gold)"></span>
+<span style="font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:var(--gold-d)">Insights</span>
+</div>
+<h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,7.5vw,100px);line-height:0.96;letter-spacing:-0.02em;margin:0;color:var(--text);text-wrap:balance">How to check a builder. Including us.</h1>
+<p style="margin:0;max-width:58ch;font-size:clamp(15px,1.8vw,20px);line-height:1.55;color:var(--text2);text-wrap:pretty">No market forecasts and no price-index charts — we don't have data we'd stand behind, so we won't publish any. What we can give you is the diligence we'd do ourselves.</p>
+</div>
+</header>
+
+<section aria-label="Diligence checklist" style="border-bottom:1px solid var(--line);background:var(--bg2)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,5vw,76px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,3vw,48px);align-items:start">
+<div style="display:flex;flex-direction:column;gap:16px;position:sticky;top:96px">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,3.6vw,46px);line-height:1.04;margin:0;color:var(--text)">Ten things to verify before you pay anything</h2>
+<p style="margin:0;max-width:44ch;font-size:15px;line-height:1.62;color:var(--text2);text-wrap:pretty">Tick them off as you go. Nothing is saved and nothing is sent — this is a scratchpad for you, on any project, from any builder.</p>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 16px"><span style="font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-d);white-space:nowrap">{{ doneLabel }}</span><span style="font-size:11.5px;color:var(--text3)">{{ doneNote }}</span></div>
+<div style="height:3px;background:var(--line2)"><div style="height:3px;background:var(--gold);width:{{ donePct }};transition:width 260ms ease"></div></div>
+</div>
+<a href="{{ checklistWa }}" rel="noopener" target="_blank" style="min-height:50px;display:inline-flex;align-items:center;padding:0 24px;border:1px solid var(--gold);color:var(--gold);font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;align-self:flex-start" style-hover="background:var(--gold);color:#0B0907">Ask us for these documents</a>
+</div>
+<div style="border:1px solid var(--line);background:var(--bg)">
+<sc-for list="{{ checks }}" as="c" hint-placeholder-count="10">
+<button type="button" data-i="{{ c.i }}" onClick="{{ toggleCheck }}" style="width:100%;text-align:left;display:grid;grid-template-columns:auto 1fr;gap:14px;padding:clamp(16px,2vw,20px) clamp(16px,2.4vw,24px);background:{{ c.bg }};border:none;border-bottom:1px solid var(--line2);cursor:pointer;font-family:Jost,sans-serif;min-height:56px;align-items:start">
+<span style="width:20px;height:20px;border:1px solid {{ c.boxBorder }};background:{{ c.boxBg }};display:flex;align-items:center;justify-content:center;color:#0B0907;font-size:13px;line-height:1;margin-top:2px">{{ c.tick }}</span>
+<span style="display:flex;flex-direction:column;gap:4px">
+<span style="font-size:15px;line-height:1.4;color:{{ c.color }}">{{ c.title }}</span>
+<span style="font-size:13px;line-height:1.55;color:var(--text3);text-wrap:pretty">{{ c.copy }}</span>
+</span>
+</button>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section aria-label="Explainers" style="border-bottom:1px solid var(--line);background:var(--bg)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,5vw,76px) clamp(16px,3vw,40px);display:flex;flex-direction:column;gap:clamp(20px,3vw,32px)">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,4.2vw,54px);line-height:1.03;margin:0;color:var(--text);max-width:26ch;text-wrap:balance">Three things worth reading properly</h2>
+<div style="border-top:1px solid var(--line)">
+<sc-for list="{{ articles }}" as="a" hint-placeholder-count="3">
+<div style="border-bottom:1px solid var(--line)">
+<button type="button" data-i="{{ a.i }}" onClick="{{ toggleArticle }}" aria-expanded="{{ a.open }}" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:Jost,sans-serif;padding:clamp(20px,3vw,32px) 0;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;min-height:64px">
+<span style="display:flex;flex-direction:column;gap:6px">
+<span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-d)">{{ a.kicker }}</span>
+<span style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(22px,3vw,38px);line-height:1.08;color:{{ a.titleColor }}">{{ a.title }}</span>
+</span>
+<span style="font-family:'Cormorant Garamond',serif;font-size:32px;line-height:1;color:var(--gold);transform:{{ a.rot }};transition:transform 220ms ease">+</span>
+</button>
+<sc-if value="{{ a.open }}" hint-placeholder-val="{{ false }}">
+<div style="padding:0 0 clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:14px;max-width:76ch">
+<sc-for list="{{ a.paras }}" as="p" hint-placeholder-count="3">
+<p style="margin:0;font-size:15.5px;line-height:1.68;color:var(--text2);text-wrap:pretty">{{ p }}</p>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section aria-label="Notes" style="background:var(--bg2)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,5vw,76px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,4vw,56px);align-items:center">
+<div style="display:flex;flex-direction:column;gap:14px">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,3.8vw,50px);line-height:1.03;margin:0;color:var(--text);text-wrap:balance">We'll write when we have something worth saying.</h2>
+<p style="margin:0;max-width:46ch;font-size:15px;line-height:1.6;color:var(--text2);text-wrap:pretty">Construction milestones, handover dates, changes in Karnataka registration rules that affect what you pay. Not a monthly newsletter for its own sake.</p>
+</div>
+<form onSubmit="{{ submitSub }}" style="border:1px solid var(--line);background:var(--bg);padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;gap:12px">
+<input type="text" required="{{ true }}" placeholder="Your name" data-field="name" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:15px" />
+<input type="tel" required="{{ true }}" pattern="[0-9+ ]{8,18}" placeholder="Phone with country code" data-field="phone" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:15px" />
+<label style="display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.5;color:var(--text3);cursor:pointer"><input type="checkbox" required="{{ true }}" style="margin-top:3px;min-width:18px;min-height:18px;accent-color:#C9A96E" />Send me project updates on WhatsApp. I can stop them with one message.</label>
+<button type="submit" style="min-height:52px;background:var(--gold);border:none;color:#0B0907;font-family:Jost,sans-serif;font-size:13px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer">{{ subBtn }}</button>
+<p style="margin:0;font-size:13px;line-height:1.6;color:{{ subColor }}">{{ subMsg }}</p>
+</form>
+</div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+const ENDPOINT = "https://tercgsdwswtnyrrrjeab.supabase.co/functions/v1/website-lead-intake";
+const WA = "https://wa.me/919900033888?text=";
+
+const CHECKS = [
+  { title: "K-RERA registration number, verified on the portal", copy: "Not the number on the brochure — the number on rera.karnataka.gov.in, with the promoter name and the project matching." },
+  { title: "Approved plan, stamped", copy: "The sanctioned plan from the planning authority, with the sanction number and date. Compare the floor count on it to what you're being sold." },
+  { title: "Title chain, read by your own advocate", copy: "Not the builder's advocate. Thirty years of chain is the usual standard for a clean read." },
+  { title: "Encumbrance certificate, current", copy: "Pulled within the last month, covering the full period. It shows mortgages and charges on the land." },
+  { title: "Khata and tax receipts", copy: "Up to date, in the name on the title. Arrears follow the property, not the previous owner." },
+  { title: "Commencement and occupancy certificates", copy: "CC before construction, OC before you move in. An unoccupied building without an OC is a problem you inherit." },
+  { title: "The agreement, before you pay the booking amount", copy: "Read the sale agreement and the construction agreement in full. Payment schedule, delay penalty, specification list, carpet versus super built-up." },
+  { title: "Carpet area, in writing", copy: "RERA requires carpet area. Ask for the carpet, built-up and super built-up figures side by side, and check the loading." },
+  { title: "Delay clause, both ways", copy: "What the builder owes you for delay, and what you owe for late payment. If one is specific and the other is vague, that tells you something." },
+  { title: "Visit the last building they finished", copy: "Not the show flat. Talk to the residents' association about handover, defects and how long the snags took to close." }
+];
+
+const ARTICLES = [
+  {
+    kicker: "Five minutes, and it settles most doubts",
+    title: "How to verify a K-RERA registration yourself",
+    paras: [
+      "Every project in Karnataka with units for sale has to be registered with the Karnataka Real Estate Regulatory Authority before it is advertised or sold. The registration number looks like PRM/KA/RERA/1257/334/PR/171021/000845 — that one is Westline Signature. It is not decoration; it is a searchable record.",
+      "Go to rera.karnataka.gov.in and search the registered projects by promoter name or by the registration number itself. What comes back should match what you were told: the promoter's legal name, the project name, the land extent, the number of units and blocks, the declared completion date, and the quarterly progress the promoter has filed.",
+      "Two checks matter most. First, the declared completion date — compare it to the handover date the sales team quoted you verbally. Second, the quarterly updates: a promoter who stops filing them is telling you something. Both are visible without logging in.",
+      "A lease-only commercial project has no registration, because there are no units for sale. That is legitimate. What is not legitimate is a project with flats for sale and no registration number, or a number that returns a different project when you search it."
+    ]
+  },
+  {
+    kicker: "The document most buyers skip",
+    title: "Reading a title chain without being a lawyer",
+    paras: [
+      "A title chain is the sequence of transactions that got the land from an original owner to the person selling it now. Your advocate reads it properly; you should still be able to follow the shape of it.",
+      "You are looking for continuity and for gaps. Every transfer should hand off cleanly to the next: sale deed to sale deed, or through a registered gift, partition or succession. A break — a period nobody can account for, a partition without all the parties, an inheritance without a succession certificate — is where disputes come from years later.",
+      "Then look for the things sitting on top of the land. The encumbrance certificate lists registered mortgages and charges. Agricultural land converted for development needs a conversion order. Land under an old grant or an inam tenure carries its own restrictions. In coastal Dakshina Kannada, CRZ classification can also limit what may be built.",
+      "If any of that is unclear, ask for the documents rather than an explanation. A builder who cannot produce them quickly is either disorganised or hoping you won't ask twice. Both are reasons to slow down."
+    ]
+  },
+  {
+    kicker: "What nobody tells you about full-glass towers",
+    title: "What a glass façade actually costs to live behind",
+    paras: [
+      "A full glass façade is the most visible thing about a tower and the least explained. The relevant question is not whether the glass looks good but what its performance numbers are, because those decide your electricity bill and your comfort in a coastal climate.",
+      "Two figures matter. Solar heat gain coefficient — SHGC — is the fraction of the sun's heat that gets through. Lower is cooler. U-value is how readily heat conducts through the assembly; lower means better insulation. Westline Signature uses Low-E double-glazed argon-filled units at SHGC 0.335 and U-value 1.521, in Schuco systems from Germany. Ask any builder quoting a glass façade for exactly these two numbers; a brand name alone is not an answer.",
+      "In Mangalore the other factor is salt and monsoon. Coastal air is aggressive on hardware — hinges, gaskets, drainage channels and fixings fail long before glass does. Ask what the frames are, how the drainage is detailed, and who services the system after handover.",
+      "Then ask about cleaning. A tower's façade access system — the gondola or the anchor points — is a real recurring cost that lands in the maintenance charge. It is a fair question to ask before you buy, and the answer should exist in writing."
+    ]
+  }
+];
+
+class Component extends DCLogic {
+  state = { done: [], open: 0, sub: { busy: false, msg: "" } };
+  t0 = Date.now();
+
+  async post(handler, fields, onState) {
+    onState({ busy: true, msg: "" });
+    const payload = { page: "insights.html", handler: handler, fields: fields, elapsed_ms: Date.now() - this.t0 };
+    try {
+      const r = await fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      onState({ busy: false, msg: "ok" });
+    } catch (e) { onState({ busy: false, msg: "fail" }); }
+  }
+
+  collect(form) {
+    const out = {};
+    form.querySelectorAll("[data-field]").forEach(el => { out[el.dataset.field] = el.value; });
+    return out;
+  }
+
+  renderVals() {
+    const s = this.state;
+    const done = s.done.length;
+    const subOk = s.sub.msg === "ok", subFail = s.sub.msg === "fail";
+
+    return {
+      checks: CHECKS.map((c, i) => {
+        const on = s.done.indexOf(i) > -1;
+        return {
+          i: i, title: c.title, copy: c.copy,
+          bg: on ? "var(--surface)" : "none",
+          color: on ? "var(--gold)" : "var(--text)",
+          boxBg: on ? "var(--gold)" : "transparent",
+          boxBorder: on ? "var(--gold)" : "var(--line)",
+          tick: on ? "✓" : ""
+        };
+      }),
+      toggleCheck: e => {
+        const i = Number(e.currentTarget.dataset.i);
+        this.setState(st => ({ done: st.done.indexOf(i) > -1 ? st.done.filter(x => x !== i) : st.done.concat([i]) }));
+      },
+      doneLabel: done + " of " + CHECKS.length + " checked",
+      doneNote: done === CHECKS.length ? "Now do it on the next project too" : "Nothing saved, nothing sent",
+      donePct: (done / CHECKS.length * 100) + "%",
+      checklistWa: WA + encodeURIComponent("Hello Westline, please send the diligence documents for Westline Signature — RERA, approved plan, EC and title."),
+
+      articles: ARTICLES.map((a, i) => ({
+        i: i, kicker: a.kicker, title: a.title, paras: a.paras,
+        open: s.open === i,
+        rot: s.open === i ? "rotate(45deg)" : "none",
+        titleColor: s.open === i ? "var(--gold)" : "var(--text)"
+      })),
+      toggleArticle: e => {
+        const i = Number(e.currentTarget.dataset.i);
+        this.setState(st => ({ open: st.open === i ? -1 : i }));
+      },
+
+      subBtn: s.sub.busy ? "Sending…" : "Keep me posted",
+      subMsg: subOk ? "Done. You'll hear from us when there's something real to report." : subFail ? "That didn't send. WhatsApp +91 99000 33888 and we'll add you." : "",
+      subColor: subOk ? "var(--gold)" : subFail ? "#d98b6a" : "var(--text3)",
+      submitSub: async e => {
+        e.preventDefault();
+        const f = this.collect(e.target);
+        await this.post("insights_subscribe", f, st => this.setState({ sub: st }));
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

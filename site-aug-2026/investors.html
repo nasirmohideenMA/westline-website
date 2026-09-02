@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="description" content="Investor view on Westline projects in Mangalore — yield and exit modelling on your own assumptions, commercial leasing, and the portfolio at true scale." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<style>
+:root{--bg:#0B0907;--bg2:#100D0A;--surface:#16110C;--text:#F7F1E6;--text2:#a8a096;--text3:#7d746a;--gold:#C9A96E;--gold-d:#A67C3D;--gold-pale:#F0E4CC;--line:rgba(166,124,61,0.28);--line2:rgba(247,241,230,0.09)}
+:root[data-theme="light"]{--bg:#FAF7F2;--bg2:#F2EBE0;--surface:#FFFFFF;--text:#1A1410;--text2:#5c5348;--text3:#8a8175;--gold:#A67C3D;--gold-d:#8a6631;--gold-pale:#6b5533;--line:rgba(26,20,16,0.16);--line2:rgba(26,20,16,0.08)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-pale)}
+::selection{background:var(--gold);color:#0B0907}
+input[type="range"]{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;cursor:pointer}
+input[type="range"]::-webkit-slider-runnable-track{height:2px;background:rgba(166,124,61,0.4)}
+input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#C9A96E;margin-top:-10px;border:none}
+input[type="range"]::-moz-range-track{height:2px;background:rgba(166,124,61,0.4)}
+input[type="range"]::-moz-range-thumb{width:22px;height:22px;border:none;border-radius:50%;background:#C9A96E}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#0B0907"/><path d="M70 210l60-30 60 20 60-70 80-40" fill="none" stroke="#C9A96E" stroke-width="6"/><circle cx="330" cy="90" r="10" fill="#C9A96E"/><text x="200" y="266" font-family="Georgia,serif" font-size="28" fill="#C9A96E" text-anchor="middle">INVESTORS</text></svg></template>
+
+<div style="font-family:Jost,system-ui,sans-serif;background:var(--bg)">
+<dc-import name="SiteNav" hint-size="100%,72px"></dc-import>
+
+<header style="border-bottom:1px solid var(--line);background:var(--bg)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,6vw,80px) clamp(16px,3vw,40px) clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;align-items:center;gap:12px">
+<span style="width:clamp(28px,6vw,64px);height:1px;background:var(--gold)"></span>
+<span style="font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:var(--gold-d)">Investors</span>
+</div>
+<h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,7.5vw,100px);line-height:0.96;letter-spacing:-0.02em;margin:0;color:var(--text);text-wrap:balance">We won't forecast your return. You can.</h1>
+<p style="margin:0;max-width:60ch;font-size:clamp(15px,1.8vw,20px);line-height:1.55;color:var(--text2);text-wrap:pretty">Every appreciation number on this page is an assumption you set. What we will give you is the delivery record, the compliance position, and honest answers on rent — then you decide whether the maths works.</p>
+</div>
+</header>
+
+<section aria-label="Delivery record" style="border-bottom:1px solid var(--line);background:var(--bg2)">
+<div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)">
+<sc-for list="{{ record }}" as="r" hint-placeholder-count="4">
+<div style="background:var(--bg2);padding:clamp(22px,3vw,36px) clamp(16px,2vw,26px);border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px">
+<span style="font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.8vw,48px);line-height:1;color:var(--gold)">{{ r.v }}</span>
+<span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text3)">{{ r.k }}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section aria-label="Model your return" style="border-bottom:1px solid var(--line);background:var(--bg)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,5vw,76px) clamp(16px,3vw,40px);display:flex;flex-direction:column;gap:clamp(24px,3vw,40px)">
+<div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,4.2vw,54px);line-height:1.03;margin:0;color:var(--text)">Set your own assumptions</h2>
+<div style="display:flex;gap:8px">
+<sc-for list="{{ holds }}" as="h" hint-placeholder-count="3">
+<button type="button" data-h="{{ h.v }}" onClick="{{ setHold }}" style="min-height:44px;padding:0 18px;background:{{ h.bg }};border:1px solid {{ h.border }};color:{{ h.color }};font-family:Jost,sans-serif;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer">{{ h.label }}</button>
+</sc-for>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,3vw,48px);align-items:start">
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><label for="wl-inv" style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3)">Purchase price</label><span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold)">{{ priceLabel }}</span></div>
+<input id="wl-inv" type="range" min="5000000" max="200000000" step="500000" value="{{ price }}" onInput="{{ setPrice }}" />
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><label for="wl-yield" style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3)">Gross rental yield</label><span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold)">{{ yieldLabel }}</span></div>
+<input id="wl-yield" type="range" min="0" max="8" step="0.1" value="{{ grossYield }}" onInput="{{ setYield }}" />
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><label for="wl-app" style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3)">Capital appreciation</label><span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold)">{{ apprLabel }}</span></div>
+<input id="wl-app" type="range" min="0" max="15" step="0.5" value="{{ appr }}" onInput="{{ setAppr }}" />
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><label for="wl-cost" style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3)">Holding cost of rent</label><span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold)">{{ costLabel }}</span></div>
+<input id="wl-cost" type="range" min="0" max="40" step="1" value="{{ holdCost }}" onInput="{{ setHoldCost }}" />
+</div>
+<p style="margin:0;font-size:12px;line-height:1.65;color:var(--text3);text-wrap:pretty">Holding cost covers maintenance, property tax, vacancy and management as a share of gross rent. Registration and stamp duty are added to cost at entry using the Karnataka slab. Nothing here is a Westline projection.</p>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="border:1px solid var(--line);background:var(--bg2);padding:clamp(20px,2.6vw,30px);display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text3)">All-in cost at entry</span><span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--text)">{{ allIn }}</span></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text3)">Net rent over {{ holdLabel }}</span><span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--text)">{{ netRent }}</span></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text3)">Value at exit</span><span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--text)">{{ exitValue }}</span></div>
+<div style="height:1px;background:var(--line2)"></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-d)">Total gain</span><span style="font-family:'Cormorant Garamond',serif;font-size:34px;color:{{ gainColor }}">{{ gain }}</span></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-d)">Annualised, before tax</span><span style="font-family:'Cormorant Garamond',serif;font-size:34px;color:{{ gainColor }}">{{ irr }}</span></div>
+</div>
+<div style="border:1px solid var(--line2);background:var(--bg);padding:clamp(18px,2.4vw,26px);display:flex;flex-direction:column;gap:10px">
+<span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-d)">Sensitivity</span>
+<sc-for list="{{ sensitivity }}" as="row" hint-placeholder-count="3">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 0;border-bottom:1px solid var(--line2)">
+<span style="font-size:13px;color:var(--text2)">{{ row.label }}</span>
+<span style="font-family:'Cormorant Garamond',serif;font-size:20px;color:{{ row.color }}">{{ row.value }}</span>
+</div>
+</sc-for>
+<p style="margin:0;font-size:12px;line-height:1.6;color:var(--text3)">Capital gains tax, indexation and TDS are not modelled. Ask your CA.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section aria-label="The portfolio at scale" style="border-bottom:1px solid var(--line);background:var(--bg2)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(32px,4.5vw,64px) clamp(16px,3vw,40px) 0;display:flex;flex-direction:column;gap:14px">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,3.6vw,46px);line-height:1.04;margin:0;color:var(--text)">Ten buildings, one balance sheet</h2>
+<p style="margin:0;max-width:56ch;font-size:15px;line-height:1.6;color:var(--text2);text-wrap:pretty">Four delivered, three under construction, three announced. Drag the skyline to turn it; click a building to read its position.</p>
+</div>
+<div style="position:relative;height:clamp(360px,48vh,560px);overflow:hidden">
+<x-import component-from-global-scope="wl-skyline" from="./skyline3d.js" night="" style="position:absolute;inset:0;width:100%;height:100%" hint-size="100%,100%"></x-import>
+</div>
+<div style="max-width:1440px;margin:0 auto;padding:0 clamp(16px,3vw,40px) clamp(32px,4.5vw,64px)">
+<a href="projects.html" style="min-height:50px;display:inline-flex;align-items:center;padding:0 24px;border:1px solid var(--gold);color:var(--gold);font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase" style-hover="background:var(--gold);color:#0B0907">Open the full portfolio</a>
+</div>
+</section>
+
+<section aria-label="What we will and won't say" style="border-bottom:1px solid var(--line);background:var(--bg)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,5vw,76px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)">
+<sc-for list="{{ position }}" as="p" hint-placeholder-count="4">
+<div style="background:var(--bg);padding:clamp(22px,2.8vw,34px);border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:12px">
+<span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:{{ p.tint }}">{{ p.tag }}</span>
+<h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(20px,2.2vw,27px);line-height:1.15;margin:0;color:var(--text)">{{ p.title }}</h3>
+<p style="margin:0;font-size:13.5px;line-height:1.62;color:var(--text2);text-wrap:pretty">{{ p.copy }}</p>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section aria-label="Investor enquiry" style="background:var(--bg2)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,5vw,76px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,4vw,56px);align-items:center">
+<div style="display:flex;flex-direction:column;gap:14px">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,3.8vw,50px);line-height:1.03;margin:0;color:var(--text);text-wrap:balance">Ask us the hard questions first.</h2>
+<p style="margin:0;max-width:44ch;font-size:15px;line-height:1.6;color:var(--text2)">Actual rents achieved in our completed buildings, slippage on delivery dates, what is unsold and why. We'd rather answer that now than after you've signed.</p>
+</div>
+<form onSubmit="{{ submitAsk }}" style="border:1px solid var(--line);background:var(--bg);padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;gap:12px">
+<input type="text" required="{{ true }}" placeholder="Your name" data-field="name" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:15px" />
+<input type="tel" required="{{ true }}" pattern="[0-9+ ]{8,18}" placeholder="Phone with country code" data-field="phone" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:15px" />
+<select data-field="ticket" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:15px">
+<option value="under-2cr">Under ₹2 Cr</option>
+<option value="2-5cr">₹2–5 Cr</option>
+<option value="5-10cr">₹5–10 Cr</option>
+<option value="over-10cr">Over ₹10 Cr</option>
+<option value="commercial">Commercial floor / leasing</option>
+</select>
+<div style="border:1px solid var(--line2);padding:14px;display:flex;flex-direction:column;gap:4px">
+<span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text3)">Attached to your enquiry</span>
+<span style="font-size:13.5px;line-height:1.5;color:var(--text2)">{{ summary }}</span>
+</div>
+<label style="display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.5;color:var(--text3);cursor:pointer"><input type="checkbox" required="{{ true }}" style="margin-top:3px;min-width:18px;min-height:18px;accent-color:#C9A96E" />I agree to be contacted on phone and WhatsApp.</label>
+<button type="submit" style="min-height:52px;background:var(--gold);border:none;color:#0B0907;font-family:Jost,sans-serif;font-size:13px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer">{{ askBtn }}</button>
+<p style="margin:0;font-size:13px;line-height:1.6;color:{{ askColor }}">{{ askMsg }}</p>
+</form>
+</div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+const ENDPOINT = "https://tercgsdwswtnyrrrjeab.supabase.co/functions/v1/website-lead-intake";
+
+const DUTY = { slabs: [{ upto: 2000000, rate: 0.02 }, { upto: 4500000, rate: 0.03 }, { upto: Infinity, rate: 0.05 }], cess: 0.10, surcharge: 0.02, reg: 0.02 };
+
+const RECORD = [
+  { k: "Projects since 2014", v: "10" },
+  { k: "Delivered and occupied", v: "4" },
+  { k: "Under construction", v: "3" },
+  { k: "Tallest, floors", v: "55" }
+];
+
+const POSITION = [
+  { tag: "We will say", tint: "var(--gold)", title: "What we've delivered", copy: "Four completed buildings you can visit, with residents and tenants you can ask. Bonita, Splendid, Skydale and Jeppu Medicity are all standing." },
+  { tag: "We will say", tint: "var(--gold)", title: "Where we are on site", copy: "Construction stage, photographs and the current floor count, dated. Ask and you get the album, not a rendering." },
+  { tag: "We won't say", tint: "#7f93a8", title: "What your unit will be worth", copy: "We do not publish appreciation forecasts and we will not put one in writing. The slider above is your assumption and it is labelled as yours." },
+  { tag: "We won't say", tint: "#7f93a8", title: "That it's nearly sold out", copy: "No countdown timers, no invented scarcity. If a configuration is genuinely short, we'll tell you which floors are left and let you verify it." }
+];
+
+class Component extends DCLogic {
+  state = { price: 25000000, grossYield: 3, appr: 6, holdCost: 25, hold: 10, ask: { busy: false, msg: "" } };
+  t0 = Date.now();
+
+  money(n) {
+    if (!isFinite(n)) return "—";
+    const a = Math.abs(n), sign = n < 0 ? "−" : "";
+    if (a >= 10000000) return sign + "₹" + (a / 10000000).toFixed(2).replace(/\.00$/, "") + " Cr";
+    if (a >= 100000) return sign + "₹" + (a / 100000).toFixed(1).replace(/\.0$/, "") + " L";
+    return sign + "₹" + Math.round(a).toLocaleString("en-IN");
+  }
+
+  duty(value) {
+    let d = 0, rem = value, prev = 0;
+    for (const s of DUTY.slabs) {
+      const band = Math.min(rem, s.upto - prev);
+      if (band > 0) { d += band * s.rate; rem -= band; }
+      prev = s.upto;
+      if (rem <= 0) break;
+    }
+    return d + d * DUTY.cess + d * DUTY.surcharge + value * DUTY.reg;
+  }
+
+  model(price, grossYield, appr, holdCost, years) {
+    const allIn = price + this.duty(price);
+    let rent = price * (grossYield / 100), netRent = 0;
+    for (let y = 0; y < years; y++) {
+      netRent += rent * (1 - holdCost / 100);
+      rent *= 1.05;                                  // rent escalation assumption, 5% a year
+    }
+    const exit = price * Math.pow(1 + appr / 100, years);
+    const gain = exit + netRent - allIn;
+    const annualised = years > 0 ? (Math.pow((exit + netRent) / allIn, 1 / years) - 1) * 100 : 0;
+    return { allIn: allIn, netRent: netRent, exit: exit, gain: gain, annualised: annualised };
+  }
+
+  async post(handler, fields, onState) {
+    onState({ busy: true, msg: "" });
+    const payload = { page: "investors.html", handler: handler, fields: fields, elapsed_ms: Date.now() - this.t0 };
+    try {
+      const r = await fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      onState({ busy: false, msg: "ok" });
+    } catch (e) { onState({ busy: false, msg: "fail" }); }
+  }
+
+  collect(form) {
+    const out = {};
+    form.querySelectorAll("[data-field]").forEach(el => { out[el.dataset.field] = el.value; });
+    return out;
+  }
+
+  renderVals() {
+    const s = this.state;
+    const m = this.model(s.price, s.grossYield, s.appr, s.holdCost, s.hold);
+    const pct = n => (n >= 0 ? "+" : "") + n.toFixed(1) + "%";
+
+    const sens = [-2, 0, 2].map(delta => {
+      const a = Math.max(0, s.appr + delta);
+      const r = this.model(s.price, s.grossYield, a, s.holdCost, s.hold);
+      return {
+        label: (delta === 0 ? "At " : delta > 0 ? "At +2 pts, " : "At −2 pts, ") + a.toFixed(1).replace(/\.0$/, "") + "% appreciation",
+        value: pct(r.annualised),
+        color: r.annualised >= 0 ? "var(--gold)" : "#d98b6a"
+      };
+    });
+
+    const askOk = s.ask.msg === "ok", askFail = s.ask.msg === "fail";
+
+    return {
+      record: RECORD,
+      position: POSITION,
+
+      holds: [5, 10, 15].map(v => {
+        const on = v === s.hold;
+        return { v: v, label: v + " year hold", bg: on ? "var(--gold)" : "none", border: on ? "var(--gold)" : "var(--line)", color: on ? "#0B0907" : "var(--text2)" };
+      }),
+      setHold: e => this.setState({ hold: Number(e.currentTarget.dataset.h) }),
+      holdLabel: s.hold + " years",
+
+      price: s.price, priceLabel: this.money(s.price), setPrice: e => this.setState({ price: Number(e.target.value) }),
+      grossYield: s.grossYield, yieldLabel: s.grossYield.toFixed(1).replace(/\.0$/, "") + "%", setYield: e => this.setState({ grossYield: Number(e.target.value) }),
+      appr: s.appr, apprLabel: s.appr.toFixed(1).replace(/\.0$/, "") + "%", setAppr: e => this.setState({ appr: Number(e.target.value) }),
+      holdCost: s.holdCost, costLabel: s.holdCost + "% of rent", setHoldCost: e => this.setState({ holdCost: Number(e.target.value) }),
+
+      allIn: this.money(m.allIn),
+      netRent: this.money(m.netRent),
+      exitValue: this.money(m.exit),
+      gain: (m.gain >= 0 ? "+" : "") + this.money(m.gain),
+      irr: pct(m.annualised),
+      gainColor: m.gain >= 0 ? "var(--gold)" : "#d98b6a",
+      sensitivity: sens,
+
+      summary: this.money(s.price) + " · " + s.grossYield + "% yield · " + s.appr + "% appreciation · " + s.hold + " year hold",
+      askBtn: s.ask.busy ? "Sending…" : "Send",
+      askMsg: askOk ? "Received. We'll come back with actual rents and the current unsold position." : askFail ? "That didn't send. WhatsApp +91 99000 33888 with the same details." : "",
+      askColor: askOk ? "var(--gold)" : askFail ? "#d98b6a" : "var(--text3)",
+      submitAsk: async e => {
+        e.preventDefault();
+        const f = this.collect(e.target);
+        f.assumptions = s.price + "/" + s.grossYield + "/" + s.appr + "/" + s.hold;
+        await this.post("investor_enquiry", f, st => this.setState({ ask: st }));
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

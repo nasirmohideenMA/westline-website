@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="description" content="NRI corner — buying property in Mangalore from abroad. Account routes, repatriation, power of attorney, and a call window that matches your city. Westline Builders." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#0B0907;--bg2:#100D0A;--surface:#16110C;--text:#F7F1E6;--text2:#a8a096;--text3:#7d746a;--gold:#C9A96E;--gold-d:#A67C3D;--gold-pale:#F0E4CC;--line:rgba(166,124,61,0.28);--line2:rgba(247,241,230,0.09)}
+:root[data-theme="light"]{--bg:#FAF7F2;--bg2:#F2EBE0;--surface:#FFFFFF;--text:#1A1410;--text2:#5c5348;--text3:#8a8175;--gold:#A67C3D;--gold-d:#8a6631;--gold-pale:#6b5533;--line:rgba(26,20,16,0.16);--line2:rgba(26,20,16,0.08)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-pale)}
+::selection{background:var(--gold);color:#0B0907}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#0B0907"/><circle cx="200" cy="140" r="66" fill="none" stroke="#C9A96E" stroke-width="4"/><path d="M134 140h132M200 74c34 40 34 92 0 132M200 74c-34 40-34 92 0 132" fill="none" stroke="#A67C3D" stroke-width="3"/><text x="200" y="264" font-family="Georgia,serif" font-size="30" fill="#C9A96E" text-anchor="middle">NRI</text></svg></template>
+
+<div style="font-family:Jost,system-ui,sans-serif;background:var(--bg)">
+<dc-import name="SiteNav" hint-size="100%,72px"></dc-import>
+
+<header style="border-bottom:1px solid var(--line);background:var(--bg)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,6vw,80px) clamp(16px,3vw,40px) clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;align-items:center;gap:12px">
+<span style="width:clamp(28px,6vw,64px);height:1px;background:var(--gold)"></span>
+<span style="font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:var(--gold-d)">NRI corner</span>
+</div>
+<h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,7.5vw,100px);line-height:0.96;letter-spacing:-0.02em;margin:0;color:var(--text);text-wrap:balance">Buy from the Gulf. Register without flying.</h1>
+<p style="margin:0;max-width:58ch;font-size:clamp(15px,1.8vw,20px);line-height:1.55;color:var(--text2);text-wrap:pretty">Most of our overseas buyers are in the UAE, Qatar and Kuwait, and most complete without a trip. Here is the route, the paperwork, and a call window that works from your city.</p>
+</div>
+</header>
+
+<section aria-label="Call window" style="border-bottom:1px solid var(--line);background:var(--bg2)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(32px,4.5vw,68px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,3vw,48px);align-items:center">
+<div style="display:flex;flex-direction:column;gap:16px">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,3.6vw,46px);line-height:1.04;margin:0;color:var(--text)">When can we talk?</h2>
+<p style="margin:0;max-width:44ch;font-size:15px;line-height:1.62;color:var(--text2);text-wrap:pretty">Pick your city and we'll show the overlap with the Mangalore sales office. Whatever you pick, WhatsApp is answered outside those hours too.</p>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{ cities }}" as="c" hint-placeholder-count="6">
+<button type="button" data-c="{{ c.key }}" onClick="{{ setCity }}" style="min-height:44px;padding:0 16px;background:{{ c.bg }};border:1px solid {{ c.border }};color:{{ c.color }};font-family:Jost,sans-serif;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer">{{ c.label }}</button>
+</sc-for>
+</div>
+</div>
+<div style="border:1px solid var(--line);background:var(--bg);padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between">
+<div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3)">Your time now</span><span style="font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,44px);line-height:1;color:var(--gold)">{{ localTime }}</span><span style="font-size:12px;color:var(--text3)">{{ cityName }} · {{ offsetLabel }}</span></div>
+<div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3)">Mangalore now</span><span style="font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,44px);line-height:1;color:var(--text)">{{ istTime }}</span><span style="font-size:12px;color:{{ openColor }}">{{ openLabel }}</span></div>
+</div>
+<div style="height:1px;background:var(--line2)"></div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<span style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-d)">Best window for you</span>
+<span style="font-size:17px;line-height:1.5;color:var(--text)">{{ windowLabel }}</span>
+<span style="font-size:12.5px;line-height:1.6;color:var(--text3)">Office hours assumed 10:00–18:30 IST, Monday to Saturday — confirm and we'll correct this line.</span>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:10px">
+<a href="{{ wa }}" rel="noopener" target="_blank" style="min-height:50px;display:flex;align-items:center;padding:0 24px;background:var(--gold);color:#0B0907;font-size:12.5px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase">WhatsApp now</a>
+<a href="tel:+919900033888" style="min-height:50px;display:flex;align-items:center;padding:0 24px;border:1px solid var(--line);color:var(--text);font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase" style-hover="border-color:var(--gold)">+91 99000 33888</a>
+</div>
+</div>
+</div>
+</section>
+
+<section aria-label="Currency" style="border-bottom:1px solid var(--line);background:var(--bg)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(32px,4.5vw,68px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,3vw,48px);align-items:center">
+<div style="display:flex;flex-direction:column;gap:16px">
+<span style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold-d)">In your currency</span>
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,3.6vw,46px);line-height:1.04;margin:0;color:var(--text)">Your rate, not ours.</h2>
+<p style="margin:0;max-width:46ch;font-size:15px;line-height:1.62;color:var(--text2);text-wrap:pretty">We do not publish a live exchange rate — it would be stale within the hour and it is not our number to quote. Put in the rate your bank is offering and the conversion is exact.</p>
+</div>
+<div style="border:1px solid var(--line);background:var(--bg2);padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-wrap:wrap;gap:12px">
+<div style="flex:1 1 140px;display:flex;flex-direction:column;gap:6px">
+<label for="wl-fx-amt" style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text3)">Amount in {{ ccy }}</label>
+<input id="wl-fx-amt" type="number" min="0" step="1000" value="{{ fxAmount }}" onInput="{{ setFxAmount }}" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:16px" />
+</div>
+<div style="flex:1 1 140px;display:flex;flex-direction:column;gap:6px">
+<label for="wl-fx-rate" style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text3)">₹ per 1 {{ ccy }}</label>
+<input id="wl-fx-rate" type="number" min="0" step="0.01" value="{{ fxRate }}" onInput="{{ setFxRate }}" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:16px" />
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{ currencies }}" as="c" hint-placeholder-count="4">
+<button type="button" data-c="{{ c.key }}" onClick="{{ setCcy }}" style="min-height:44px;padding:0 16px;background:{{ c.bg }};border:1px solid {{ c.border }};color:{{ c.color }};font-family:Jost,sans-serif;font-size:11.5px;letter-spacing:0.14em;cursor:pointer">{{ c.key }}</button>
+</sc-for>
+</div>
+<div style="height:1px;background:var(--line2)"></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px"><span style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-d)">In rupees</span><span style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,42px);color:var(--gold)">{{ fxOut }}</span></div>
+<p style="margin:0;font-size:12px;line-height:1.6;color:var(--text3)">Remittance charges, TCS and your bank's spread are not included. Ask your bank for the all-in landed figure.</p>
+</div>
+</div>
+</section>
+
+<section aria-label="The route" style="border-bottom:1px solid var(--line);background:var(--bg2)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,5vw,76px) clamp(16px,3vw,40px);display:flex;flex-direction:column;gap:clamp(24px,3vw,40px)">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,4.2vw,54px);line-height:1.03;margin:0;color:var(--text);max-width:28ch;text-wrap:balance">What actually has to happen</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)">
+<sc-for list="{{ steps }}" as="s" hint-placeholder-count="5">
+<div style="background:var(--bg);padding:clamp(20px,2.6vw,32px);border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:12px">
+<span style="font-family:'Cormorant Garamond',serif;font-size:38px;line-height:1;color:var(--gold-d)">{{ s.n }}</span>
+<h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(20px,2.2vw,26px);line-height:1.15;margin:0;color:var(--text)">{{ s.title }}</h3>
+<p style="margin:0;font-size:13.5px;line-height:1.6;color:var(--text2);text-wrap:pretty">{{ s.copy }}</p>
+</div>
+</sc-for>
+</div>
+<p style="margin:0;max-width:78ch;font-size:12.5px;line-height:1.7;color:var(--text3);text-wrap:pretty">General position under FEMA, not advice. An NRI or OCI may buy residential and commercial property in India without RBI approval, but not agricultural land, plantation property or a farmhouse. Payment must come through normal banking channels or an NRE, NRO or FCNR account. Repatriation of sale proceeds is subject to limits and conditions — the commonly cited rule is a maximum of two residential properties. Rules change; confirm your own position with a chartered accountant before you remit.</p>
+</div>
+</section>
+
+<section aria-label="Talk to us" style="background:var(--bg)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,5vw,76px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,4vw,56px);align-items:center">
+<div style="display:flex;flex-direction:column;gap:14px">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,3.8vw,50px);line-height:1.03;margin:0;color:var(--text);text-wrap:balance">Leave your city and we'll call inside your evening.</h2>
+<p style="margin:0;max-width:44ch;font-size:15px;line-height:1.6;color:var(--text2)">One call, no queue. If you'd rather have documents first, say so and we'll send the set before we ring.</p>
+</div>
+<form onSubmit="{{ submitAsk }}" style="border:1px solid var(--line);background:var(--bg2);padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;gap:12px">
+<input type="text" required="{{ true }}" placeholder="Your name" data-field="name" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:15px" />
+<input type="tel" required="{{ true }}" pattern="[0-9+ ]{8,18}" placeholder="Phone with country code" data-field="phone" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:15px" />
+<input type="text" placeholder="City you're calling from" data-field="city" value="{{ cityName }}" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:15px" />
+<select data-field="want" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:15px">
+<option value="call">Call me in my evening</option>
+<option value="documents">Send documents first</option>
+<option value="video">Video walkthrough of the site</option>
+<option value="poa">Help with power of attorney</option>
+</select>
+<label style="display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.5;color:var(--text3);cursor:pointer"><input type="checkbox" required="{{ true }}" style="margin-top:3px;min-width:18px;min-height:18px;accent-color:#C9A96E" />I agree to be contacted on phone and WhatsApp, including internationally.</label>
+<button type="submit" style="min-height:52px;background:var(--gold);border:none;color:#0B0907;font-family:Jost,sans-serif;font-size:13px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer">{{ askBtn }}</button>
+<p style="margin:0;font-size:13px;line-height:1.6;color:{{ askColor }}">{{ askMsg }}</p>
+</form>
+</div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+const ENDPOINT = "https://tercgsdwswtnyrrrjeab.supabase.co/functions/v1/website-lead-intake";
+const WA = "https://wa.me/919900033888?text=";
+
+// Fixed UTC offsets in minutes. None of these observe daylight saving except London.
+const CITIES = {
+  dubai: { label: "Dubai", name: "Dubai", offset: 240, ccy: "AED" },
+  doha: { label: "Doha", name: "Doha", offset: 180, ccy: "QAR" },
+  kuwait: { label: "Kuwait", name: "Kuwait City", offset: 180, ccy: "KWD" },
+  riyadh: { label: "Riyadh", name: "Riyadh", offset: 180, ccy: "SAR" },
+  london: { label: "London", name: "London", offset: 60, ccy: "GBP" },
+  singapore: { label: "Singapore", name: "Singapore", offset: 480, ccy: "SGD" },
+  toronto: { label: "Toronto", name: "Toronto", offset: -240, ccy: "CAD" },
+  sydney: { label: "Sydney", name: "Sydney", offset: 600, ccy: "AUD" }
+};
+const CCY = ["AED", "USD", "GBP", "SAR", "QAR", "SGD"];
+const IST = 330;
+const OPEN = 10 * 60, CLOSE = 18 * 60 + 30;   // assumed Mangalore office hours, IST minutes
+
+const STEPS = [
+  { n: "01", title: "Confirm you're eligible", copy: "NRI and OCI buyers need no RBI permission for a residential or commercial unit. Agricultural land, plantations and farmhouses are out of bounds regardless of funds." },
+  { n: "02", title: "Open the right account", copy: "Payment has to arrive through normal banking channels or an NRE, NRO or FCNR account. Cash and third-party transfers are not accepted, by us or by the sub-registrar." },
+  { n: "03", title: "Appoint a power of attorney", copy: "A specific power of attorney, notarised and apostilled or attested at the Indian consulate, lets a person you name sign and register on your behalf. This is what removes the flight." },
+  { n: "04", title: "Verify before you remit", copy: "K-RERA number, title, encumbrance certificate, approved plan. Verify them yourself or through your advocate. We will hand over every document without being chased." },
+  { n: "05", title: "Register and file", copy: "Registration happens at the sub-registrar with your POA holder present. Your CA handles TDS, repatriation paperwork and the annual filing position afterwards." }
+];
+
+class Component extends DCLogic {
+  state = { city: "dubai", ccy: "AED", fxAmount: 100000, fxRate: 24, now: Date.now(), ask: { busy: false, msg: "" } };
+  t0 = Date.now();
+
+  componentDidMount() {
+    this.tick = setInterval(() => this.setState({ now: Date.now() }), 30000);
+  }
+  componentWillUnmount() { clearInterval(this.tick); }
+
+  clock(offsetMin) {
+    const d = new Date(this.state.now + offsetMin * 60000 + new Date().getTimezoneOffset() * 60000);
+    const h = d.getHours(), m = d.getMinutes();
+    const ampm = h >= 12 ? "pm" : "am";
+    const h12 = h % 12 === 0 ? 12 : h % 12;
+    return h12 + ":" + String(m).padStart(2, "0") + " " + ampm;
+  }
+
+  istMinutes() {
+    const d = new Date(this.state.now + IST * 60000 + new Date().getTimezoneOffset() * 60000);
+    return d.getHours() * 60 + d.getMinutes();
+  }
+
+  hhmm(mins) {
+    let m = ((mins % 1440) + 1440) % 1440;
+    const h = Math.floor(m / 60), mm = m % 60;
+    const ampm = h >= 12 ? "pm" : "am";
+    const h12 = h % 12 === 0 ? 12 : h % 12;
+    return h12 + (mm ? ":" + String(mm).padStart(2, "0") : "") + " " + ampm;
+  }
+
+  async post(handler, fields, onState) {
+    onState({ busy: true, msg: "" });
+    const payload = { page: "nri.html", handler: handler, fields: fields, elapsed_ms: Date.now() - this.t0 };
+    try {
+      const r = await fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      onState({ busy: false, msg: "ok" });
+    } catch (e) { onState({ busy: false, msg: "fail" }); }
+  }
+
+  collect(form) {
+    const out = {};
+    form.querySelectorAll("[data-field]").forEach(el => { out[el.dataset.field] = el.value; });
+    return out;
+  }
+
+  renderVals() {
+    const s = this.state;
+    const c = CITIES[s.city] || CITIES.dubai;
+    const ist = this.istMinutes();
+    const open = ist >= OPEN && ist <= CLOSE;
+    const shift = c.offset - IST;                         // local = IST + shift
+    const fx = (Number(s.fxAmount) || 0) * (Number(s.fxRate) || 0);
+
+    const money = n => {
+      if (!isFinite(n) || n <= 0) return "₹0";
+      if (n >= 10000000) return "₹" + (n / 10000000).toFixed(2).replace(/\.00$/, "") + " Cr";
+      if (n >= 100000) return "₹" + (n / 100000).toFixed(2).replace(/\.00$/, "") + " L";
+      return "₹" + Math.round(n).toLocaleString("en-IN");
+    };
+
+    const askOk = s.ask.msg === "ok", askFail = s.ask.msg === "fail";
+
+    return {
+      cities: Object.keys(CITIES).map(k => {
+        const on = k === s.city;
+        return { key: k, label: CITIES[k].label, bg: on ? "var(--gold)" : "none", border: on ? "var(--gold)" : "var(--line)", color: on ? "#0B0907" : "var(--text2)" };
+      }),
+      setCity: e => {
+        const k = e.currentTarget.dataset.c;
+        this.setState({ city: k, ccy: CCY.indexOf(CITIES[k].ccy) > -1 ? CITIES[k].ccy : this.state.ccy });
+      },
+      cityName: c.name,
+      localTime: this.clock(c.offset),
+      istTime: this.clock(IST),
+      offsetLabel: (shift >= 0 ? "+" : "−") + Math.floor(Math.abs(shift) / 60) + "h" + (Math.abs(shift) % 60 ? String(Math.abs(shift) % 60) : "") + " vs IST",
+      openLabel: open ? "Sales office open now" : "Outside office hours — WhatsApp is still answered",
+      openColor: open ? "var(--gold)" : "var(--text3)",
+      windowLabel: this.hhmm(OPEN + shift) + " to " + this.hhmm(CLOSE + shift) + " your time, Monday to Saturday",
+      wa: WA + encodeURIComponent("Hello Westline, I'm an NRI buyer in " + c.name + ". Please call me."),
+
+      ccy: s.ccy,
+      currencies: CCY.map(k => {
+        const on = k === s.ccy;
+        return { key: k, bg: on ? "var(--gold)" : "none", border: on ? "var(--gold)" : "var(--line)", color: on ? "#0B0907" : "var(--text2)" };
+      }),
+      setCcy: e => this.setState({ ccy: e.currentTarget.dataset.c }),
+      fxAmount: s.fxAmount,
+      fxRate: s.fxRate,
+      setFxAmount: e => this.setState({ fxAmount: e.target.value }),
+      setFxRate: e => this.setState({ fxRate: e.target.value }),
+      fxOut: money(fx),
+
+      steps: STEPS,
+
+      askBtn: s.ask.busy ? "Sending…" : "Request a call",
+      askMsg: askOk ? "Received. We'll call inside your evening window." : askFail ? "That didn't send. WhatsApp us on +91 99000 33888 and we'll pick it up." : "",
+      askColor: askOk ? "var(--gold)" : askFail ? "#d98b6a" : "var(--text3)",
+      submitAsk: async e => {
+        e.preventDefault();
+        const f = this.collect(e.target);
+        f.timezone_window = this.hhmm(OPEN + shift) + "–" + this.hhmm(CLOSE + shift) + " local";
+        await this.post("nri_call_request", f, st => this.setState({ ask: st }));
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

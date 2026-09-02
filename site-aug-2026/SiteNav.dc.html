@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<nav aria-label="Primary" style="position:sticky;top:0;z-index:900;background:color-mix(in oklab, var(--bg) 82%, transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);font-family:Jost,system-ui,sans-serif">
+<div style="max-width:1440px;margin:0 auto;padding:0 clamp(16px,3vw,40px);height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+<a href="index.html" aria-label="Westline Builders home" style="display:flex;align-items:baseline;gap:8px;text-decoration:none;flex-shrink:0">
+<span style="font-size:clamp(15px,2vw,18px);font-weight:600;letter-spacing:0.2em;color:var(--gold)">WESTLINE</span>
+<span style="font-size:clamp(9px,1.2vw,11px);font-weight:300;letter-spacing:0.28em;color:var(--text3)">BUILDERS</span>
+</a>
+
+<div style="display:none;align-items:center;gap:clamp(14px,2vw,28px)" data-desk="1">
+<a href="signature.html" style="font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text2);padding:10px 0;min-height:44px;display:flex;align-items:center" style-hover="color:var(--gold)">Signature</a>
+<a href="projects.html" style="font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text2);padding:10px 0;min-height:44px;display:flex;align-items:center" style-hover="color:var(--gold)">Projects</a>
+<a href="nri.html" style="font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text2);padding:10px 0;min-height:44px;display:flex;align-items:center" style-hover="color:var(--gold)">NRI</a>
+<a href="tools.html" style="font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text2);padding:10px 0;min-height:44px;display:flex;align-items:center" style-hover="color:var(--gold)">Tools</a>
+<a href="landowners.html" style="font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text2);padding:10px 0;min-height:44px;display:flex;align-items:center" style-hover="color:var(--gold)">Land Partners</a>
+<a href="contact.html" style="font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text2);padding:10px 0;min-height:44px;display:flex;align-items:center" style-hover="color:var(--gold)">Contact</a>
+</div>
+
+<div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+<button type="button" onClick="{{ toggleLang }}" aria-label="Switch language" style="min-width:44px;min-height:44px;background:none;border:1px solid var(--line);color:var(--text2);font-family:Jost,sans-serif;font-size:12px;letter-spacing:0.08em;cursor:pointer;padding:0 10px" style-hover="color:var(--gold);border-color:var(--gold)">{{ langLabel }}</button>
+<button type="button" onClick="{{ toggleTheme }}" aria-label="Switch theme" style="min-width:44px;min-height:44px;background:none;border:1px solid var(--line);color:var(--text2);font-family:Jost,sans-serif;font-size:12px;letter-spacing:0.08em;cursor:pointer;padding:0 10px" style-hover="color:var(--gold);border-color:var(--gold)">{{ themeLabel }}</button>
+<a href="https://wa.me/919900033888?text=Hello%20Westline%2C%20I%27d%20like%20to%20know%20more." rel="noopener" target="_blank" style="display:none;align-items:center;min-height:44px;padding:0 18px;background:var(--gold);color:#0B0907;font-size:12px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none" data-desk="1" style-hover="background:var(--gold-pale)">WhatsApp</a>
+<button type="button" onClick="{{ toggleMenu }}" aria-label="Menu" aria-expanded="{{ menuOpen }}" style="min-width:44px;min-height:44px;background:none;border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:12px;letter-spacing:0.1em;cursor:pointer;padding:0 12px" data-mob="1">MENU</button>
+</div>
+</div>
+
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="border-top:1px solid var(--line);background:var(--bg2);padding:12px clamp(16px,3vw,40px) 24px;display:flex;flex-direction:column;gap:2px">
+<a href="signature.html" style="min-height:52px;display:flex;align-items:center;font-size:17px;color:var(--text);border-bottom:1px solid var(--line2);text-decoration:none">Westline Signature</a>
+<a href="projects.html" style="min-height:52px;display:flex;align-items:center;font-size:17px;color:var(--text);border-bottom:1px solid var(--line2);text-decoration:none">All Projects</a>
+<a href="nri.html" style="min-height:52px;display:flex;align-items:center;font-size:17px;color:var(--text);border-bottom:1px solid var(--line2);text-decoration:none">NRI Corner</a>
+<a href="investors.html" style="min-height:52px;display:flex;align-items:center;font-size:17px;color:var(--text);border-bottom:1px solid var(--line2);text-decoration:none">Investors</a>
+<a href="tools.html" style="min-height:52px;display:flex;align-items:center;font-size:17px;color:var(--text);border-bottom:1px solid var(--line2);text-decoration:none">Buyer Tools</a>
+<a href="landowners.html" style="min-height:52px;display:flex;align-items:center;font-size:17px;color:var(--text);border-bottom:1px solid var(--line2);text-decoration:none">Land Partners</a>
+<a href="insights.html" style="min-height:52px;display:flex;align-items:center;font-size:17px;color:var(--text);border-bottom:1px solid var(--line2);text-decoration:none">Market Insights</a>
+<a href="contact.html" style="min-height:52px;display:flex;align-items:center;font-size:17px;color:var(--text);text-decoration:none">Contact</a>
+<div style="display:flex;gap:10px;margin-top:14px">
+<a href="https://wa.me/919900033888" rel="noopener" target="_blank" style="flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;background:var(--gold);color:#0B0907;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none">WhatsApp</a>
+<a href="tel:+919900033888" style="flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;border:1px solid var(--gold);color:var(--gold);font-size:13px;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none">Call</a>
+</div>
+</div>
+</sc-if>
+</nav>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:140}}">
+class Component extends DCLogic {
+  state = { menuOpen: false, theme: 'dark', lang: 'en' };
+
+  componentDidMount() {
+    const root = document.documentElement;
+    const saved = localStorage.getItem('wl-theme');
+    const h = new Date().getHours();
+    const theme = saved || (h >= 7 && h < 18 ? 'light' : 'dark');
+    root.dataset.theme = theme;
+    const lang = localStorage.getItem('wl-lang') || 'en';
+    root.dataset.lang = lang;
+    root.setAttribute('lang', lang);
+    this.setState({ theme, lang });
+    this.mq = window.matchMedia('(min-width: 1024px)');
+    this.apply = () => {
+      const desk = this.mq.matches;
+      document.querySelectorAll('[data-desk="1"]').forEach(el => { el.style.display = desk ? 'flex' : 'none'; });
+      document.querySelectorAll('[data-mob="1"]').forEach(el => {
+        el.style.display = desk ? 'none' : (el.dataset.mobDisplay || 'block');
+      });
+      document.body.style.paddingBottom = desk ? '' : '56px';
+      if (desk && this.state.menuOpen) this.setState({ menuOpen: false });
+    };
+    this.apply();
+    this.mq.addEventListener('change', this.apply);
+  }
+
+  componentDidUpdate() { if (this.apply) this.apply(); }
+  componentWillUnmount() { if (this.mq) this.mq.removeEventListener('change', this.apply); }
+
+  renderVals() {
+    return {
+      menuOpen: this.state.menuOpen,
+      themeLabel: this.state.theme === 'dark' ? 'Light' : 'Dark',
+      langLabel: this.state.lang === 'en' ? 'ಕನ್ನಡ' : 'EN',
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      toggleTheme: () => {
+        const theme = this.state.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = theme;
+        localStorage.setItem('wl-theme', theme);
+        this.setState({ theme });
+      },
+      toggleLang: () => {
+        const lang = this.state.lang === 'en' ? 'kn' : 'en';
+        document.documentElement.dataset.lang = lang;
+        document.documentElement.setAttribute('lang', lang);
+        localStorage.setItem('wl-lang', lang);
+        this.setState({ lang });
+        if (window.westlineApplyLang) window.westlineApplyLang(lang);
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

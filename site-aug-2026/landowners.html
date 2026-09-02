@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="description" content="Joint development with Westline Builders — what a landowner in Mangalore gets, how the share is structured, and an indicative model on your own plot size and FAR." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#0B0907;--bg2:#100D0A;--surface:#16110C;--text:#F7F1E6;--text2:#a8a096;--text3:#7d746a;--gold:#C9A96E;--gold-d:#A67C3D;--gold-pale:#F0E4CC;--line:rgba(166,124,61,0.28);--line2:rgba(247,241,230,0.09)}
+:root[data-theme="light"]{--bg:#FAF7F2;--bg2:#F2EBE0;--surface:#FFFFFF;--text:#1A1410;--text2:#5c5348;--text3:#8a8175;--gold:#A67C3D;--gold-d:#8a6631;--gold-pale:#6b5533;--line:rgba(26,20,16,0.16);--line2:rgba(26,20,16,0.08)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-pale)}
+::selection{background:var(--gold);color:#0B0907}
+input[type="range"]{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;cursor:pointer}
+input[type="range"]::-webkit-slider-runnable-track{height:2px;background:rgba(166,124,61,0.4)}
+input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#C9A96E;margin-top:-10px;border:none}
+input[type="range"]::-moz-range-track{height:2px;background:rgba(166,124,61,0.4)}
+input[type="range"]::-moz-range-thumb{width:22px;height:22px;border:none;border-radius:50%;background:#C9A96E}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#0B0907"/><path d="M60 200h280M120 200V120h60v80M220 200V90h60v110" fill="none" stroke="#C9A96E" stroke-width="4"/><text x="200" y="262" font-family="Georgia,serif" font-size="26" fill="#C9A96E" text-anchor="middle">LAND PARTNERS</text></svg></template>
+
+<div style="font-family:Jost,system-ui,sans-serif;background:var(--bg)">
+<dc-import name="SiteNav" hint-size="100%,72px"></dc-import>
+
+<header style="border-bottom:1px solid var(--line);background:var(--bg)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,6vw,80px) clamp(16px,3vw,40px) clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;align-items:center;gap:12px">
+<span style="width:clamp(28px,6vw,64px);height:1px;background:var(--gold)"></span>
+<span style="font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:var(--gold-d)">Land partners</span>
+</div>
+<h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,7.5vw,100px);line-height:0.96;letter-spacing:-0.02em;margin:0;color:var(--text);text-wrap:balance">Keep the land. Take the building.</h1>
+<p style="margin:0;max-width:58ch;font-size:clamp(15px,1.8vw,20px);line-height:1.55;color:var(--text2);text-wrap:pretty">If you hold land in or around Mangalore, a joint development turns it into finished area without you selling, borrowing or managing a construction site. Here is roughly what the arithmetic looks like.</p>
+</div>
+</header>
+
+<section aria-label="Indicative model" style="border-bottom:1px solid var(--line);background:var(--bg2)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,5vw,76px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,3vw,48px);align-items:start">
+<div style="display:flex;flex-direction:column;gap:24px">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,3.6vw,46px);line-height:1.04;margin:0;color:var(--text)">Your plot, roughly modelled</h2>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><label for="wl-area" style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3)">Plot area</label><span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold)">{{ areaLabel }}</span></div>
+<input id="wl-area" type="range" min="2000" max="200000" step="500" value="{{ area }}" onInput="{{ setArea }}" />
+<span style="font-size:12px;color:var(--text3)">{{ centsLabel }}</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><label for="wl-far" style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3)">Permissible FAR</label><span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold)">{{ farLabel }}</span></div>
+<input id="wl-far" type="range" min="1" max="4" step="0.05" value="{{ far }}" onInput="{{ setFar }}" />
+<span style="font-size:12px;color:var(--text3)">FAR depends on your zone, road width and the applicable byelaw. Put in the figure your architect or the planning authority confirms — we don't guess it for you.</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><label for="wl-share" style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3)">Owner's share</label><span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold)">{{ shareLabel }}</span></div>
+<input id="wl-share" type="range" min="20" max="60" step="1" value="{{ share }}" onInput="{{ setShare }}" />
+<span style="font-size:12px;color:var(--text3)">The real split depends on location, plot shape, approvals in hand and who funds what. This slider is a what-if, not an offer.</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><label for="wl-rate2" style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3)">Rate per sq ft, saleable</label><span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold)">{{ rateLabel }}</span></div>
+<input id="wl-rate2" type="range" min="3000" max="20000" step="100" value="{{ rate }}" onInput="{{ setRate }}" />
+<span style="font-size:12px;color:var(--text3)">Your assumption, based on what comparable finished area sells for in your locality today.</span>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="border:1px solid var(--line);background:var(--bg);padding:clamp(20px,2.6vw,32px);display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text3)">Built-up potential</span><span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--text)">{{ builtUp }}</span></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text3)">Saleable, approx</span><span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--text)">{{ saleable }}</span></div>
+<div style="height:1px;background:var(--line2)"></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-d)">Your area</span><span style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold)">{{ ownerArea }}</span></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-d)">Indicative value of your area</span><span style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold)">{{ ownerValue }}</span></div>
+<p style="margin:0;font-size:12px;line-height:1.65;color:var(--text3);text-wrap:pretty">Saleable area is taken at 1.35× built-up as a working assumption for loading. Nothing on this page is an offer, a valuation or a commitment — the actual structure is set in a registered joint development agreement after a site visit and title check.</p>
+</div>
+<div style="border:1px solid var(--line2);background:var(--bg);padding:clamp(18px,2.4vw,26px);display:flex;flex-direction:column;gap:8px">
+<span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-d)">Or take it in cash</span>
+<p style="margin:0;font-size:13.5px;line-height:1.6;color:var(--text2);text-wrap:pretty">Some owners prefer a refundable deposit plus a revenue share instead of area. Both structures are on the table; which one is better depends on your tax position, not ours.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section aria-label="What we bring" style="border-bottom:1px solid var(--line);background:var(--bg)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,5vw,76px) clamp(16px,3vw,40px);display:flex;flex-direction:column;gap:clamp(24px,3vw,40px)">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,4.2vw,54px);line-height:1.03;margin:0;color:var(--text);max-width:30ch;text-wrap:balance">Why hand your land to us and not to somebody else</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)">
+<sc-for list="{{ pillars }}" as="p" hint-placeholder-count="4">
+<div style="background:var(--bg);padding:clamp(20px,2.6vw,32px);border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:12px">
+<h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(19px,2.1vw,25px);line-height:1.15;margin:0;color:var(--text)">{{ p.title }}</h3>
+<p style="margin:0;font-size:13.5px;line-height:1.62;color:var(--text2);text-wrap:pretty">{{ p.copy }}</p>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section aria-label="Process" style="border-bottom:1px solid var(--line);background:var(--bg2)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,5vw,76px) clamp(16px,3vw,40px);display:flex;flex-direction:column;gap:clamp(20px,3vw,32px)">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,3.6vw,46px);line-height:1.04;margin:0;color:var(--text)">From first call to registered agreement</h2>
+<div style="display:flex;flex-direction:column">
+<sc-for list="{{ process }}" as="p" hint-placeholder-count="5">
+<div style="display:grid;grid-template-columns:auto 1fr;gap:clamp(16px,3vw,32px);padding:clamp(18px,2.4vw,26px) 0;border-bottom:1px solid var(--line2);align-items:baseline">
+<span style="font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,36px);line-height:1;color:var(--gold-d);min-width:52px">{{ p.n }}</span>
+<div style="display:flex;flex-direction:column;gap:6px">
+<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:baseline;justify-content:space-between">
+<h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(19px,2.2vw,26px);line-height:1.15;margin:0;color:var(--text)">{{ p.title }}</h3>
+<span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-d)">{{ p.when }}</span>
+</div>
+<p style="margin:0;max-width:70ch;font-size:14px;line-height:1.62;color:var(--text2);text-wrap:pretty">{{ p.copy }}</p>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section aria-label="Land enquiry" style="background:var(--bg)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,5vw,76px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,4vw,56px);align-items:center">
+<div style="display:flex;flex-direction:column;gap:14px">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,3.8vw,50px);line-height:1.03;margin:0;color:var(--text);text-wrap:balance">Send us the survey number. We'll do the rest of the reading.</h2>
+<p style="margin:0;max-width:44ch;font-size:15px;line-height:1.6;color:var(--text2)">One site visit and a title read tells us whether a joint development is worth either of our time. We'll say no quickly if it isn't.</p>
+</div>
+<form onSubmit="{{ submitAsk }}" style="border:1px solid var(--line);background:var(--bg2);padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;gap:12px">
+<input type="text" required="{{ true }}" placeholder="Your name" data-field="name" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:15px" />
+<input type="tel" required="{{ true }}" pattern="[0-9+ ]{8,18}" placeholder="Phone with country code" data-field="phone" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:15px" />
+<input type="text" placeholder="Locality" data-field="locality" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:15px" />
+<input type="text" placeholder="Survey number, if you have it" data-field="survey" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:15px" />
+<div style="border:1px solid var(--line2);padding:14px;display:flex;flex-direction:column;gap:4px">
+<span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text3)">Attached to your enquiry</span>
+<span style="font-size:13.5px;line-height:1.5;color:var(--text2)">{{ summary }}</span>
+</div>
+<label style="display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.5;color:var(--text3);cursor:pointer"><input type="checkbox" required="{{ true }}" style="margin-top:3px;min-width:18px;min-height:18px;accent-color:#C9A96E" />I agree to be contacted about a joint development on phone and WhatsApp.</label>
+<button type="submit" style="min-height:52px;background:var(--gold);border:none;color:#0B0907;font-family:Jost,sans-serif;font-size:13px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer">{{ askBtn }}</button>
+<p style="margin:0;font-size:13px;line-height:1.6;color:{{ askColor }}">{{ askMsg }}</p>
+</form>
+</div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+const ENDPOINT = "https://tercgsdwswtnyrrrjeab.supabase.co/functions/v1/website-lead-intake";
+const LOADING = 1.35;   // working assumption: saleable area over built-up area
+
+const PILLARS = [
+  { title: "We finish", copy: "Four completed buildings in the city, occupied, with associations formed. The risk in a joint development is a half-built site with your name on the title; ask our earlier landowners about that." },
+  { title: "We build tall", copy: "The tallest residential tower in Karnataka is ours. If your plot supports height, we can actually execute it — structure, glazing, lifts and approvals included." },
+  { title: "Registered, not verbal", copy: "The split, the timeline, the specification and the penalty for delay all go into a registered joint development agreement. No side letters." },
+  { title: "One point of contact", copy: "You deal with the same person from the first site visit to handover. Ten projects, not a hundred — you will not be a file number." }
+];
+
+const PROCESS = [
+  { n: "01", title: "Call, and a site visit", when: "Week 1", copy: "We walk the plot, check the road width and the surroundings, and tell you straight whether it supports a project worth doing." },
+  { n: "02", title: "Title and encumbrance read", when: "Weeks 2–4", copy: "Our advocate reads the title chain, encumbrance certificate and revenue records. If there is a defect, you hear about it from us." },
+  { n: "03", title: "Feasibility and share", when: "Weeks 4–6", copy: "Massing, FAR check, unit mix and the split. This is where the numbers on this page get replaced by real ones." },
+  { n: "04", title: "Registered JDA and POA", when: "Weeks 6–10", copy: "The joint development agreement and a development power of attorney are registered. Your share, timeline and specification are fixed in writing." },
+  { n: "05", title: "Approvals and construction", when: "After registration", copy: "Plan sanction, K-RERA registration, then construction. You get progress reporting on the same cycle our buyers do." }
+];
+
+class Component extends DCLogic {
+  state = { area: 20000, far: 2.5, share: 35, rate: 8000, ask: { busy: false, msg: "" } };
+  t0 = Date.now();
+
+  money(n) {
+    if (!isFinite(n)) return "—";
+    if (n >= 10000000) return "₹" + (n / 10000000).toFixed(2).replace(/\.00$/, "") + " Cr";
+    if (n >= 100000) return "₹" + (n / 100000).toFixed(1).replace(/\.0$/, "") + " L";
+    return "₹" + Math.round(n).toLocaleString("en-IN");
+  }
+
+  sqft(n) { return Math.round(n).toLocaleString("en-IN") + " sq ft"; }
+
+  async post(handler, fields, onState) {
+    onState({ busy: true, msg: "" });
+    const payload = { page: "landowners.html", handler: handler, fields: fields, elapsed_ms: Date.now() - this.t0 };
+    try {
+      const r = await fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      onState({ busy: false, msg: "ok" });
+    } catch (e) { onState({ busy: false, msg: "fail" }); }
+  }
+
+  collect(form) {
+    const out = {};
+    form.querySelectorAll("[data-field]").forEach(el => { out[el.dataset.field] = el.value; });
+    return out;
+  }
+
+  renderVals() {
+    const s = this.state;
+    const built = s.area * s.far;
+    const saleable = built * LOADING;
+    const ownerArea = saleable * (s.share / 100);
+    const ownerValue = ownerArea * s.rate;
+    const askOk = s.ask.msg === "ok", askFail = s.ask.msg === "fail";
+
+    return {
+      area: s.area, areaLabel: this.sqft(s.area), setArea: e => this.setState({ area: Number(e.target.value) }),
+      centsLabel: (s.area / 435.6).toFixed(1) + " cents · " + (s.area / 43560).toFixed(2) + " acres",
+      far: s.far, farLabel: s.far.toFixed(2).replace(/0$/, ""), setFar: e => this.setState({ far: Number(e.target.value) }),
+      share: s.share, shareLabel: s.share + "%", setShare: e => this.setState({ share: Number(e.target.value) }),
+      rate: s.rate, rateLabel: "₹" + s.rate.toLocaleString("en-IN"), setRate: e => this.setState({ rate: Number(e.target.value) }),
+
+      builtUp: this.sqft(built),
+      saleable: this.sqft(saleable),
+      ownerArea: this.sqft(ownerArea),
+      ownerValue: this.money(ownerValue),
+
+      pillars: PILLARS,
+      process: PROCESS,
+
+      summary: this.sqft(s.area) + " · FAR " + s.far + " · " + s.share + "% owner share · ₹" + s.rate.toLocaleString("en-IN") + "/sq ft assumed",
+      askBtn: s.ask.busy ? "Sending…" : "Start the conversation",
+      askMsg: askOk ? "Received. We'll call to arrange a site visit." : askFail ? "That didn't send. WhatsApp +91 99000 33888 with the locality and survey number." : "",
+      askColor: askOk ? "var(--gold)" : askFail ? "#d98b6a" : "var(--text3)",
+      submitAsk: async e => {
+        e.preventDefault();
+        const f = this.collect(e.target);
+        f.model = s.area + "sqft/FAR" + s.far + "/" + s.share + "%";
+        await this.post("land_enquiry", f, st => this.setState({ ask: st }));
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

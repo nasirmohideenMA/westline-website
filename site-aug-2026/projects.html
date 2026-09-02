@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="description" content="Every Westline Builders project in Mangalore — ten developments since 2014, from completed residences to Westline Signature, Karnataka's tallest residential tower." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<style>
+:root{--bg:#0B0907;--bg2:#100D0A;--surface:#16110C;--text:#F7F1E6;--text2:#a8a096;--text3:#7d746a;--gold:#C9A96E;--gold-d:#A67C3D;--gold-pale:#F0E4CC;--line:rgba(166,124,61,0.28);--line2:rgba(247,241,230,0.09);--scrim:rgba(11,9,7,0.72)}
+:root[data-theme="light"]{--bg:#FAF7F2;--bg2:#F2EBE0;--surface:#FFFFFF;--text:#1A1410;--text2:#5c5348;--text3:#8a8175;--gold:#A67C3D;--gold-d:#8a6631;--gold-pale:#6b5533;--line:rgba(26,20,16,0.16);--line2:rgba(26,20,16,0.08);--scrim:rgba(250,247,242,0.72)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-pale)}
+::selection{background:var(--gold);color:#0B0907}
+@keyframes wl-rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes wl-fade{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#0B0907"/><rect x="88" y="150" width="34" height="66" fill="#6f6355"/><rect x="134" y="128" width="34" height="88" fill="#6f6355"/><rect x="180" y="72" width="40" height="144" fill="#C9A96E"/><rect x="232" y="110" width="34" height="106" fill="#4a5a6e"/><rect x="278" y="164" width="34" height="52" fill="#6f6355"/><text x="200" y="266" font-family="Georgia,serif" font-size="30" fill="#C9A96E" text-anchor="middle">PORTFOLIO</text></svg></template>
+
+<div style="font-family:Jost,system-ui,sans-serif;background:var(--bg)">
+<dc-import name="SiteNav" hint-size="100%,72px"></dc-import>
+
+<header style="border-bottom:1px solid var(--line);background:var(--bg)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(36px,6vw,80px) clamp(16px,3vw,40px) clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;align-items:center;gap:12px">
+<span style="width:clamp(28px,6vw,64px);height:1px;background:var(--gold)"></span>
+<span style="font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:var(--gold-d)">Ten projects · Mangalore · Since 2014</span>
+</div>
+<h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,7.5vw,104px);line-height:0.96;letter-spacing:-0.02em;margin:0;color:var(--text);text-wrap:balance">The portfolio, to scale.</h1>
+<p style="margin:0;max-width:56ch;font-size:clamp(15px,1.8vw,20px);line-height:1.55;color:var(--text2);text-wrap:pretty">Every building below is drawn at true relative height, three metres a floor. Drag to turn the skyline, click any tower to read it.</p>
+</div>
+</header>
+
+<section aria-label="Interactive portfolio skyline" style="position:relative;border-bottom:1px solid var(--line);background:var(--bg2)">
+<div style="position:relative;height:clamp(420px,62vh,720px);overflow:hidden">
+<x-import component-from-global-scope="wl-skyline" from="./skyline3d.js" night="{{ nightAttr }}" style="position:absolute;inset:0;width:100%;height:100%" hint-size="100%,100%"></x-import>
+<div style="position:absolute;left:0;right:0;bottom:0;pointer-events:none;padding:clamp(16px,3vw,32px);display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;background:linear-gradient(180deg,transparent,rgba(11,9,7,0.55))">
+<div style="display:flex;flex-direction:column;gap:6px">
+<span style="display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-d)"><span style="width:22px;height:1px;background:var(--gold-d)"></span>Drag to turn · click a tower · scroll to zoom</span>
+<div style="display:flex;flex-wrap:wrap;gap:14px">
+<span style="display:inline-flex;align-items:center;gap:7px;font-size:11.5px;letter-spacing:0.1em;color:var(--text2)"><span style="width:9px;height:9px;background:#C9A96E"></span>Ongoing</span>
+<span style="display:inline-flex;align-items:center;gap:7px;font-size:11.5px;letter-spacing:0.1em;color:var(--text2)"><span style="width:9px;height:9px;background:#4a5a6e"></span>Upcoming</span>
+<span style="display:inline-flex;align-items:center;gap:7px;font-size:11.5px;letter-spacing:0.1em;color:var(--text2)"><span style="width:9px;height:9px;background:#6f6355"></span>Completed</span>
+</div>
+</div>
+<button type="button" onClick="{{ toggleNight }}" style="pointer-events:auto;min-height:48px;padding:0 22px;background:none;border:1px solid var(--line);color:var(--text2);font-family:Jost,sans-serif;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer" style-hover="border-color:var(--gold);color:var(--gold)">{{ nightLabel }}</button>
+</div>
+</div>
+
+<div style="border-top:1px solid var(--line);background:var(--bg)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(24px,4vw,44px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(20px,3vw,44px);align-items:start">
+<div style="display:flex;flex-direction:column;gap:14px">
+<span style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold-d)">{{ selStatus }} · {{ selType }}</span>
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(30px,4.4vw,58px);line-height:1.02;margin:0;color:var(--text)">{{ selName }}</h2>
+<p style="margin:0;max-width:52ch;font-size:15.5px;line-height:1.62;color:var(--text2);text-wrap:pretty">{{ selCopy }}</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px">
+<a href="{{ selHref }}" style="min-height:52px;display:flex;align-items:center;padding:0 26px;background:var(--gold);color:#0B0907;font-size:13px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase">{{ selCta }}</a>
+<a href="{{ selWa }}" rel="noopener" target="_blank" style="min-height:52px;display:flex;align-items:center;padding:0 26px;border:1px solid var(--line);color:var(--text);font-size:13px;letter-spacing:0.16em;text-transform:uppercase" style-hover="border-color:var(--gold)">Ask about it</a>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)">
+<div style="background:var(--bg);padding:18px 16px;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--gold)">{{ selFloors }}</span><span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3)">{{ selFloorsLabel }}</span></div>
+<div style="background:var(--bg);padding:18px 16px;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--gold)">{{ selHeight }}</span><span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3)">Metres, approx</span></div>
+<div style="background:var(--bg);padding:18px 16px;display:flex;flex-direction:column;gap:4px;grid-column:1/-1"><span style="font-size:13px;color:var(--text)">{{ selLocation }}</span><span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3)">Location</span></div>
+<div style="background:var(--bg);padding:18px 16px;display:flex;flex-direction:column;gap:4px;grid-column:1/-1"><span style="font-size:12.5px;line-height:1.5;color:var(--text2);word-break:break-word">{{ selRera }}</span><span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3)">K-RERA</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="all" aria-label="All projects" style="border-bottom:1px solid var(--line);background:var(--bg)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(44px,6vw,88px) clamp(16px,3vw,40px);display:flex;flex-direction:column;gap:clamp(24px,3vw,40px)">
+<div style="display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;justify-content:space-between">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,4vw,52px);line-height:1.04;margin:0;color:var(--text)">All ten, filterable</h2>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{ filters }}" as="f" hint-placeholder-count="5">
+<button type="button" data-f="{{ f.key }}" onClick="{{ setFilter }}" style="min-height:44px;padding:0 18px;background:{{ f.bg }};border:1px solid {{ f.border }};color:{{ f.color }};font-family:Jost,sans-serif;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer">{{ f.label }}</button>
+</sc-for>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)">
+<sc-for list="{{ shown }}" as="p" hint-placeholder-count="6">
+<article style="background:var(--bg);padding:clamp(20px,2.4vw,30px);border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:14px;min-height:280px;transition:background 200ms ease" style-hover="background:var(--bg2)">
+<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+<span style="font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:{{ p.statusColor }}">{{ p.status }}</span>
+<span style="font-family:'Cormorant Garamond',serif;font-size:34px;line-height:1;color:var(--gold)">{{ p.floorsShort }}</span>
+</div>
+<div style="height:1px;background:var(--line2)"></div>
+<h3 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(22px,2.4vw,30px);line-height:1.1;margin:0;color:var(--text)">{{ p.name }}</h3>
+<p style="margin:0;font-size:13.5px;line-height:1.55;color:var(--text2);flex:1;text-wrap:pretty">{{ p.type }} · {{ p.location }}</p>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:auto">
+<a href="{{ p.href }}" style="min-height:44px;display:flex;align-items:center;padding:0 14px;border:1px solid var(--line);color:var(--text);font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap" style-hover="border-color:var(--gold);color:var(--gold)">{{ p.cta }}</a>
+<button type="button" data-k="{{ p.key }}" onClick="{{ focusTower }}" style="min-height:44px;padding:0 14px;background:none;border:1px solid var(--line2);color:var(--text3);font-family:Jost,sans-serif;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap;cursor:pointer" style-hover="border-color:var(--gold);color:var(--gold)">Show in 3D</button>
+</div>
+</article>
+</sc-for>
+</div>
+<p style="margin:0;font-size:12.5px;line-height:1.6;color:var(--text3);max-width:70ch">Ohana Luxury Stays is a low-rise resort in Chikmagalur and is not drawn in the Mangalore skyline above. Floor counts are structural, as registered.</p>
+</div>
+</section>
+
+<section aria-label="Talk to us" style="background:var(--bg2);border-bottom:1px solid var(--line)">
+<div style="max-width:1440px;margin:0 auto;padding:clamp(44px,6vw,88px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,4vw,60px);align-items:center">
+<div style="display:flex;flex-direction:column;gap:16px">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,4.2vw,56px);line-height:1.03;margin:0;color:var(--text);text-wrap:balance">Tell us what you're looking for and we'll point at one building.</h2>
+<p style="margin:0;max-width:46ch;font-size:15px;line-height:1.6;color:var(--text2)">Home to live in, floor to lease, or a unit to hold. The answer is usually a short conversation, not a brochure.</p>
+</div>
+<form onSubmit="{{ submitAsk }}" style="border:1px solid var(--line);background:var(--bg);padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;gap:12px">
+<input type="text" required="{{ true }}" placeholder="Your name" data-field="name" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:15px" />
+<input type="tel" required="{{ true }}" pattern="[0-9+ ]{8,16}" placeholder="Phone with country code" data-field="phone" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:15px" />
+<select data-field="interest" style="min-height:48px;padding:0 14px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-family:Jost,sans-serif;font-size:15px">
+<option value="residential">A home to live in</option>
+<option value="investment">An investment unit</option>
+<option value="commercial">Commercial space to lease</option>
+<option value="land">I own land — joint development</option>
+</select>
+<label style="display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.5;color:var(--text3);cursor:pointer"><input type="checkbox" required="{{ true }}" style="margin-top:3px;min-width:18px;min-height:18px;accent-color:#C9A96E" />I agree to be contacted about Westline projects on phone and WhatsApp.</label>
+<button type="submit" style="min-height:52px;background:var(--gold);border:none;color:#0B0907;font-family:Jost,sans-serif;font-size:13px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer">{{ askBtn }}</button>
+<p style="margin:0;font-size:13px;line-height:1.6;color:{{ askColor }}">{{ askMsg }}</p>
+</form>
+</div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+const ENDPOINT = "https://tercgsdwswtnyrrrjeab.supabase.co/functions/v1/website-lead-intake";
+const WA = "https://wa.me/919900033888?text=";
+
+const PROJECTS = [
+  { key: "signature", name: "Westline Signature", type: "Ultra-luxury residential", floors: 55, floorsLabel: "Floors (3B+G+51)", floorsShort: "55", status: "Ongoing", location: "NH66, Nanthoor Hilltop", rera: "PRM/KA/RERA/1257/334/PR/171021/000845", href: "signature.html", cta: "Enter the tower",
+    copy: "Karnataka's tallest residential tower. 55 floors, 51 of them residence, on Nanthoor Hilltop. The first full glass façade residential project in the region — Schuco German systems, Low-E argon-filled double glazing. RERA completion September 2027." },
+  { key: "cubix", name: "Cubix", type: "IT park, retail, office & hotel", floors: 53, floorsLabel: "Floors, mixed use", floorsShort: "53", status: "Upcoming", location: "NH66, Kadri", rera: "Not applicable — lease only", href: "project.html?p=cubix", cta: "Leasing enquiry",
+    copy: "A 53-floor mixed-use tower on NH66 at Kadri — IT floors, retail, offices and a hotel in one structure. Lease only, no sale component, so there is no RERA registration to quote." },
+  { key: "vantage", name: "Vantage", type: "Premium corner commercial", floors: 10, floorsLabel: "Floors, commercial", floorsShort: "10", status: "Upcoming", location: "Fr. Muller Rd × Balikashram Rd, Kankanady", rera: "Registration in progress", href: "project.html?p=vantage", cta: "See the plates",
+    copy: "Ten floors on the corner of Fr. Muller Road and Balikashram Road, Kankanady — two frontages, hospital-belt footfall, floor plates sized for clinics and offices." },
+  { key: "salubrity", name: "Salubrity", type: "Commercial / polyclinics", floors: 7, floorsLabel: "Floors, commercial", floorsShort: "07", status: "Ongoing", location: "Sturrock × SL Mathias Rd, Falnir", rera: "Registration in progress", href: "project.html?p=salubrity", cta: "See the plates",
+    copy: "Seven floors at the Sturrock and SL Mathias Road junction in Falnir, built around polyclinic and medical tenancy in the heart of Mangalore's hospital district." },
+  { key: "fairmont", name: "Fairmont", type: "Serviced apartments", floors: 6, floorsLabel: "Floors, serviced", floorsShort: "06", status: "Ongoing", location: "Karavali Lane, Kadri", rera: "Registration in progress", href: "project.html?p=fairmont", cta: "See the units",
+    copy: "Six floors of serviced apartments on Karavali Lane, Kadri — managed stays for the medical and business traffic that fills Kadri year round." },
+  { key: "ohana", name: "Ohana Luxury Stays", type: "Resort", floors: null, floorsLabel: "Low-rise resort", floorsShort: "—", status: "Upcoming", location: "Mullayanagiri, Chikmagalur", rera: "Registration in progress", href: "project.html?p=ohana", cta: "See the resort",
+    copy: "A low-rise luxury stay at Mullayanagiri, Chikmagalur — the one Westline project outside Mangalore, and the one that is not a tower." },
+  { key: "jeppu", name: "Jeppu Medicity", type: "Commercial", floors: 6, floorsLabel: "Floors, completed", floorsShort: "06", status: "Completed", location: "Jeppu Market Rd", rera: "PRM/KA/RERA/1257/334/PR/200211/003258", href: "project.html?p=jeppu", cta: "See it built",
+    copy: "Six floors on Jeppu Market Road, complete and occupied. Medical and commercial tenancy, RERA registered and closed out." },
+  { key: "skydale", name: "Skydale", type: "Residential", floors: 7, floorsLabel: "Floors, completed", floorsShort: "07", status: "Completed", location: "Bikkarnakatte", rera: "Completed project — not applicable", href: "project.html?p=skydale", cta: "See it built",
+    copy: "Seven floors of residence at Bikkarnakatte, delivered and lived in. Part of the record that makes the Signature underwriting credible." },
+  { key: "splendid", name: "Splendid Homes", type: "Residential", floors: 5, floorsLabel: "Floors, completed", floorsShort: "05", status: "Completed", location: "Kulashekar", rera: "Completed project — not applicable", href: "project.html?p=splendid", cta: "See it built",
+    copy: "Five floors at Kulashekar, complete. An early Westline residential block and still fully occupied." },
+  { key: "bonita", name: "Bonita", type: "Residential", floors: 6, floorsLabel: "Floors, completed", floorsShort: "06", status: "Completed", location: "Thokkottu", rera: "Completed project — not applicable", href: "project.html?p=bonita", cta: "See it built",
+    copy: "Six floors at Thokkottu, complete and handed over. Coastal-side residence on the southern approach to the city." }
+];
+
+const STATUS_COLOR = { Ongoing: "var(--gold)", Upcoming: "#7f93a8", Completed: "var(--text3)" };
+const FILTERS = [
+  { key: "all", label: "All ten" },
+  { key: "Ongoing", label: "Ongoing" },
+  { key: "Upcoming", label: "Upcoming" },
+  { key: "Completed", label: "Completed" },
+  { key: "res", label: "Residential" },
+  { key: "com", label: "Commercial" }
+];
+
+class Component extends DCLogic {
+  state = { sel: "signature", night: false, filter: "all", ask: { busy: false, msg: "" } };
+  t0 = Date.now();
+
+  componentDidMount() {
+    this.onSelect = e => {
+      if (e && e.detail && e.detail.key) this.setState({ sel: e.detail.key });
+    };
+    document.addEventListener("wl-select", this.onSelect);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("wl-select", this.onSelect);
+  }
+
+  async post(handler, fields, onState) {
+    onState({ busy: true, msg: "" });
+    const payload = { page: "projects.html", handler: handler, fields: fields, elapsed_ms: Date.now() - this.t0 };
+    try {
+      const r = await fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      onState({ busy: false, msg: "ok" });
+    } catch (err) {
+      onState({ busy: false, msg: "fail" });
+    }
+  }
+
+  collect(form) {
+    const out = {};
+    form.querySelectorAll("[data-field]").forEach(el => { out[el.dataset.field] = el.value; });
+    return out;
+  }
+
+  renderVals() {
+    const s = this.state;
+    const sel = PROJECTS.find(p => p.key === s.sel) || PROJECTS[0];
+
+    const shown = PROJECTS.filter(p => {
+      if (s.filter === "all") return true;
+      if (s.filter === "res") return p.type.indexOf("esidential") > -1 || p.key === "fairmont" || p.key === "ohana";
+      if (s.filter === "com") return p.type.indexOf("ommercial") > -1 || p.key === "cubix";
+      return p.status === s.filter;
+    }).map(p => Object.assign({}, p, { statusColor: STATUS_COLOR[p.status] || "var(--text3)" }));
+
+    const filters = FILTERS.map(f => {
+      const on = f.key === s.filter;
+      return { key: f.key, label: f.label, bg: on ? "var(--gold)" : "none", border: on ? "var(--gold)" : "var(--line)", color: on ? "#0B0907" : "var(--text2)" };
+    });
+
+    const askOk = s.ask.msg === "ok", askFail = s.ask.msg === "fail";
+
+    return {
+      nightAttr: s.night ? "" : null,
+      nightLabel: s.night ? "Daylight" : "Night lights",
+      toggleNight: () => this.setState({ night: !s.night }),
+
+      selName: sel.name,
+      selStatus: sel.status,
+      selType: sel.type,
+      selCopy: sel.copy,
+      selFloors: sel.floorsShort,
+      selFloorsLabel: sel.floorsLabel,
+      selHeight: sel.floors ? String(Math.round(sel.floors * 3.0)) : "—",
+      selLocation: sel.location,
+      selRera: sel.rera,
+      selHref: sel.href,
+      selCta: sel.cta,
+      selWa: WA + encodeURIComponent("Hello Westline, I'd like details on " + sel.name + "."),
+
+      filters: filters,
+      setFilter: e => this.setState({ filter: e.currentTarget.dataset.f }),
+      shown: shown,
+      focusTower: e => {
+        const k = e.currentTarget.dataset.k;
+        this.setState({ sel: k });
+        const sky = document.querySelector("wl-skyline");
+        if (sky) {
+          sky.setAttribute("selected", k);
+          const r = sky.getBoundingClientRect();
+          window.scrollTo({ top: r.top + window.scrollY - 80, behavior: "smooth" });
+        }
+      },
+
+      askBtn: s.ask.busy ? "Sending…" : "Send",
+      askMsg: askOk ? "Got it. We'll call you back within business hours." : askFail ? "That didn't send. Tap WhatsApp in the nav and send the same details — nothing was lost." : "",
+      askColor: askOk ? "var(--gold)" : askFail ? "#d98b6a" : "var(--text3)",
+      submitAsk: async e => {
+        e.preventDefault();
+        const f = this.collect(e.target);
+        await this.post("portfolio_enquiry", f, st => this.setState({ ask: st }));
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

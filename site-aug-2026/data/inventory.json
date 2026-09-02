@@ -1,0 +1,1794 @@
+{
+  "project": "Westline Signature",
+  "asOf": "2026-08-26",
+  "source": "placeholder",
+  "note": "Placeholder inventory. Every unit reads available until real data is supplied. Shape matches what an OriginOne feed can return, so replacing this file needs no UI change.",
+  "unitsPerFloor": 6,
+  "floors": [
+    {
+      "floor": 51,
+      "units": [
+        {
+          "id": "51-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "51-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "51-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "51-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "51-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "51-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 50,
+      "units": [
+        {
+          "id": "50-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "50-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "50-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "50-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "50-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "50-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 49,
+      "units": [
+        {
+          "id": "49-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "49-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "49-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "49-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "49-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "49-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 48,
+      "units": [
+        {
+          "id": "48-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "48-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "48-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "48-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "48-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "48-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 47,
+      "units": [
+        {
+          "id": "47-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "47-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "47-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "47-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "47-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "47-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 46,
+      "units": [
+        {
+          "id": "46-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "46-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "46-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "46-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "46-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "46-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 45,
+      "units": [
+        {
+          "id": "45-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "45-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "45-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "45-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "45-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "45-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 44,
+      "units": [
+        {
+          "id": "44-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "44-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "44-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "44-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "44-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "44-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 43,
+      "units": [
+        {
+          "id": "43-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "43-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "43-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "43-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "43-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "43-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 42,
+      "units": [
+        {
+          "id": "42-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "42-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "42-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "42-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "42-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "42-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 41,
+      "units": [
+        {
+          "id": "41-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "41-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "41-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "41-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "41-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "41-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 40,
+      "units": [
+        {
+          "id": "40-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "40-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "40-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "40-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "40-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "40-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 39,
+      "units": [
+        {
+          "id": "39-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "39-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "39-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "39-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "39-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "39-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 38,
+      "units": [
+        {
+          "id": "38-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "38-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "38-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "38-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "38-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "38-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 37,
+      "units": [
+        {
+          "id": "37-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "37-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "37-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "37-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "37-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "37-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 36,
+      "units": [
+        {
+          "id": "36-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "36-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "36-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "36-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "36-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "36-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 35,
+      "units": [
+        {
+          "id": "35-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "35-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "35-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "35-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "35-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "35-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 34,
+      "units": [
+        {
+          "id": "34-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "34-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "34-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "34-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "34-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "34-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 33,
+      "units": [
+        {
+          "id": "33-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "33-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "33-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "33-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "33-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "33-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 32,
+      "units": [
+        {
+          "id": "32-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "32-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "32-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "32-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "32-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "32-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 31,
+      "units": [
+        {
+          "id": "31-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "31-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "31-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "31-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "31-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "31-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 30,
+      "units": [
+        {
+          "id": "30-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "30-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "30-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "30-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "30-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "30-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 29,
+      "units": [
+        {
+          "id": "29-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "29-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "29-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "29-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "29-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "29-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 28,
+      "units": [
+        {
+          "id": "28-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "28-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "28-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "28-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "28-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "28-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 27,
+      "units": [
+        {
+          "id": "27-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "27-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "27-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "27-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "27-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "27-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 26,
+      "units": [
+        {
+          "id": "26-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "26-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "26-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "26-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "26-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "26-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 25,
+      "units": [
+        {
+          "id": "25-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "25-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "25-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "25-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "25-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "25-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 24,
+      "units": [
+        {
+          "id": "24-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "24-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "24-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "24-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "24-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "24-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 23,
+      "units": [
+        {
+          "id": "23-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "23-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "23-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "23-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "23-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "23-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 22,
+      "units": [
+        {
+          "id": "22-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "22-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "22-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "22-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "22-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "22-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 21,
+      "units": [
+        {
+          "id": "21-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "21-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "21-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "21-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "21-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "21-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 20,
+      "units": [
+        {
+          "id": "20-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "20-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "20-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "20-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "20-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "20-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 19,
+      "units": [
+        {
+          "id": "19-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "19-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "19-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "19-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "19-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "19-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 18,
+      "units": [
+        {
+          "id": "18-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "18-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "18-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "18-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "18-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "18-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 17,
+      "units": [
+        {
+          "id": "17-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "17-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "17-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "17-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "17-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "17-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 16,
+      "units": [
+        {
+          "id": "16-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "16-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "16-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "16-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "16-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "16-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 15,
+      "units": [
+        {
+          "id": "15-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "15-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "15-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "15-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "15-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "15-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 14,
+      "units": [
+        {
+          "id": "14-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "14-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "14-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "14-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "14-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "14-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 13,
+      "units": [
+        {
+          "id": "13-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "13-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "13-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "13-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "13-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "13-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 12,
+      "units": [
+        {
+          "id": "12-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "12-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "12-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "12-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "12-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "12-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 11,
+      "units": [
+        {
+          "id": "11-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "11-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "11-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "11-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "11-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "11-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 10,
+      "units": [
+        {
+          "id": "10-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "10-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "10-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "10-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "10-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "10-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 9,
+      "units": [
+        {
+          "id": "9-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "9-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "9-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "9-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "9-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "9-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 8,
+      "units": [
+        {
+          "id": "8-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "8-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "8-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "8-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "8-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "8-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 7,
+      "units": [
+        {
+          "id": "7-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "7-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "7-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "7-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "7-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "7-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 6,
+      "units": [
+        {
+          "id": "6-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "6-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "6-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "6-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "6-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "6-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 5,
+      "units": [
+        {
+          "id": "5-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "5-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "5-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "5-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "5-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "5-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 4,
+      "units": [
+        {
+          "id": "4-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "4-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "4-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "4-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "4-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "4-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 3,
+      "units": [
+        {
+          "id": "3-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "3-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "3-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "3-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "3-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "3-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 2,
+      "units": [
+        {
+          "id": "2-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "2-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "2-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "2-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "2-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "2-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "floor": 1,
+      "units": [
+        {
+          "id": "1-1",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "1-2",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "1-3",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "1-4",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "1-5",
+          "type": null,
+          "status": "available"
+        },
+        {
+          "id": "1-6",
+          "type": null,
+          "status": "available"
+        }
+      ]
+    }
+  ]
+}
